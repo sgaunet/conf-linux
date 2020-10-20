@@ -1,0 +1,17 @@
+---
+
+kubens_version: "v0.9.1"
+kubens_arch: "linux_x86_64"
+kubens_bin_path: /usr/local/bin
+
+kubectx_version: "v0.9.1"
+kubectx_arch: "linux_x86_64"
+kubectx_bin_path: /usr/local/bin
+
+# "kubectl" version to install
+kubectl_version: "1.18.5"
+kubectl_checksum_binary: "sha512:5a99ce73a14da6ab561016b83906c398f082dd7571771b6b16430445f6668587a2ad2f5ca9e5a330bcc3fad5f4a7f21109042defcd674acae8cd7170b49ed947"
+kubectl_bin_path: "/usr/local/bin"
+kubectl_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
+kubectl_os: "linux" # use "darwin" for MacOS X, "windows" for Windows
+kubectl_arch: "amd64" # other possible values: "386","arm64","arm","ppc64le","s390x"

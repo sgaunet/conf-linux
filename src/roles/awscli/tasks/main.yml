@@ -1,0 +1,49 @@
+---
+
+- name: Check if awscli already installed
+  become: false
+  stat: 
+    path: "/usr/local/aws-cli/v2/current"
+  delegate_to: localhost
+  register: link_awscli
+
+- name: Download awscliv2.zip
+  get_url:
+    url: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
+    dest: /tmp/awscliv2.zip
+    mode: '0750'
+  when: link_awscli.stat.exists == false
+
+- name: Create temporary folder /tmp/awscli
+  file:
+    path: /tmp/awscli
+    state: directory
+  when: link_awscli.stat.exists == false
+
+- name: Extract to /tmp/awscli
+  unarchive:
+    src: /tmp/awscliv2.zip
+    dest: /tmp/awscli
+    remote_src: yes
+  when: link_awscli.stat.exists == false
+
+- name: Install awscli
+  shell: /tmp/awscli/aws/install
+  when: link_awscli.stat.exists == false
+  #args:
+  #  chdir: somedir/
+  #  creates: somelog.txt
+
+
+- name: Remove temporary files/folders
+  file:
+    path: /tmp/awscli
+    state: absent
+  when: link_awscli.stat.exists == false
+
+- name: Remove temporary files/folders
+  file:
+    path: /tmp/awscliv2.zip
+    state: absent
+  when: link_awscli.stat.exists == false
+

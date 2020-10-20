@@ -1,0 +1,27 @@
+
+
+- name: Download kube-ps1.sh
+  get_url:
+    url: https://raw.githubusercontent.com/jonmosco/kube-ps1/master/kube-ps1.sh
+    dest: "{{ lookup('env','HOME') + '/.bin/kube-ps1.sh' }}"
+    mode: '0750'
+    
+- name: Add to $HOME/.zshrc
+  become: false
+  lineinfile:
+    path: "{{ lookup('env','HOME') }}/.zshrc"
+    line: "{{ item }}"
+  with_items:
+    - 'source $HOME/.bin/kube-ps1.sh'
+    - "PROMPT='$(kube_ps1)'$PROMPT"
+  when: zsh_install
+
+- name: Add to $HOME/.bashrc
+  become: false
+  lineinfile:
+    path: "{{ lookup('env','HOME') }}/.bashrc"
+    line: "{{ item }}"
+  with_items:
+    - 'source $HOME/.bin/kube-ps1.sh'
+    - "PS1='[\\033[01;32m\\]\\u@\\h\\[\\033[00m\\]:\\[\\033[01;34m\\]\\w\\[\\033[00m $(kube_ps1)\\]\\$ '"
+  when: bash_install

@@ -1,0 +1,7 @@
+---
+
+- name: Install software-properties-common apt-transport-https wget
+  apt:
+    name: ['cifs-utils','tmux','firefox','git','git-crypt','gpg','docker','jq']
+    state: present
+    update_cache: yes

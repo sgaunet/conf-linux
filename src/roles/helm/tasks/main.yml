@@ -1,0 +1,26 @@
+---
+- name: Ensure unzip is installed.
+  package: name=unzip state=present
+
+# - name: check helm version
+#   shell: "helm version"
+#   register: helm_version_installed
+
+# - debug:
+#     var: helm_version_installed.stdout
+
+- name: Download and unarchive helm
+  unarchive:
+    src: https://get.helm.sh/helm-v{{ helm_version }}-{{ helm_os }}-{{ helm_arch }}.tar.gz
+    dest: "{{ helm_tmp_directory }}"
+    remote_src: true
+    #creates: "{{ helm_tmp_directory }}-{{ helm_version }}"
+    mode: 0755
+  #when: helm_version_installed.stdout <> helm_version
+
+- name: Copy file with owner and permissions
+  copy:
+    src: "{{ helm_tmp_directory }}/{{ helm_os }}-{{ helm_arch }}/helm"
+    dest: "{{ helm_bin_path }}/helm"
+    mode: '0755'
+    remote_src: yes

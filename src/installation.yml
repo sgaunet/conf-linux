@@ -1,0 +1,22 @@
+- hosts: all
+  become: true
+  roles:
+    - common
+    - awscli
+    - packer
+    - typora
+    - vagrant
+    - vscode
+    #- zsh
+    - role: kubectl
+      tags: kube
+    - role: kubectx-ns
+      tags: kube
+    - role: helm
+      tags: helm
+    - role: kube-ps1
+      vars:
+        - bash_install: true
+      tags: prompt
+
+

@@ -1,0 +1,21 @@
+---
+- name: Ensure unzip is installed.
+  package: name=unzip state=present
+
+- name: Check kubectl version
+  shell: kubectl version --client=true
+  register: kubectl_version_installed
+
+# - debug:
+#     msg: "{{kubectl_version_installed.stdout  | regex_replace('Client Version: version.Info','') | unquote  }}"
+  
+# - debug:
+#     msg: "{{kubectl_version_installed.stdout  | regex_replace('Client Version: version.Info','') | unquote | from_json }}"
+
+- name: Download and unarchive kubectl
+  unarchive:
+    src: "https://storage.googleapis.com/kubernetes-release/release/v{{ kubectl_version }}/kubernetes-client-{{ kubectl_os }}-{{ kubectl_arch }}.tar.gz"
+    dest: "{{ kubectl_bin_path }}"
+    remote_src: true
+    creates: "{{ kubectl_bin_path }}/kubectl"
+    mode: 0755
