@@ -1,21 +1,32 @@
 ---
 - name: Ensure unzip is installed.
-  package: name=unzip state=present
+  package: 
+    name: unzip 
+    state: present
 
 - name: Check kubectl version
-  shell: kubectl version --client=true
-  register: kubectl_version_installed
+  shell: 'kubectl version --client=true | sed "s#Client Version: version.Info##g"'
+  register: kubectl_version_client_installed
+  changed_when: false
 
-# - debug:
-#     msg: "{{kubectl_version_installed.stdout  | regex_replace('Client Version: version.Info','') | unquote  }}"
-  
-# - debug:
-#     msg: "{{kubectl_version_installed.stdout  | regex_replace('Client Version: version.Info','') | unquote | from_json }}"
+# - name: GitVersion
+#   debug:
+#     msg: "{{kubectl_version_client_installed.stdout | regex_search('GitVersion:\\\"(.+)\\\", GitCommit(.*)$','\\1') }}"
+
+- name: GitVersion
+  set_fact:
+    kubectl_version_installed: "{{kubectl_version_client_installed.stdout | regex_search('GitVersion:\\\"(.+)\\\", GitCommit(.*)$','\\1') }}"
+
+# - name: GitVersion
+#   debug:
+#     msg: "{{ kubectl_version_installed }}"
+
 
 - name: Download and unarchive kubectl
   unarchive:
     src: "https://storage.googleapis.com/kubernetes-release/release/v{{ kubectl_version }}/kubernetes-client-{{ kubectl_os }}-{{ kubectl_arch }}.tar.gz"
     dest: "{{ kubectl_bin_path }}"
     remote_src: true
-    creates: "{{ kubectl_bin_path }}/kubectl"
     mode: 0755
+  when:
+    - kubectl_version != kubectl_version_installed
