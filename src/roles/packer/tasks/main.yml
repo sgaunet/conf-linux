@@ -2,6 +2,11 @@
 - name: Ensure unzip is installed.
   package: name=unzip state=present
 
+- name: check packer version
+  shell: "packer -v"
+  register: packer_version_installed
+  changed_when: false
+
 - name: Download and unarchive Packer.
   unarchive:
     src: https://releases.hashicorp.com/packer/{{ packer_version }}/packer_{{ packer_version }}_linux_{{ packer_arch }}.zip
@@ -9,3 +14,4 @@
     remote_src: true
     creates: "{{ packer_bin_path }}/packer"
     mode: 0755
+  when: packer_version_installed != packer_version
