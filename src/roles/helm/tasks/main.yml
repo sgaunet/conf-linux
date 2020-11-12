@@ -2,21 +2,30 @@
 - name: Ensure unzip is installed.
   package: name=unzip state=present
 
-# - name: check helm version
-#   shell: "helm version"
-#   register: helm_version_installed
+- name: check helm version
+  shell: "helm version"
+  register: helm_version_installed
+  changed_when: false
 
-# - debug:
-#     var: helm_version_installed.stdout
+# - name: Version
+#   debug:
+#     msg: "{{helm_version_installed.stdout | regex_search('Version:\\\"(.+)\\\", GitCommit(.*)$','\\1') }}"
+
+- name: GitVersion
+  set_fact:
+    helm_version_installed: "{{helm_version_installed.stdout | regex_search('Version:\\\"(.+)\\\", GitCommit(.*)$','\\1') }}"
+
+# - name: GitVersion
+#   debug:
+#     msg: "{{ helm_version_installed }}"
 
 - name: Download and unarchive helm
   unarchive:
-    src: https://get.helm.sh/helm-v{{ helm_version }}-{{ helm_os }}-{{ helm_arch }}.tar.gz
+    src: https://get.helm.sh/helm-{{ helm_version }}-{{ helm_os }}-{{ helm_arch }}.tar.gz
     dest: "{{ helm_tmp_directory }}"
     remote_src: true
-    #creates: "{{ helm_tmp_directory }}-{{ helm_version }}"
     mode: 0755
-  #when: helm_version_installed.stdout <> helm_version
+  when: helm_version_installed != helm_version
 
 - name: Copy file with owner and permissions
   copy:
