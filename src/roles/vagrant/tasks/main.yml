@@ -2,6 +2,11 @@
 - name: Ensure unzip is installed.
   package: name=unzip state=present
 
+- name: check vagrant version
+  shell: "vagrant -v"
+  register: vagrant_version_installed
+  changed_when: false
+
 - name: Download and unarchive vagrant.
   unarchive:
     src: https://releases.hashicorp.com/vagrant/{{ vagrant_version }}/vagrant_{{ vagrant_version }}_linux_{{ vagrant_arch }}.zip
@@ -9,3 +14,4 @@
     remote_src: true
     creates: "{{ vagrant_bin_path }}/vagrant"
     mode: 0755
+  when: vagrant_version_installed != vagrant_version
