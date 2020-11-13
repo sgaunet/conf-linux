@@ -24,5 +24,7 @@
       tags: krew
       vars:
         - bash_install: true
+    - role: kubectl-dashboard
+      tags: kubectl-dashboard
 
 

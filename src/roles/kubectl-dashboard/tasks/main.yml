@@ -1,0 +1,49 @@
+
+
+- name: Check if kubctl-dashboard already installed
+  stat: 
+    path: "/usr/local/bin/kubectl-dashboard"
+  register: is_kdashboard_installed
+  changed_when: false
+
+- name: Download kdashboard
+  get_url:
+    url: "https://github.com/bouk/kubectl-dashboard/releases/download/v{{ kdashboard_version }}/kubectl-dashboard_{{ kdashboard_version }}_{{ kdashboard_os }}_{{ kdashboard_arch }}.tar.gz"
+    dest: /tmp/kdashboard.tar.gz
+    mode: '0750'
+  when: is_kdashboard_installed.stat.exists == false
+
+- name: Create temporary folder /tmp/kdashboard
+  file:
+    path: /tmp/kdashboard
+    state: directory
+  when: is_kdashboard_installed.stat.exists == false
+
+- name: Extract to /tmp/kdashboard
+  unarchive:
+    src: /tmp/kdashboard.tar.gz
+    dest: /tmp/kdashboard
+    remote_src: yes
+  when: is_kdashboard_installed.stat.exists == false
+
+- name: Copy file with owner and permissions
+  copy:
+    src: "/tmp/kdashboard/kubectl-dashboard"
+    dest: "/usr/local/bin/kubectl-dashboard"
+    mode: '0755'
+    remote_src: yes
+  when: is_kdashboard_installed.stat.exists == false
+
+
+- name: Remove temporary files/folders
+  file:
+    path: /tmp/kdashboard
+    state: absent
+  when: is_kdashboard_installed.stat.exists == false
+
+- name: Remove temporary files/folders
+  file:
+    path: /tmp/kdashboard.tar.gz
+    state: absent
+  when: is_kdashboard_installed.stat.exists == false
+
