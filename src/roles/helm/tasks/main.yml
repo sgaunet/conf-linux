@@ -6,6 +6,7 @@
   shell: "helm version"
   register: helm_version_installed
   changed_when: false
+  failed_when: false
 
 # - name: Version
 #   debug:

@@ -8,6 +8,7 @@
   shell: 'kubectl version --client=true | sed "s#Client Version: version.Info##g"'
   register: kubectl_version_client_installed
   changed_when: false
+  failed_when: false
 
 # - name: GitVersion
 #   debug:
