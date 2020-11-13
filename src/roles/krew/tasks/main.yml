@@ -14,10 +14,11 @@
     mode: '0750'
   when: is_krew_installed.stat.exists == false
 
-- name: "Create folder {{ lookup('env','HOME') + '/.krew/bin/' }}"
-  file:
-    path: "{{ lookup('env','HOME') + '/.krew/bin/' }}"
-    state: directory
+# - name: "Create folder {{ lookup('env','HOME') + '/.krew/bin/' }}"
+#   file:
+#     path: "{{ lookup('env','HOME') + '/.krew/bin/' }}"
+#     state: directory
+#     mode: '0777'
 
 - name: Create temporary folder /tmp/krew
   file:
@@ -32,14 +33,19 @@
     remote_src: yes
   when: is_krew_installed.stat.exists == false
 
-
-- name: Copy file with owner and permissions
-  copy:
-    src: "/tmp/krew/krew-{{ krew_os }}_{{ krew_arch }}"
-    dest: "{{ lookup('env','HOME') + '/.krew/bin/krew' }}"
-    mode: '0755'
-    remote_src: yes
+- name: Install krew
+  become: false
+  shell: /tmp/krew/krew-{{ krew_os }}_{{ krew_arch }} install krew
   when: is_krew_installed.stat.exists == false
+
+# - name: Copy file with owner and permissions
+#   become: false
+#   copy:
+#     src: "/tmp/krew/krew-{{ krew_os }}_{{ krew_arch }}"
+#     dest: "{{ lookup('env','HOME') + '/.krew/bin/krew' }}"
+#     mode: '0755'
+#     remote_src: yes
+#   when: is_krew_installed.stat.exists == false
 
 
 - name: Remove temporary files/folders
@@ -71,3 +77,4 @@
   with_items:
    - 'export PATH="$HOME/.krew/bin:$PATH"'
   when: bash_install
+
