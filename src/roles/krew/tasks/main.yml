@@ -1,0 +1,73 @@
+
+- name: Check if krew already installed
+  become: false
+  stat: 
+    path: "{{ lookup('env','HOME') + '/.krew/bin/krew' }}"
+  delegate_to: localhost
+  register: is_krew_installed
+  changed_when: false
+
+- name: Download krew
+  get_url:
+    url: https://github.com/kubernetes-sigs/krew/releases/latest/download/krew.tar.gz
+    dest: /tmp/krew.tar.gz
+    mode: '0750'
+  when: is_krew_installed.stat.exists == false
+
+- name: "Create folder {{ lookup('env','HOME') + '/.krew/bin/' }}"
+  file:
+    path: "{{ lookup('env','HOME') + '/.krew/bin/' }}"
+    state: directory
+
+- name: Create temporary folder /tmp/krew
+  file:
+    path: /tmp/krew
+    state: directory
+  when: is_krew_installed.stat.exists == false
+
+- name: Extract to /tmp/krew
+  unarchive:
+    src: /tmp/krew.tar.gz
+    dest: /tmp/krew
+    remote_src: yes
+  when: is_krew_installed.stat.exists == false
+
+
+- name: Copy file with owner and permissions
+  copy:
+    src: "/tmp/krew/krew-{{ krew_os }}_{{ krew_arch }}"
+    dest: "{{ lookup('env','HOME') + '/.krew/bin/krew' }}"
+    mode: '0755'
+    remote_src: yes
+  when: is_krew_installed.stat.exists == false
+
+
+- name: Remove temporary files/folders
+  file:
+    path: /tmp/krew
+    state: absent
+  when: is_krew_installed.stat.exists == false
+
+- name: Remove temporary files/folders
+  file:
+    path: /tmp/krew.tar.gz
+    state: absent
+  when: is_krew_installed.stat.exists == false
+
+- name: Add to $HOME/.zshrc
+  become: false
+  lineinfile:
+    path: "{{ lookup('env','HOME') }}/.zshrc"
+    line: "{{ item }}"
+  with_items:
+   - 'export PATH="$HOME/.krew/bin:$PATH"'
+  when: zsh_install
+
+- name: Add to $HOME/.bashrc
+  become: false
+  lineinfile:
+    path: "{{ lookup('env','HOME') }}/.bashrc"
+    line: "{{ item }}"
+  with_items:
+   - 'export PATH="$HOME/.krew/bin:$PATH"'
+  when: bash_install

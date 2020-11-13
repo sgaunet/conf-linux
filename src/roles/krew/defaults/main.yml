@@ -1,0 +1,5 @@
+krew_os: "linux"
+krew_arch: "amd64"
+
+bash_install: false
+zsh_install: false
