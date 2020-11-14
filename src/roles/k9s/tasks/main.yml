@@ -1,0 +1,35 @@
+
+
+---
+- name: Ensure unzip is installed.
+  package: 
+    name: unzip 
+    state: present
+
+- name: Check k9s version
+  shell: "k9s version -s | grep -oE 'v.*$'"
+  register: k9s_version_client_installed
+  changed_when: false
+  failed_when: false
+
+# - name: GitVersion
+#   debug:
+#     msg: "{{k9s_version_client_installed.stdout }}"
+
+
+- name: GitVersion
+  set_fact:
+    k9s_version_installed: "{{k9s_version_client_installed.stdout }}"
+
+# - name: GitVersion
+#   debug:
+#     msg: "{{ k9s_version_installed }}"
+
+- name: Download and unarchive k9s
+  unarchive:
+    src: "https://github.com/derailed/k9s/releases/download/{{ k9s_version}}/k9s_{{ k9s_os }}_{{ k9s_arch }}.tar.gz"
+    dest: "{{ k9s_bin_path }}"
+    remote_src: true
+    mode: 0755
+  when:
+    - k9s_version != k9s_version_installed
