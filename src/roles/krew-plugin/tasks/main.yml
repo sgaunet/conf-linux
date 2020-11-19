@@ -1,0 +1,17 @@
+---
+
+- name: "Check plugin {{ plugin }}"
+  become: false
+  shell: kubectl krew list | grep -q {{ plugin }}
+  args:
+    warn: no
+  register: is_plugin_installed
+  changed_when: False
+  failed_when: False
+  ignore_errors: true
+
+- name: "Install plugin {{ plugin }}"
+  become: false
+  shell: "kubectl krew install {{ plugin }}"
+  when: is_plugin_installed.rc != 0
+
