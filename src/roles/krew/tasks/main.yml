@@ -2,7 +2,7 @@
 - name: Check if krew already installed
   become: false
   stat: 
-    path: "{{ lookup('env','HOME') + '/.krew/bin/krew' }}"
+    path: "{{ lookup('env','HOME') + '/.krew/bin/kubectl-krew' }}"
   delegate_to: localhost
   register: is_krew_installed
   changed_when: false
