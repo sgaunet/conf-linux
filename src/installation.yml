@@ -34,21 +34,8 @@
       tags: skaffold
     - role: alias
       tags: alias
-    - role: krew-plugin
-      vars: 
-        - plugin: access-matrix
-      tags: krew-plugin
-    - role: krew-plugin
-      vars: 
-        - plugin: get-all
-      tags: krew-plugin
-    - role: krew-plugin
-      vars: 
-        - plugin: popeye
-      tags: krew-plugin
-    - role: krew-plugin
-      vars: 
-        - plugin: tail
-      tags: krew-plugin
+    - role: krew-plugins
+      tags: krew-plugins
+
 
 

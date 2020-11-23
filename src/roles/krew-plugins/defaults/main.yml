@@ -1,0 +1,6 @@
+
+list_plugins:
+  - access-matrix
+  - get-all
+  - popeye
+  - tail
