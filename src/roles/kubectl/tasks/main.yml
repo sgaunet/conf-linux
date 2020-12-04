@@ -31,3 +31,11 @@
     mode: 0755
   when:
     - kubectl_version != kubectl_version_installed
+
+- name: Create link for kubectl
+  file:
+    src: /usr/local/bin/kubernetes/client/bin/kubectl
+    dest: /usr/local/bin/kubectl
+    owner: root
+    group: root
+    state: link
