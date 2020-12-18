@@ -8,6 +8,8 @@
 
 - name: "Check plugin {{ item }}"
   become: false
+  environment:
+    PATH: "{{ ansible_env.PATH }}:{{ lookup('env','HOME') + '/.krew/bin/' }}"
   shell: "kubectl krew list | grep -o {{ item }}"
   args:
     warn: no
@@ -30,6 +32,8 @@
 
 - name: Install plugin
   become: false
+  environment:
+    PATH: "{{ ansible_env.PATH }}:{{ lookup('env','HOME') + '/.krew/bin/' }}"
   shell: "kubectl krew install {{ item.item }}"
   when: item.rc == 1
   with_items: 

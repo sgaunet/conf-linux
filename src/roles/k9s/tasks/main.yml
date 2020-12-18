@@ -1,10 +1,4 @@
-
-
 ---
-- name: Ensure unzip is installed.
-  package: 
-    name: unzip 
-    state: present
 
 - name: Check k9s version
   shell: "k9s version -s | grep -oE 'v.*$'"

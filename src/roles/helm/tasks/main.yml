@@ -1,6 +1,5 @@
 ---
-- name: Ensure unzip is installed.
-  package: name=unzip state=present
+
 
 - name: check helm version
   shell: "helm version"

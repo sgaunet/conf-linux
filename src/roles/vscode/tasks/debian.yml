@@ -1,11 +1,5 @@
 ---
 
-- name: Install software-properties-common apt-transport-https wget
-  apt:
-    name: ['software-properties-common','apt-transport-https','wget']
-    state: present
-    update_cache: yes
-
 - name: Add Microsoft Apt signing key
   apt_key:
     url: https://packages.microsoft.com/keys/microsoft.asc
