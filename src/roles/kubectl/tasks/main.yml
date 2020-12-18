@@ -1,8 +1,4 @@
 ---
-- name: Ensure unzip is installed.
-  package: 
-    name: unzip 
-    state: present
 
 - name: Check kubectl version
   shell: 'kubectl version --client=true | sed "s#Client Version: version.Info##g"'
@@ -29,13 +25,9 @@
     dest: "{{ kubectl_bin_path }}"
     remote_src: true
     mode: 0755
+    extra_opts:
+      - --strip=1
+      - --wildcards
+      - '*/kubectl'
   when:
     - kubectl_version != kubectl_version_installed
-
-- name: Create link for kubectl
-  file:
-    src: /usr/local/bin/kubernetes/client/bin/kubectl
-    dest: /usr/local/bin/kubectl
-    owner: root
-    group: root
-    state: link
