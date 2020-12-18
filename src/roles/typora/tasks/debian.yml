@@ -1,11 +1,5 @@
 ---
 
-- name: Install software-properties-common apt-transport-https wget
-  apt:
-    name: ['software-properties-common','apt-transport-https','wget']
-    state: present
-    update_cache: yes
-
 - name: Add Typora Apt signing key
   apt_key:
     url: https://typora.io/linux/public-key.asc
