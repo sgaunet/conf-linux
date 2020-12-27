@@ -36,6 +36,8 @@
       tags: alias
     - role: krew-plugins
       tags: krew-plugins
+    - role: hadolint
+      tags: hadolint
 
 
 

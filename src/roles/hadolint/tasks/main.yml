@@ -1,0 +1,7 @@
+---
+
+- name: Download and install hadolint
+  get_url:
+    url: https://github.com/hadolint/hadolint/releases/download/v1.19.0/hadolint-{{ hadolint_os }}-{{ hadolint_arch }}
+    dest: "{{ hadolint_bin_path }}/hadolint"
+    mode: '0755'
