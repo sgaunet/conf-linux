@@ -4,4 +4,4 @@
   get_url:
     url: https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-amd64
     dest: /usr/local/bin/skaffold
-    mode: '0750'
+    mode: '0755'
