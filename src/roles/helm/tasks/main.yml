@@ -2,7 +2,7 @@
 
 
 - name: check helm version
-  shell: "helm version"
+  shell: "helm version --template '{{ '{{' }} .Version {{ '}}' }}'"
   register: helm_version_installed
   changed_when: false
   failed_when: false
@@ -11,9 +11,9 @@
 #   debug:
 #     msg: "{{helm_version_installed.stdout | regex_search('Version:\\\"(.+)\\\", GitCommit(.*)$','\\1') }}"
 
-- name: GitVersion
-  set_fact:
-    helm_version_installed: "{{helm_version_installed.stdout | regex_search('Version:\\\"(.+)\\\", GitCommit(.*)$','\\1') }}"
+# - name: GitVersion
+#   set_fact:
+#     helm_version_installed: "{{helm_version_installed.stdout | regex_search('Version:\\\"(.+)\\\", GitCommit(.*)$','\\1') }}"
 
 # - name: GitVersion
 #   debug:
