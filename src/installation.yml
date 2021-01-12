@@ -38,6 +38,8 @@
       tags: krew-plugins
     - role: hadolint
       tags: hadolint
+    - role: dockle
+      tags: dockle
 
 
 
