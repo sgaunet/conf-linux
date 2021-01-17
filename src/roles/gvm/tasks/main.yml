@@ -1,0 +1,26 @@
+---
+
+- name: Check gvm setup
+  become: false
+  shell: gvm version
+  register: gvm_version
+  changed_when: false
+  failed_when: false
+  
+- name: Install prerequisistes
+  apt:
+    name: ['curl','git','mercurial','make','binutils','bison','gcc','build-essential']
+    state: present
+    update_cache: yes
+
+- name: Install gvm
+  shell: bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+  when: gvm_version.rc != 0
+
+
+- name: Configure bashrc
+  become: false
+  lineinfile:
+    path: "{{ lookup('env','HOME') }}/.bashrc"
+    line: "[[ -s \"{{ lookup('env','HOME') }}/.gvm/scripts/gvm\" ]] && source \"/home/sylvain/.gvm/scripts/gvm\""
+  when: gvm_version.rc != 0

@@ -42,5 +42,7 @@
       tags: dockle
     - role: eksctl
       tags: eksctl
+    - role: gvm
+      tags: go
 
 
