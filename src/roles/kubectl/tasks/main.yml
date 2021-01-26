@@ -31,3 +31,25 @@
       - '*/kubectl'
   when:
     - kubectl_version != kubectl_version_installed
+
+- name: Add aliases to $HOME/.bashrc
+  become: false
+  lineinfile:
+    path: "{{ lookup('env','HOME') }}/.bashrc"
+    line: "alias k=kubectl"
+
+- name: Register kubectl completion bash
+  shell: 'kubectl completion bash'
+  register: kubectl_completion
+  changed_when: false
+
+# - debug:
+#     msg: "{{ kubectl_completion }}"
+
+- name: Create completion bash file
+  copy:
+    content: "{{ kubectl_completion.stdout }}"
+    dest: /etc/bash_completion.d/kubectl
+    owner: root
+    group: root
+    mode: '0755'
