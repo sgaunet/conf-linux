@@ -10,7 +10,7 @@
     - 'alias "ll=ls -l"'
   when: zsh_install
 
-- name: Add aliases to $HOME/.bashrc
+- name: Add aliases to $HOME/.bashrc and completion for kubectl
   become: false
   lineinfile:
     path: "{{ lookup('env','HOME') }}/.bashrc"
@@ -18,4 +18,5 @@
   with_items:
     - 'alias k=kubectl'
     - 'alias "ll=ls -l"'
+    - 'complete -F __start_kubectl k'
   when: bash_install
