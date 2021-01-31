@@ -44,5 +44,9 @@
       tags: eksctl
     - role: gvm
       tags: go
+    - role: peek
+      tags: peek
+    - role: vegeta
+      tags: vegeta
 
 
