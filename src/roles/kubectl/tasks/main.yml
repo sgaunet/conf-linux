@@ -20,15 +20,11 @@
 
 
 - name: Download and unarchive kubectl
-  unarchive:
-    src: "https://storage.googleapis.com/kubernetes-release/release/v{{ kubectl_version }}/kubernetes-client-{{ kubectl_os }}-{{ kubectl_arch }}.tar.gz"
+  get_url:
+    url: "https://storage.googleapis.com/kubernetes-release/release/v{{ kubectl_version }}/bin/{{ kubectl_os }}/{{ kubectl_arch }}/kubectl"
     dest: "{{ kubectl_bin_path }}"
     remote_src: true
     mode: 0755
-    extra_opts:
-      - --strip=1
-      - --wildcards
-      - '*/kubectl'
   when:
     - kubectl_version != kubectl_version_installed
 
