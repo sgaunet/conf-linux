@@ -1,0 +1,30 @@
+---
+
+- name: Check marp version
+  shell: 'marp -v'
+  register: marp_version_client_installed
+  changed_when: false
+  failed_when: false
+
+# - name: MarpVersion
+#   debug:
+#     msg: "{{marp_version_client_installed.stdout | regex_search('@marp-team/marp-cli v(.+) .w/ @marp-team/marp-core.*$','\\1') }}"
+
+- name: MarpVersion
+  set_fact:
+    marp_version_installed: "{{marp_version_client_installed.stdout | regex_search('@marp-team/marp-cli v(.+) .w/ @marp-team/marp-core.*$','\\1') }}"
+
+# - name: GitVersion
+#   debug:
+#     msg: "{{ marp_version_installed }}"
+
+- name: marp
+  unarchive:
+    src: "https://github.com/marp-team/marp-cli/releases/download/v{{ marp_version }}/marp-cli-v{{ marp_version }}-{{ marp_os }}.tar.gz"
+    dest: /usr/local/bin
+    # extra_opts:
+    # - --strip=1
+    # - --wildcards
+    # - '*/marp'
+    remote_src: True
+  when: marp_version_installed != marp_version

@@ -48,5 +48,7 @@
       tags: peek
     - role: vegeta
       tags: vegeta
+    - role: marp-cli
+      tags: marp-cli
 
 

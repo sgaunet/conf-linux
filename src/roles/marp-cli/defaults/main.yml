@@ -1,0 +1,8 @@
+---
+
+# "marp" version to install
+marp_version: "0.23.3"
+marp_bin_path: "/usr/local/bin"
+marp_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
+marp_os: "linux" # use "darwin" for MacOS X, "windows" for Windows
+marp_arch: "amd64" # other possible values: "386","arm64","arm","ppc64le","s390x"
