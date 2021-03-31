@@ -1,6 +1,6 @@
 ---
 
-k9s_version: "v0.23.10"
+k9s_version: "v0.24.7"
 k9s_bin_path: "/usr/local/bin"
 k9s_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
 k9s_os: "Linux" # use "darwin" for MacOS X, "windows" for Windows
