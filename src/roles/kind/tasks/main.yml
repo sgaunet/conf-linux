@@ -1,0 +1,17 @@
+---
+
+- name: Check kind version
+  shell: "kind --version | grep -Po 'kind version \\K.*$'"
+  register: kind_version_installed
+  changed_when: false
+  failed_when: false
+
+
+- name: Download kind
+  get_url:
+    url: "https://github.com/kubernetes-sigs/kind/releases/download/v{{ kind_version }}/kind-{{ kind_os }}-{{ kind_arch }}"
+    dest: "{{ kind_bin_path }}"
+    remote_src: True
+    mode: 0755
+  when:
+    - kind_version != kind_version_installed

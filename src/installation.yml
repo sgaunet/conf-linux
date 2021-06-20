@@ -50,5 +50,6 @@
       tags: vegeta
     - role: marp-cli
       tags: marp-cli
-
+    - role: kind
+      tags: kind
 
