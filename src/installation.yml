@@ -52,4 +52,7 @@
       tags: marp-cli
     - role: kind
       tags: kind
+    - role: stern
+      tags: stern
+
 

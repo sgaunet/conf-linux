@@ -1,0 +1,17 @@
+---
+
+- name: Check stern version
+  shell: "stern -v | grep -Po 'stern version \\K.*$'"
+  register: stern_version_installed
+  changed_when: false
+  failed_when: false
+
+
+- name: Download stern
+  get_url:
+    url: "https://github.com/wercker/stern/releases/download/{{ stern_version }}/stern_{{ stern_os }}_{{ stern_arch }}"
+    dest: "{{ stern_bin_path }}"
+    remote_src: True
+    mode: 0755
+  when:
+    - stern_version != stern_version_installed
