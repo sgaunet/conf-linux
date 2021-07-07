@@ -54,5 +54,7 @@
       tags: kind
     - role: stern
       tags: stern
+    - role: popeye
+      tags: popeye
 
 

@@ -1,0 +1,29 @@
+---
+
+- name: Check popeye version
+  shell: "popeye version | grep -Po 'Version:[[:space:]]+\\K.*'"
+  register: popeye_version_client_installed
+  changed_when: false
+  failed_when: false
+
+# - name: GitVersion
+#   debug:
+#     msg: "{{popeye_version_client_installed.stdout }}"
+
+
+- name: GitVersion
+  set_fact:
+    popeye_version_installed: "{{popeye_version_client_installed.stdout }}"
+
+# - name: GitVersion
+#   debug:
+#     msg: "{{ popeye_version_installed }}"
+
+- name: Download and unarchive popeye
+  unarchive:
+    src: "https://github.com/derailed/popeye/releases/download/v{{ popeye_version}}/popeye_{{ popeye_os }}_{{ popeye_arch }}.tar.gz"
+    dest: "{{ popeye_bin_path }}"
+    remote_src: true
+    mode: 0755
+  when:
+    - popeye_version != popeye_version_installed
