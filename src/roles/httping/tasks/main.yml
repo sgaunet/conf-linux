@@ -1,0 +1,29 @@
+---
+
+- name: Check httping version
+  shell: "httping-go -v"
+  register: httping_version_client_installed
+  changed_when: false
+  failed_when: false
+
+# - name: GitVersion
+#   debug:
+#     msg: "{{httping_version_client_installed.stdout }}"
+
+
+- name: GitVersion
+  set_fact:
+    httping_version_installed: "{{httping_version_client_installed.stdout }}"
+
+# - name: GitVersion
+#   debug:
+#     msg: "{{ httping_version_installed }}"
+
+- name: Download and unarchive httping
+  unarchive:
+    src: "https://github.com/sgaunet/httping-go/releases/download/{{ httping_version}}/httping-go_{{ httping_version}}_{{ httping_os }}_{{ httping_arch }}.tar.gz"
+    dest: "{{ httping_bin_path }}"
+    remote_src: true
+    mode: 0755
+  when:
+    - httping_version != httping_version_installed

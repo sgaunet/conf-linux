@@ -56,5 +56,6 @@
       tags: stern
     - role: popeye
       tags: popeye
-
+    - role: httping
+      tags: httping
 
