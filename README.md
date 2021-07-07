@@ -14,53 +14,33 @@ cd conf-linux/src
 
 # Roles
 
-##  common
-
-Install : cifs-utils','tmux','firefox','git','git-crypt','gpg','docker','jq'
-
-##  awscli
-
-Install the awscli to play with Amazon Web Service API.
-
-##  packer
-
-Install packer.
-
-##  typora
-
-Install Typora.
-
-##  vagrant
-
-Install vagrant.
-
-##  vscode
-
-Install vscode from official repository.
-
-##  zsh
-
-Install zsh, ohmyzsh and configure the ~/.zshrc with agnoster theme. 
-
-## kubectl
-
-Install kubectl command
-
-## kubectx-ns
-
-Install :
-
-* kubens
-* kubectx
-
-
-## helm
-
-Install helm v3
-
 ## kube-ps1
 
 To get a beautiful prompt (for bash or zsh)
 
 ![prompt](img/prompt.png)
-      
+
+## And
+
+* k9s
+* kubectl
+* alias for kubectl (k=kubectl + bash completion/zsh completion)
+* kubectx/kubens
+* marp
+* stern
+* popeye
+* awscli
+* dockle
+* gvm
+* hadolint
+* helm
+* krew (for kubectl + some plugins)
+* packer
+* peek
+* skaffold
+* typora
+* vagrant
+* vegeta
+* vscode
+* zsh
+...
