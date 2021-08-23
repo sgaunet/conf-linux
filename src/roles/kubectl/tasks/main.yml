@@ -18,7 +18,7 @@
 #   debug:
 #     msg: "{{ kubectl_version_installed }}"
 
-
+# https://kubernetes.io/releases/
 - name: Download and unarchive kubectl
   get_url:
     url: "https://storage.googleapis.com/kubernetes-release/release/v{{ kubectl_version }}/bin/{{ kubectl_os }}/{{ kubectl_arch }}/kubectl"
