@@ -45,3 +45,5 @@ To get a beautiful prompt (for bash or zsh)
 * zsh
 * [dust](https://github.com/bootandy/dust)
 * [bottom](https://github.com/ClementTsang/bottom/)
+* [mdtohtml](https://github.com/sgaunet/mdtohtml)
+* [goreleaser](https://github.com/goreleaser/goreleaser/)
