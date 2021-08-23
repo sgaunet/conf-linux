@@ -1,0 +1,8 @@
+---
+
+# "goreleaser" version to install
+goreleaser_version: "0.157.0"
+goreleaser_bin_path: "/usr/local/bin"
+goreleaser_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
+goreleaser_os: "Linux" # use "darwin" for MacOS X, "windows" for Windows
+goreleaser_arch: "x86_64" # other possible values: "386","arm64","arm","ppc64le","s390x"
