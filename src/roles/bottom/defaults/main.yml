@@ -1,0 +1,8 @@
+---
+
+# "bottom" version to install
+bottom_version: "0.6.3"
+bottom_bin_path: "/usr/local/bin"
+bottom_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
+bottom_os: "unknown-linux-gnu" # use "darwin" for MacOS X, "windows" for Windows
+bottom_arch: "x86_64" # other possible values: "386","arm64","arm","ppc64le","s390x"

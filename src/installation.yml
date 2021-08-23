@@ -58,4 +58,8 @@
       tags: popeye
     - role: httping
       tags: httping
+    - role: dust
+      tags: dust
+    - role: bottom
+      tags: bottom
 

@@ -1,6 +1,6 @@
 # conf-linux
 
-That's a collection of ansible role to configure my Linux account for a new PC (debian based). That's far away from perfection but that's a start and I will try to update it to be indepotent (actually, it's not).
+That's a collection of ansible role to configure my Linux account for a new PC (debian based). That's far away from perfection but that's a start.
 
 # Execution 
 
@@ -43,4 +43,5 @@ To get a beautiful prompt (for bash or zsh)
 * vegeta
 * vscode
 * zsh
-...
+* [dust](https://github.com/bootandy/dust)
+* [bottom](https://github.com/ClementTsang/bottom/)
