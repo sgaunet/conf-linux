@@ -14,12 +14,12 @@
   shell: curl -sfL https://get.k3s.io | sh -
   when: k3s_service.rc != 0
 
-- name: Change file permissions /etc/rancher/k3s/k3s.yaml
-  file:
-    path: /etc/rancher/k3s/k3s.yaml
-    #owner: 
-    #group: 
-    mode: '0644' 
+# - name: Change file permissions /etc/rancher/k3s/k3s.yaml
+#   file:
+#     path: /etc/rancher/k3s/k3s.yaml
+#     #owner: 
+#     #group: 
+#     mode: '0644' 
     
 #    # dashboard: https://rancher.com/docs/k3s/latest/en/installation/kube-dashboard/
 #    # storage: https://rancher.com/docs/k3s/latest/en/storage/
