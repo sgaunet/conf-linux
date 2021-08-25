@@ -22,28 +22,58 @@ To get a beautiful prompt (for bash or zsh)
 
 ## And
 
-* k9s
-* kubectl
+* common 
+    * Install common softwares cifs-utils tmux git git-crypt gpg docker jq unzip
+    * Install software-properties-common apt-transport-https wget
+
+For AWS :
+
+* [eksctl](https://eksctl.io/)
+* [awscli v2](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
+
+For kubernetes:
+
+* [krew](https://krew.sigs.k8s.io/)
+* [helm v3](https://helm.sh/docs/intro/install/)
+* [kubectl-dashboard](https://github.com/bouk/kubectl-dashboard)
+* [k3s](https://k3s.io/)
+* [k9s](https://k9scli.io/)
+* [kubectl](https://kubernetes.io/releases/download/)
 * alias for kubectl (k=kubectl + bash completion/zsh completion)
-* kubectx/kubens
-* [marp](https://marp.app/)
+* [kubectx/kubens](https://github.com/ahmetb/kubectx/)
 * [stern](https://github.com/wercker/stern)
 * [popeye](https://github.com/derailed/popeye)
-* [awscli v2](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
-* [dockle](https://github.com/goodwithtech/dockle)
-* [gvm](https://github.com/moovweb/gvm)
-* [hadolint](https://github.com/hadolint/hadolint)
-* [helm v3](https://helm.sh/docs/intro/install/)
-* [krew (for kubectl + some plugins)](https://github.com/kubernetes-sigs/krew)
-* [packer](https://www.packer.io/)
-* [peek](https://github.com/phw/peek)
 * [skaffold](https://skaffold.dev/)
+
+For markdown :
+
+* [marp](https://marp.app/)
 * [typora](https://typora.io/)
+* [mdtohtml](https://github.com/sgaunet/mdtohtml)
+
+For Docker :
+
+* [dockle](https://github.com/goodwithtech/dockle)
+* [hadolint](https://github.com/hadolint/hadolint)
+
+For GOLANG :
+
+* [gvm](https://github.com/moovweb/gvm)
+* [goreleaser](https://github.com/goreleaser/goreleaser/)
+* [task](https://taskfile.dev/)
+
+
+VM :
+
+* [packer](https://www.packer.io/)
 * [vagrant](https://www.vagrantup.com/downloads)
+
+
+Misceleaneous :
+
+* [peek](https://github.com/phw/peek)
 * [vegeta](https://github.com/tsenart/vegeta)
 * [vscode](https://code.visualstudio.com/docs/setup/linux)
 * zsh
 * [dust](https://github.com/bootandy/dust)
 * [bottom](https://github.com/ClementTsang/bottom/)
-* [mdtohtml](https://github.com/sgaunet/mdtohtml)
-* [goreleaser](https://github.com/goreleaser/goreleaser/)
