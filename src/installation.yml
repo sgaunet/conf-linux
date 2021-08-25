@@ -62,4 +62,9 @@
       tags: dust
     - role: bottom
       tags: bottom
-
+    - role: mdtohtml
+      tags: mdtohtml
+    - role: goreleaser
+      tags: goreleaser
+    - role: task
+      tags: task
