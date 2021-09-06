@@ -28,8 +28,8 @@
       tags: kubectl-dashboard
     - role: k9s
       tags: k9s
-    - role: k3s
-      tags: k3s
+    # - role: k3s
+    #   tags: k3s
     - role: skaffold
       tags: skaffold
     - role: alias
