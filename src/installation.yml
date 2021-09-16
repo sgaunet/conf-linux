@@ -68,3 +68,5 @@
       tags: goreleaser
     - role: task
       tags: task
+    - role: pgmetrics
+      tags: pgmetrics
