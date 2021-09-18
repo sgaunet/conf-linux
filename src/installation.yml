@@ -70,3 +70,5 @@
       tags: task
     - role: pgmetrics
       tags: pgmetrics
+    - role: gtmpl
+      tags: gtmpl

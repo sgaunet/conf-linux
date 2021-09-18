@@ -77,3 +77,4 @@ Misceleaneous :
 * zsh
 * [dust](https://github.com/bootandy/dust)
 * [bottom](https://github.com/ClementTsang/bottom/)
+* [gtmpl](https://github.com/sgaunet/gtmpl)

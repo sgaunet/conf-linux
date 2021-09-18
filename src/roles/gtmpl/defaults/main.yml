@@ -1,0 +1,8 @@
+---
+
+# "gtmpl" version to install
+gtmpl_version: "draft-2"
+gtmpl_bin_path: "/usr/local/bin"
+gtmpl_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
+gtmpl_os: "Linux" # use "darwin" for MacOS X, "windows" for Windows
+gtmpl_arch: "x86_64" # other possible values: "386","arm64","arm","ppc64le","s390x"
