@@ -16,7 +16,7 @@
 
 - name: Download and unarchive gtmpl
   unarchive:
-    src: "https://github.com/sgaunet/gtmpl/releases/download/{{ gtmpl_version }}/gtmpl_{{ gtmpl_os }}_{{ gtmpl_arch }}.tar.gz"
+    src: "https://github.com/sgaunet/gtmpl/releases/download/{{ gtmpl_version }}/gtmpl_{{ gtmpl_version }}_{{ gtmpl_os }}_{{ gtmpl_arch }}.tar.gz"
     dest: "{{ gtmpl_tmp_directory }}/{{ gtmpl_os }}-{{ gtmpl_arch }}/"
     remote_src: true
     mode: 0755
