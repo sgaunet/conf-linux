@@ -44,6 +44,7 @@ For kubernetes:
 * [stern](https://github.com/wercker/stern)
 * [popeye](https://github.com/derailed/popeye)
 * [skaffold](https://skaffold.dev/)
+* [kfilt](https://github.com/ryane/kfilt)
 
 For markdown :
 

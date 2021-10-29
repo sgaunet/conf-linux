@@ -72,3 +72,5 @@
       tags: pgmetrics
     - role: gtmpl
       tags: gtmpl
+    - role: kfilt
+      tags: kfilt

@@ -1,0 +1,8 @@
+---
+
+# "kfilt" version to install
+kfilt_version: "0.0.5"
+kfilt_bin_path: "/usr/local/bin"
+kfilt_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
+kfilt_os: "linux" # use "darwin" for MacOS X, "windows" for Windows
+kfilt_arch: "amd64" # other possible values: "386","arm64","arm","ppc64le","s390x"
