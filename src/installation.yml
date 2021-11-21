@@ -78,3 +78,5 @@
       tags: zellij
     - role: yq
       tags: yq
+    - role: gdu
+      tags: gdu
