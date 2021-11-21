@@ -82,3 +82,4 @@ Misceleaneous :
 * [zellij](https://github.com/zellij-org/zellij)
 * [gdu](https://github.com/dundee/gdu)
 * [yq](https://github.com/mikefarah/yq)
+* [bandwhich](https://github.com/imsnif/bandwhich)
