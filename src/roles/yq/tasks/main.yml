@@ -1,0 +1,33 @@
+---
+
+- name: Check yq version
+  shell: 'yq -V | sed "s#yq (https://github.com/mikefarah/yq/) version##"  '
+  register: yq_version_client_installed
+  changed_when: false
+  failed_when: false
+
+# - name: GitVersion
+#   debug:
+#     msg: "{{yq_version_client_installed.stdout | regex_search('GitVersion:\\\"(.+)\\\", GitCommit(.*)$','\\1') }}"
+
+# - name: GitVersion
+#   set_fact:
+#     yq_version_installed: "{{yq_version_client_installed.stdout | regex_search('GitVersion:\\\"(.+)\\\", GitCommit(.*)$','\\1') }}"
+
+- name: GitVersion
+  set_fact:
+    yq_version_installed: "{{yq_version_client_installed.stdout }}"
+
+# - name: GitVersion
+#   debug:
+#     msg: "{{ yq_version_installed }}"
+
+# https://kubernetes.io/releases/
+- name: Download and unarchive yq
+  get_url:
+    url: "https://github.com/mikefarah/yq/releases/download/v{{ yq_version }}/yq_{{ yq_os }}_{{ yq_arch }}"
+    dest: "{{ yq_bin_path }}/yq"
+    remote_src: true
+    mode: 0755
+  when:
+    - yq_version != yq_version_installed

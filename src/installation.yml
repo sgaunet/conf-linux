@@ -76,3 +76,5 @@
       tags: kfilt
     - role: zellij
       tags: zellij
+    - role: yq
+      tags: yq
