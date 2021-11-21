@@ -79,3 +79,6 @@ Misceleaneous :
 * [dust](https://github.com/bootandy/dust)
 * [bottom](https://github.com/ClementTsang/bottom/)
 * [gtmpl](https://github.com/sgaunet/gtmpl)
+* [zellij](https://github.com/zellij-org/zellij)
+* [gdu](https://github.com/dundee/gdu)
+* [yq](https://github.com/mikefarah/yq)
