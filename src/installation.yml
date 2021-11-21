@@ -74,3 +74,5 @@
       tags: gtmpl
     - role: kfilt
       tags: kfilt
+    - role: zellij
+      tags: zellij

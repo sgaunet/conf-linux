@@ -1,0 +1,8 @@
+---
+
+# "zellij" version to install
+zellij_version: "0.20.1"
+zellij_bin_path: "/usr/local/bin"
+zellij_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
+zellij_os: "unknown-linux-musl" # use "darwin" for MacOS X, "windows" for Windows
+zellij_arch: "x86_64" # other possible values: "386","arm64","arm","ppc64le","s390x"
