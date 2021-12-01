@@ -5,13 +5,16 @@
   register: goreleaser_version_client_installed
   changed_when: false
   failed_when: false
+  check_mode: no
 
 - name: Create a directory if it does not exist
   file:
     path: "{{ goreleaser_tmp_directory }}/{{ goreleaser_os }}-{{ goreleaser_arch }}/"
     state: directory
     mode: '0755'
-  when: goreleaser_version != goreleaser_version_client_installed.stdout
+  when: 
+    - not ansible_check_mode
+    - goreleaser_version != goreleaser_version_client_installed.stdout
 
 
 - name: Download and unarchive goreleaser
@@ -20,7 +23,9 @@
     dest: "{{ goreleaser_tmp_directory }}/{{ goreleaser_os }}-{{ goreleaser_arch }}/"
     remote_src: true
     mode: 0755
-  when: goreleaser_version != goreleaser_version_client_installed.stdout
+  when: 
+    - not ansible_check_mode
+    - goreleaser_version != goreleaser_version_client_installed.stdout
 
 
 - name: Copy file with owner and permissions
@@ -29,7 +34,9 @@
     dest: "{{ goreleaser_bin_path }}/goreleaser"
     mode: '0755'
     remote_src: yes
-  when: goreleaser_version != goreleaser_version_client_installed.stdout
+  when: 
+    - not ansible_check_mode
+    - goreleaser_version != goreleaser_version_client_installed.stdout
 
 - name: Clean temporary directory
   file:

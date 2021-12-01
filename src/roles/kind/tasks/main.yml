@@ -5,6 +5,7 @@
   register: kind_version_installed
   changed_when: false
   failed_when: false
+  check_mode: no
 
 
 - name: Download kind
@@ -14,4 +15,5 @@
     remote_src: True
     mode: 0755
   when:
+    - not ansible_check_mode
     - kind_version != kind_version_installed

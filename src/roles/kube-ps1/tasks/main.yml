@@ -5,6 +5,9 @@
     url: https://raw.githubusercontent.com/jonmosco/kube-ps1/master/kube-ps1.sh
     dest: "{{ lookup('env','HOME') + '/.bin/kube-ps1.sh' }}"
     mode: '0750'
+  when:
+    - not ansible_check_mode
+
     
 - name: Add to $HOME/.zshrc
   become: false

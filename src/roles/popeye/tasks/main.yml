@@ -5,6 +5,7 @@
   register: popeye_version_client_installed
   changed_when: false
   failed_when: false
+  check_mode: no
 
 # - name: GitVersion
 #   debug:
@@ -14,6 +15,7 @@
 - name: GitVersion
   set_fact:
     popeye_version_installed: "{{popeye_version_client_installed.stdout }}"
+  check_mode: no
 
 # - name: GitVersion
 #   debug:

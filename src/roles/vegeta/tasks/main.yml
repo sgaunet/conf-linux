@@ -6,21 +6,28 @@
   register: vegeta_version_installed
   changed_when: false
   failed_when: false
+  check_mode: no
 
 - name: GitVersion
   set_fact:
-    vegeta_version_installed: "{{vegeta_version_installed.stdout }}"
+    vegeta_version_installed: "{{vegeta_version_installed }}"
+  check_mode: no
 
-# - name: GitVersion
-#   debug:
-#     msg: "{{ vegeta_version_installed }}"
+
+- name: GitVersion
+  debug:
+    msg: "{{ vegeta_version_installed.stdout }}"
+  check_mode: no
+
 
 - name: Create a directory if it does not exist
   file:
     path: "{{ vegeta_tmp_directory }}/{{ vegeta_os }}-{{ vegeta_arch }}/"
     state: directory
     mode: '0755'
-  when: vegeta_version_installed != vegeta_version
+  when: 
+    - not ansible_check_mode
+    - vegeta_version_installed != vegeta_version
 
 
 - name: Download and unarchive vegeta
@@ -29,7 +36,9 @@
     dest: "{{ vegeta_tmp_directory }}/{{ vegeta_os }}-{{ vegeta_arch }}/"
     remote_src: true
     mode: 0755
-  when: vegeta_version_installed != vegeta_version
+  when: 
+    - not ansible_check_mode
+    - vegeta_version_installed != vegeta_version
 
 
 - name: Copy file with owner and permissions
@@ -38,7 +47,9 @@
     dest: "{{ vegeta_bin_path }}/vegeta"
     mode: '0755'
     remote_src: yes
-  when: vegeta_version_installed != vegeta_version
+  when: 
+    - not ansible_check_mode
+    - vegeta_version_installed != vegeta_version
 
 - name: Clean temporary directory
   file:

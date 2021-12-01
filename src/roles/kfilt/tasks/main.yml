@@ -5,11 +5,12 @@
   register: kfilt_version_client_installed
   changed_when: false
   failed_when: false
-
+  check_mode: no
 
 - name: GitVersion
   set_fact:
     kfilt_version_installed: "{{kfilt_version_client_installed.stdout}}"
+  check_mode: no
 
 # - name: GitVersion
 #   debug:

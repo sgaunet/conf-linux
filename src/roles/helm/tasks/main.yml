@@ -6,6 +6,7 @@
   register: helm_version_installed
   changed_when: false
   failed_when: false
+  check_mode: no
 
 # - name: Version
 #   debug:
@@ -25,7 +26,9 @@
     dest: "{{ helm_tmp_directory }}"
     remote_src: true
     mode: 0755
-  when: helm_version_installed != helm_version
+  when: 
+    - not ansible_check_mode
+    - helm_version_installed != helm_version
 
 - name: Copy file with owner and permissions
   copy:
@@ -33,3 +36,6 @@
     dest: "{{ helm_bin_path }}/helm"
     mode: '0755'
     remote_src: yes
+  when: 
+    - not ansible_check_mode
+    - helm_version_installed != helm_version

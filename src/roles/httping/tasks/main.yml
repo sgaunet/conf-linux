@@ -5,6 +5,7 @@
   register: httping_version_client_installed
   changed_when: false
   failed_when: false
+  check_mode: no
 
 # - name: GitVersion
 #   debug:

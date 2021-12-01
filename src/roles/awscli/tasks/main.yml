@@ -6,6 +6,7 @@
     path: "/usr/local/aws-cli/v2/current"
   delegate_to: localhost
   register: link_awscli
+  check_mode: no
 
 - name: Download awscliv2.zip
   get_url:

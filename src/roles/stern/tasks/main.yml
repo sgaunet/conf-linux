@@ -5,6 +5,7 @@
   register: stern_version_installed
   changed_when: false
   failed_when: false
+  check_mode: no
 
 
 - name: Download stern

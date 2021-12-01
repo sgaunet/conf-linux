@@ -5,6 +5,7 @@
   register: kubectl_version_client_installed
   changed_when: false
   failed_when: false
+  check_mode: no
 
 # - name: GitVersion
 #   debug:
@@ -13,6 +14,7 @@
 - name: GitVersion
   set_fact:
     kubectl_version_installed: "{{kubectl_version_client_installed.stdout | regex_search('GitVersion:\\\"(.+)\\\", GitCommit(.*)$','\\1') }}"
+  check_mode: no
 
 # - name: GitVersion
 #   debug:
@@ -26,6 +28,7 @@
     remote_src: true
     mode: 0755
   when:
+    - not ansible_check_mode
     - kubectl_version != kubectl_version_installed
 
 - name: Add aliases to $HOME/.bashrc
@@ -38,6 +41,7 @@
   shell: 'kubectl completion bash'
   register: kubectl_completion
   changed_when: false
+  check_mode: no
 
 # - debug:
 #     msg: "{{ kubectl_completion }}"

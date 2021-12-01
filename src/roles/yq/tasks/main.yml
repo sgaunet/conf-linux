@@ -31,4 +31,5 @@
     remote_src: true
     mode: 0755
   when:
+    - not ansible_check_mode
     - yq_version != yq_version_installed
