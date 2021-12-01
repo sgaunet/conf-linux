@@ -5,6 +5,7 @@
   register: mdtohtml_version_client_installed
   changed_when: false
   failed_when: false
+  check_mode: no
 
 - name: Create a directory if it does not exist
   file:
