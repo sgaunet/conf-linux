@@ -1,0 +1,7 @@
+---
+
+kubecapacity_version: "0.6.2"
+kubecapacity_bin_path: "/usr/local/bin"
+kubecapacity_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
+kubecapacity_os: "Linux" # use "darwin" for MacOS X, "windows" for Windows
+kubecapacity_arch: "x86_64" # other possible values: "386","arm64","arm","ppc64le","s390x"

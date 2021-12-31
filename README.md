@@ -45,6 +45,7 @@ For kubernetes:
 * [popeye](https://github.com/derailed/popeye)
 * [skaffold](https://skaffold.dev/)
 * [kfilt](https://github.com/ryane/kfilt)
+* [kube-capacity](https://github.com/robscott/kube-capacity)
 
 For markdown :
 

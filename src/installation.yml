@@ -12,6 +12,8 @@
     #- zsh
     - role: kubectl
       tags: kube
+    - role: kube-capacity
+      tags: kubecapacity
     - role: kubectx-ns
       tags: kube
     - role: helm

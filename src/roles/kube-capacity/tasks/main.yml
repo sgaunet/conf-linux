@@ -1,0 +1,58 @@
+---
+
+- name: Check kubecapacity version
+  shell: 'kube-capacity version | sed "s#kube-capacity version ##g"'
+  register: kubecapacity_version_client_installed
+  changed_when: false
+  failed_when: false
+  check_mode: no
+
+- name: Check kubecapacity version
+  shell: '/bin/true'
+  changed_when: kubecapacity_version_client_installed.stdout != kubecapacity_version
+  check_mode: no
+
+
+- name: Create a directory if it does not exist
+  file:
+    path: "{{ kubecapacity_tmp_directory }}/{{ kubecapacity_os }}-{{ kubecapacity_arch }}/"
+    state: directory
+    mode: '0755'
+  when: 
+    - not ansible_check_mode
+    - kubecapacity_version != kubecapacity_version_client_installed.stdout
+  # ignore_errors: "{{ ansible_check_mode }}"
+
+
+- name: Download and unarchive kubecapacity
+  unarchive:
+    src: "https://github.com/robscott/kube-capacity/releases/download/v{{ kubecapacity_version }}/kube-capacity_{{ kubecapacity_version }}_{{ kubecapacity_os }}_{{ kubecapacity_arch }}.tar.gz"
+    # src: "https://github.com/robscott/kube-capacity/releases/download/v0.6.2/kube-capacity_0.6.2_Linux_x86_64.tar.gz"
+    dest: "{{ kubecapacity_tmp_directory }}/{{ kubecapacity_os }}-{{ kubecapacity_arch }}/"
+    remote_src: true
+    mode: 0755
+  when: 
+    - not ansible_check_mode
+    - kubecapacity_version != kubecapacity_version_client_installed.stdout
+  # ignore_errors: "{{ ansible_check_mode }}"
+
+
+- name: Copy file with owner and permissions
+  copy:
+    src: "{{ kubecapacity_tmp_directory }}/{{ kubecapacity_os }}-{{ kubecapacity_arch }}/kube-capacity"
+    dest: "{{ kubecapacity_bin_path }}/kube-capacity"
+    mode: '0755'
+    remote_src: yes
+  when: 
+    - not ansible_check_mode
+    - kubecapacity_version != kubecapacity_version_client_installed.stdout
+  # ignore_errors: "{{ ansible_check_mode }}"
+
+- name: Clean temporary directory
+  file:
+    state: absent
+    path: "{{ kubecapacity_tmp_directory }}/{{ kubecapacity_os }}-{{ kubecapacity_arch }}"
+  when: 
+    - not ansible_check_mode
+    - kubecapacity_version != kubecapacity_version_client_installed.stdout
+  # ignore_errors: "{{ ansible_check_mode }}"
