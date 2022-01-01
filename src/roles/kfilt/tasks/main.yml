@@ -7,16 +7,11 @@
   failed_when: false
   check_mode: no
 
-- name: GitVersion
-  set_fact:
-    kfilt_version_installed: "{{kfilt_version_client_installed.stdout}}"
+- name: Check kfilt version
+  shell: '/bin/true'
+  changed_when: kfilt_version_client_installed.stdout != kfilt_version
   check_mode: no
 
-# - name: GitVersion
-#   debug:
-#     msg: "{{ kfilt_version_installed }}"
-
-# https://kubernetes.io/releases/
 - name: Download and unarchive kfilt
   get_url:
     url: "https://github.com/ryane/kfilt/releases/download/v{{ kfilt_version }}/kfilt_{{ kfilt_version }}_{{ kfilt_os }}_{{ kfilt_arch }}"
@@ -24,5 +19,6 @@
     remote_src: true
     mode: 0755
   when:
-    - kfilt_version != kfilt_version_installed
+    - not ansible_check_mode
+    - kfilt_version_client_installed.stdout != kfilt_version
 
