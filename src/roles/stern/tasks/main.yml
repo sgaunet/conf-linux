@@ -7,12 +7,17 @@
   failed_when: false
   check_mode: no
 
+- name: Check stern version
+  shell: '/bin/true'
+  changed_when: stern_version_installed.stdout != stern_version
+  check_mode: no
 
 - name: Download stern
   get_url:
     url: "https://github.com/wercker/stern/releases/download/{{ stern_version }}/stern_{{ stern_os }}_{{ stern_arch }}"
     dest: "{{ stern_bin_path }}"
-    remote_src: True
+    remote_src: "True"
     mode: 0755
   when:
-    - stern_version != stern_version_installed
+    - not ansible_check_mode
+    - stern_version_installed.stdout != stern_version
