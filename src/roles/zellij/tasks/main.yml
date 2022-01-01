@@ -1,44 +1,55 @@
 ---
 
-- name: Check zellij version
+- name: Get zellij version
   shell: 'zellij --version | sed "s#zellij ##g"'
-  register: zellij_version_client_installed
+  register: zellij_version_installed
   changed_when: false
   failed_when: false
   check_mode: no
 
-- name: Create a directory if it does not exist
-  file:
-    path: "{{ zellij_tmp_directory }}/{{ zellij_os }}-{{ zellij_arch }}/"
-    state: directory
-    mode: '0755'
-  when: zellij_version != zellij_version_client_installed.stdout
+- name: Check zellij version
+  shell: '/bin/true'
+  changed_when: zellij_version_installed.stdout != zellij_version
+  check_mode: no
+
+- name: Install zellij
+  block:
+    - name: Create a directory if it does not exist
+      file:
+        path: "{{ zellij_tmp_directory }}/{{ zellij_os }}-{{ zellij_arch }}/"
+        state: directory
+        mode: '0755'
+      # when: 
+      #   - not ansible_check_mode
+      #   - zellij_version != zellij_version_installed.stdout
 
 
-- name: Download and unarchive zellij
-  unarchive:
-    src: "https://github.com/zellij-org/zellij/releases/download/v{{ zellij_version }}/zellij-{{ zellij_arch }}-{{ zellij_os }}.tar.gz"
-    dest: "{{ zellij_tmp_directory }}/{{ zellij_os }}-{{ zellij_arch }}/"
-    remote_src: true
-    mode: 0755
-  when: zellij_version != zellij_version_client_installed.stdout
+    - name: Download and unarchive zellij
+      unarchive:
+        src: "https://github.com/zellij-org/zellij/releases/download/v{{ zellij_version }}/zellij-{{ zellij_arch }}-{{ zellij_os }}.tar.gz"
+        dest: "{{ zellij_tmp_directory }}/{{ zellij_os }}-{{ zellij_arch }}/"
+        remote_src: true
+        mode: 0755
+      # when: 
+      #   - not ansible_check_mode
+      #   - zellij_version != zellij_version_installed.stdout
 
+    - name: Copy file with owner and permissions
+      copy:
+        src: "{{ zellij_tmp_directory }}/{{ zellij_os }}-{{ zellij_arch }}/zellij"
+        dest: "{{ zellij_bin_path }}/zellij"
+        mode: '0755'
+        remote_src: yes
+      # when: 
+      #   - not ansible_check_mode
+      #   - zellij_version != zellij_version_installed.stdout
 
-- name: Copy file with owner and permissions
-  copy:
-    src: "{{ zellij_tmp_directory }}/{{ zellij_os }}-{{ zellij_arch }}/zellij"
-    dest: "{{ zellij_bin_path }}/zellij"
-    mode: '0755'
-    remote_src: yes
+    - name: Clean temporary directory
+      file:
+        state: absent
+        path: "{{ zellij_tmp_directory }}/{{ zellij_os }}-{{ zellij_arch }}"
+
   when: 
     - not ansible_check_mode
-    - zellij_version != zellij_version_client_installed.stdout
-
-- name: Clean temporary directory
-  file:
-    state: absent
-    path: "{{ zellij_tmp_directory }}/{{ zellij_os }}-{{ zellij_arch }}"
-  when: 
-    - not ansible_check_mode
-    - zellij_version != zellij_version_client_installed.stdout
+    - zellij_version != zellij_version_installed.stdout
 
