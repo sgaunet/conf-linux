@@ -7,19 +7,10 @@
   failed_when: false
   check_mode: no
 
-# - name: GitVersion
-#   debug:
-#     msg: "{{popeye_version_client_installed.stdout }}"
-
-
-- name: GitVersion
-  set_fact:
-    popeye_version_installed: "{{popeye_version_client_installed.stdout }}"
+- name: Check popeye version
+  shell: '/bin/true'
+  changed_when: popeye_version_client_installed.stdout != popeye_version
   check_mode: no
-
-# - name: GitVersion
-#   debug:
-#     msg: "{{ popeye_version_installed }}"
 
 - name: Download and unarchive popeye
   unarchive:
@@ -28,4 +19,5 @@
     remote_src: true
     mode: 0755
   when:
-    - popeye_version != popeye_version_installed
+    - not ansible_check_mode
+    - popeye_version_client_installed.stdout != popeye_version
