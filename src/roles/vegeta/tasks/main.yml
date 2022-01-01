@@ -1,59 +1,44 @@
 ---
 
-
-- name: check vegeta version
+- name: Get vegeta version
   shell: "vegeta -version | grep Version | sed 's#Version: ##'"
   register: vegeta_version_installed
   changed_when: false
   failed_when: false
   check_mode: no
 
-- name: GitVersion
-  set_fact:
-    vegeta_version_installed: "{{vegeta_version_installed }}"
+- name: Check vegeta version
+  shell: '/bin/true'
+  changed_when: vegeta_version_installed.stdout != vegeta_version
   check_mode: no
 
+- name: Install vegeta
+  block: 
+    - name: Create a directory if it does not exist
+      file:
+        path: "{{ vegeta_tmp_directory }}/{{ vegeta_os }}-{{ vegeta_arch }}/"
+        state: directory
+        mode: '0755'
 
-- name: GitVersion
-  debug:
-    msg: "{{ vegeta_version_installed.stdout }}"
-  check_mode: no
+    - name: Download and unarchive vegeta
+      unarchive:
+        src: "https://github.com/tsenart/vegeta/releases/download/v{{ vegeta_version }}/vegeta-{{ vegeta_version }}-{{ vegeta_os }}-{{ vegeta_arch }}.tar.gz"
+        dest: "{{ vegeta_tmp_directory }}/{{ vegeta_os }}-{{ vegeta_arch }}/"
+        remote_src: true
+        mode: 0755
 
+    - name: Copy file with owner and permissions
+      copy:
+        src: "{{ vegeta_tmp_directory }}/{{ vegeta_os }}-{{ vegeta_arch }}/vegeta"
+        dest: "{{ vegeta_bin_path }}/vegeta"
+        mode: '0755'
+        remote_src: yes
 
-- name: Create a directory if it does not exist
-  file:
-    path: "{{ vegeta_tmp_directory }}/{{ vegeta_os }}-{{ vegeta_arch }}/"
-    state: directory
-    mode: '0755'
-  when: 
+    - name: Clean temporary directory
+      file:
+        state: absent
+        path: "{{ vegeta_tmp_directory }}/{{ vegeta_os }}-{{ vegeta_arch }}"
+  when:
     - not ansible_check_mode
-    - vegeta_version_installed != vegeta_version
-
-
-- name: Download and unarchive vegeta
-  unarchive:
-    src: "https://github.com/tsenart/vegeta/releases/download/v{{ vegeta_version }}/vegeta-{{ vegeta_version }}-{{ vegeta_os }}-{{ vegeta_arch }}.tar.gz"
-    dest: "{{ vegeta_tmp_directory }}/{{ vegeta_os }}-{{ vegeta_arch }}/"
-    remote_src: true
-    mode: 0755
-  when: 
-    - not ansible_check_mode
-    - vegeta_version_installed != vegeta_version
-
-
-- name: Copy file with owner and permissions
-  copy:
-    src: "{{ vegeta_tmp_directory }}/{{ vegeta_os }}-{{ vegeta_arch }}/vegeta"
-    dest: "{{ vegeta_bin_path }}/vegeta"
-    mode: '0755'
-    remote_src: yes
-  when: 
-    - not ansible_check_mode
-    - vegeta_version_installed != vegeta_version
-
-- name: Clean temporary directory
-  file:
-    state: absent
-    path: "{{ vegeta_tmp_directory }}/{{ vegeta_os }}-{{ vegeta_arch }}"
-  when: vegeta_version_installed != vegeta_version
+    - vegeta_version_installed.stdout != vegeta_version
 
