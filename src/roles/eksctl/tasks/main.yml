@@ -7,24 +7,17 @@
   failed_when: false
   check_mode: no
 
-# - name: GitVersion
-#   debug:
-#     msg: "{{eksctl_version_client_installed.stdout }}"
-
-
-- name: GitVersion
-  set_fact:
-    eksctl_version_installed: "{{eksctl_version_client_installed.stdout }}"
-
-# - name: GitVersion
-#   debug:
-#     msg: "{{ eksctl_version_installed }}"
+- name: Check eksctl version
+  shell: '/bin/true'
+  changed_when: eksctl_version_client_installed.stdout != eksctl_version
+  check_mode: no
 
 - name: Download and unarchive eksctl
   unarchive:
-    src: "https://github.com/weaveworks/eksctl/releases/download/{{ eksctl_version}}/eksctl_{{ eksctl_os }}_{{ eksctl_arch }}.tar.gz"
+    src: "https://github.com/weaveworks/eksctl/releases/download/v{{ eksctl_version}}/eksctl_{{ eksctl_os }}_{{ eksctl_arch }}.tar.gz"
     dest: "{{ eksctl_bin_path }}"
     remote_src: true
     mode: 0755
   when:
-    - eksctl_version != eksctl_version_installed
+    - not ansible_check_mode
+    - eksctl_version_client_installed.stdout != eksctl_version
