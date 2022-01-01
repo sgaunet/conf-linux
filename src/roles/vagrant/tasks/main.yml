@@ -1,10 +1,15 @@
 ---
 
-- name: check vagrant version
-  shell: "vagrant -v"
+- name: Get vagrant version
+  shell: "vagrant -v | sed 's/Vagrant //g'"
   register: vagrant_version_installed
   changed_when: false
   failed_when: false
+  check_mode: no
+
+- name: Check vagrant version
+  shell: '/bin/true'
+  changed_when: vagrant_version_installed.stdout != vagrant_version
   check_mode: no
 
 - name: Download and unarchive vagrant.
@@ -12,6 +17,7 @@
     src: https://releases.hashicorp.com/vagrant/{{ vagrant_version }}/vagrant_{{ vagrant_version }}_linux_{{ vagrant_arch }}.zip
     dest: "{{ vagrant_bin_path }}"
     remote_src: true
-    creates: "{{ vagrant_bin_path }}/vagrant"
     mode: 0755
-  when: vagrant_version_installed != vagrant_version
+  when: 
+    - not ansible_check_mode
+    - vagrant_version_installed.stdout != vagrant_version
