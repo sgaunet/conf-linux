@@ -1,6 +1,5 @@
 ---
 
-
 - name: check helm version
   shell: "helm version --template '{{ '{{' }} .Version {{ '}}' }}'"
   register: helm_version_installed
@@ -8,17 +7,10 @@
   failed_when: false
   check_mode: no
 
-# - name: Version
-#   debug:
-#     msg: "{{helm_version_installed.stdout | regex_search('Version:\\\"(.+)\\\", GitCommit(.*)$','\\1') }}"
-
-# - name: GitVersion
-#   set_fact:
-#     helm_version_installed: "{{helm_version_installed.stdout | regex_search('Version:\\\"(.+)\\\", GitCommit(.*)$','\\1') }}"
-
-# - name: GitVersion
-#   debug:
-#     msg: "{{ helm_version_installed }}"
+- name: Check helm version
+  shell: '/bin/true'
+  changed_when: helm_version_installed.stdout != helm_version
+  check_mode: no
 
 - name: Download and unarchive helm
   unarchive:

@@ -7,18 +7,10 @@
   failed_when: false
   check_mode: no
 
-# - name: GitVersion
-#   debug:
-#     msg: "{{httping_version_client_installed.stdout }}"
-
-
-- name: GitVersion
-  set_fact:
-    httping_version_installed: "{{httping_version_client_installed.stdout }}"
-
-# - name: GitVersion
-#   debug:
-#     msg: "{{ httping_version_installed }}"
+- name: Check httping version
+  shell: '/bin/true'
+  changed_when: httping_version_client_installed.stdout != httping_version
+  check_mode: no
 
 - name: Download and unarchive httping
   unarchive:
@@ -27,4 +19,5 @@
     remote_src: true
     mode: 0755
   when:
-    - httping_version != httping_version_installed
+    - not ansible_check_mode
+    - httping_version_client_installed.stdout != httping_version
