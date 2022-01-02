@@ -1,24 +1,16 @@
 ---
 
 - name: Check kubectl version
-  shell: 'kubectl version --client=true | sed "s#Client Version: version.Info##g"'
+  shell: 'kubectl version --short=true --client=true | sed "s#Client Version: v##g"'
   register: kubectl_version_client_installed
   changed_when: false
   failed_when: false
   check_mode: no
 
-# - name: GitVersion
-#   debug:
-#     msg: "{{kubectl_version_client_installed.stdout | regex_search('GitVersion:\\\"(.+)\\\", GitCommit(.*)$','\\1') }}"
-
-- name: GitVersion
-  set_fact:
-    kubectl_version_installed: "{{kubectl_version_client_installed.stdout | regex_search('GitVersion:\\\"(.+)\\\", GitCommit(.*)$','\\1') }}"
+- name: Check kubectl version
+  shell: '/bin/true'
+  changed_when: kubectl_version_client_installed.stdout != kubectl_version
   check_mode: no
-
-# - name: GitVersion
-#   debug:
-#     msg: "{{ kubectl_version_installed }}"
 
 # https://kubernetes.io/releases/
 - name: Download and unarchive kubectl
@@ -29,7 +21,7 @@
     mode: 0755
   when:
     - not ansible_check_mode
-    - kubectl_version != kubectl_version_installed
+    - kubectl_version != kubectl_version_client_installed.stdout
 
 - name: Add aliases to $HOME/.bashrc
   become: false
@@ -42,6 +34,8 @@
   register: kubectl_completion
   changed_when: false
   check_mode: no
+  when:
+    - kubectl_version == kubectl_version_client_installed.stdout
 
 # - debug:
 #     msg: "{{ kubectl_completion }}"
@@ -53,3 +47,5 @@
     owner: root
     group: root
     mode: '0755'
+  when:
+    - kubectl_version == kubectl_version_client_installed.stdout
