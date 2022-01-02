@@ -1,7 +1,7 @@
 ---
 
 # "dust" version to install
-dust_version: "0.6.2"
+dust_version: "0.7.5"
 dust_bin_path: "/usr/local/bin"
 dust_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
 dust_os: "unknown-linux-gnu" # use "darwin" for MacOS X, "windows" for Windows
