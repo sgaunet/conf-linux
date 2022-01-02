@@ -7,6 +7,10 @@
   failed_when: false
   check_mode: no
 
+- name: Check kind version
+  shell: '/bin/true'
+  changed_when: kind_version_installed.stdout != kind_version
+  check_mode: no
 
 - name: Download kind
   get_url:
