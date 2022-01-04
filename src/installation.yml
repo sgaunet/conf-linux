@@ -82,3 +82,5 @@
       tags: gdu
     - role: bandwhich
       tags: bandwhich
+    - role: trivy
+      tags: trivy
