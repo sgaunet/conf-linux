@@ -1,0 +1,36 @@
+---
+
+- name: Check buildx version
+  become: false
+  shell: 'docker buildx version | cut -f2 -d " " | sed "s#^v##g"'
+  register: buildx_version_client_installed
+  changed_when: false
+  failed_when: false
+  check_mode: no
+
+- name: Check buildx version
+  shell: '/bin/true'
+  changed_when: buildx_version_client_installed.stdout != buildx_version
+  check_mode: no
+
+- name: "debug"
+  debug:
+    msg: "{{buildx_version_client_installed.stdout}} // {{buildx_version}}"
+
+- name: Install buildx
+  become: false
+  block:
+    - name: Create dir {{ lookup('env','HOME') }}/.docker/cli-plugins
+      file:
+        path: "{{ lookup('env','HOME') }}/.docker/cli-plugins"
+        state: directory
+        mode: '0755'
+
+    - name: Download buildx
+      get_url:
+        url: "https://github.com/docker/buildx/releases/download/v{{ buildx_version }}/buildx-v{{ buildx_version }}.{{ buildx_os }}-{{ buildx_arch }}"
+        dest: "{{ lookup('env','HOME') }}/.docker/cli-plugins/docker-buildx"
+        mode: 0755
+  when: 
+    - not ansible_check_mode
+    - buildx_version != buildx_version_client_installed.stdout

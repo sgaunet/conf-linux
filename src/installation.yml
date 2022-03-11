@@ -86,3 +86,5 @@
       tags: trivy
     - role: hyperfine
       tags: hyperfine
+    - role: buildx
+      tags: buildx
