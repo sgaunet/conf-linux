@@ -84,3 +84,4 @@ Misceleaneous :
 * [gdu](https://github.com/dundee/gdu)
 * [yq](https://github.com/mikefarah/yq)
 * [bandwhich](https://github.com/imsnif/bandwhich)
+* [hyperfine](https://github.com/sharkdp/hyperfine)

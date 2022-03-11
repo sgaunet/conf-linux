@@ -84,3 +84,5 @@
       tags: bandwhich
     - role: trivy
       tags: trivy
+    - role: hyperfine
+      tags: hyperfine
