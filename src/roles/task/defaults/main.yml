@@ -1,7 +1,7 @@
 ---
 
 # "task" version to install
-task_version: "v3.9.2"
+task_version: "v3.11.0"
 task_bin_path: "/usr/local/bin"
 task_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
 task_os: "linux" # use "darwin" for MacOS X, "windows" for Windows
