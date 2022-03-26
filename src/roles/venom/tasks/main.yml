@@ -1,0 +1,23 @@
+---
+
+- name: Check venom version
+  shell: 'venom version | sed "s#Version venom: v##g"'
+  register: venom_version_client_installed
+  changed_when: false
+  failed_when: false
+  check_mode: no
+
+- name: Check venom version
+  shell: '/bin/true'
+  changed_when: venom_version_client_installed.stdout != venom_version
+  check_mode: no
+
+- name: Download and unarchive venom
+  get_url:
+    url: "https://github.com/ovh/venom/releases/download/v{{ venom_version }}/venom.{{ venom_os }}-{{ venom_arch }}"
+    dest: "{{ venom_bin_path }}/venom"
+    remote_src: true
+    mode: 0755
+  when:
+    - not ansible_check_mode
+    - venom_version != venom_version_client_installed.stdout

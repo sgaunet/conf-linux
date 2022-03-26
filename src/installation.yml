@@ -88,3 +88,5 @@
       tags: hyperfine
     - role: buildx
       tags: buildx
+    - role: venom
+      tags: venom
