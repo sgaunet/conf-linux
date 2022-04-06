@@ -30,6 +30,7 @@ For AWS :
 
 * [eksctl](https://eksctl.io/)
 * [awscli v2](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
+* [ekspodlogs](https://github.com/sgaunet/ekspodlogs)
 
 For kubernetes:
 

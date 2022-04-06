@@ -92,3 +92,5 @@
       tags: venom
     - role: ctop
       tags: ctop
+    - role: ekspodlogs
+      tags: ekspodlogs
