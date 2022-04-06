@@ -1,0 +1,43 @@
+---
+
+- name: Check gocrypt version
+  shell: 'gocrypt -v'
+  register: gocrypt_version_client_installed
+  changed_when: false
+  failed_when: false
+  check_mode: no
+
+- name: Check gocrypt version
+  shell: '/bin/true'
+  changed_when: gocrypt_version_client_installed.stdout != gocrypt_version
+  check_mode: no
+
+- name: Install gocrypt
+  block: 
+    - name: Create a directory if it does not exist
+      file:
+        path: "{{ gocrypt_tmp_directory }}/{{ gocrypt_os }}-{{ gocrypt_arch }}/"
+        state: directory
+        mode: '0755'
+
+    - name: Download and unarchive gocrypt
+      unarchive:
+        src: "https://github.com/sgaunet/gocrypt/releases/download/v{{ gocrypt_version }}/gocrypt_{{ gocrypt_version }}_{{ gocrypt_os }}_{{ gocrypt_arch }}.tar.gz"
+        dest: "{{ gocrypt_tmp_directory }}/{{ gocrypt_os }}-{{ gocrypt_arch }}/"
+        remote_src: true
+        mode: 0755
+
+    - name: Copy file with owner and permissions
+      copy:
+        src: "{{ gocrypt_tmp_directory }}/{{ gocrypt_os }}-{{ gocrypt_arch }}/gocrypt"
+        dest: "{{ gocrypt_bin_path }}/gocrypt"
+        mode: '0755'
+        remote_src: yes
+
+    - name: Clean temporary directory
+      file:
+        state: absent
+        path: "{{ gocrypt_tmp_directory }}/{{ gocrypt_os }}-{{ gocrypt_arch }}"
+  when: 
+    - not ansible_check_mode
+    - gocrypt_version != gocrypt_version_client_installed.stdout

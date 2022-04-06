@@ -1,0 +1,8 @@
+---
+
+# "gocrypt" version to install
+gocrypt_version: "0.2.0"
+gocrypt_bin_path: "/usr/local/bin"
+gocrypt_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
+gocrypt_os: "Linux" # use "darwin" for MacOS X, "windows" for Windows
+gocrypt_arch: "x86_64" # other possible values: "386","arm64","arm","ppc64le","s390x"

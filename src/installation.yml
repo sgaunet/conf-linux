@@ -94,3 +94,5 @@
       tags: ctop
     - role: ekspodlogs
       tags: ekspodlogs
+    - role: gocrypt
+      tags: gocrypt

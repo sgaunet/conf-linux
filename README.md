@@ -89,3 +89,4 @@ Misceleaneous :
 * [hyperfine](https://github.com/sharkdp/hyperfine)
 * [venom](https://github.com/ovh/venom)
 * [ctop](https://github.com/bcicen/ctop)
+* [gocrypt](https://github.com/sgaunet/gocrypt)
