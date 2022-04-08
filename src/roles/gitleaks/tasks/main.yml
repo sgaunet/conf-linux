@@ -1,0 +1,46 @@
+---
+
+- name: Check gitleaks version
+  shell: "gitleaks version"
+  register: gitleaks_version_client_installed
+  changed_when: false
+  failed_when: false
+  check_mode: no
+
+- name: Check gitleaks version
+  shell: '/bin/true'
+  changed_when: gitleaks_version_client_installed.stdout != gitleaks_version
+  check_mode: no
+
+- debug:
+    var: gitleaks_version_client_installed.stdout
+
+- name: Install gitleaks
+  block:
+    - name: Create a directory if it does not exist
+      file:
+        path: "{{ gitleaks_tmp_directory }}/{{ gitleaks_os }}-{{ gitleaks_arch }}/"
+        state: directory
+        mode: '0755'
+
+    - name: Download and unarchive gitleaks
+      unarchive:
+        src: "https://github.com/zricethezav/gitleaks/releases/download/v{{ gitleaks_version }}/gitleaks_{{ gitleaks_version }}_{{ gitleaks_os }}_{{ gitleaks_arch }}.tar.gz"
+        dest: "{{ gitleaks_tmp_directory }}/{{ gitleaks_os }}-{{ gitleaks_arch }}/"
+        remote_src: true
+        mode: 0755
+
+    - name: Copy file with owner and permissions
+      copy:
+        src: "{{ gitleaks_tmp_directory }}/{{ gitleaks_os }}-{{ gitleaks_arch }}/gitleaks"
+        dest: "{{ gitleaks_bin_path }}/gitleaks"
+        mode: '0755'
+        remote_src: yes
+
+    - name: Clean temporary directory
+      file:
+        state: absent
+        path: "{{ gitleaks_tmp_directory }}/{{ gitleaks_os }}-{{ gitleaks_arch }}"
+  when: 
+    - not ansible_check_mode
+    - gitleaks_version != gitleaks_version_client_installed.stdout

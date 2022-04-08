@@ -91,3 +91,5 @@ Misceleaneous :
 * [venom](https://github.com/ovh/venom)
 * [ctop](https://github.com/bcicen/ctop)
 * [gocrypt](https://github.com/sgaunet/gocrypt)
+* [gitleaks](https://github.com/zricethezav/gitleaks)
+
