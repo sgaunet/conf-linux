@@ -59,6 +59,7 @@ For Docker :
 * [dockle](https://github.com/goodwithtech/dockle)
 * [hadolint](https://github.com/hadolint/hadolint)
 * [docker buildx](https://github.com/docker/buildx)
+* [grype](https://github.com/anchore/grype)
 
 For GOLANG :
 

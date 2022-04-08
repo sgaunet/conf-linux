@@ -96,3 +96,5 @@
       tags: ekspodlogs
     - role: gocrypt
       tags: gocrypt
+    - role: grype
+      tags: grype
