@@ -1,0 +1,24 @@
+---
+
+- name: Get tilt version
+  shell: "tilt version | sed 's#^v##g' | awk -F, '{ print $1 }'  "
+  register: tilt_version_installed
+  changed_when: false
+  failed_when: false
+  check_mode: no
+
+- name: Check tilt version
+  shell: '/bin/true'
+  changed_when: tilt_version_installed.stdout != tilt_version
+  check_mode: no
+
+
+- name: GitVersion
+  set_fact:
+    tilt_version_installed: "{{tilt_version_installed.stdout }}"
+
+- name: Install tilt
+  shell: "curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash"
+  when:
+    - not ansible_check_mode
+    - tilt_version != tilt_version_installed
