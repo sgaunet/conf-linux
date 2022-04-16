@@ -104,3 +104,5 @@
       tags: tilt
     - role: s5cmd
       tags: s5cmd
+    - role: gitconfig
+      tags: gitconfig
