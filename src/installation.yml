@@ -102,3 +102,5 @@
       tags: gitleaks
     - role: tilt
       tags: tilt
+    - role: s5cmd
+      tags: s5cmd
