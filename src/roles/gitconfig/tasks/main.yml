@@ -18,3 +18,25 @@
           p-fuck="!git clean -f -x -d"
           # A shortcut for the the command 'p-all'
           pow=!git p-all
+
+- name: Create a directory {{ lookup('env','HOME') }}/.bin
+  become: false
+  file:
+    path: "{{ lookup('env','HOME') }}/.bin"
+    state: directory
+    mode: '0750'
+
+- name: Copy gitst.sh
+  become: false
+  copy:
+    src: "gitst.sh"
+    dest: "{{ lookup('env','HOME') }}/.bin/"
+    mode: '0755'
+
+- name: Update PATH $HOME/.bashrc
+  become: false
+  lineinfile:
+    path: "{{ lookup('env','HOME') }}/.bashrc"
+    line: "{{ item }}"
+  with_items:
+   - 'export PATH=$HOME/.bin:$PATH'
