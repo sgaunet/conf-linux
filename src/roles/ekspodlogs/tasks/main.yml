@@ -16,7 +16,6 @@
   get_url:
     url: https://github.com/sgaunet/ekspodlogs/releases/download/v{{ ekspodlogs_version }}/ekspodlogs_{{ ekspodlogs_version }}_{{ ekspodlogs_os }}_{{ ekspodlogs_arch }}
     dest: "{{ ekspodlogs_bin_path }}/ekspodlogs"
-    remote_src: true
     mode: 0755
   when:
     - not ansible_check_mode
