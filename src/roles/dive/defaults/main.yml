@@ -1,0 +1,7 @@
+---
+
+dive_version: "0.10.0"
+dive_bin_path: "/usr/local/bin"
+dive_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
+dive_os: "linux" # use "darwin" for MacOS X, "windows" for Windows
+dive_arch: "amd64" # other possible values: "386","arm64","arm","ppc64le","s390x"

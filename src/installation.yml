@@ -106,3 +106,5 @@
       tags: s5cmd
     - role: gitconfig
       tags: gitconfig
+    - role: dive
+      tags: dive
