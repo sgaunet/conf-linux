@@ -1,7 +1,7 @@
 ---
 
 # "kfilt" version to install
-kfilt_version: "0.0.6"
+kfilt_version: "0.0.7"
 kfilt_bin_path: "/usr/local/bin"
 kfilt_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
 kfilt_os: "linux" # use "darwin" for MacOS X, "windows" for Windows
