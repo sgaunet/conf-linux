@@ -44,7 +44,6 @@ For kubernetes:
 * [kubectx/kubens](https://github.com/ahmetb/kubectx/)
 * [stern](https://github.com/wercker/stern)
 * [popeye](https://github.com/derailed/popeye)
-* [skaffold](https://skaffold.dev/)
 * [kfilt](https://github.com/ryane/kfilt)
 * [kube-capacity](https://github.com/robscott/kube-capacity)
 * [tilt](https://tilt.dev/)
