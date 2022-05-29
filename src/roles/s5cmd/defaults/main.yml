@@ -1,7 +1,7 @@
 ---
 
 # "s5cmd" version to install
-s5cmd_version: "2.0.0-beta"
+s5cmd_version: "2.0.0-beta.2"
 s5cmd_bin_path: "/usr/local/bin"
 s5cmd_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
 s5cmd_os: "Linux" # use "darwin" for MacOS X, "windows" for Windows
