@@ -16,7 +16,6 @@
   get_url:
     url: https://github.com/bcicen/ctop/releases/download/v{{ ctop_version }}/ctop-{{ ctop_version }}-{{ ctop_os }}-{{ ctop_arch }}
     dest: "{{ ctop_bin_path }}/ctop"
-    remote_src: true
     mode: 0755
   when:
     - not ansible_check_mode

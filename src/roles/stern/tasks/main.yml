@@ -16,7 +16,6 @@
   get_url:
     url: "https://github.com/wercker/stern/releases/download/{{ stern_version }}/stern_{{ stern_os }}_{{ stern_arch }}"
     dest: "{{ stern_bin_path }}"
-    remote_src: "True"
     mode: 0755
   when:
     - not ansible_check_mode

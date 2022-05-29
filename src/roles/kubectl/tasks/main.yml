@@ -15,9 +15,8 @@
 # https://kubernetes.io/releases/
 - name: Download and unarchive kubectl
   get_url:
-    url: "https://storage.googleapis.com/kubernetes-release/release/v{{ kubectl_version }}/bin/{{ kubectl_os }}/{{ kubectl_arch }}/kubectl"
+    url: "https://dl.k8s.io/v{{ kubectl_version }}/bin/{{ kubectl_os }}/{{ kubectl_arch }}/kubectl"
     dest: "{{ kubectl_bin_path }}"
-    remote_src: true
     mode: 0755
   when:
     - not ansible_check_mode

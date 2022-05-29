@@ -16,7 +16,6 @@
   get_url:
     url: "https://github.com/kubernetes-sigs/kind/releases/download/v{{ kind_version }}/kind-{{ kind_os }}-{{ kind_arch }}"
     dest: "{{ kind_bin_path }}"
-    remote_src: True
     mode: 0755
   when:
     - not ansible_check_mode

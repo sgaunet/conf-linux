@@ -16,7 +16,6 @@
   get_url:
     url: "https://github.com/ryane/kfilt/releases/download/v{{ kfilt_version }}/kfilt_{{ kfilt_version }}_{{ kfilt_os }}_{{ kfilt_arch }}"
     dest: "{{ kfilt_bin_path }}/kfilt"
-    remote_src: true
     mode: 0755
   when:
     - not ansible_check_mode

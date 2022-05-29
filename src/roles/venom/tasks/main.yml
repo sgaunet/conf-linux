@@ -16,7 +16,6 @@
   get_url:
     url: "https://github.com/ovh/venom/releases/download/v{{ venom_version }}/venom.{{ venom_os }}-{{ venom_arch }}"
     dest: "{{ venom_bin_path }}/venom"
-    remote_src: true
     mode: 0755
   when:
     - not ansible_check_mode
