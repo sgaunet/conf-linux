@@ -1,7 +1,7 @@
 ---
 
 # "helm" version to install
-helm_version: "v3.2.4"
+helm_version: "v3.9.0"
 helm_bin_path: "/usr/local/bin"
 helm_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
 helm_os: "linux" # use "darwin" for MacOS X, "windows" for Windows
