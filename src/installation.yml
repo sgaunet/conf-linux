@@ -30,8 +30,6 @@
       tags: k9s
     # - role: k3s
     #   tags: k3s
-    - role: skaffold
-      tags: skaffold
     - role: alias
       tags: alias
     - role: krew-plugins
