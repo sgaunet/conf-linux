@@ -1,6 +1,6 @@
 ---
 
-popeye_version: "0.9.8"
+popeye_version: "0.10.0"
 popeye_bin_path: "/usr/local/bin"
 popeye_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
 popeye_os: "Linux" # use "darwin" for MacOS X, "windows" for Windows
