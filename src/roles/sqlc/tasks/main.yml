@@ -1,0 +1,44 @@
+---
+
+- name: Check sqlc version
+  shell: 'sqlc version | sed "s#^v##g" '
+  register: sqlc_version_client_installed
+  changed_when: false
+  failed_when: false
+  check_mode: no
+
+- name: Check sqlc version
+  shell: '/bin/true'
+  changed_when: sqlc_version_client_installed.stdout != sqlc_version
+  check_mode: no
+
+- name: Install sqlc
+  block:
+    - name: Create a directory if it does not exist
+      file:
+        path: "{{ sqlc_tmp_directory }}/{{ sqlc_os }}-{{ sqlc_arch }}/"
+        state: directory
+        mode: '0755'
+
+    - name: Download and unarchive sqlc
+      unarchive:
+        src: "https://github.com/kyleconroy/sqlc/releases/download/v{{ sqlc_version }}/sqlc_{{ sqlc_version }}_{{ sqlc_os }}_{{ sqlc_arch }}.tar.gz"
+        dest: "{{ sqlc_tmp_directory }}/{{ sqlc_os }}-{{ sqlc_arch }}/"
+        remote_src: true
+        mode: 0755
+
+    - name: Copy file with owner and permissions
+      copy:
+        src: "{{ sqlc_tmp_directory }}/{{ sqlc_os }}-{{ sqlc_arch }}/sqlc"
+        dest: "{{ sqlc_bin_path }}/sqlc"
+        mode: '0755'
+        remote_src: yes
+
+    - name: Clean temporary directory
+      file:
+        state: absent
+        path: "{{ sqlc_tmp_directory }}/{{ sqlc_os }}-{{ sqlc_arch }}"
+  when: 
+    - not ansible_check_mode
+    - sqlc_version != sqlc_version_client_installed.stdout
+

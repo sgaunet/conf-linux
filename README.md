@@ -67,6 +67,7 @@ For GOLANG :
 * [gvm](https://github.com/moovweb/gvm)
 * [goreleaser](https://github.com/goreleaser/goreleaser/)
 * [task](https://taskfile.dev/)
+* [sqlc](https://sqlc.dev/)
 
 
 VM :
