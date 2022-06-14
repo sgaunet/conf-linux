@@ -108,3 +108,5 @@
       tags: dive
     - role: sqlc
       tags: sqlc
+    - role: sshs
+      tags: sshs

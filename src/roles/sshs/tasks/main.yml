@@ -1,0 +1,24 @@
+---
+
+- name: Check sshs version
+  shell: 'sshs --version | sed "s#sshs version ##g"'
+  register: sshs_version_client_installed
+  changed_when: false
+  failed_when: false
+  check_mode: no
+
+- name: Check sshs version
+  shell: '/bin/true'
+  changed_when: sshs_version_client_installed.stdout != sshs_version
+  check_mode: no
+
+# https://kubernetes.io/releases/
+- name: Download and unarchive sshs
+  get_url:
+    url: "https://github.com/quantumsheep/sshs/releases/download/{{ sshs_version }}/sshs-{{ sshs_os }}-{{ sshs_arch }}"
+    dest: "{{ sshs_bin_path }}/sshs"
+    mode: 0755
+  when:
+    - not ansible_check_mode
+    - sshs_version != sshs_version_client_installed.stdout
+
