@@ -96,4 +96,5 @@ Misceleaneous :
 * [gitleaks](https://github.com/zricethezav/gitleaks)
 * [s5cmd](https://github.com/peak/s5cmd)
 * [sshs](https://github.com/quantumsheep/sshs)
+* [glab](https://github.com/profclems/glab/)
 
