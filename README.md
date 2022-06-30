@@ -97,4 +97,5 @@ Misceleaneous :
 * [s5cmd](https://github.com/peak/s5cmd)
 * [sshs](https://github.com/quantumsheep/sshs)
 * [glab](https://github.com/profclems/glab/)
+* [viddy](https://github.com/sachaos/viddy)
 
