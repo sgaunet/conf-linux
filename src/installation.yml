@@ -114,3 +114,5 @@
       tags: glab
     - role: viddy
       tags: viddy
+    - role: gitlab-issue-report
+      tags: gitlab-issue-report

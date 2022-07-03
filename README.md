@@ -98,4 +98,5 @@ Misceleaneous :
 * [sshs](https://github.com/quantumsheep/sshs)
 * [glab](https://github.com/profclems/glab/)
 * [viddy](https://github.com/sachaos/viddy)
+* [gitlab-issue-report](https://github.com/sgaunet/gitlab-issue-report)
 
