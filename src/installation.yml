@@ -66,8 +66,6 @@
       tags: goreleaser
     - role: task
       tags: task
-    - role: pgmetrics
-      tags: pgmetrics
     - role: gtmpl
       tags: gtmpl
     - role: kfilt
