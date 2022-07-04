@@ -1,6 +1,7 @@
 ---
 
 - name: Check gitlabissuereport version
+  become: false
   shell: 'gitlab-issue-report -v'
   register: gitlabissuereport_version_client_installed
   changed_when: false

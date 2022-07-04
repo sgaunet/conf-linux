@@ -1,6 +1,7 @@
 ---
 
 - name: Get task version
+  become: false
   shell: 'task --version | cut -f3 -d " "'
   register: task_version_installed
   changed_when: false

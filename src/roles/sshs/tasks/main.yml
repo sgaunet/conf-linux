@@ -1,6 +1,7 @@
 ---
 
 - name: Check sshs version
+  become: false
   shell: 'sshs --version | sed "s#sshs version ##g"'
   register: sshs_version_client_installed
   changed_when: false

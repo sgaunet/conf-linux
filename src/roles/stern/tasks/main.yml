@@ -1,6 +1,7 @@
 ---
 
 - name: Check stern version
+  become: false
   shell: "stern -v | grep -Po 'stern version \\K.*$'"
   register: stern_version_installed
   changed_when: false

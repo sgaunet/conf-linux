@@ -1,6 +1,7 @@
 ---
 
 - name: Get vagrant version
+  become: false
   shell: "vagrant -v | sed 's/Vagrant //g'"
   register: vagrant_version_installed
   changed_when: false

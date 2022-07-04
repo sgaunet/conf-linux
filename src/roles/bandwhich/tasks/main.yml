@@ -1,6 +1,7 @@
 ---
 
 - name: Check bandwhich version
+  become: false
   shell: 'bandwhich --version | sed "s#bandwhich ##g"'
   register: bandwhich_version_client_installed
   changed_when: false

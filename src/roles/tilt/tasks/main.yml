@@ -1,6 +1,7 @@
 ---
 
 - name: Get tilt version
+  become: false
   shell: "tilt version | sed 's#^v##g' | awk -F, '{ print $1 }'  "
   register: tilt_version_installed
   changed_when: false

@@ -1,6 +1,7 @@
 ---
 
 - name: Check ekspodlogs version
+  become: false
   shell: 'ekspodlogs -v'
   register: ekspodlogs_version_client_installed
   changed_when: false

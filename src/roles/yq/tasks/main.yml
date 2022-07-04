@@ -1,6 +1,7 @@
 ---
 
 - name: Get yq version
+  become: false
   shell: 'yq -V | sed "s#yq (https://github.com/mikefarah/yq/) version##"  '
   register: yq_version_installed
   changed_when: false

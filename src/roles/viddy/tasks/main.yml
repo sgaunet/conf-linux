@@ -1,6 +1,7 @@
 ---
 
 - name: Check viddy version
+  become: false
   shell: 'viddy -v | sed "s#viddy version: ##g"'
   register: viddy_version_client_installed
   changed_when: false

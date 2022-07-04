@@ -1,6 +1,7 @@
 ---
 
 - name: Check popeye version
+  become: false
   shell: "popeye version | grep -Po 'Version:[[:space:]]+\\K.*'"
   register: popeye_version_client_installed
   changed_when: false

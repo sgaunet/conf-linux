@@ -1,6 +1,7 @@
 ---
 
 - name: Get packer version
+  become: false
   shell: "packer -v"
   register: packer_version_installed
   changed_when: false

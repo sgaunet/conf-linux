@@ -1,6 +1,7 @@
 ---
 
 - name: Check dust version
+  become: false
   shell: 'dust --version | sed "s#Dust ##g"'
   register: dust_version_client_installed
   changed_when: false

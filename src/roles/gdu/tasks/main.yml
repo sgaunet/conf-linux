@@ -1,6 +1,7 @@
 ---
 
 - name: Check gdu version
+  become: false
   shell: 'gdu -v | grep Version | sed "s#Version:[[:space:]]*v##g"'
   register: gdu_version_client_installed
   changed_when: false

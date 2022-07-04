@@ -1,6 +1,7 @@
 ---
 
 - name: Get zellij version
+  become: false
   shell: 'zellij --version | sed "s#zellij ##g"'
   register: zellij_version_installed
   changed_when: false

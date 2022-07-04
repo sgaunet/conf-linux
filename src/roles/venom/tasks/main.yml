@@ -1,6 +1,7 @@
 ---
 
 - name: Check venom version
+  become: false
   shell: 'venom version | sed "s#Version venom: v##g"'
   register: venom_version_client_installed
   changed_when: false

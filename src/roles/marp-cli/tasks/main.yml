@@ -1,6 +1,7 @@
 ---
 
 - name: Check marp version
+  become: false
   shell: 'marp -v'
   register: marp_version_client_installed
   changed_when: false

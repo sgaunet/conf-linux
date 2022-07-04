@@ -1,6 +1,7 @@
 ---
 
 - name: Check kubecapacity version
+  become: false
   shell: 'kube-capacity version | sed "s#kube-capacity version ##g"'
   register: kubecapacity_version_client_installed
   changed_when: false

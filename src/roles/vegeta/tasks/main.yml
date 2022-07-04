@@ -1,6 +1,7 @@
 ---
 
 - name: Get vegeta version
+  become: false
   shell: "vegeta -version | grep Version | sed 's#Version: ##'"
   register: vegeta_version_installed
   changed_when: false

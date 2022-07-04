@@ -1,6 +1,7 @@
 ---
 
 - name: Check httping version
+  become: false
   shell: "httping-go -v"
   register: httping_version_client_installed
   changed_when: false

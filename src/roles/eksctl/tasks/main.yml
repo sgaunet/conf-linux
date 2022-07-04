@@ -1,6 +1,7 @@
 ---
 
 - name: Check eksctl version
+  become: false
   shell: "eksctl version"
   register: eksctl_version_client_installed
   changed_when: false

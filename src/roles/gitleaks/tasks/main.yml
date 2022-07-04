@@ -1,6 +1,7 @@
 ---
 
 - name: Check gitleaks version
+  become: false
   shell: "gitleaks version"
   register: gitleaks_version_client_installed
   changed_when: false

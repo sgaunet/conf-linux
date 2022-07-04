@@ -1,6 +1,7 @@
 ---
 
 - name: Check kind version
+  become: false
   shell: "kind --version | grep -Po 'kind version \\K.*$'"
   register: kind_version_installed
   changed_when: false

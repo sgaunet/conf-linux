@@ -1,6 +1,7 @@
 ---
 
 - name: check helm version
+  become: false
   shell: "helm version --template '{{ '{{' }} .Version {{ '}}' }}'"
   register: helm_version_installed
   changed_when: false

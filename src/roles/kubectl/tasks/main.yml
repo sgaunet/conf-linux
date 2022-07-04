@@ -1,6 +1,7 @@
 ---
 
 - name: Check kubectl version
+  become: false
   shell: 'kubectl version --short=true --client=true | sed "s#Client Version: v##g"'
   register: kubectl_version_client_installed
   changed_when: false

@@ -1,6 +1,7 @@
 ---
 
 - name: Check hyperfine version
+  become: false
   shell: 'hyperfine --version | sed "s#hyperfine ##g"'
   register: hyperfine_version_client_installed
   changed_when: false
