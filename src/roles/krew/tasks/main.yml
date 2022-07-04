@@ -1,64 +1,67 @@
+---
 
-- name: Check if krew already installed
+- name: Check krew version
   become: false
-  stat: 
-    path: "{{ lookup('env','HOME') + '/.krew/bin/kubectl-krew' }}"
-  delegate_to: localhost
-  register: is_krew_installed
+  shell: kubectl-krew version | grep GitTag | awk '{ print $2 }' | sed "s#^v##g"
+  register: krew_version_client_installed
   changed_when: false
+  failed_when: false
+  check_mode: no
 
-- name: Download krew
-  get_url:
-    url: https://github.com/kubernetes-sigs/krew/releases/latest/download/krew.tar.gz
-    dest: /tmp/krew.tar.gz
-    mode: '0750'
-  when: is_krew_installed.stat.exists == false
+- name: Check krew version
+  shell: '/bin/true'
+  changed_when: krew_version_client_installed.stdout != krew_version
+  check_mode: no
 
-# - name: "Create folder {{ lookup('env','HOME') + '/.krew/bin/' }}"
-#   file:
-#     path: "{{ lookup('env','HOME') + '/.krew/bin/' }}"
-#     state: directory
-#     mode: '0777'
-
-- name: Create temporary folder /tmp/krew
-  file:
-    path: /tmp/krew
-    state: directory
-  when: is_krew_installed.stat.exists == false
-
-- name: Extract to /tmp/krew
-  unarchive:
-    src: /tmp/krew.tar.gz
-    dest: /tmp/krew
-    remote_src: yes
-  when: is_krew_installed.stat.exists == false
+- debug:
+    var: krew_version_client_installed.stdout
 
 - name: Install krew
-  become: false
-  shell: /tmp/krew/krew-{{ krew_os }}_{{ krew_arch }} install krew
-  when: is_krew_installed.stat.exists == false
+  block:
+  - name: Remove {{ lookup('env','HOME') }}/.krew
+    file:
+      path: "{{ lookup('env','HOME') }}/.krew"
+      state: absent
 
-# - name: Copy file with owner and permissions
-#   become: false
-#   copy:
-#     src: "/tmp/krew/krew-{{ krew_os }}_{{ krew_arch }}"
-#     dest: "{{ lookup('env','HOME') + '/.krew/bin/krew' }}"
-#     mode: '0755'
-#     remote_src: yes
-#   when: is_krew_installed.stat.exists == false
+  - name: Download krew
+    get_url:
+      url: https://github.com/kubernetes-sigs/krew/releases/download/v{{ krew_version }}/krew-{{ krew_os }}_{{ krew_arch }}.tar.gz
+      dest: /tmp/krew.tar.gz
+      mode: '0750'
 
+  # - name: "Create folder {{ lookup('env','HOME') + '/.krew/bin/' }}"
+  #   file:
+  #     path: "{{ lookup('env','HOME') + '/.krew/bin/' }}"
+  #     state: directory
+  #     mode: '0777'
 
-- name: Remove temporary files/folders
-  file:
-    path: /tmp/krew
-    state: absent
-  when: is_krew_installed.stat.exists == false
+  - name: Create temporary folder /tmp/krew
+    file:
+      path: /tmp/krew
+      state: directory
 
-- name: Remove temporary files/folders
-  file:
-    path: /tmp/krew.tar.gz
-    state: absent
-  when: is_krew_installed.stat.exists == false
+  - name: Extract to /tmp/krew
+    unarchive:
+      src: /tmp/krew.tar.gz
+      dest: /tmp/krew
+      remote_src: yes
+
+  - name: Install krew
+    become: false
+    shell: /tmp/krew/krew-{{ krew_os }}_{{ krew_arch }} install krew
+
+  - name: Remove temporary files/folders
+    file:
+      path: /tmp/krew
+      state: absent
+
+  - name: Remove temporary files/folders
+    file:
+      path: /tmp/krew.tar.gz
+      state: absent
+  when: 
+    - not ansible_check_mode
+    - krew_version != krew_version_client_installed.stdout
 
 - name: Add to $HOME/.zshrc
   become: false
