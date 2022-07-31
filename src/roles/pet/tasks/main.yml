@@ -1,0 +1,47 @@
+---
+
+- name: Check pet version
+  become: false
+  shell: "pet version  | sed  's/pet version //g'"
+  register: pet_version_client_installed
+  changed_when: false
+  failed_when: false
+  check_mode: no
+
+- name: Check pet version
+  shell: '/bin/true'
+  changed_when: pet_version_client_installed.stdout != pet_version
+  check_mode: no
+
+- debug:
+    var: pet_version_client_installed.stdout
+
+- name: Install pet
+  block:
+    - name: Create a directory if it does not exist
+      file:
+        path: "{{ pet_tmp_directory }}/{{ pet_os }}-{{ pet_arch }}/"
+        state: directory
+        mode: '0755'
+
+    - name: Download and unarchive pet
+      unarchive:
+        src: "https://github.com/knqyf263/pet/releases/download/v{{ pet_version }}/pet_{{ pet_version }}_{{ pet_os }}_{{ pet_arch }}.tar.gz"
+        dest: "{{ pet_tmp_directory }}/{{ pet_os }}-{{ pet_arch }}/"
+        remote_src: true
+        mode: 0755
+
+    - name: Copy file with owner and permissions
+      copy:
+        src: "{{ pet_tmp_directory }}/{{ pet_os }}-{{ pet_arch }}/pet"
+        dest: "{{ pet_bin_path }}/pet"
+        mode: '0755'
+        remote_src: yes
+
+    - name: Clean temporary directory
+      file:
+        state: absent
+        path: "{{ pet_tmp_directory }}/{{ pet_os }}-{{ pet_arch }}"
+  when: 
+    - not ansible_check_mode
+    - pet_version != pet_version_client_installed.stdout

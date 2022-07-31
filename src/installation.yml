@@ -114,3 +114,5 @@
       tags: viddy
     - role: gitlab-issue-report
       tags: gitlab-issue-report
+    - role: pet
+      tags: pet

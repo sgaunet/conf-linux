@@ -1,0 +1,8 @@
+---
+
+# "pet" version to install
+pet_version: "0.4.0"
+pet_bin_path: "/usr/local/bin"
+pet_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
+pet_os: "linux" # use "darwin" for MacOS X, "windows" for Windows
+pet_arch: "amd64" # other possible values: "386","arm64","arm","ppc64le","s390x"

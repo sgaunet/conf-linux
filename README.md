@@ -99,4 +99,5 @@ Misceleaneous :
 * [glab](https://github.com/profclems/glab/)
 * [viddy](https://github.com/sachaos/viddy)
 * [gitlab-issue-report](https://github.com/sgaunet/gitlab-issue-report)
+* [pet](https://github.com/knqyf263/pet)
 
