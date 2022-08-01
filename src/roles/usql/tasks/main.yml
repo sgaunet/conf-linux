@@ -1,0 +1,47 @@
+---
+
+- name: Check usql version
+  become: false
+  shell: "usql --version  | sed  's/usql //g'"
+  register: usql_version_client_installed
+  changed_when: false
+  failed_when: false
+  check_mode: no
+
+- name: Check usql version
+  shell: '/bin/true'
+  changed_when: usql_version_client_installed.stdout != usql_version
+  check_mode: no
+
+- debug:
+    var: usql_version_client_installed.stdout
+
+- name: Install usql
+  block:
+    - name: Create a directory if it does not exist
+      file:
+        path: "{{ usql_tmp_directory }}/{{ usql_os }}-{{ usql_arch }}/"
+        state: directory
+        mode: '0755'
+
+    - name: Download and unarchive usql
+      unarchive:
+        src: "https://github.com/xo/usql/releases/download/v{{ usql_version }}/usql_static-{{ usql_version }}-{{ usql_os }}-{{ usql_arch }}.tar.bz2"
+        dest: "{{ usql_tmp_directory }}/{{ usql_os }}-{{ usql_arch }}/"
+        remote_src: true
+        mode: 0755
+
+    - name: Copy file with owner and permissions
+      copy:
+        src: "{{ usql_tmp_directory }}/{{ usql_os }}-{{ usql_arch }}/usql_static"
+        dest: "{{ usql_bin_path }}/usql"
+        mode: '0755'
+        remote_src: yes
+
+    - name: Clean temporary directory
+      file:
+        state: absent
+        path: "{{ usql_tmp_directory }}/{{ usql_os }}-{{ usql_arch }}"
+  when: 
+    - not ansible_check_mode
+    - usql_version != usql_version_client_installed.stdout
