@@ -1,5 +1,10 @@
 ---
 
+- name: Ensure fzf is installed.
+  package: 
+    name: fzf
+    state: present
+
 - name: Check pet version
   become: false
   shell: "pet version  | sed  's/pet version //g'"
