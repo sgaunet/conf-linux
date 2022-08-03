@@ -75,11 +75,15 @@ VM :
 * [packer](https://www.packer.io/)
 * [vagrant](https://www.vagrantup.com/downloads)
 
+Load tests :
+
+* [plow](https://github.com/six-ddc/plow)
+* [vegeta](https://github.com/tsenart/vegeta)
+
 
 Misceleaneous :
 
 * [peek](https://github.com/phw/peek)
-* [vegeta](https://github.com/tsenart/vegeta)
 * [vscode](https://code.visualstudio.com/docs/setup/linux)
 * zsh
 * [dust](https://github.com/bootandy/dust)

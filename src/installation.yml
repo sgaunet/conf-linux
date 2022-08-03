@@ -116,3 +116,5 @@
       tags: gitlab-issue-report
     - role: pet
       tags: pet
+    - role: plow
+      tags: plow
