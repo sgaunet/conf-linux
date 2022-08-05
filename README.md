@@ -68,6 +68,7 @@ For GOLANG :
 * [goreleaser](https://github.com/goreleaser/goreleaser/)
 * [task](https://taskfile.dev/)
 * [sqlc](https://sqlc.dev/)
+* [golang-ci-lint](https://github.com/golangci/golangci-lint)
 
 
 VM :

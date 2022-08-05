@@ -122,3 +122,5 @@
       tags: usql
     - role: gum
       tags: gum
+    - role: golangci-lint
+      tags: golangci-lint
