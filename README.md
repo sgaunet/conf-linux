@@ -105,4 +105,5 @@ Misceleaneous :
 * [gitlab-issue-report](https://github.com/sgaunet/gitlab-issue-report)
 * [pet](https://github.com/knqyf263/pet)
 * [usql](https://github.com/xo/usql)
+* [gum](https://github.com/charmbracelet/gum)
 

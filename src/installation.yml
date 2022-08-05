@@ -120,3 +120,5 @@
       tags: plow
     - role: usql
       tags: usql
+    - role: gum
+      tags: gum
