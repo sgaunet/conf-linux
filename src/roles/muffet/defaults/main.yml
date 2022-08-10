@@ -1,0 +1,7 @@
+---
+
+muffet_version: "2.6.0"
+muffet_bin_path: "/usr/local/bin"
+muffet_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
+muffet_os: "Linux" 
+muffet_arch: "x86_64"

@@ -124,3 +124,5 @@
       tags: gum
     - role: golangci-lint
       tags: golangci-lint
+    - role: muffet
+      tags: muffet

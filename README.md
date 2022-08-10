@@ -107,4 +107,4 @@ Misceleaneous :
 * [pet](https://github.com/knqyf263/pet)
 * [usql](https://github.com/xo/usql)
 * [gum](https://github.com/charmbracelet/gum)
-
+* [muffet](https://github.com/raviqqe/muffet/)
