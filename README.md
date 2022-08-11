@@ -37,7 +37,6 @@ For kubernetes:
 * [krew](https://krew.sigs.k8s.io/)
 * [helm v3](https://helm.sh/docs/intro/install/)
 * [kubectl-dashboard](https://github.com/bouk/kubectl-dashboard)
-* [k3s](https://k3s.io/)
 * [k9s](https://k9scli.io/)
 * [kubectl](https://kubernetes.io/releases/download/)
 * alias for kubectl (k=kubectl + bash completion/zsh completion)
