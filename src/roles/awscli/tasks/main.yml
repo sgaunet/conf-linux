@@ -1,50 +1,65 @@
 ---
 
+- name: Check awscli version
+  shell: "aws --version | sed 's# Python.*##g' | sed 's#aws-cli/##g'"
+  register: awscli_version_client_installed
+  changed_when: false
+  failed_when: false
+  check_mode: no
+
+- name: Check awscli version
+  shell: '/bin/true'
+  changed_when: awscli_version_client_installed.stdout != awscli_version
+  check_mode: no
+
 - name: Check if awscli already installed
   become: false
   stat: 
     path: "/usr/local/aws-cli/v2/current"
   delegate_to: localhost
   register: link_awscli
-  check_mode: no
 
 - name: Download awscliv2.zip
   get_url:
-    url: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
+    url: https://awscli.amazonaws.com/awscli-exe-{{ awscli_os }}-{{ awscli_arch }}-{{ awscli_version }}.zip
     dest: /tmp/awscliv2.zip
     mode: '0750'
-  when: link_awscli.stat.exists == false
+  when: awscli_version_client_installed.stdout != awscli_version
 
 - name: Create temporary folder /tmp/awscli
   file:
     path: /tmp/awscli
     state: directory
-  when: link_awscli.stat.exists == false
+  when: 
+    - not ansible_check_mode
+    - awscli_version_client_installed.stdout != awscli_version
 
 - name: Extract to /tmp/awscli
   unarchive:
     src: /tmp/awscliv2.zip
     dest: /tmp/awscli
     remote_src: yes
-  when: link_awscli.stat.exists == false
+  when: 
+    - not ansible_check_mode
+    - awscli_version_client_installed.stdout != awscli_version
+
 
 - name: Install awscli
   shell: /tmp/awscli/aws/install
-  when: link_awscli.stat.exists == false
-  #args:
-  #  chdir: somedir/
-  #  creates: somelog.txt
+  when: not link_awscli.stat.exists == true
 
+- name: Update awscli
+  shell: /tmp/awscli/aws/install --update
+  when: awscli_version_client_installed.stdout != awscli_version
 
 - name: Remove temporary files/folders
   file:
     path: /tmp/awscli
     state: absent
-  when: link_awscli.stat.exists == false
+  when: not ansible_check_mode
 
 - name: Remove temporary files/folders
   file:
     path: /tmp/awscliv2.zip
     state: absent
-  when: link_awscli.stat.exists == false
-
+  when: not ansible_check_mode

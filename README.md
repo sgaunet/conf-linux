@@ -29,7 +29,7 @@ To get a beautiful prompt (for bash or zsh)
 For AWS :
 
 * [eksctl](https://eksctl.io/)
-* [awscli v2](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
+* [awscli v2](https://github.com/aws/aws-cli/)
 * [ekspodlogs](https://github.com/sgaunet/ekspodlogs)
 
 For kubernetes:
