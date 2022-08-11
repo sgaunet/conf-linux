@@ -51,7 +51,6 @@ For kubernetes:
 For markdown :
 
 * [marp](https://marp.app/)
-* [typora](https://typora.io/)
 * [mdtohtml](https://github.com/sgaunet/mdtohtml)
 
 For Docker :

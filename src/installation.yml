@@ -2,10 +2,10 @@
   become: true
   roles:
     - common
-    - awscli
+    - role: awscli
+      tags: awscli
     - role: packer
       tags: packer
-    - typora
     - role: vagrant
       tags: vagrant
     - vscode
