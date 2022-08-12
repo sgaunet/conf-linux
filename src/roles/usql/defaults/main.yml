@@ -1,6 +1,6 @@
 ---
 
-usql_version: "0.11.1"
+usql_version: "0.12.0"
 usql_bin_path: "/usr/local/bin"
 usql_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
 usql_os: "linux"
