@@ -1,7 +1,7 @@
 ---
 
 # "grype" version to install
-grype_version: "0.38.0"
+grype_version: "0.46.0"
 grype_bin_path: "/usr/local/bin"
 grype_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
 grype_os: "linux" # use "darwin" for MacOS X, "windows" for Windows
