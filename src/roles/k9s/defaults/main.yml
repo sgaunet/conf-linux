@@ -3,5 +3,5 @@
 k9s_version: "v0.26.3"
 k9s_bin_path: "/usr/local/bin"
 k9s_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
-k9s_os: "Linux" # use "darwin" for MacOS X, "windows" for Windows
-k9s_arch: "x86_64" # other possible values: "386","arm64","arm","ppc64le","s390x"
+k9s_os: "Linux" 
+k9s_arch: "x86_64" 

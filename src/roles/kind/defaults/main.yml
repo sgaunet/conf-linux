@@ -3,5 +3,5 @@
 # "kind" version to install
 kind_version: "0.14.0"
 kind_bin_path: "/usr/local/bin/kind"
-kind_os: "linux" # use "darwin" for MacOS X, "windows" for Windows
-kind_arch: "amd64" # other possible values: "386","arm64","arm","ppc64le","s390x"
+kind_os: "linux" 
+kind_arch: "amd64" 

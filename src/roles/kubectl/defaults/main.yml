@@ -4,5 +4,5 @@
 kubectl_version: "1.22.9"
 kubectl_bin_path: "/usr/local/bin"
 kubectl_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
-kubectl_os: "linux" # use "darwin" for MacOS X, "windows" for Windows
-kubectl_arch: "amd64" # other possible values: "386","arm64","arm","ppc64le","s390x"
+kubectl_os: "linux" 
+kubectl_arch: "amd64" 

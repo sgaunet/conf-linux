@@ -4,5 +4,5 @@
 glab_version: "1.22.0"
 glab_bin_path: "/usr/local/bin"
 glab_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
-glab_os: "Linux" # use "darwin" for MacOS X, "windows" for Windows
-glab_arch: "x86_64" # other possible values: "386","arm64","arm","ppc64le","s390x"
+glab_os: "Linux" 
+glab_arch: "x86_64" 

@@ -2,5 +2,5 @@
 
 stern_version: "1.11.0"
 stern_bin_path: "/usr/local/bin/stern"
-stern_os: "linux" # use "darwin" for MacOS X, "windows" for Windows
-stern_arch: "amd64" # other possible values: "386","arm64","arm","ppc64le","s390x"
+stern_os: "linux" 
+stern_arch: "amd64" 

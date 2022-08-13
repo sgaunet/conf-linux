@@ -1,8 +1,8 @@
 ---
 
 # "mdtohtml" version to install
-mdtohtml_version: "0.6.0"
+mdtohtml_version: "0.6.2"
 mdtohtml_bin_path: "/usr/local/bin"
 mdtohtml_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
-mdtohtml_os: "Linux" # use "darwin" for MacOS X, "windows" for Windows
-mdtohtml_arch: "x86_64" # other possible values: "386","arm64","arm","ppc64le","s390x"
+mdtohtml_os: "Linux" 
+mdtohtml_arch: "x86_64" 

@@ -4,5 +4,5 @@
 venom_version: "1.0.1"
 venom_bin_path: "/usr/local/bin"
 venom_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
-venom_os: "linux" # use "darwin" for MacOS X, "windows" for Windows
-venom_arch: "amd64" # other possible values: "386","arm64","arm","ppc64le","s390x"
+venom_os: "linux" 
+venom_arch: "amd64" 

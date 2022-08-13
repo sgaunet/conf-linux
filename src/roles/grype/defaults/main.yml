@@ -4,5 +4,5 @@
 grype_version: "0.46.0"
 grype_bin_path: "/usr/local/bin"
 grype_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
-grype_os: "linux" # use "darwin" for MacOS X, "windows" for Windows
-grype_arch: "amd64" # other possible values: "386","arm64","arm","ppc64le","s390x"
+grype_os: "linux" 
+grype_arch: "amd64" 
