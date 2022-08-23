@@ -1,0 +1,45 @@
+---
+
+- name: Check exa version
+  become: false
+  shell: "exa --version | grep +git | awk '{ print $1 }' | sed 's#v##g'"
+  register: exa_version_client_installed
+  changed_when: false
+  failed_when: false
+  check_mode: no
+
+- name: Check exa version
+  shell: '/bin/true'
+  changed_when: exa_version_client_installed.stdout != exa_version
+  check_mode: no
+
+- name: Install exa
+  block:
+    - name: Create a directory if it does not exist
+      file:
+        path: "{{ exa_tmp_directory }}/{{ exa_os }}-{{ exa_arch }}/"
+        state: directory
+        mode: '0755'
+
+    - name: Download and unarchive exa
+      unarchive:
+        src: "https://github.com/ogham/exa/releases/download/v{{ exa_version }}/exa-{{ exa_os }}-{{ exa_arch }}-v{{ exa_version }}.zip"
+        dest: "{{ exa_tmp_directory }}/{{ exa_os }}-{{ exa_arch }}/"
+        remote_src: true
+        mode: 0755
+
+    - name: Copy file with owner and permissions
+      copy:
+        src: "{{ exa_tmp_directory }}/{{ exa_os }}-{{ exa_arch }}/bin/exa"
+        dest: "{{ exa_bin_path }}/exa"
+        mode: '0755'
+        remote_src: yes
+
+    - name: Clean temporary directory
+      file:
+        state: absent
+        path: "{{ exa_tmp_directory }}/{{ exa_os }}-{{ exa_arch }}"
+  when: 
+    - not ansible_check_mode
+    - exa_version != exa_version_client_installed.stdout
+

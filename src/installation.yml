@@ -126,3 +126,5 @@
       tags: golangci-lint
     - role: muffet
       tags: muffet
+    - role: exa
+      tags: exa

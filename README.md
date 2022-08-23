@@ -106,3 +106,4 @@ Misceleaneous :
 * [usql](https://github.com/xo/usql)
 * [gum](https://github.com/charmbracelet/gum)
 * [muffet](https://github.com/raviqqe/muffet/)
+* [exa](https://github.com/ogham/exa)
