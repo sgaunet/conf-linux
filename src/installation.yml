@@ -130,3 +130,5 @@
       tags: exa
     - role: bat
       tags: bat
+    - role: bash-formatter
+      tags: bash-formatter

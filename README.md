@@ -108,3 +108,9 @@ Misceleaneous :
 * [muffet](https://github.com/raviqqe/muffet/)
 * [exa](https://github.com/ogham/exa)
 * [bat](https://github.com/sharkdp/bat)
+
+Bash formatter:
+
+* [shellcheck](https://www.shellcheck.net/)
+* [shfmt](https://github.com/mvdan/sh)
+
