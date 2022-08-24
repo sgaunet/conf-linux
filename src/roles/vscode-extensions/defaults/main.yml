@@ -1,0 +1,14 @@
+---
+
+vscode_extensions:
+  - aaron-bond.better-comments
+  - alefragnani.Bookmarks
+  - eamodio.gitlens
+  - Equinusocio.vsc-community-material-theme
+  - Equinusocio.vsc-material-theme
+  - equinusocio.vsc-material-theme-icons
+  - golang.go
+  - johnpapa.vscode-peacock
+  - mhutchie.git-graph
+  - ms-vscode-remote.vscode-remote-extensionpack
+  - yzhang.markdown-all-in-one

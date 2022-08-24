@@ -132,3 +132,5 @@
       tags: bat
     - role: bash-formatter
       tags: bash-formatter
+    - role: vscode-extensions
+      tags: vscode-extensions

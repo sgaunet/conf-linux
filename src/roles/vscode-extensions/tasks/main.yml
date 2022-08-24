@@ -1,0 +1,27 @@
+
+---
+
+- name: Get list of extensions
+  become: false
+  shell: "code --list-extensions"
+  register: vscode_extensions_installed
+  changed_when: false
+  # failed_when: false
+  check_mode: no
+
+# - name: Config /home/cats/.pgpass
+#   debug:
+#     msg: "{{ item }}"
+#   with_items: "{{vscode_extensions}}"
+
+# - name: debug
+#   debug:
+#     msg: "{{ item }}"
+#   with_items: "{{vscode_extensions}}"
+#   when: item  not in vscode_extensions_installed.stdout
+
+- name: Install vscode extensions
+  become: false
+  shell: "code --install-extension {{ item }}"
+  with_items: "{{vscode_extensions}}"
+  when: item  not in vscode_extensions_installed.stdout
