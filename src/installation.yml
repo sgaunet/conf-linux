@@ -138,3 +138,5 @@
       tags: vivid
     - role: fd
       tags: fd
+    - role: tealdeer
+      tags: tealdeer

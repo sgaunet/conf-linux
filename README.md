@@ -110,6 +110,7 @@ Misceleaneous :
 * [bat](https://github.com/sharkdp/bat)
 * [vivid](https://github.com/sharkdp/vivid)
 * [fd](https://github.com/sharkdp/fd)
+* [tealdeer](https://github.com/dbrgn/tealdeer)
 
 Bash formatter:
 
