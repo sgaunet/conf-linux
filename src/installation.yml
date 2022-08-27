@@ -136,3 +136,5 @@
       tags: vscode-extensions
     - role: vivid
       tags: vivid
+    - role: fd
+      tags: fd
