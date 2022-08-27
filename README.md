@@ -108,6 +108,7 @@ Misceleaneous :
 * [muffet](https://github.com/raviqqe/muffet/)
 * [exa](https://github.com/ogham/exa)
 * [bat](https://github.com/sharkdp/bat)
+* [vivid](https://github.com/sharkdp/vivid)
 
 Bash formatter:
 

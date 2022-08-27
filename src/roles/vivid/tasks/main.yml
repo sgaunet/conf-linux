@@ -1,0 +1,15 @@
+---
+
+- name: Install vivid (debian)
+  apt:
+    deb: https://github.com/sharkdp/vivid/releases/download/v0.8.0/vivid_0.8.0_amd64.deb
+  when: ansible_os_family == "Debian"
+    
+# 
+
+- name: Configure LS_COLORS
+  become: false
+  lineinfile:
+    path: "{{ lookup('env','HOME') }}/.bashrc"
+    line: 'export LS_COLORS="$(vivid generate molokai)"'
+  # when: bash_install
