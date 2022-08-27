@@ -43,3 +43,9 @@
     - not ansible_check_mode
     - exa_version != exa_version_client_installed.stdout
 
+- name: Add alias l
+  become: false
+  lineinfile:
+    path: "{{ lookup('env','HOME') }}/.bashrc"
+    line: 'alias "l=exa --icons --color=always -l"'
+  # when: bash_install
