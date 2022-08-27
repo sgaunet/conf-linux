@@ -79,38 +79,47 @@ Load tests :
 * [plow](https://github.com/six-ddc/plow)
 * [vegeta](https://github.com/tsenart/vegeta)
 
+Develoment:
 
-Misceleaneous :
-
-* [peek](https://github.com/phw/peek)
 * [vscode](https://code.visualstudio.com/docs/setup/linux)
-* zsh
+* vscode extentions
+* [gtmpl](https://github.com/sgaunet/gtmpl)
+* [gitleaks](https://github.com/zricethezav/gitleaks)
+* [glab](https://github.com/profclems/glab/)
+* [gitlab-issue-report](https://github.com/sgaunet/gitlab-issue-report)
+* [gum](https://github.com/charmbracelet/gum)
+
+Linux tools :
+
 * [dust](https://github.com/bootandy/dust)
 * [bottom](https://github.com/ClementTsang/bottom/)
-* [gtmpl](https://github.com/sgaunet/gtmpl)
 * [zellij](https://github.com/zellij-org/zellij)
 * [gdu](https://github.com/dundee/gdu)
 * [yq](https://github.com/mikefarah/yq)
 * [bandwhich](https://github.com/imsnif/bandwhich)
 * [hyperfine](https://github.com/sharkdp/hyperfine)
-* [venom](https://github.com/ovh/venom)
-* [ctop](https://github.com/bcicen/ctop)
 * [gocrypt](https://github.com/sgaunet/gocrypt)
-* [gitleaks](https://github.com/zricethezav/gitleaks)
-* [s5cmd](https://github.com/peak/s5cmd)
-* [sshs](https://github.com/quantumsheep/sshs)
-* [glab](https://github.com/profclems/glab/)
-* [viddy](https://github.com/sachaos/viddy)
-* [gitlab-issue-report](https://github.com/sgaunet/gitlab-issue-report)
 * [pet](https://github.com/knqyf263/pet)
 * [usql](https://github.com/xo/usql)
-* [gum](https://github.com/charmbracelet/gum)
-* [muffet](https://github.com/raviqqe/muffet/)
+* [sshs](https://github.com/quantumsheep/sshs)
 * [exa](https://github.com/ogham/exa)
 * [bat](https://github.com/sharkdp/bat)
 * [vivid](https://github.com/sharkdp/vivid)
+* [viddy](https://github.com/sachaos/viddy)
 * [fd](https://github.com/sharkdp/fd)
 * [tealdeer](https://github.com/dbrgn/tealdeer)
+* [s5cmd](https://github.com/peak/s5cmd)
+* [ctop](https://github.com/bcicen/ctop)
+
+Tests:
+
+* [venom](https://github.com/ovh/venom)
+* [muffet](https://github.com/raviqqe/muffet/)
+
+Misceleaneous :
+
+* [peek](https://github.com/phw/peek)
+* zsh
 
 Bash formatter:
 
