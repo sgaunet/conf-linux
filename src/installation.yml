@@ -140,3 +140,5 @@
       tags: fd
     - role: tealdeer
       tags: tealdeer
+    - role: kconf
+      tags: kconf

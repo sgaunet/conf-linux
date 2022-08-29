@@ -46,6 +46,7 @@ For kubernetes:
 * [kfilt](https://github.com/ryane/kfilt)
 * [kube-capacity](https://github.com/robscott/kube-capacity)
 * [tilt](https://tilt.dev/)
+* [kconf](https://github.com/particledecay/kconf)
 
 For markdown :
 
