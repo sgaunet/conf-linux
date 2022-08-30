@@ -121,6 +121,7 @@ Misceleaneous :
 
 * [peek](https://github.com/phw/peek)
 * zsh
+* [startship](https://starship.rs/)
 
 Bash formatter:
 

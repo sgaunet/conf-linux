@@ -142,3 +142,5 @@
       tags: tealdeer
     - role: kconf
       tags: kconf
+    - role: starship
+      tags: starship
