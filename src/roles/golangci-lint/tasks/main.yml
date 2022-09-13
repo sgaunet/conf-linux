@@ -34,7 +34,7 @@
     - name: Copy file with owner and permissions
       copy:
         src: "{{ golangcilint_tmp_directory }}/{{ golangcilint_os }}-{{ golangcilint_arch }}/golangci-lint-{{ golangcilint_version }}-{{ golangcilint_os }}-{{ golangcilint_arch }}/golangci-lint"
-        dest: "{{ golangcilint_bin_path }}/golang-ci-lint"
+        dest: "{{ golangcilint_bin_path }}/golangci-lint"
         mode: '0755'
         remote_src: yes
 
