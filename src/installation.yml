@@ -144,3 +144,5 @@
       tags: kconf
     - role: starship
       tags: starship
+    - role: pre-commit
+      tags: pre-commit

@@ -68,6 +68,7 @@ For GOLANG :
 * [task](https://taskfile.dev/)
 * [sqlc](https://sqlc.dev/)
 * [golang-ci-lint](https://github.com/golangci/golangci-lint)
+* [pre-commit-golang](https://github.com/dnephin/pre-commit-golang)
 
 
 VM :
@@ -80,7 +81,7 @@ Load tests :
 * [plow](https://github.com/six-ddc/plow)
 * [vegeta](https://github.com/tsenart/vegeta)
 
-Develoment:
+Development:
 
 * [vscode](https://code.visualstudio.com/docs/setup/linux)
 * vscode extentions

@@ -1,0 +1,20 @@
+
+- name: Check precommit version
+  become: false
+  shell: "pre-commit -V | sed 's#pre-commit ##'"
+  register: precommit_version_client_installed
+  changed_when: false
+  failed_when: false
+  check_mode: no
+
+- name: Check pre-commit version
+  shell: '/bin/true'
+  changed_when: precommit_version_client_installed.stdout != precommit_version
+  check_mode: no
+
+- name: Download pre-commit
+  get_url:
+    url: https://github.com/pre-commit/pre-commit/releases/download/v{{ precommit_version }}/pre-commit-{{ precommit_version }}.pyz
+    dest: /usr/local/bin/pre-commit
+    mode: '0755'
+  when: precommit_version_client_installed.stdout != precommit_version
