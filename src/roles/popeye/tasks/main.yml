@@ -1,8 +1,8 @@
 ---
-
+#popeye version | sed -r 's/\x1B\[([0-9]{1,3}(;[0-9]{1,3})*)?[mGK]//g' | grep -i version | grep -Po 'Version: \K.*$' | cat -etv
 - name: Check popeye version
   become: false
-  shell: "popeye version | grep -Po 'Version:[[:space:]]+\\K.*'"
+  shell: 'popeye version | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,3})*)?[mGK]//g" | grep -i version | grep -Po "Version:[[:space:]]+\K.*$"'
   register: popeye_version_client_installed
   changed_when: false
   failed_when: false
@@ -12,6 +12,11 @@
   shell: '/bin/true'
   changed_when: popeye_version_client_installed.stdout != popeye_version
   check_mode: no
+
+# - debug:
+#     var: popeye_version_client_installed.stdout
+# - debug:
+#     var: popeye_version
 
 - name: Download and unarchive popeye
   unarchive:
