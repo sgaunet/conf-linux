@@ -1,0 +1,12 @@
+---
+
+- name: install repo
+  copy:
+    src: "goreleaser.repo"
+    dest: "/etc/yum.repos.d/goreleaser.repo"
+    mode: '0644'
+
+- name: Install nfpm
+  yum:
+    name: nfpm
+    state: present

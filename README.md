@@ -90,6 +90,7 @@ Development:
 * [glab](https://github.com/profclems/glab/)
 * [gitlab-issue-report](https://github.com/sgaunet/gitlab-issue-report)
 * [gum](https://github.com/charmbracelet/gum)
+* [nfpm](https://nfpm.goreleaser.com/)
 
 Linux tools :
 

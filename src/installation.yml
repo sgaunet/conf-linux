@@ -146,3 +146,5 @@
       tags: starship
     - role: pre-commit
       tags: pre-commit
+    - role: nfpm
+      tags: nfpm
