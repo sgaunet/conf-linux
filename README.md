@@ -91,6 +91,7 @@ Development:
 * [gitlab-issue-report](https://github.com/sgaunet/gitlab-issue-report)
 * [gum](https://github.com/charmbracelet/gum)
 * [nfpm](https://nfpm.goreleaser.com/)
+* [chglog](https://github.com/goreleaser/chglog)
 
 Linux tools :
 

@@ -148,3 +148,5 @@
       tags: pre-commit
     - role: nfpm
       tags: nfpm
+    - role: chglog
+      tags: chglog
