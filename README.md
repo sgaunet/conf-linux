@@ -84,7 +84,7 @@ Load tests :
 Development:
 
 * [vscode](https://code.visualstudio.com/docs/setup/linux)
-* vscode extentions
+* vscode extensions
 * [gtmpl](https://github.com/sgaunet/gtmpl)
 * [gitleaks](https://github.com/zricethezav/gitleaks)
 * [glab](https://github.com/profclems/glab/)
@@ -92,6 +92,7 @@ Development:
 * [gum](https://github.com/charmbracelet/gum)
 * [nfpm](https://nfpm.goreleaser.com/)
 * [chglog](https://github.com/goreleaser/chglog)
+* [scc](https://github.com/boyter/scc)
 
 Linux tools :
 

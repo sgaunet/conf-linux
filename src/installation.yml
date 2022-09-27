@@ -150,3 +150,5 @@
       tags: nfpm
     - role: chglog
       tags: chglog
+    - role: scc
+      tags: scc
