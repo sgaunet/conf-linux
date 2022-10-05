@@ -152,3 +152,5 @@
       tags: chglog
     - role: scc
       tags: scc
+    - role: kubectl-ice
+      tags: kubectl-ice

@@ -47,6 +47,7 @@ For kubernetes:
 * [kube-capacity](https://github.com/robscott/kube-capacity)
 * [tilt](https://tilt.dev/)
 * [kconf](https://github.com/particledecay/kconf)
+* [kubectl-ice](https://github.com/NimbleArchitect/kubectl-ice)
 
 For markdown :
 
