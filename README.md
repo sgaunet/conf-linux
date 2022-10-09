@@ -96,6 +96,7 @@ Development:
 * [chglog](https://github.com/goreleaser/chglog)
 * [scc](https://github.com/boyter/scc)
 * [gaze](https://github.com/wtetsu/gaze)
+* [trufflehog](https://github.com/trufflesecurity/trufflehog)
 
 Linux tools :
 

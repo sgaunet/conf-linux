@@ -158,3 +158,5 @@
       tags: gaze
     - role: kubefwd
       tags: kubefwd
+    - role: trufflehog
+      tags: trufflehog
