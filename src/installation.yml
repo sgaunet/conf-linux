@@ -154,3 +154,5 @@
       tags: scc
     - role: kubectl-ice
       tags: kubectl-ice
+    - role: gaze
+      tags: gaze
