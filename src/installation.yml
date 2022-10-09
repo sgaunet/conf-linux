@@ -156,3 +156,5 @@
       tags: kubectl-ice
     - role: gaze
       tags: gaze
+    - role: kubefwd
+      tags: kubefwd

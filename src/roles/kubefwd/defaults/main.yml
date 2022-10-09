@@ -1,0 +1,8 @@
+---
+
+# "kubefwd" version to install
+kubefwd_version: "1.22.4"
+kubefwd_bin_path: "/usr/local/bin"
+kubefwd_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
+kubefwd_os: "Linux" 
+kubefwd_arch: "x86_64" 

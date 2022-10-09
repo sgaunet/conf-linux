@@ -48,6 +48,7 @@ For kubernetes:
 * [tilt](https://tilt.dev/)
 * [kconf](https://github.com/particledecay/kconf)
 * [kubectl-ice](https://github.com/NimbleArchitect/kubectl-ice)
+* [kubefwd](https://github.com/txn2/kubefwd)
 
 For markdown :
 
