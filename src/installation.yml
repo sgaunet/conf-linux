@@ -8,8 +8,8 @@
       tags: packer
     - role: vagrant
       tags: vagrant
-    - vscode
-    #- zsh
+    - role: vscode
+      tags: vscode
     - role: kubectl
       tags: kube
     - role: kube-capacity
@@ -160,3 +160,5 @@
       tags: kubefwd
     - role: trufflehog
       tags: trufflehog
+    - role: silver-surfer
+      tags: silver-surfer
