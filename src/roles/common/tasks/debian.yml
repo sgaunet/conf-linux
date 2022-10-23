@@ -2,7 +2,7 @@
 
 - name: Install common softwares cifs-utils tmux git git-crypt gpg docker jq unzip
   apt:
-    name: ['cifs-utils','tmux','git','git-crypt','gpg','docker','jq','unzip']
+    name: ['cifs-utils','tmux','tmuxinator','git','git-crypt','gpg','docker','jq','unzip']
     state: present
     update_cache: yes
 

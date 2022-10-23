@@ -1,7 +1,8 @@
 - hosts: all
   become: true
   roles:
-    - common
+    - role: common
+      tags: common
     - role: awscli
       tags: awscli
     - role: packer
