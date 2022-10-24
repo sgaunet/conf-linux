@@ -42,7 +42,7 @@
     - role: eksctl
       tags: eksctl
     - role: gvm
-      tags: go
+      tags: gvm
     - role: peek
       tags: peek
     - role: vegeta
