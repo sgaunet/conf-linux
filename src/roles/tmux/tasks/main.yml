@@ -10,5 +10,5 @@
   become: false
   copy:
     src: ".tmux.conf"
-    dest: "{{ lookup('env','HOME') }}/.bashrc"
+    dest: "{{ lookup('env','HOME') }}/.tmux.conf"
     mode: '0644'
