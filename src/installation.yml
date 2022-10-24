@@ -163,3 +163,5 @@
       tags: trufflehog
     - role: silver-surfer
       tags: silver-surfer
+    - role: tmux
+      tags: tmux

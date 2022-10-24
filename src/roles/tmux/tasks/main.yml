@@ -1,0 +1,14 @@
+---
+
+- name: Install tmux tmuxinator
+  apt:
+    name: ['tmux','tmuxinator']
+    state: present
+    update_cache: yes
+
+- name: Copy tmux configuration file
+  become: false
+  copy:
+    src: ".tmux.conf"
+    dest: "{{ lookup('env','HOME') }}/.bashrc"
+    mode: '0644'
