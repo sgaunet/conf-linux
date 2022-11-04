@@ -1,3 +1,4 @@
 ---
 dependencies:
   - role: unzip
+  - role: ttyd

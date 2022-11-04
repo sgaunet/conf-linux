@@ -1,0 +1,21 @@
+---
+
+- name: Check ttyd version
+  shell: "ttyd -v | sed 's#ttyd version ##g' | cut -d'-' -f1"
+  register: ttyd_version_client_installed
+  changed_when: false
+  failed_when: false
+  check_mode: no
+
+- name: Check ttyd version
+  shell: '/bin/true'
+  changed_when: ttyd_version_client_installed.stdout != ttyd_version
+  check_mode: no
+
+- name: Download ttyd
+  get_url:
+    url: https://github.com/tsl0922/ttyd/releases/download/{{ ttyd_version }}/ttyd.{{ ttyd_arch }}
+    dest: /usr/local/bin/ttyd
+    mode: '0755'
+  when: ttyd_version_client_installed.stdout != ttyd_version
+
