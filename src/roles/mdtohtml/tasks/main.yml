@@ -23,7 +23,7 @@
 
     - name: Download and unarchive mdtohtml
       unarchive:
-        src: "https://github.com/sgaunet/mdtohtml/releases/download/{{ mdtohtml_version }}/mdtohtml_{{ mdtohtml_version }}_{{ mdtohtml_os }}_{{ mdtohtml_arch }}.tar.gz"
+        src: "https://github.com/sgaunet/mdtohtml/releases/download/v{{ mdtohtml_version }}/mdtohtml_{{ mdtohtml_version }}_{{ mdtohtml_os }}_{{ mdtohtml_arch }}.tar.gz"
         dest: "{{ mdtohtml_tmp_directory }}/{{ mdtohtml_os }}-{{ mdtohtml_arch }}/"
         remote_src: true
         mode: 0755
