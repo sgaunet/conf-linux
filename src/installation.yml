@@ -165,3 +165,5 @@
       tags: silver-surfer
     - role: tmux
       tags: tmux
+    - role: vhs
+      tags: vhs

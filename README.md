@@ -120,6 +120,7 @@ Linux tools :
 * [tealdeer](https://github.com/dbrgn/tealdeer)
 * [s5cmd](https://github.com/peak/s5cmd)
 * [ctop](https://github.com/bcicen/ctop)
+* [vhs](https://github.com/charmbracelet/vhs)
 
 Tests:
 
