@@ -167,3 +167,5 @@
       tags: tmux
     - role: vhs
       tags: vhs
+    - role: pastel
+      tags: pastel
