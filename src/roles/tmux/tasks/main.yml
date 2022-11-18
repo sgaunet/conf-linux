@@ -12,3 +12,11 @@
     src: ".tmux.conf"
     dest: "{{ lookup('env','HOME') }}/.tmux.conf"
     mode: '0644'
+
+- name: Add aliases to $HOME/.bashrc and completion for kubectl
+  become: false
+  lineinfile:
+    path: "{{ lookup('env','HOME') }}/.bashrc"
+    line: "{{ item }}"
+  with_items:
+    - 'alias tx=tmuxinator'
