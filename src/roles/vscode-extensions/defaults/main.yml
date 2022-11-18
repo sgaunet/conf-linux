@@ -3,6 +3,7 @@
 vscode_extensions:
   - aaron-bond.better-comments
   - alefragnani.Bookmarks
+  - alefragnani.project-manager
   - eamodio.gitlens
   - exiasr.hadolint
   - Equinusocio.vsc-community-material-theme
@@ -12,11 +13,12 @@ vscode_extensions:
   - johnpapa.vscode-peacock
   - mhutchie.git-graph
   - ms-vscode-remote.vscode-remote-extensionpack
-  - yzhang.markdown-all-in-one
   - ms-kubernetes-tools.vscode-kubernetes-tools
   - PKief.material-icon-theme
   - timonwong.shellcheck
   - usernamehw.errorlens
+  - yzhang.markdown-all-in-one
+  - kruemelkatze.vscode-dashboard
 
 #alefragnani.project-manager
 # fr-str.vscode-postfix-go-fr
