@@ -1,7 +1,7 @@
 ---
 
 # "sqlc" version to install
-sqlc_version: "1.15.0"
+sqlc_version: "1.16.0"
 sqlc_bin_path: "/usr/local/bin"
 sqlc_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
 sqlc_os: "linux" 
