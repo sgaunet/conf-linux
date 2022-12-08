@@ -7,7 +7,7 @@ dir="$1"
 CWD=$(dirname "$0")
 REFDIRROLE="$CWD/src/roles"
 
-for role in $(ls "${REFDIRROLE}"); do
+for role in $(ls "${REFDIRROLE}" | sed "s#common##g" ); do
     echo "$role"
     r=$(basename "$role")
     if [ -d "$dir/$r" ]; then
