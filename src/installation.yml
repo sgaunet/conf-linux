@@ -175,3 +175,6 @@
       tags: kubescape
     - role: kubeval
       tags: kubeval
+    - role: fx
+      tags: fx
+      

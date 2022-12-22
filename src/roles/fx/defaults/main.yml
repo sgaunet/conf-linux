@@ -1,0 +1,8 @@
+---
+
+# "fx" version to install
+fx_version: "24.0.0"
+fx_bin_path: "/usr/local/bin"
+fx_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
+fx_os: "linux"
+fx_arch: "amd64" 
