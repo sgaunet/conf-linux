@@ -173,3 +173,5 @@
       tags: kluctl
     - role: kubescape
       tags: kubescape
+    - role: kubeval
+      tags: kubeval

@@ -1,0 +1,47 @@
+---
+
+- name: Check kubeval version
+  become: false
+  shell: "kubeval --version | grep Version | sed 's#Version: ##g'"
+  register: kubeval_version_client_installed
+  changed_when: false
+  failed_when: false
+  check_mode: no
+
+- name: Check kubeval version
+  shell: '/bin/true'
+  changed_when: kubeval_version_client_installed.stdout != kubeval_version
+  check_mode: no
+
+- debug:
+    var: kubeval_version_client_installed.stdout
+
+- name: Install kubeval
+  block:
+    - name: Create a directory if it does not exist
+      file:
+        path: "{{ kubeval_tmp_directory }}/{{ kubeval_os }}-{{ kubeval_arch }}/"
+        state: directory
+        mode: '0755'
+
+    - name: Download and unarchive kubeval
+      unarchive:
+        src: "https://github.com/instrumenta/kubeval/releases/download/v{{ kubeval_version }}/kubeval-{{ kubeval_os }}-{{ kubeval_arch }}.tar.gz"
+        dest: "{{ kubeval_tmp_directory }}/{{ kubeval_os }}-{{ kubeval_arch }}/"
+        remote_src: true
+        mode: 0755
+
+    - name: Copy file with owner and permissions
+      copy:
+        src: "{{ kubeval_tmp_directory }}/{{ kubeval_os }}-{{ kubeval_arch }}/kubeval"
+        dest: "{{ kubeval_bin_path }}/kubeval"
+        mode: '0755'
+        remote_src: yes
+
+    - name: Clean temporary directory
+      file:
+        state: absent
+        path: "{{ kubeval_tmp_directory }}/{{ kubeval_os }}-{{ kubeval_arch }}"
+  when: 
+    - not ansible_check_mode
+    - kubeval_version != kubeval_version_client_installed.stdout
