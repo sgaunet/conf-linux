@@ -51,6 +51,7 @@ For kubernetes:
 * [kubefwd](https://github.com/txn2/kubefwd)
 * [silver-surfer](https://github.com/devtron-labs/silver-surfer)
 * [kluctl](https://github.com/kluctl/kluctl)
+* [kubescape](https://github.com/kubescape/kubescape)
 
 For markdown :
 

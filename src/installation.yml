@@ -171,3 +171,5 @@
       tags: pastel
     - role: kluctl
       tags: kluctl
+    - role: kubescape
+      tags: kubescape
