@@ -169,3 +169,5 @@
       tags: vhs
     - role: pastel
       tags: pastel
+    - role: kluctl
+      tags: kluctl

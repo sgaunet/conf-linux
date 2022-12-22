@@ -1,0 +1,7 @@
+---
+
+kluctl_version: "2.18.1"
+kluctl_bin_path: "/usr/local/bin"
+kluctl_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
+kluctl_os: "linux"
+kluctl_arch: "amd64"
