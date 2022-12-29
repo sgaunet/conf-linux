@@ -115,6 +115,8 @@
       tags: viddy
     - role: gitlab-issue-report
       tags: gitlab-issue-report
+    - role: gitlab-stats
+      tags: gitlab-stats
     - role: pet
       tags: pet
     - role: plow

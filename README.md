@@ -95,6 +95,7 @@ Development:
 * [gitleaks](https://github.com/zricethezav/gitleaks)
 * [glab](https://github.com/profclems/glab/)
 * [gitlab-issue-report](https://github.com/sgaunet/gitlab-issue-report)
+* [gitlab-stats](https://github.com/sgaunet/gitlab-stats)
 * [gum](https://github.com/charmbracelet/gum)
 * [nfpm](https://nfpm.goreleaser.com/)
 * [chglog](https://github.com/goreleaser/chglog)
