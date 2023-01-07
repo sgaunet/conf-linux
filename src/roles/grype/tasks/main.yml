@@ -8,13 +8,36 @@
   failed_when: false
   check_mode: no
 
-- name: Check grype version
-  shell: '/bin/true'
-  changed_when: grype_version_client_installed.stdout != grype_version
+- name: get latest tag of github repo {{ github_repo }}
+  become: false
+  shell: "curl --silent https://api.github.com/{{ github_repo }}/grype/releases/latest"
+  register: vers
+  changed_when: false
+  failed_when: false
   check_mode: no
 
-- debug:
-    var: grype_version_client_installed.stdout
+# - debug:
+#     var: vers.stdout
+
+- name: get tag_name
+  set_fact:
+    v: "{{ vers.stdout | from_json }}"
+
+- name: get version
+  set_fact:
+    version: "{{ v.tag_name  | regex_replace('^v','') }}"
+
+# - debug:
+#     var: version
+
+
+- name: Check grype version
+  shell: '/bin/true'
+  changed_when: grype_version_client_installed.stdout != version
+  check_mode: no
+
+# - debug:
+#     var: grype_version_client_installed.stdout
 
 - name: Install grype
   block:
@@ -26,7 +49,7 @@
 
     - name: Download and unarchive grype
       unarchive:
-        src: "https://github.com/anchore/grype/releases/download/v{{ grype_version }}/grype_{{ grype_version }}_{{ grype_os }}_{{ grype_arch }}.tar.gz"
+        src: "https://github.com/anchore/grype/releases/download/v{{ version }}/grype_{{ version }}_{{ grype_os }}_{{ grype_arch }}.tar.gz"
         dest: "{{ grype_tmp_directory }}/{{ grype_os }}-{{ grype_arch }}/"
         remote_src: true
         mode: 0755
@@ -44,4 +67,4 @@
         path: "{{ grype_tmp_directory }}/{{ grype_os }}-{{ grype_arch }}"
   when: 
     - not ansible_check_mode
-    - grype_version != grype_version_client_installed.stdout
+    - version != grype_version_client_installed.stdout

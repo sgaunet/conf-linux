@@ -1,7 +1,7 @@
 ---
 
 # "grype" version to install
-grype_version: "0.50.2"
+github_repo: repos/anchore
 grype_bin_path: "/usr/local/bin"
 grype_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
 grype_os: "linux" 
