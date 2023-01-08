@@ -1,7 +1,7 @@
 ---
 
 # "bat" version to install
-bat_version: "0.21.0"
+bat_version: "0.22.1"
 bat_bin_path: "/usr/local/bin"
 bat_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
 bat_os: "unknown-linux-gnu" 
