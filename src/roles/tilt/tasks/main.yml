@@ -20,6 +20,7 @@
 
 - name: Install tilt
   shell: "curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash"
+  become: false
   when:
     - not ansible_check_mode
     - tilt_version != tilt_version_installed
