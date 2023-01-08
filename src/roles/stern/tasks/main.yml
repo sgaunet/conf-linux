@@ -2,7 +2,7 @@
 
 - name: Check stern version
   become: false
-  shell: "stern -v | grep -Po 'stern version \\K.*$'"
+  shell: "stern -v | grep version | cut -d' ' -f2"
   register: stern_version_installed
   changed_when: false
   failed_when: false
@@ -13,11 +13,33 @@
   changed_when: stern_version_installed.stdout != stern_version
   check_mode: no
 
-- name: Download stern
-  get_url:
-    url: "https://github.com/wercker/stern/releases/download/{{ stern_version }}/stern_{{ stern_os }}_{{ stern_arch }}"
-    dest: "{{ stern_bin_path }}"
-    mode: 0755
-  when:
+- name: Install stern
+  block:
+    - name: Create a directory if it does not exist
+      file:
+        path: "{{ stern_tmp_directory }}/{{ stern_os }}-{{ stern_arch }}/"
+        state: directory
+        mode: '0755'
+
+    - name: Download and unarchive stern
+      unarchive:
+        src: "https://github.com/stern/stern/releases/download/v{{ stern_version }}/stern_{{ stern_version }}_{{ stern_os }}_{{ stern_arch }}.tar.gz"
+        dest: "{{ stern_tmp_directory }}/{{ stern_os }}-{{ stern_arch }}/"
+        remote_src: true
+        mode: 0755
+
+    - name: Copy file with owner and permissions
+      copy:
+        src: "{{ stern_tmp_directory }}/{{ stern_os }}-{{ stern_arch }}/stern"
+        dest: "{{ stern_bin_path }}/stern"
+        mode: '0755'
+        remote_src: yes
+
+    - name: Clean temporary directory
+      file:
+        state: absent
+        path: "{{ stern_tmp_directory }}/{{ stern_os }}-{{ stern_arch }}"
+  when: 
     - not ansible_check_mode
-    - stern_version_installed.stdout != stern_version
+    - stern_version != stern_version_installed.stdout
+
