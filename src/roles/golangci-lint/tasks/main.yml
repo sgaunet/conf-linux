@@ -2,7 +2,7 @@
 
 - name: Check golangcilint version
   become: false
-  shell: "golang-ci-lint version  | cut -d' ' -f4"
+  shell: "golangci-lint version  | cut -d' ' -f4"
   register: golangcilint_version_client_installed
   changed_when: false
   failed_when: false
