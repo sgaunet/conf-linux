@@ -74,7 +74,7 @@ For GOLANG :
 * [task](https://taskfile.dev/)
 * [sqlc](https://sqlc.dev/)
 * [golang-ci-lint](https://github.com/golangci/golangci-lint)
-* [pre-commit-golang](https://github.com/dnephin/pre-commit-golang)
+* [pre-commit](https://github.com/pre-commit/pre-commit)
 
 
 VM :
