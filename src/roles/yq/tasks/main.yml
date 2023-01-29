@@ -2,32 +2,34 @@
 
 - name: Get yq version
   become: false
-  shell: 'yq -V | sed "s#yq (https://github.com/mikefarah/yq/) version v##"   '
+  ansible.builtin.shell: 'set -o pipefail && yq -V | sed "s#yq (https://github.com/mikefarah/yq/) version v##"   '
+  args:
+    executable: /bin/bash
   register: yq_version_installed
   changed_when: false
   failed_when: false
-  check_mode: no
+  check_mode: false
 
-- name: Check yq version
-  shell: '/bin/true'
+- name: Check yq version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
   changed_when: yq_version_installed.stdout != yq_version
-  check_mode: no
+  check_mode: false
 
 
 # - name: GitVersion
-#   debug:
+#   ansible.builtin.debug:
 #     msg: "{{yq_version_installed.stdout | regex_search('GitVersion:\\\"(.+)\\\", GitCommit(.*)$','\\1') }}"
 
 # - name: GitVersion
-#   set_fact:
+#   ansible.builtin.set_fact:
 #     yq_version_installed: "{{yq_version_installed.stdout | regex_search('GitVersion:\\\"(.+)\\\", GitCommit(.*)$','\\1') }}"
 
 - name: GitVersion
-  set_fact:
-    yq_version_installed: "{{yq_version_installed.stdout }}"
+  ansible.builtin.set_fact:
+    yq_version_installed: "{{ yq_version_installed.stdout }}"
 
 - name: Install yq
-  get_url:
+  ansible.builtin.get_url:
     url: "https://github.com/mikefarah/yq/releases/download/v{{ yq_version }}/yq_{{ yq_os }}_{{ yq_arch }}"
     dest: "{{ yq_bin_path }}/yq"
     mode: 0755

@@ -3,6 +3,6 @@
 # "yq" version to install
 yq_version: "4.30.6"
 yq_bin_path: "/usr/local/bin"
-yq_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
-yq_os: "linux" 
-yq_arch: "amd64" 
+yq_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
+yq_os: "linux"
+yq_arch: "amd64"
