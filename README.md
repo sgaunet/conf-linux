@@ -2,11 +2,17 @@
 
 That's a collection of ansible role to configure my Linux account for a new PC (debian based). That's far away from perfection but that's a start.
 
-# Execution 
+# Execution
 
 ```
 git clone git@github.com:sgaunet/conf-linux.git
-sudo apt install -y ansible
+
+python3 -m venv                                         # create python virutal environment. Do it once
+source venv/bin/activate                                # set your virtual environment  (set it always before launch commands on this project)
+pip install -r requirements.txt                         # install requirements in your virtual env
+ansible-galaxy collection install -r requirements.yml   # install galaxy collections
+
+
 cd conf-linux/src
 <edit> installation.yml
 ./go.sh
@@ -22,7 +28,7 @@ To get a beautiful prompt (for bash or zsh)
 
 ## And
 
-* common 
+* common
     * Install common softwares cifs-utils tmux git git-crypt gpg docker jq unzip
     * Install software-properties-common apt-transport-https wget
 
@@ -56,7 +62,6 @@ For kubernetes:
 
 For markdown :
 
-* [marp](https://marp.app/)
 * [mdtohtml](https://github.com/sgaunet/mdtohtml)
 
 For Docker :

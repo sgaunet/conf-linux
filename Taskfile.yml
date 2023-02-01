@@ -1,0 +1,13 @@
+# https://taskfile.dev
+version: '3'
+# vars:
+#   key: value
+tasks:
+  default:
+    cmds:
+      - task -a
+
+  linter:
+    cmds:
+      # - ansible-lint *.yml --skip-list name[template],meta-no-info,yaml[line-length],package-latest,latest[git]
+      - ansible-lint src/installation.yml --skip-list name[template],meta-no-info,yaml[line-length],package-latest,latest[git],experimental
