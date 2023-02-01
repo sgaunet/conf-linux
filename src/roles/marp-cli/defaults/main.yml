@@ -1,8 +1,0 @@
----
-
-# "marp" version to install
-marp_version: "0.23.3"
-marp_bin_path: "/usr/local/bin"
-marp_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
-marp_os: "linux" 
-marp_arch: "amd64" 

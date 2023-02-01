@@ -47,8 +47,6 @@
       tags: peek
     - role: vegeta
       tags: vegeta
-    - role: marp-cli
-      tags: marp-cli
     - role: kind
       tags: kind
     - role: stern
@@ -181,4 +179,3 @@
       tags: fx
     - role: gini
       tags: gini
-      
