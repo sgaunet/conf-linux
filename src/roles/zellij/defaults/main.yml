@@ -3,6 +3,6 @@
 # "zellij" version to install
 zellij_version: "0.34.4"
 zellij_bin_path: "/usr/local/bin"
-zellij_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
-zellij_os: "unknown-linux-musl" 
-zellij_arch: "x86_64" 
+zellij_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
+zellij_os: "unknown-linux-musl"
+zellij_arch: "x86_64"

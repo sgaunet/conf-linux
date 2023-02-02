@@ -2,44 +2,45 @@
 
 - name: Check bandwhich version
   become: false
-  shell: 'bandwhich --version | sed "s#bandwhich ##g"'
+  ansible.builtin.shell: 'set -o pipefail && bandwhich --version | sed "s#bandwhich ##g"'
+  args:
+    executable: /bin/bash
   register: bandwhich_version_client_installed
   changed_when: false
   failed_when: false
-  check_mode: no
+  check_mode: false
 
-- name: Check bandwhich version
-  shell: '/bin/true'
+- name: Check bandwhich version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
   changed_when: bandwhich_version_client_installed.stdout != bandwhich_version
-  check_mode: no
+  check_mode: false
 
 - name: Install bandwhich
+  when:
+    - not ansible_check_mode
+    - bandwhich_version != bandwhich_version_client_installed.stdout
   block:
     - name: Create a directory if it does not exist
-      file:
+      ansible.builtin.file:
         path: "{{ bandwhich_tmp_directory }}/{{ bandwhich_os }}-{{ bandwhich_arch }}/"
         state: directory
         mode: '0755'
 
     - name: Download and unarchive bandwhich
-      unarchive:
+      ansible.builtin.unarchive:
         src: "https://github.com/imsnif/bandwhich/releases/download/{{ bandwhich_version }}/bandwhich-v{{ bandwhich_version }}-{{ bandwhich_arch }}-{{ bandwhich_os }}.tar.gz"
         dest: "{{ bandwhich_tmp_directory }}/{{ bandwhich_os }}-{{ bandwhich_arch }}/"
         remote_src: true
         mode: 0755
 
     - name: Copy file with owner and permissions
-      copy:
+      ansible.builtin.copy:
         src: "{{ bandwhich_tmp_directory }}/{{ bandwhich_os }}-{{ bandwhich_arch }}/bandwhich"
         dest: "{{ bandwhich_bin_path }}/bandwhich"
         mode: '0755'
-        remote_src: yes
+        remote_src: true
 
     - name: Clean temporary directory
-      file:
+      ansible.builtin.file:
         state: absent
         path: "{{ bandwhich_tmp_directory }}/{{ bandwhich_os }}-{{ bandwhich_arch }}"
-  when: 
-    - not ansible_check_mode
-    - bandwhich_version != bandwhich_version_client_installed.stdout
-

@@ -1,0 +1,26 @@
+---
+
+- name: Get list of extensions
+  become: false
+  ansible.builtin.command: "code --list-extensions"
+  register: vscode_extensions_installed
+  changed_when: false
+  # failed_when: false
+  check_mode: false
+
+# - name: Config /home/cats/.pgpass
+#   ansible.builtin.debug:
+#     msg: "{{ item }}"
+#   with_items: "{{vscode_extensions}}"
+
+# - name: debug
+#   ansible.builtin.debug:
+#     msg: "{{ item }}"
+#   with_items: "{{vscode_extensions}}"
+#   when: item  not in vscode_extensions_installed.stdout
+
+- name: Install vscode extensions
+  become: false
+  ansible.builtin.command: "code --install-extension {{ item }}"
+  with_items: "{{ vscode_extensions }}"
+  when: item  not in vscode_extensions_installed.stdout

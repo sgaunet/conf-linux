@@ -1,0 +1,46 @@
+---
+
+- name: Check kubectlice version
+  become: false
+  ansible.builtin.shell: 'set -o pipefail && kubectl-ice --version | sed "s#kubectl-ice version ##g" '
+  args:
+    executable: /bin/bash
+  register: kubectlice_version_client_installed
+  changed_when: false
+  failed_when: false
+  check_mode: false
+
+- name: Check kubectlice version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
+  changed_when: kubectlice_version_client_installed.stdout != kubectlice_version
+  check_mode: false
+
+- name: Install kubectlice
+  when:
+    - not ansible_check_mode
+    - kubectlice_version != kubectlice_version_client_installed.stdout
+  block:
+    - name: Create a directory if it does not exist
+      ansible.builtin.file:
+        path: "{{ kubectlice_tmp_directory }}/{{ kubectlice_os }}-{{ kubectlice_arch }}/"
+        state: directory
+        mode: '0755'
+
+    - name: Download and unarchive kubectlice
+      ansible.builtin.unarchive:
+        src: "https://github.com/NimbleArchitect/kubectl-ice/releases/download/v{{ kubectlice_version }}/kubectl-ice_{{ kubectlice_os }}_{{ kubectlice_arch }}.tar.gz"
+        dest: "{{ kubectlice_tmp_directory }}/{{ kubectlice_os }}-{{ kubectlice_arch }}/"
+        remote_src: true
+        mode: 0755
+
+    - name: Copy file with owner and permissions
+      ansible.builtin.copy:
+        src: "{{ kubectlice_tmp_directory }}/{{ kubectlice_os }}-{{ kubectlice_arch }}/kubectl-ice"
+        dest: "{{ kubectlice_bin_path }}/kubectl-ice"
+        mode: '0755'
+        remote_src: true
+
+    - name: Clean temporary directory
+      ansible.builtin.file:
+        state: absent
+        path: "{{ kubectlice_tmp_directory }}/{{ kubectlice_os }}-{{ kubectlice_arch }}"

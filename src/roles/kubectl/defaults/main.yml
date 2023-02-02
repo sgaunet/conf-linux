@@ -3,6 +3,6 @@
 # "kubectl" version to install
 kubectl_version: "1.22.9"
 kubectl_bin_path: "/usr/local/bin"
-kubectl_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
-kubectl_os: "linux" 
-kubectl_arch: "amd64" 
+kubectl_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
+kubectl_os: "linux"
+kubectl_arch: "amd64"

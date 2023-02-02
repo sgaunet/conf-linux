@@ -3,6 +3,6 @@
 # "kconf" version to install
 kconf_version: "1.12.0"
 kconf_bin_path: "/usr/local/bin"
-kconf_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
-kconf_os: "linux" 
-kconf_arch: "x86_64" 
+kconf_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
+kconf_os: "linux"
+kconf_arch: "x86_64"

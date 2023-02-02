@@ -2,50 +2,52 @@
 
 - name: Check fd version
   become: false
-  shell: "fd --version | sed 's#fd ##g'"
+  ansible.builtin.shell: "set -o pipefail && fd --version | sed 's#fd ##g'"
+  args:
+    executable: /bin/bash
   register: fd_version_client_installed
   changed_when: false
   failed_when: false
-  check_mode: no
+  check_mode: false
 
-- name: Check fd version
-  shell: '/bin/true'
+- name: Check fd version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
   changed_when: fd_version_client_installed.stdout != fd_version
-  check_mode: no
+  check_mode: false
 
 - name: Install fd
+  when:
+    - not ansible_check_mode
+    - fd_version != fd_version_client_installed.stdout
   block:
     - name: Create a directory if it does not exist
-      file:
+      ansible.builtin.file:
         path: "{{ fd_tmp_directory }}/{{ fd_os }}-{{ fd_arch }}/"
         state: directory
         mode: '0755'
 
     - name: Download and unarchive fd
-      unarchive:
+      ansible.builtin.unarchive:
         src: "https://github.com/sharkdp/fd/releases/download/v{{ fd_version }}/fd-v{{ fd_version }}-{{ fd_arch }}-{{ fd_os }}.tar.gz"
         dest: "{{ fd_tmp_directory }}/{{ fd_os }}-{{ fd_arch }}/"
         remote_src: true
         mode: 0755
 
     - name: Copy file with owner and permissions
-      copy:
+      ansible.builtin.copy:
         src: "{{ fd_tmp_directory }}/{{ fd_os }}-{{ fd_arch }}/fd-v{{ fd_version }}-{{ fd_arch }}-{{ fd_os }}/fd"
         dest: "{{ fd_bin_path }}/fd"
         mode: '0755'
-        remote_src: yes
+        remote_src: true
 
     - name: Copy completion file
-      copy:
+      ansible.builtin.copy:
         src: "{{ fd_tmp_directory }}/{{ fd_os }}-{{ fd_arch }}/fd-v{{ fd_version }}-{{ fd_arch }}-{{ fd_os }}/autocomplete/fd.bash"
         dest: "/etc/bash_completion.d/"
         mode: '0755'
-        remote_src: yes
+        remote_src: true
 
     - name: Clean temporary directory
-      file:
+      ansible.builtin.file:
         state: absent
         path: "{{ fd_tmp_directory }}/{{ fd_os }}-{{ fd_arch }}"
-  when: 
-    - not ansible_check_mode
-    - fd_version != fd_version_client_installed.stdout

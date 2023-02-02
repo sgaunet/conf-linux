@@ -2,24 +2,28 @@
 
 - name: Get tilt version
   become: false
-  shell: "tilt version | sed 's#^v##g' | awk -F, '{ print $1 }'  "
+  ansible.builtin.shell: "set -o pipefail && tilt version | sed 's#^v##g' | awk -F, '{ print $1 }'  "
+  args:
+    executable: /bin/bash
   register: tilt_version_installed
   changed_when: false
   failed_when: false
-  check_mode: no
+  check_mode: false
 
-- name: Check tilt version
-  shell: '/bin/true'
+- name: Check tilt version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
   changed_when: tilt_version_installed.stdout != tilt_version
-  check_mode: no
+  check_mode: false
 
 
 - name: GitVersion
-  set_fact:
-    tilt_version_installed: "{{tilt_version_installed.stdout }}"
+  ansible.builtin.set_fact:
+    tilt_version_installed: "{{ tilt_version_installed.stdout }}"
 
 - name: Install tilt
-  shell: "curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash"
+  ansible.builtin.shell: "set -o pipefail && curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash"
+  args:
+    executable: /bin/bash
   become: false
   when:
     - not ansible_check_mode

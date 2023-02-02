@@ -2,46 +2,48 @@
 
 - name: Check kubeval version
   become: false
-  shell: "kubeval --version | grep Version | sed 's#Version: ##g'"
+  ansible.builtin.shell: "set -o pipefail && kubeval --version | grep Version | sed 's#Version: ##g'"
+  args:
+    executable: /bin/bash
   register: kubeval_version_client_installed
   changed_when: false
   failed_when: false
-  check_mode: no
+  check_mode: false
 
-- name: Check kubeval version
-  shell: '/bin/true'
+- name: Check kubeval version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
   changed_when: kubeval_version_client_installed.stdout != kubeval_version
-  check_mode: no
+  check_mode: false
 
-- debug:
-    var: kubeval_version_client_installed.stdout
+# - debug:
+#     var: kubeval_version_client_installed.stdout
 
 - name: Install kubeval
+  when:
+    - not ansible_check_mode
+    - kubeval_version != kubeval_version_client_installed.stdout
   block:
     - name: Create a directory if it does not exist
-      file:
+      ansible.builtin.file:
         path: "{{ kubeval_tmp_directory }}/{{ kubeval_os }}-{{ kubeval_arch }}/"
         state: directory
         mode: '0755'
 
     - name: Download and unarchive kubeval
-      unarchive:
+      ansible.builtin.unarchive:
         src: "https://github.com/instrumenta/kubeval/releases/download/v{{ kubeval_version }}/kubeval-{{ kubeval_os }}-{{ kubeval_arch }}.tar.gz"
         dest: "{{ kubeval_tmp_directory }}/{{ kubeval_os }}-{{ kubeval_arch }}/"
         remote_src: true
         mode: 0755
 
     - name: Copy file with owner and permissions
-      copy:
+      ansible.builtin.copy:
         src: "{{ kubeval_tmp_directory }}/{{ kubeval_os }}-{{ kubeval_arch }}/kubeval"
         dest: "{{ kubeval_bin_path }}/kubeval"
         mode: '0755'
-        remote_src: yes
+        remote_src: true
 
     - name: Clean temporary directory
-      file:
+      ansible.builtin.file:
         state: absent
         path: "{{ kubeval_tmp_directory }}/{{ kubeval_os }}-{{ kubeval_arch }}"
-  when: 
-    - not ansible_check_mode
-    - kubeval_version != kubeval_version_client_installed.stdout

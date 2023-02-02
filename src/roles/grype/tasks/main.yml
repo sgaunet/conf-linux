@@ -2,69 +2,70 @@
 
 - name: Check grype version
   become: false
-  shell: "grype version | grep ^Version | awk '{ print $2}'"
+  ansible.builtin.shell: "set -o pipefail && grype version | grep ^Version | awk '{ print $2}'"
+  args:
+    executable: /bin/bash
   register: grype_version_client_installed
   changed_when: false
   failed_when: false
-  check_mode: no
+  check_mode: false
 
-- name: get latest tag of github repo {{ github_repo }}
+- name: Get latest tag of github repo {{ github_repo }} # noqa command-instead-of-module
   become: false
-  shell: "curl --silent https://api.github.com/{{ github_repo }}/grype/releases/latest"
+  ansible.builtin.command: "curl --silent https://api.github.com/{{ github_repo }}/grype/releases/latest"
   register: vers
   changed_when: false
   failed_when: false
-  check_mode: no
+  check_mode: false
 
 # - debug:
 #     var: vers.stdout
 
-- name: get tag_name
-  set_fact:
+- name: Get tag_name
+  ansible.builtin.set_fact:
     v: "{{ vers.stdout | from_json }}"
 
-- name: get version
-  set_fact:
-    version: "{{ v.tag_name  | regex_replace('^v','') }}"
+- name: Get version
+  ansible.builtin.set_fact:
+    version: "{{ v.tag_name | regex_replace('^v', '') }}"
 
 # - debug:
 #     var: version
 
-
-- name: Check grype version
-  shell: '/bin/true'
+- name: Check grype version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
   changed_when: grype_version_client_installed.stdout != version
-  check_mode: no
+  check_mode: false
 
 # - debug:
 #     var: grype_version_client_installed.stdout
 
 - name: Install grype
+  when:
+    - not ansible_check_mode
+    - version != grype_version_client_installed.stdout
   block:
     - name: Create a directory if it does not exist
-      file:
+      ansible.builtin.file:
         path: "{{ grype_tmp_directory }}/{{ grype_os }}-{{ grype_arch }}/"
         state: directory
         mode: '0755'
 
     - name: Download and unarchive grype
-      unarchive:
+      ansible.builtin.unarchive:
         src: "https://github.com/anchore/grype/releases/download/v{{ version }}/grype_{{ version }}_{{ grype_os }}_{{ grype_arch }}.tar.gz"
         dest: "{{ grype_tmp_directory }}/{{ grype_os }}-{{ grype_arch }}/"
         remote_src: true
         mode: 0755
 
     - name: Copy file with owner and permissions
-      copy:
+      ansible.builtin.copy:
         src: "{{ grype_tmp_directory }}/{{ grype_os }}-{{ grype_arch }}/grype"
         dest: "{{ grype_bin_path }}/grype"
         mode: '0755'
-        remote_src: yes
+        remote_src: true
 
     - name: Clean temporary directory
-      file:
+      ansible.builtin.file:
         state: absent
         path: "{{ grype_tmp_directory }}/{{ grype_os }}-{{ grype_arch }}"
-  when: 
-    - not ansible_check_mode
-    - version != grype_version_client_installed.stdout

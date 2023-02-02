@@ -1,8 +1,0 @@
----
-
-# "silversurfer" version to install
-silversurfer_version: "0.1.1"
-silversurfer_bin_path: "/usr/local/bin"
-silversurfer_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
-silversurfer_os: "linux" 
-silversurfer_arch: "amd64" 

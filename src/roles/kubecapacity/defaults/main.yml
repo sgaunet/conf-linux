@@ -1,0 +1,7 @@
+---
+
+kubecapacity_version: "0.7.1"
+kubecapacity_bin_path: "/usr/local/bin"
+kubecapacity_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
+kubecapacity_os: "Linux"
+kubecapacity_arch: "x86_64"

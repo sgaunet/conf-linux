@@ -2,44 +2,45 @@
 
 - name: Check gdu version
   become: false
-  shell: 'gdu -v | grep Version | sed "s#Version:[[:space:]]*v##g"'
+  ansible.builtin.shell: 'set -o pipefail && gdu -v | grep Version | sed "s#Version:[[:space:]]*v##g"'
+  args:
+    executable: /bin/bash
   register: gdu_version_client_installed
   changed_when: false
   failed_when: false
-  check_mode: no
+  check_mode: false
 
-- name: Check gdu version
-  shell: '/bin/true'
+- name: Check gdu version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
   changed_when: gdu_version_client_installed.stdout != gdu_version
-  check_mode: no
+  check_mode: false
 
 - name: Install gdu
+  when:
+    - not ansible_check_mode
+    - gdu_version != gdu_version_client_installed.stdout
   block:
     - name: Create a directory if it does not exist
-      file:
+      ansible.builtin.file:
         path: "{{ gdu_tmp_directory }}/{{ gdu_os }}-{{ gdu_arch }}/"
         state: directory
         mode: '0755'
 
     - name: Download and unarchive gdu
-      unarchive:
+      ansible.builtin.unarchive:
         src: "https://github.com/dundee/gdu/releases/download/v{{ gdu_version }}/gdu_{{ gdu_os }}_{{ gdu_arch }}.tgz"
         dest: "{{ gdu_tmp_directory }}/{{ gdu_os }}-{{ gdu_arch }}/"
         remote_src: true
         mode: 0755
 
     - name: Copy file with owner and permissions
-      copy:
+      ansible.builtin.copy:
         src: "{{ gdu_tmp_directory }}/{{ gdu_os }}-{{ gdu_arch }}/gdu_{{ gdu_os }}_{{ gdu_arch }}"
         dest: "{{ gdu_bin_path }}/gdu"
         mode: '0755'
-        remote_src: yes
+        remote_src: true
 
     - name: Clean temporary directory
-      file:
+      ansible.builtin.file:
         state: absent
         path: "{{ gdu_tmp_directory }}/{{ gdu_os }}-{{ gdu_arch }}"
-  when: 
-    - not ansible_check_mode
-    - gdu_version != gdu_version_client_installed.stdout
-

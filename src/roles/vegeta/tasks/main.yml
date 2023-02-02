@@ -2,44 +2,45 @@
 
 - name: Get vegeta version
   become: false
-  shell: "vegeta -version | grep Version | sed 's#Version: ##'"
+  ansible.builtin.shell: "set -o pipefail && vegeta -version | grep Version | sed 's#Version: ##'"
+  args:
+    executable: /bin/bash
   register: vegeta_version_installed
   changed_when: false
   failed_when: false
-  check_mode: no
+  check_mode: false
 
-- name: Check vegeta version
-  shell: '/bin/true'
+- name: Check vegeta version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
   changed_when: vegeta_version_installed.stdout != vegeta_version
-  check_mode: no
+  check_mode: false
 
 - name: Install vegeta
-  block: 
+  when:
+    - not ansible_check_mode
+    - vegeta_version_installed.stdout != vegeta_version
+  block:
     - name: Create a directory if it does not exist
-      file:
+      ansible.builtin.file:
         path: "{{ vegeta_tmp_directory }}/{{ vegeta_os }}-{{ vegeta_arch }}/"
         state: directory
         mode: '0755'
 
     - name: Download and unarchive vegeta
-      unarchive:
+      ansible.builtin.unarchive:
         src: "https://github.com/tsenart/vegeta/releases/download/v{{ vegeta_version }}/vegeta-{{ vegeta_version }}-{{ vegeta_os }}-{{ vegeta_arch }}.tar.gz"
         dest: "{{ vegeta_tmp_directory }}/{{ vegeta_os }}-{{ vegeta_arch }}/"
         remote_src: true
         mode: 0755
 
     - name: Copy file with owner and permissions
-      copy:
+      ansible.builtin.copy:
         src: "{{ vegeta_tmp_directory }}/{{ vegeta_os }}-{{ vegeta_arch }}/vegeta"
         dest: "{{ vegeta_bin_path }}/vegeta"
         mode: '0755'
-        remote_src: yes
+        remote_src: true
 
     - name: Clean temporary directory
-      file:
+      ansible.builtin.file:
         state: absent
         path: "{{ vegeta_tmp_directory }}/{{ vegeta_os }}-{{ vegeta_arch }}"
-  when:
-    - not ansible_check_mode
-    - vegeta_version_installed.stdout != vegeta_version
-

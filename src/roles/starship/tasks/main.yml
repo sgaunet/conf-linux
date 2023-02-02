@@ -2,81 +2,81 @@
 
 - name: Configure starship
   become: false
-  copy:
+  ansible.builtin.copy:
     src: "starship.toml"
-    dest: "{{ lookup('env','HOME') }}/.config/starship.toml"
+    dest: "{{ lookup('env', 'HOME') }}/.config/starship.toml"
     mode: '0644'
 
 - name: Check starship version
   become: false
-  shell: 'starship --version | grep starship | sed "s#starship ##g"'
+  ansible.builtin.shell: 'set -o pipefail && starship --version | grep starship | sed "s#starship ##g"'
+  args:
+    executable: /bin/bash
   register: starship_version_client_installed
   changed_when: false
   failed_when: false
-  check_mode: no
+  check_mode: false
 
-- name: Check starship version
-  shell: '/bin/true'
+- name: Check starship version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
   changed_when: starship_version_client_installed.stdout != starship_version
-  check_mode: no
+  check_mode: false
 
 - name: Install nerdfont
+  when:
+    - not ansible_check_mode
+    - starship_version != starship_version_client_installed.stdout
   block:
-    - name: Create a directory {{ lookup('env','HOME') }}/.local/share/fonts
+    - name: Create a directory {{ lookup('env', 'HOME') }}/.local/share/fonts
       become: false
-      file:
-        path: "{{ lookup('env','HOME') }}/.local/share/fonts"
+      ansible.builtin.file:
+        path: "{{ lookup('env', 'HOME') }}/.local/share/fonts"
         state: directory
         mode: '0744'
     - name: Download and unarchive nerdfont
       become: false
-      unarchive:
+      ansible.builtin.unarchive:
         src: "{{ nerdfont }}"
-        dest: "{{ lookup('env','HOME') }}/.local/share/fonts"
+        dest: "{{ lookup('env', 'HOME') }}/.local/share/fonts"
         remote_src: true
-    - name: fc-cache -fv
+    - name: Exec fc-cache -fv
       become: false
-      shell: 'fc-cache -fv'
-
-  when: 
-    - not ansible_check_mode
-    - starship_version != starship_version_client_installed.stdout
-
+      ansible.builtin.command: 'fc-cache -fv'
+      changed_when: true
 
 - name: Install starship
+  when:
+    - not ansible_check_mode
+    - starship_version != starship_version_client_installed.stdout
   block:
     - name: Create a directory if it does not exist
-      file:
+      ansible.builtin.file:
         path: "{{ starship_tmp_directory }}/{{ starship_os }}-{{ starship_arch }}/"
         state: directory
         mode: '0755'
 
     - name: Download and unarchive starship
-      unarchive:
-        src: "https://github.com/starship/starship/releases/download/v{{ starship_version }}/starship-{{starship_arch}}-{{starship_os}}.tar.gz"
+      ansible.builtin.unarchive:
+        src: "https://github.com/starship/starship/releases/download/v{{ starship_version }}/starship-{{ starship_arch }}-{{ starship_os }}.tar.gz"
         dest: "{{ starship_tmp_directory }}/{{ starship_os }}-{{ starship_arch }}/"
         remote_src: true
         mode: 0755
 
     - name: Copy file with owner and permissions
-      copy:
+      ansible.builtin.copy:
         src: "{{ starship_tmp_directory }}/{{ starship_os }}-{{ starship_arch }}/starship"
         dest: "{{ starship_bin_path }}/starship"
         mode: '0755'
-        remote_src: yes
+        remote_src: true
 
     - name: Clean temporary directory
-      file:
+      ansible.builtin.file:
         state: absent
         path: "{{ starship_tmp_directory }}/{{ starship_os }}-{{ starship_arch }}"
 
-    
     - name: Configure straship for bash
       become: false
-      lineinfile:
-        path: "{{ lookup('env','HOME') }}/.bashrc"
+      ansible.builtin.lineinfile:
+        path: "{{ lookup('env', 'HOME') }}/.bashrc"
         line: 'eval "$(starship init bash)"'
       # when: bash_install
-  when: 
-    - not ansible_check_mode
-    - starship_version != starship_version_client_installed.stdout

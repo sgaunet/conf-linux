@@ -2,19 +2,19 @@
 
 - name: Check fx version
   become: false
-  shell: 'fx --version'
+  ansible.builtin.command: 'fx --version'
   register: fx_version_client_installed
   changed_when: false
   failed_when: false
-  check_mode: no
+  check_mode: false
 
-- name: Check fx version
-  shell: '/bin/true'
+- name: Check fx version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
   changed_when: fx_version_client_installed.stdout != fx_version
-  check_mode: no
+  check_mode: false
 
 - name: Download and unarchive fx
-  get_url:
+  ansible.builtin.get_url:
     url: "https://github.com/antonmedv/fx/releases/download/{{ fx_version }}/fx_{{ fx_os }}_{{ fx_arch }}"
     dest: "{{ fx_bin_path }}/fx"
     mode: 0755

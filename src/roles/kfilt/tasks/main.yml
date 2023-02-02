@@ -2,23 +2,24 @@
 
 - name: Check kfilt version
   become: false
-  shell: 'kfilt --version | cut -f1 -d " "'
+  ansible.builtin.shell: 'set -o pipefail && kfilt --version | cut -f1 -d " "'
+  args:
+    executable: /bin/bash
   register: kfilt_version_client_installed
   changed_when: false
   failed_when: false
-  check_mode: no
+  check_mode: false
 
-- name: Check kfilt version
-  shell: '/bin/true'
+- name: Check kfilt version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
   changed_when: kfilt_version_client_installed.stdout != kfilt_version
-  check_mode: no
+  check_mode: false
 
 - name: Download and unarchive kfilt
-  get_url:
+  ansible.builtin.get_url:
     url: "https://github.com/ryane/kfilt/releases/download/v{{ kfilt_version }}/kfilt_{{ kfilt_version }}_{{ kfilt_os }}_{{ kfilt_arch }}"
     dest: "{{ kfilt_bin_path }}/kfilt"
     mode: 0755
   when:
     - not ansible_check_mode
     - kfilt_version_client_installed.stdout != kfilt_version
-

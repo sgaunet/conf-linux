@@ -1,13 +1,13 @@
 ---
 
-- name: install repo
-  copy:
+- name: Install repo
+  ansible.builtin.copy:
     src: "goreleaser.list"
     dest: "/etc/apt/sources.list.d/goreleaser.list"
     mode: '0644'
 
 - name: Install nfpm
-  apt:
+  ansible.builtin.apt:
     name: nfpm
     state: present
-    update_cache: yes
+    update_cache: true

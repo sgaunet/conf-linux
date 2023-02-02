@@ -2,82 +2,85 @@
 
 - name: Check krew version
   become: false
-  shell: kubectl-krew version | grep GitTag | awk '{ print $2 }' | sed "s#^v##g"
+  ansible.builtin.shell: set -o pipefail && kubectl-krew version | grep GitTag | awk '{ print $2 }' | sed "s#^v##g"
+  args:
+    executable: /bin/bash
   register: krew_version_client_installed
   changed_when: false
   failed_when: false
-  check_mode: no
+  check_mode: false
 
-- name: Check krew version
-  shell: '/bin/true'
+- name: Check krew version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
   changed_when: krew_version_client_installed.stdout != krew_version
-  check_mode: no
+  check_mode: false
 
-- debug:
-    var: krew_version_client_installed.stdout
+# - debug:
+#     var: krew_version_client_installed.stdout
 
 - name: Install krew
-  block:
-  - name: Remove {{ lookup('env','HOME') }}/.krew
-    file:
-      path: "{{ lookup('env','HOME') }}/.krew"
-      state: absent
-
-  - name: Download krew
-    get_url:
-      url: https://github.com/kubernetes-sigs/krew/releases/download/v{{ krew_version }}/krew-{{ krew_os }}_{{ krew_arch }}.tar.gz
-      dest: /tmp/krew.tar.gz
-      mode: '0750'
-
-  # - name: "Create folder {{ lookup('env','HOME') + '/.krew/bin/' }}"
-  #   file:
-  #     path: "{{ lookup('env','HOME') + '/.krew/bin/' }}"
-  #     state: directory
-  #     mode: '0777'
-
-  - name: Create temporary folder /tmp/krew
-    file:
-      path: /tmp/krew
-      state: directory
-
-  - name: Extract to /tmp/krew
-    unarchive:
-      src: /tmp/krew.tar.gz
-      dest: /tmp/krew
-      remote_src: yes
-
-  - name: Install krew
-    become: false
-    shell: /tmp/krew/krew-{{ krew_os }}_{{ krew_arch }} install krew
-
-  - name: Remove temporary files/folders
-    file:
-      path: /tmp/krew
-      state: absent
-
-  - name: Remove temporary files/folders
-    file:
-      path: /tmp/krew.tar.gz
-      state: absent
-  when: 
+  when:
     - not ansible_check_mode
     - krew_version != krew_version_client_installed.stdout
+  block:
+    - name: Remove {{ lookup('env', 'HOME') }}/.krew
+      ansible.builtin.file:
+        path: "{{ lookup('env', 'HOME') }}/.krew"
+        state: absent
+
+    - name: Download krew
+      ansible.builtin.get_url:
+        url: https://github.com/kubernetes-sigs/krew/releases/download/v{{ krew_version }}/krew-{{ krew_os }}_{{ krew_arch }}.tar.gz
+        dest: /tmp/krew.tar.gz
+        mode: '0750'
+
+    # - name: "Create folder {{ lookup('env','HOME') + '/.krew/bin/' }}"
+    #   ansible.builtin.file:
+    #     path: "{{ lookup('env','HOME') + '/.krew/bin/' }}"
+    #     state: directory
+    #     mode: '0777'
+
+    - name: Create temporary folder /tmp/krew
+      ansible.builtin.file:
+        path: /tmp/krew
+        state: directory
+        mode: 0755
+
+    - name: Extract to /tmp/krew
+      ansible.builtin.unarchive:
+        src: /tmp/krew.tar.gz
+        dest: /tmp/krew
+        remote_src: true
+
+    - name: Install krew
+      become: false
+      ansible.builtin.command: /tmp/krew/krew-{{ krew_os }}_{{ krew_arch }} install krew
+      changed_when: true
+
+    - name: Remove temporary files/folders
+      ansible.builtin.file:
+        path: /tmp/krew
+        state: absent
+
+    - name: Remove temporary files/folders
+      ansible.builtin.file:
+        path: /tmp/krew.tar.gz
+        state: absent
 
 - name: Add to $HOME/.zshrc
   become: false
-  lineinfile:
-    path: "{{ lookup('env','HOME') }}/.zshrc"
+  ansible.builtin.lineinfile:
+    path: "{{ lookup('env', 'HOME') }}/.zshrc"
     line: "{{ item }}"
   with_items:
-   - 'export PATH="$HOME/.krew/bin:$PATH"'
+    - 'export PATH="$HOME/.krew/bin:$PATH"'
   when: zsh_install
 
 - name: Add to $HOME/.bashrc
   become: false
-  lineinfile:
-    path: "{{ lookup('env','HOME') }}/.bashrc"
+  ansible.builtin.lineinfile:
+    path: "{{ lookup('env', 'HOME') }}/.bashrc"
     line: "{{ item }}"
   with_items:
-   - 'export PATH="$HOME/.krew/bin:$PATH"'
+    - 'export PATH="$HOME/.krew/bin:$PATH"'
   when: bash_install
-

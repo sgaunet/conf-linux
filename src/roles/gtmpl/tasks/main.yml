@@ -2,50 +2,50 @@
 
 - name: Check gtmpl version
   become: false
-  shell: 'gtmpl -v'
+  ansible.builtin.command: 'gtmpl -v'
   register: gtmpl_version_client_installed
   changed_when: false
   failed_when: false
-  check_mode: no
+  check_mode: false
 
-- name: Check gtmpl version
-  shell: '/bin/true'
+- name: Check gtmpl version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
   changed_when: gtmpl_version_client_installed.stdout != gtmpl_version
-  check_mode: no
+  check_mode: false
 
 - name: Install gtmpl
+  when:
+    - not ansible_check_mode
+    - gtmpl_version != gtmpl_version_client_installed.stdout
   block:
     - name: Create a directory if it does not exist
-      file:
+      ansible.builtin.file:
         path: "{{ gtmpl_tmp_directory }}/{{ gtmpl_os }}-{{ gtmpl_arch }}/"
         state: directory
         mode: '0755'
 
     - name: Download and unarchive gtmpl
-      unarchive:
+      ansible.builtin.unarchive:
         src: "https://github.com/sgaunet/gtmpl/releases/download/v{{ gtmpl_version }}/gtmpl_{{ gtmpl_os }}_{{ gtmpl_arch }}.tar.gz"
         dest: "{{ gtmpl_tmp_directory }}/{{ gtmpl_os }}-{{ gtmpl_arch }}/"
         remote_src: true
         mode: 0755
 
     - name: Copy file with owner and permissions
-      copy:
+      ansible.builtin.copy:
         src: "{{ gtmpl_tmp_directory }}/{{ gtmpl_os }}-{{ gtmpl_arch }}/gtmpl"
         dest: "{{ gtmpl_bin_path }}/gtmpl"
         mode: '0755'
-        remote_src: yes
+        remote_src: true
 
     - name: Clean temporary directory
-      file:
+      ansible.builtin.file:
         state: absent
         path: "{{ gtmpl_tmp_directory }}/{{ gtmpl_os }}-{{ gtmpl_arch }}"
-  when: 
-    - not ansible_check_mode
-    - gtmpl_version != gtmpl_version_client_installed.stdout
 
-# - name: Setup my gtmpl-cfg repository 
+# - name: Setup my gtmpl-cfg repository
 #   git:
 #     repo: git@github.com:sgaunet/gtmpl-cfg.git
-#     dest: "{{ lookup('env','HOME') }}/.gtmpl"
-#     update: yes
+#     dest: "{{ lookup('env', 'HOME') }}/.gtmpl"
+#     update: true
 #   become: false

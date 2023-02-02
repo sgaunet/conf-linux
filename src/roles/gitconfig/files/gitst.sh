@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 find . -name .git | while read ligne
-do 
+do
     repo=$(echo "$ligne" | sed "s#\.git##g")
     cd "$repo"
         st=$(git status -s)
@@ -11,3 +11,4 @@ do
         fi
     cd - > /dev/null 2>&1
 done
+

@@ -1,12 +1,12 @@
 ---
 
 - name: Install trivy (debian)
-  apt:
-    deb: https://github.com/aquasecurity/trivy/releases/download/v{{trivy_version}}/trivy_{{trivy_version}}_{{trivy_os}}-{{trivy_arch}}.deb
+  ansible.builtin.apt:
+    deb: https://github.com/aquasecurity/trivy/releases/download/v{{ trivy_version }}/trivy_{{ trivy_version }}_{{ trivy_os }}-{{ trivy_arch }}.deb
   when: ansible_os_family == "Debian"
-    
+
 - name: Install trivy (RedHat)
-  dnf:
-    name: https://github.com/aquasecurity/trivy/releases/download/v{{trivy_version}}/trivy_{{trivy_version}}_{{trivy_os}}-{{trivy_arch}}.rpm
+  ansible.builtin.dnf:
+    name: https://github.com/aquasecurity/trivy/releases/download/v{{ trivy_version }}/trivy_{{ trivy_version }}_{{ trivy_os }}-{{ trivy_arch }}.rpm
     state: present
   when: ansible_os_family == "RedHat"

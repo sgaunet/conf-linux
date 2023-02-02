@@ -1,0 +1,17 @@
+---
+
+- name: Download and unarchive kubectx
+  ansible.builtin.unarchive:
+    src: https://github.com/ahmetb/kubectx/releases/download/{{ kubectx_version }}/kubectx_{{ kubectx_version }}_{{ kubectx_arch }}.tar.gz
+    dest: "{{ kubectx_bin_path }}"
+    remote_src: true
+    creates: "{{ kubectx_bin_path }}/kubectx"
+    mode: 0755
+
+- name: Download and unarchive kubens
+  ansible.builtin.unarchive:
+    src: https://github.com/ahmetb/kubectx/releases/download/{{ kubens_version }}/kubens_{{ kubens_version }}_{{ kubens_arch }}.tar.gz
+    dest: "{{ kubens_bin_path }}"
+    remote_src: true
+    creates: "{{ kubens_bin_path }}/kubens"
+    mode: 0755

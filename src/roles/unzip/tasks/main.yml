@@ -1,6 +1,6 @@
 ---
 
 - name: Ensure unzip is installed.
-  package: 
+  package:
     name: unzip
     state: present

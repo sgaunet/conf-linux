@@ -2,19 +2,21 @@
 
 - name: Check kind version
   become: false
-  shell: "kind --version | grep -Po 'kind version \\K.*$'"
+  ansible.builtin.shell: "set -o pipefail && kind --version | grep -Po 'kind version \\K.*$'"
+  args:
+    executable: /bin/bash
   register: kind_version_installed
   changed_when: false
   failed_when: false
-  check_mode: no
+  check_mode: false
 
-- name: Check kind version
-  shell: '/bin/true'
+- name: Check kind version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
   changed_when: kind_version_installed.stdout != kind_version
-  check_mode: no
+  check_mode: false
 
 - name: Download kind
-  get_url:
+  ansible.builtin.get_url:
     url: "https://github.com/kubernetes-sigs/kind/releases/download/v{{ kind_version }}/kind-{{ kind_os }}-{{ kind_arch }}"
     dest: "{{ kind_bin_path }}"
     mode: 0755

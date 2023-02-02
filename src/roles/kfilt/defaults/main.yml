@@ -3,6 +3,6 @@
 # "kfilt" version to install
 kfilt_version: "0.0.7"
 kfilt_bin_path: "/usr/local/bin"
-kfilt_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
-kfilt_os: "linux" 
-kfilt_arch: "amd64" 
+kfilt_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
+kfilt_os: "linux"
+kfilt_arch: "amd64"

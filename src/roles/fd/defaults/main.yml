@@ -3,6 +3,6 @@
 # "fd" version to install
 fd_version: "8.6.0"
 fd_bin_path: "/usr/local/bin"
-fd_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
-fd_os: "unknown-linux-gnu" 
-fd_arch: "x86_64" 
+fd_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
+fd_os: "unknown-linux-gnu"
+fd_arch: "x86_64"

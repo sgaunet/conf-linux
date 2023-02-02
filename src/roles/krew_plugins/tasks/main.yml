@@ -1,0 +1,40 @@
+---
+
+# - name: debug
+#   ansible.builtin.debug:
+#     msg: "{{ item }}"
+#   with_items:
+#     - "{{ list_plugins }}"
+
+- name: "Check plugin {{ item }}"
+  become: false
+  environment:
+    PATH: "{{ ansible_env.PATH }}:{{ lookup('env', 'HOME') + '/.krew/bin/' }}"
+  ansible.builtin.shell: "set -o pipefail && kubectl krew list | grep -o {{ item }}"
+  args:
+    executable: /bin/bash
+  register: list_plugin_installed
+  changed_when: false
+  failed_when: false
+  with_items:
+    - "{{ list_plugins }}"
+  check_mode: false
+
+# - name: debug
+#   ansible.builtin.debug:
+#     msg: "{{ list_plugin_installed }}"
+
+# - name: debug2
+#   ansible.builtin.debug:
+#     msg: "{{ item }}"
+#   with_items:
+#     - "{{ list_plugin_installed.results }}"
+
+- name: Install plugin # noqa command-instead-of-shell
+  become: false
+  environment:
+    PATH: "{{ ansible_env.PATH }}:{{ lookup('env', 'HOME') + '/.krew/bin/' }}"
+  ansible.builtin.shell: "kubectl krew install {{ item.item }}"
+  when: item.rc == 1
+  with_items:
+    - "{{ list_plugin_installed.results }}"

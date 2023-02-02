@@ -3,6 +3,6 @@
 # "grype" version to install
 github_repo: repos/anchore
 grype_bin_path: "/usr/local/bin"
-grype_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
-grype_os: "linux" 
-grype_arch: "amd64" 
+grype_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
+grype_os: "linux"
+grype_arch: "amd64"

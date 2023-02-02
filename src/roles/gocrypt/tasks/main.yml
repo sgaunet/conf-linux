@@ -2,43 +2,43 @@
 
 - name: Check gocrypt version
   become: false
-  shell: 'gocrypt -v'
+  ansible.builtin.command: 'gocrypt -v'
   register: gocrypt_version_client_installed
   changed_when: false
   failed_when: false
-  check_mode: no
+  check_mode: false
 
-- name: Check gocrypt version
-  shell: '/bin/true'
+- name: Check gocrypt version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
   changed_when: gocrypt_version_client_installed.stdout != gocrypt_version
-  check_mode: no
+  check_mode: false
 
 - name: Install gocrypt
-  block: 
+  when:
+    - not ansible_check_mode
+    - gocrypt_version != gocrypt_version_client_installed.stdout
+  block:
     - name: Create a directory if it does not exist
-      file:
+      ansible.builtin.file:
         path: "{{ gocrypt_tmp_directory }}/{{ gocrypt_os }}-{{ gocrypt_arch }}/"
         state: directory
         mode: '0755'
 
     - name: Download and unarchive gocrypt
-      unarchive:
+      ansible.builtin.unarchive:
         src: "https://github.com/sgaunet/gocrypt/releases/download/v{{ gocrypt_version }}/gocrypt_{{ gocrypt_version }}_{{ gocrypt_os }}_{{ gocrypt_arch }}.tar.gz"
         dest: "{{ gocrypt_tmp_directory }}/{{ gocrypt_os }}-{{ gocrypt_arch }}/"
         remote_src: true
         mode: 0755
 
     - name: Copy file with owner and permissions
-      copy:
+      ansible.builtin.copy:
         src: "{{ gocrypt_tmp_directory }}/{{ gocrypt_os }}-{{ gocrypt_arch }}/gocrypt"
         dest: "{{ gocrypt_bin_path }}/gocrypt"
         mode: '0755'
-        remote_src: yes
+        remote_src: true
 
     - name: Clean temporary directory
-      file:
+      ansible.builtin.file:
         state: absent
         path: "{{ gocrypt_tmp_directory }}/{{ gocrypt_os }}-{{ gocrypt_arch }}"
-  when: 
-    - not ansible_check_mode
-    - gocrypt_version != gocrypt_version_client_installed.stdout

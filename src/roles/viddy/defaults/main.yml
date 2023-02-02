@@ -3,6 +3,6 @@
 # "viddy" version to install
 viddy_version: "0.3.6"
 viddy_bin_path: "/usr/local/bin"
-viddy_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
-viddy_os: "Linux" 
-viddy_arch: "x86_64" 
+viddy_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
+viddy_os: "Linux"
+viddy_arch: "x86_64"

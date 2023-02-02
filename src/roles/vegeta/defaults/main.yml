@@ -3,6 +3,6 @@
 # "vegeta" version to install
 vegeta_version: "12.8.3"
 vegeta_bin_path: "/usr/local/bin"
-vegeta_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
-vegeta_os: "linux" 
-vegeta_arch: "amd64" 
+vegeta_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
+vegeta_os: "linux"
+vegeta_arch: "amd64"

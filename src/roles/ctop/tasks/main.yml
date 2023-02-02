@@ -2,19 +2,21 @@
 
 - name: Check ctop version
   become: false
-  shell: 'ctop -v | sed "s#ctop version ##g" | cut -d, -f1'
+  ansible.builtin.shell: 'set -o pipefail && ctop -v | sed "s#ctop version ##g" | cut -d, -f1'
+  args:
+    executable: /bin/bash
   register: ctop_version_client_installed
   changed_when: false
   failed_when: false
-  check_mode: no
+  check_mode: false
 
-- name: Check ctop version
-  shell: '/bin/true'
+- name: Check ctop version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
   changed_when: ctop_version_client_installed.stdout != ctop_version
-  check_mode: no
+  check_mode: false
 
 - name: Download ctop
-  get_url:
+  ansible.builtin.get_url:
     url: https://github.com/bcicen/ctop/releases/download/v{{ ctop_version }}/ctop-{{ ctop_version }}-{{ ctop_os }}-{{ ctop_arch }}
     dest: "{{ ctop_bin_path }}/ctop"
     mode: 0755

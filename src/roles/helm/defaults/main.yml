@@ -3,6 +3,6 @@
 # "helm" version to install
 helm_version: "v3.10.0"
 helm_bin_path: "/usr/local/bin"
-helm_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
-helm_os: "linux" 
-helm_arch: "amd64" 
+helm_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
+helm_os: "linux"
+helm_arch: "amd64"

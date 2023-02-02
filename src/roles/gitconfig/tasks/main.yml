@@ -2,8 +2,8 @@
 
 - name: Configure .gitconfig
   become: false
-  blockinfile:
-    path: "{{ lookup('env','HOME') }}/.gitconfig"
+  ansible.builtin.blockinfile:
+    path: "{{ lookup('env', 'HOME') }}/.gitconfig"
     block: |
       [core]
           editor = vim
@@ -19,32 +19,32 @@
           # A shortcut for the the command 'p-all'
           pow=!git p-all
 
-- name: Create a directory {{ lookup('env','HOME') }}/.bin
+- name: Create a directory {{ lookup('env', 'HOME') }}/.bin
   become: false
-  file:
-    path: "{{ lookup('env','HOME') }}/.bin"
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.bin"
     state: directory
     mode: '0750'
 
 - name: Copy gitst.sh
   become: false
-  copy:
+  ansible.builtin.copy:
     src: "gitst.sh"
-    dest: "{{ lookup('env','HOME') }}/.bin/"
+    dest: "{{ lookup('env', 'HOME') }}/.bin/"
     mode: '0755'
 
 - name: Update PATH $HOME/.bashrc
   become: false
-  lineinfile:
-    path: "{{ lookup('env','HOME') }}/.bashrc"
+  ansible.builtin.lineinfile:
+    path: "{{ lookup('env', 'HOME') }}/.bashrc"
     line: "{{ item }}"
   with_items:
-   - 'export PATH=$HOME/.bin:$PATH'
+    - 'export PATH=$HOME/.bin:$PATH'
 
 - name: Add aliases for git to $HOME/.bashrc
   become: false
-  lineinfile:
-    path: "{{ lookup('env','HOME') }}/.bashrc"
+  ansible.builtin.lineinfile:
+    path: "{{ lookup('env', 'HOME') }}/.bashrc"
     line: "{{ item }}"
   with_items:
     - "alias 'ga=git add'"

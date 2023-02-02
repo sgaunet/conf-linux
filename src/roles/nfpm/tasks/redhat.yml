@@ -1,12 +1,12 @@
 ---
 
-- name: install repo
-  copy:
+- name: Install repo
+  ansible.builtin.copy:
     src: "goreleaser.repo"
     dest: "/etc/yum.repos.d/goreleaser.repo"
     mode: '0644'
 
 - name: Install nfpm
-  yum:
+  ansible.builtin.yum:
     name: nfpm
     state: present

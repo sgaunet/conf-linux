@@ -1,34 +1,34 @@
 ---
 
-- name: check helm version
+- name: Check helm version
   become: false
-  shell: "helm version --template '{{ '{{' }} .Version {{ '}}' }}'"
+  ansible.builtin.command: "helm version --template '{{ '{{' }} .Version {{ '}}' }}'"
   register: helm_version_installed
   changed_when: false
   failed_when: false
-  check_mode: no
+  check_mode: false
 
-- name: Check helm version
-  shell: '/bin/true'
+- name: Check helm version # noqa command-instead-of-shell
+  ansible.builtin.command: '/bin/true'
   changed_when: helm_version_installed.stdout != helm_version
-  check_mode: no
+  check_mode: false
 
 - name: Download and unarchive helm
-  unarchive:
+  ansible.builtin.unarchive:
     src: https://get.helm.sh/helm-{{ helm_version }}-{{ helm_os }}-{{ helm_arch }}.tar.gz
     dest: "{{ helm_tmp_directory }}"
     remote_src: true
     mode: 0755
-  when: 
+  when:
     - not ansible_check_mode
     - helm_version_installed != helm_version
 
 - name: Copy file with owner and permissions
-  copy:
+  ansible.builtin.copy:
     src: "{{ helm_tmp_directory }}/{{ helm_os }}-{{ helm_arch }}/helm"
     dest: "{{ helm_bin_path }}/helm"
     mode: '0755'
-    remote_src: yes
-  when: 
+    remote_src: true
+  when:
     - not ansible_check_mode
     - helm_version_installed != helm_version

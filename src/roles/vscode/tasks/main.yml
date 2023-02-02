@@ -1,9 +1,9 @@
 ---
 
-
-- include: debian.yml
+- name: Import debian
+  ansible.builtin.import_tasks: debian.yml
   when: ansible_os_family == 'Debian'
 
-- include: redhat.yml
+- name: Import redhat
+  ansible.builtin.import_tasks: redhat.yml
   when: ansible_os_family == 'RedHat'
-

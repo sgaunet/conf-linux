@@ -1,52 +1,54 @@
 ---
 
 - name: Ensure fzf is installed.
-  package: 
+  ansible.builtin.package:
     name: fzf
     state: present
 
 - name: Check pet version
   become: false
-  shell: "pet version  | sed  's/pet version //g'"
+  ansible.builtin.shell: "set -o pipefail && pet version  | sed  's/pet version //g'"
+  args:
+    executable: /bin/bash
   register: pet_version_client_installed
   changed_when: false
   failed_when: false
-  check_mode: no
+  check_mode: false
 
-- name: Check pet version
-  shell: '/bin/true'
+- name: Check pet version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
   changed_when: pet_version_client_installed.stdout != pet_version
-  check_mode: no
+  check_mode: false
 
-- debug:
-    var: pet_version_client_installed.stdout
+# - debug:
+#     var: pet_version_client_installed.stdout
 
 - name: Install pet
+  when:
+    - not ansible_check_mode
+    - pet_version != pet_version_client_installed.stdout
   block:
     - name: Create a directory if it does not exist
-      file:
+      ansible.builtin.file:
         path: "{{ pet_tmp_directory }}/{{ pet_os }}-{{ pet_arch }}/"
         state: directory
         mode: '0755'
 
     - name: Download and unarchive pet
-      unarchive:
+      ansible.builtin.unarchive:
         src: "https://github.com/knqyf263/pet/releases/download/v{{ pet_version }}/pet_{{ pet_version }}_{{ pet_os }}_{{ pet_arch }}.tar.gz"
         dest: "{{ pet_tmp_directory }}/{{ pet_os }}-{{ pet_arch }}/"
         remote_src: true
         mode: 0755
 
     - name: Copy file with owner and permissions
-      copy:
+      ansible.builtin.copy:
         src: "{{ pet_tmp_directory }}/{{ pet_os }}-{{ pet_arch }}/pet"
         dest: "{{ pet_bin_path }}/pet"
         mode: '0755'
-        remote_src: yes
+        remote_src: true
 
     - name: Clean temporary directory
-      file:
+      ansible.builtin.file:
         state: absent
         path: "{{ pet_tmp_directory }}/{{ pet_os }}-{{ pet_arch }}"
-  when: 
-    - not ansible_check_mode
-    - pet_version != pet_version_client_installed.stdout

@@ -3,6 +3,6 @@
 # "bottom" version to install
 bottom_version: "0.7.1"
 bottom_bin_path: "/usr/local/bin"
-bottom_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
-bottom_os: "unknown-linux-gnu" 
-bottom_arch: "x86_64" 
+bottom_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
+bottom_os: "unknown-linux-gnu"
+bottom_arch: "x86_64"

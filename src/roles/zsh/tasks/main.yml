@@ -1,27 +1,27 @@
 ---
 
 - name: Install zsh
-  apt:
+  ansible.builtin.apt:
     name: ['zsh']
     state: present
-    update_cache: yes
+    update_cache: true
 
 - name: Check if $HOME/.oh-my-zsh
   become: false
-  stat: 
-    path: "{{ lookup('env','HOME') }}/.oh-my-zsh"
+  ansible.builtin.stat:
+    path: "{{ lookup('env', 'HOME') }}/.oh-my-zsh"
   delegate_to: localhost
   register: ohmyzsh
 
 - name: Install ohmyzsh
   become: false
-  shell: sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  ansible.builtin.shell: sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   when: ohmyzsh.stat.exists == false
 
 - name: Configure .bashrc to exec zsh
   become: false
-  blockinfile:
-    path: "{{ lookup('env','HOME') }}/.bashrc"
+  ansible.builtin.blockinfile:
+    path: "{{ lookup('env', 'HOME') }}/.bashrc"
     block: |
       if [ -t 1 ]; then
         exec zsh
@@ -29,8 +29,8 @@
 
 - name: Configure .zshrc
   become: false
-  blockinfile:
-    path: "{{ lookup('env','HOME') }}/.zshrc"
+  ansible.builtin.blockinfile:
+    path: "{{ lookup('env', 'HOME') }}/.zshrc"
     block: |
       if [ -t 1 ]; then
         exec zsh
@@ -38,23 +38,23 @@
 
 - name: Add to $HOME/.zshrc
   become: false
-  lineinfile:
-    path: "{{ lookup('env','HOME') }}/.zshrc"
+  ansible.builtin.lineinfile:
+    path: "{{ lookup('env', 'HOME') }}/.zshrc"
     line: "{{ item }}"
   with_items:
    - 'export PATH="$HOME/.bin:$PATH"'
 
 - name: Replace theme ZSH
   replace:
-    path: "{{ lookup('env','HOME') }}/.zshrc"
+    path: "{{ lookup('env', 'HOME') }}/.zshrc"
     regexp: 'ZSH_THEME=.*'
     replace: "ZSH_THEME=\"agnoster\""
 
 
 # - name: Configure .zshrc
 #   become: false
-#   blockinfile:
-#     path: "{{ lookup('env','HOME') }}/.zshrc"
+#   ansible.builtin.blockinfile:
+#     path: "{{ lookup('env', 'HOME') }}/.zshrc"
 #     block: |
 #       prompt_docker_host() {
 #         ctx=$(docker context ls | awk '($2=="*") { print $1 }')
@@ -68,3 +68,4 @@
 #       prompt_context(){
 #         prompt_docker_host
 #       }
+

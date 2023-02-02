@@ -1,4 +1,7 @@
-- hosts: all
+---
+
+- name: Configure laptop
+  hosts: all
   become: true
   roles:
     - role: common
@@ -13,13 +16,13 @@
       tags: vscode
     - role: kubectl
       tags: kube
-    - role: kube-capacity
+    - role: kubecapacity
       tags: kubecapacity
-    - role: kubectx-ns
-      tags: kube
+    - role: kubectx
+      tags: kubectx
     - role: helm
       tags: helm
-    - role: kube-ps1
+    - role: kube_ps1
       vars:
         - bash_install: true
       tags: prompt
@@ -33,8 +36,8 @@
     #   tags: k3s
     - role: alias
       tags: alias
-    - role: krew-plugins
-      tags: krew-plugins
+    - role: krew_plugins
+      tags: krew_plugins
     - role: hadolint
       tags: hadolint
     - role: dockle
@@ -111,10 +114,10 @@
       tags: glab
     - role: viddy
       tags: viddy
-    - role: gitlab-issue-report
-      tags: gitlab-issue-report
-    - role: gitlab-stats
-      tags: gitlab-stats
+    - role: gitlab_issue_report
+      tags: gitlab_issue_report
+    - role: gitlab_stats
+      tags: gitlab_stats
     - role: pet
       tags: pet
     - role: plow
@@ -123,18 +126,18 @@
       tags: usql
     - role: gum
       tags: gum
-    - role: golangci-lint
-      tags: golangci-lint
+    - role: golangcilint
+      tags: golangcilint
     - role: muffet
       tags: muffet
     - role: exa
       tags: exa
     - role: bat
       tags: bat
-    - role: bash-formatter
-      tags: bash-formatter
-    - role: vscode-extensions
-      tags: vscode-extensions
+    - role: bash_formatter
+      tags: bash_formatter
+    - role: vscode_extensions
+      tags: vscode_extensions
     - role: vivid
       tags: vivid
     - role: fd
@@ -145,24 +148,24 @@
       tags: kconf
     - role: starship
       tags: starship
-    - role: pre-commit
-      tags: pre-commit
+    - role: pre_commit
+      tags: pre_commit
     - role: nfpm
       tags: nfpm
     - role: chglog
       tags: chglog
     - role: scc
       tags: scc
-    - role: kubectl-ice
-      tags: kubectl-ice
+    - role: kubectl_ice
+      tags: kubectl_ice
     - role: gaze
       tags: gaze
     - role: kubefwd
       tags: kubefwd
     - role: trufflehog
       tags: trufflehog
-    - role: silver-surfer
-      tags: silver-surfer
+    - role: silver_surfer
+      tags: silver_surfer
     - role: tmux
       tags: tmux
     - role: vhs

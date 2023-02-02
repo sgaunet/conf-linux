@@ -2,46 +2,48 @@
 
 - name: Check usql version
   become: false
-  shell: "usql --version  | sed  's/usql //g'"
+  ansible.builtin.shell: "set -o pipefail && usql --version  | sed  's/usql //g'"
+  args:
+    executable: /bin/bash
   register: usql_version_client_installed
   changed_when: false
   failed_when: false
-  check_mode: no
+  check_mode: false
 
-- name: Check usql version
-  shell: '/bin/true'
+- name: Check usql version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
   changed_when: usql_version_client_installed.stdout != usql_version
-  check_mode: no
+  check_mode: false
 
-- debug:
-    var: usql_version_client_installed.stdout
+# - debug:
+#     var: usql_version_client_installed.stdout
 
 - name: Install usql
+  when:
+    - not ansible_check_mode
+    - usql_version != usql_version_client_installed.stdout
   block:
     - name: Create a directory if it does not exist
-      file:
+      ansible.builtin.file:
         path: "{{ usql_tmp_directory }}/{{ usql_os }}-{{ usql_arch }}/"
         state: directory
         mode: '0755'
 
     - name: Download and unarchive usql
-      unarchive:
+      ansible.builtin.unarchive:
         src: "https://github.com/xo/usql/releases/download/v{{ usql_version }}/usql-{{ usql_version }}-{{ usql_os }}-{{ usql_arch }}.tar.bz2"
         dest: "{{ usql_tmp_directory }}/{{ usql_os }}-{{ usql_arch }}/"
         remote_src: true
         mode: 0755
 
     - name: Copy file with owner and permissions
-      copy:
+      ansible.builtin.copy:
         src: "{{ usql_tmp_directory }}/{{ usql_os }}-{{ usql_arch }}/usql"
         dest: "{{ usql_bin_path }}/usql"
         mode: '0755'
-        remote_src: yes
+        remote_src: true
 
     - name: Clean temporary directory
-      file:
+      ansible.builtin.file:
         state: absent
         path: "{{ usql_tmp_directory }}/{{ usql_os }}-{{ usql_arch }}"
-  when: 
-    - not ansible_check_mode
-    - usql_version != usql_version_client_installed.stdout

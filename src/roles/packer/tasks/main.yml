@@ -2,23 +2,23 @@
 
 - name: Get packer version
   become: false
-  shell: "packer -v"
+  ansible.builtin.command: "packer -v"
   register: packer_version_installed
   changed_when: false
   failed_when: false
-  check_mode: no
+  check_mode: false
 
-- name: Check packer version
-  shell: '/bin/true'
+- name: Check packer version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
   changed_when: packer_version_installed.stdout != packer_version
-  check_mode: no
+  check_mode: false
 
 - name: Download and unarchive Packer.
-  unarchive:
+  ansible.builtin.unarchive:
     src: https://releases.hashicorp.com/packer/{{ packer_version }}/packer_{{ packer_version }}_linux_{{ packer_arch }}.zip
     dest: "{{ packer_bin_path }}"
     remote_src: true
     mode: 0755
-  when: 
+  when:
     - not ansible_check_mode
     - packer_version_installed.stdout != packer_version

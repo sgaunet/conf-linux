@@ -3,6 +3,6 @@
 # "mdtohtml" version to install
 mdtohtml_version: "0.6.2"
 mdtohtml_bin_path: "/usr/local/bin"
-mdtohtml_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
-mdtohtml_os: "Linux" 
-mdtohtml_arch: "x86_64" 
+mdtohtml_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
+mdtohtml_os: "Linux"
+mdtohtml_arch: "x86_64"

@@ -1,13 +1,13 @@
 ---
 
 - name: Install common softwares cifs-utils tmux git git-crypt gpg docker jq unzip
-  apt:
-    name: ['cifs-utils','git','git-crypt','gpg','docker','jq','unzip']
+  ansible.builtin.apt:
+    name: ['cifs-utils', 'git', 'git-crypt', 'gpg', 'docker', 'jq', 'unzip']
     state: present
-    update_cache: yes
+    update_cache: true
 
 - name: Install software-properties-common apt-transport-https wget
-  apt:
-    name: ['software-properties-common','apt-transport-https','wget']
+  ansible.builtin.apt:
+    name: ['software-properties-common', 'apt-transport-https', 'wget']
     state: present
-    update_cache: yes
+    update_cache: true

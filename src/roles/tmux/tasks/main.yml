@@ -1,22 +1,22 @@
 ---
 
 - name: Install tmux tmuxinator
-  apt:
-    name: ['tmux','tmuxinator']
+  ansible.builtin.apt:
+    name: ['tmux', 'tmuxinator']
     state: present
-    update_cache: yes
+    update_cache: true
 
 - name: Copy tmux configuration file
   become: false
-  copy:
+  ansible.builtin.copy:
     src: ".tmux.conf"
-    dest: "{{ lookup('env','HOME') }}/.tmux.conf"
+    dest: "{{ lookup('env', 'HOME') }}/.tmux.conf"
     mode: '0644'
 
 - name: Add aliases to $HOME/.bashrc and completion for kubectl
   become: false
-  lineinfile:
-    path: "{{ lookup('env','HOME') }}/.bashrc"
+  ansible.builtin.lineinfile:
+    path: "{{ lookup('env', 'HOME') }}/.bashrc"
     line: "{{ item }}"
   with_items:
     - 'alias tx=tmuxinator'

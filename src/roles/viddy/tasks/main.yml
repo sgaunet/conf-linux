@@ -2,43 +2,45 @@
 
 - name: Check viddy version
   become: false
-  shell: 'viddy -v | sed "s#viddy version: ##g"'
+  ansible.builtin.shell: 'set -o pipefail && viddy -v | sed "s#viddy version: ##g"'
+  args:
+    executable: /bin/bash
   register: viddy_version_client_installed
   changed_when: false
   failed_when: false
-  check_mode: no
+  check_mode: false
 
-- name: Check viddy version
-  shell: '/bin/true'
+- name: Check viddy version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
   changed_when: viddy_version_client_installed.stdout != viddy_version
-  check_mode: no
+  check_mode: false
 
 - name: Install viddy
-  block: 
+  when:
+    - not ansible_check_mode
+    - viddy_version != viddy_version_client_installed.stdout
+  block:
     - name: Create a directory if it does not exist
-      file:
+      ansible.builtin.file:
         path: "{{ viddy_tmp_directory }}/{{ viddy_os }}-{{ viddy_arch }}/"
         state: directory
         mode: '0755'
 
     - name: Download and unarchive viddy
-      unarchive:
+      ansible.builtin.unarchive:
         src: "https://github.com/sachaos/viddy/releases/download/v{{ viddy_version }}/viddy_{{ viddy_version }}_{{ viddy_os }}_{{ viddy_arch }}.tar.gz"
         dest: "{{ viddy_tmp_directory }}/{{ viddy_os }}-{{ viddy_arch }}/"
         remote_src: true
         mode: 0755
 
     - name: Copy file with owner and permissions
-      copy:
+      ansible.builtin.copy:
         src: "{{ viddy_tmp_directory }}/{{ viddy_os }}-{{ viddy_arch }}/viddy"
         dest: "{{ viddy_bin_path }}/viddy"
         mode: '0755'
-        remote_src: yes
+        remote_src: true
 
     - name: Clean temporary directory
-      file:
+      ansible.builtin.file:
         state: absent
         path: "{{ viddy_tmp_directory }}/{{ viddy_os }}-{{ viddy_arch }}"
-  when: 
-    - not ansible_check_mode
-    - viddy_version != viddy_version_client_installed.stdout

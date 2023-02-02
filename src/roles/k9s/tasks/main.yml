@@ -2,21 +2,23 @@
 
 - name: Check k9s version
   become: false
-  shell: "k9s version -s | grep -oE 'v.*$'"
+  ansible.builtin.shell: "set -o pipefail && k9s version -s | grep -oE 'v.*$'"
+  args:
+    executable: /bin/bash
   register: k9s_version_client_installed
   changed_when: false
   failed_when: false
-  check_mode: no
+  check_mode: false
 
-- name: Check k9s version
-  shell: '/bin/true'
+- name: Check k9s version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
   changed_when: k9s_version_client_installed.stdout != k9s_version
-  check_mode: no
+  check_mode: false
 
 
 - name: Download and unarchive k9s
-  unarchive:
-    src: "https://github.com/derailed/k9s/releases/download/{{ k9s_version}}/k9s_{{ k9s_os }}_{{ k9s_arch }}.tar.gz"
+  ansible.builtin.unarchive:
+    src: "https://github.com/derailed/k9s/releases/download/{{ k9s_version }}/k9s_{{ k9s_os }}_{{ k9s_arch }}.tar.gz"
     dest: "{{ k9s_bin_path }}"
     remote_src: true
     mode: 0755

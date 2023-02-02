@@ -2,27 +2,28 @@
 
 - name: Check dive version
   become: false
-  shell: "dive --version | grep -oE 'dive .*$'"
+  ansible.builtin.shell: "set -o pipefail && dive --version | grep -oE 'dive .*$'"
+  args:
+    executable: /bin/bash
   register: dive_version_client_installed
   changed_when: false
   failed_when: false
 
 # - name: GitVersion
-#   debug:
+#   ansible.builtin.debug:
 #     msg: "{{dive_version_client_installed.stdout }}"
 
-
 - name: GitVersion
-  set_fact:
-    dive_version_installed: "{{dive_version_client_installed.stdout }}"
+  ansible.builtin.set_fact:
+    dive_version_installed: "{{ dive_version_client_installed.stdout }}"
 
 # - name: GitVersion
-#   debug:
+#   ansible.builtin.debug:
 #     msg: "{{ dive_version_installed }}"
 
 - name: Download and unarchive dive
-  unarchive:
-    src: "https://github.com/wagoodman/dive/releases/download/v{{ dive_version}}/dive_{{ dive_version}}_{{ dive_os }}_{{ dive_arch }}.tar.gz"
+  ansible.builtin.unarchive:
+    src: "https://github.com/wagoodman/dive/releases/download/v{{ dive_version }}/dive_{{ dive_version }}_{{ dive_os }}_{{ dive_arch }}.tar.gz"
     dest: "{{ dive_bin_path }}"
     remote_src: true
     mode: 0755

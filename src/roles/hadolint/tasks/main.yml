@@ -1,7 +1,7 @@
 ---
 
 - name: Download and install hadolint
-  get_url:
+  ansible.builtin.get_url:
     url: https://github.com/hadolint/hadolint/releases/download/v{{ hadolint_version }}/hadolint-{{ hadolint_os }}-{{ hadolint_arch }}
     dest: "{{ hadolint_bin_path }}/hadolint"
     mode: '0755'

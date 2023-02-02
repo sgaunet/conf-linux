@@ -2,6 +2,6 @@
 
 dive_version: "0.10.0"
 dive_bin_path: "/usr/local/bin"
-dive_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
-dive_os: "linux" 
-dive_arch: "amd64" 
+dive_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
+dive_os: "linux"
+dive_arch: "amd64"

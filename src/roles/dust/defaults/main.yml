@@ -3,6 +3,6 @@
 # "dust" version to install
 dust_version: "0.8.1"
 dust_bin_path: "/usr/local/bin"
-dust_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
-dust_os: "unknown-linux-gnu" 
-dust_arch: "x86_64" 
+dust_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
+dust_os: "unknown-linux-gnu"
+dust_arch: "x86_64"

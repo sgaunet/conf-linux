@@ -2,19 +2,19 @@
 
 - name: Check ekspodlogs version
   become: false
-  shell: 'ekspodlogs -v'
+  ansible.builtin.command: 'ekspodlogs -v'
   register: ekspodlogs_version_client_installed
   changed_when: false
   failed_when: false
-  check_mode: no
+  check_mode: false
 
-- name: Check ekspodlogs version
-  shell: '/bin/true'
+- name: Check ekspodlogs version # noqa command-instead-of-shell
+  ansible.builtin.command: '/bin/true'
   changed_when: ekspodlogs_version_client_installed.stdout != ekspodlogs_version
-  check_mode: no
+  check_mode: false
 
 - name: Download ekspodlogs
-  get_url:
+  ansible.builtin.get_url:
     url: https://github.com/sgaunet/ekspodlogs/releases/download/v{{ ekspodlogs_version }}/ekspodlogs_{{ ekspodlogs_version }}_{{ ekspodlogs_os }}_{{ ekspodlogs_arch }}
     dest: "{{ ekspodlogs_bin_path }}/ekspodlogs"
     mode: 0755

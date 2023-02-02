@@ -2,55 +2,45 @@
 
 - name: Get zellij version
   become: false
-  shell: 'zellij --version | sed "s#zellij ##g"'
+  ansible.builtin.shell: 'set -o pipefail && zellij --version | sed "s#zellij ##g"'
+  args:
+    executable: /bin/bash
   register: zellij_version_installed
   changed_when: false
   failed_when: false
-  check_mode: no
+  check_mode: false
 
-- name: Check zellij version
-  shell: '/bin/true'
+- name: Check zellij version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
   changed_when: zellij_version_installed.stdout != zellij_version
-  check_mode: no
+  check_mode: false
 
 - name: Install zellij
+  when:
+    - not ansible_check_mode
+    - zellij_version != zellij_version_installed.stdout
   block:
     - name: Create a directory if it does not exist
-      file:
+      ansible.builtin.file:
         path: "{{ zellij_tmp_directory }}/{{ zellij_os }}-{{ zellij_arch }}/"
         state: directory
         mode: '0755'
-      # when: 
-      #   - not ansible_check_mode
-      #   - zellij_version != zellij_version_installed.stdout
-
 
     - name: Download and unarchive zellij
-      unarchive:
+      ansible.builtin.unarchive:
         src: "https://github.com/zellij-org/zellij/releases/download/v{{ zellij_version }}/zellij-{{ zellij_arch }}-{{ zellij_os }}.tar.gz"
         dest: "{{ zellij_tmp_directory }}/{{ zellij_os }}-{{ zellij_arch }}/"
         remote_src: true
         mode: 0755
-      # when: 
-      #   - not ansible_check_mode
-      #   - zellij_version != zellij_version_installed.stdout
 
     - name: Copy file with owner and permissions
-      copy:
+      ansible.builtin.copy:
         src: "{{ zellij_tmp_directory }}/{{ zellij_os }}-{{ zellij_arch }}/zellij"
         dest: "{{ zellij_bin_path }}/zellij"
         mode: '0755'
-        remote_src: yes
-      # when: 
-      #   - not ansible_check_mode
-      #   - zellij_version != zellij_version_installed.stdout
+        remote_src: true
 
     - name: Clean temporary directory
-      file:
+      ansible.builtin.file:
         state: absent
         path: "{{ zellij_tmp_directory }}/{{ zellij_os }}-{{ zellij_arch }}"
-
-  when: 
-    - not ansible_check_mode
-    - zellij_version != zellij_version_installed.stdout
-

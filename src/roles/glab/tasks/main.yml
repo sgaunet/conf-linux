@@ -1,6 +1,7 @@
 ---
+
 - name: Install glab
   become: false
-  homebrew: 
+  community.general.homebrew:
     name: glab
     state: present

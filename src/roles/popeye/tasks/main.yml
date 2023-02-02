@@ -1,17 +1,19 @@
 ---
-#popeye version | sed -r 's/\x1B\[([0-9]{1,3}(;[0-9]{1,3})*)?[mGK]//g' | grep -i version | grep -Po 'Version: \K.*$' | cat -etv
+# popeye version | sed -r 's/\x1B\[([0-9]{1,3}(;[0-9]{1,3})*)?[mGK]//g' | grep -i version | grep -Po 'Version: \K.*$' | cat -etv
 - name: Check popeye version
   become: false
-  shell: 'popeye version | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,3})*)?[mGK]//g" | grep -i version | grep -Po "Version:[[:space:]]+\K.*$"'
+  ansible.builtin.shell: 'set -o pipefail && popeye version | sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,3})*)?[mGK]//g" | grep -i version | grep -Po "Version:[[:space:]]+\K.*$"'
+  args:
+    executable: /bin/bash
   register: popeye_version_client_installed
   changed_when: false
   failed_when: false
-  check_mode: no
+  check_mode: false
 
-- name: Check popeye version
-  shell: '/bin/true'
+- name: Check popeye version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
   changed_when: popeye_version_client_installed.stdout != popeye_version
-  check_mode: no
+  check_mode: false
 
 # - debug:
 #     var: popeye_version_client_installed.stdout
@@ -19,8 +21,8 @@
 #     var: popeye_version
 
 - name: Download and unarchive popeye
-  unarchive:
-    src: "https://github.com/derailed/popeye/releases/download/v{{ popeye_version}}/popeye_{{ popeye_os }}_{{ popeye_arch }}.tar.gz"
+  ansible.builtin.unarchive:
+    src: "https://github.com/derailed/popeye/releases/download/v{{ popeye_version }}/popeye_{{ popeye_os }}_{{ popeye_arch }}.tar.gz"
     dest: "{{ popeye_bin_path }}"
     remote_src: true
     mode: 0755

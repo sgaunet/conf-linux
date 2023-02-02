@@ -1,0 +1,7 @@
+---
+
+- name: Install shfmt shellcheck
+  ansible.builtin.apt:
+    name: ['shfmt', 'shellcheck']
+    state: present
+    update_cache: true

@@ -2,6 +2,6 @@
 
 usql_version: "0.13.5"
 usql_bin_path: "/usr/local/bin"
-usql_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
+usql_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 usql_os: "linux"
 usql_arch: "amd64"

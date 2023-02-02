@@ -2,31 +2,32 @@
 
 - name: Check tealdeer version
   become: false
-  shell: "tealdeer --version  | sed  's/tealdeer //g'"
+  ansible.builtin.shell: "set -o pipefail && tealdeer --version  | sed  's/tealdeer //g'"
+  args:
+    executable: /bin/bash
   register: tealdeer_version_client_installed
   changed_when: false
   failed_when: false
-  check_mode: no
+  check_mode: false
 
-- name: Check tealdeer version
-  shell: '/bin/true'
+- name: Check tealdeer version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
   changed_when: tealdeer_version_client_installed.stdout != tealdeer_version
-  check_mode: no
+  check_mode: false
 
 - name: Install tealdeer
-  block:
-  - name: Install tealdeer
-    get_url:
-      url: https://github.com/dbrgn/tealdeer/releases/download/v{{ tealdeer_version }}/tealdeer-{{ tealdeer_os }}-{{ tealdeer_arch }}
-      dest: /usr/local/bin/tealdeer
-      mode: '0755'
-
-  - name: Install completion_bash
-    get_url:
-      url: https://github.com/dbrgn/tealdeer/releases/download/v{{ tealdeer_version }}/completions_bash
-      dest: /etc/bash_completion.d/tealdeer.bash
-      mode: '0755'
-    
-  when: 
+  when:
     - not ansible_check_mode
     - tealdeer_version != tealdeer_version_client_installed.stdout
+  block:
+    - name: Install tealdeer
+      ansible.builtin.get_url:
+        url: https://github.com/dbrgn/tealdeer/releases/download/v{{ tealdeer_version }}/tealdeer-{{ tealdeer_os }}-{{ tealdeer_arch }}
+        dest: /usr/local/bin/tealdeer
+        mode: '0755'
+
+    - name: Install completion_bash
+      ansible.builtin.get_url:
+        url: https://github.com/dbrgn/tealdeer/releases/download/v{{ tealdeer_version }}/completions_bash
+        dest: /etc/bash_completion.d/tealdeer.bash
+        mode: '0755'

@@ -1,7 +1,7 @@
 ---
 
 stern_version: "1.22.0"
-stern_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
+stern_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 stern_bin_path: "/usr/local/bin"
-stern_os: "linux" 
-stern_arch: "amd64" 
+stern_os: "linux"
+stern_arch: "amd64"

@@ -2,44 +2,45 @@
 
 - name: Get task version
   become: false
-  shell: 'task --version | cut -f3 -d " "'
+  ansible.builtin.shell: 'set -o pipefail && task --version | cut -f3 -d " "'
+  args:
+    executable: /bin/bash
   register: task_version_installed
   changed_when: false
   failed_when: false
-  check_mode: no
+  check_mode: false
 
-- name: Check task version
-  shell: '/bin/true'
+- name: Check task version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
   changed_when: task_version_installed.stdout != task_version
-  check_mode: no
+  check_mode: false
 
 - name: Install task
+  when:
+    - not ansible_check_mode
+    - task_version != task_version_installed.stdout
   block:
     - name: Create a directory if it does not exist
-      file:
+      ansible.builtin.file:
         path: "{{ task_tmp_directory }}/{{ task_os }}-{{ task_arch }}/"
         state: directory
         mode: '0755'
 
     - name: Download and unarchive task
-      unarchive:
+      ansible.builtin.unarchive:
         src: "https://github.com/go-task/task/releases/download/{{ task_version }}/task_{{ task_os }}_{{ task_arch }}.tar.gz"
         dest: "{{ task_tmp_directory }}/{{ task_os }}-{{ task_arch }}/"
         remote_src: true
         mode: 0755
 
     - name: Copy file with owner and permissions
-      copy:
+      ansible.builtin.copy:
         src: "{{ task_tmp_directory }}/{{ task_os }}-{{ task_arch }}/task"
         dest: "{{ task_bin_path }}/task"
         mode: '0755'
-        remote_src: yes
+        remote_src: true
 
     - name: Clean temporary directory
-      file:
+      ansible.builtin.file:
         state: absent
         path: "{{ task_tmp_directory }}/{{ task_os }}-{{ task_arch }}"
-  when: 
-    - not ansible_check_mode
-    - task_version != task_version_installed.stdout
-

@@ -2,35 +2,37 @@
 
 - name: Check buildx version
   become: false
-  shell: 'docker buildx version | cut -f2 -d " " | sed "s#^v##g"'
+  ansible.builtin.shell: 'set -o pipefail && docker buildx version | cut -f2 -d " " | sed "s#^v##g"'
+  args:
+    executable: /bin/bash
   register: buildx_version_client_installed
   changed_when: false
   failed_when: false
-  check_mode: no
+  check_mode: false
 
-- name: Check buildx version
-  shell: '/bin/true'
+- name: Check buildx version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
   changed_when: buildx_version_client_installed.stdout != buildx_version
-  check_mode: no
+  check_mode: false
 
-- name: "debug"
-  debug:
-    msg: "{{buildx_version_client_installed.stdout}} // {{buildx_version}}"
+# - name: "debug"
+#   ansible.builtin.debug:
+#     msg: "{{buildx_version_client_installed.stdout}} // {{buildx_version}}"
 
 - name: Install buildx
+  when:
+    - not ansible_check_mode
+    - buildx_version != buildx_version_client_installed.stdout
   become: false
   block:
-    - name: Create dir {{ lookup('env','HOME') }}/.docker/cli-plugins
-      file:
-        path: "{{ lookup('env','HOME') }}/.docker/cli-plugins"
+    - name: Create dir {{ lookup('env', 'HOME') }}/.docker/cli-plugins
+      ansible.builtin.file:
+        path: "{{ lookup('env', 'HOME') }}/.docker/cli-plugins"
         state: directory
         mode: '0755'
 
     - name: Download buildx
-      get_url:
+      ansible.builtin.get_url:
         url: "https://github.com/docker/buildx/releases/download/v{{ buildx_version }}/buildx-v{{ buildx_version }}.{{ buildx_os }}-{{ buildx_arch }}"
-        dest: "{{ lookup('env','HOME') }}/.docker/cli-plugins/docker-buildx"
+        dest: "{{ lookup('env', 'HOME') }}/.docker/cli-plugins/docker-buildx"
         mode: 0755
-  when: 
-    - not ansible_check_mode
-    - buildx_version != buildx_version_client_installed.stdout
