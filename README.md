@@ -108,6 +108,7 @@ Development:
 * [gaze](https://github.com/wtetsu/gaze)
 * [trufflehog](https://github.com/trufflesecurity/trufflehog)
 * [fx](https://github.com/antonmedv/fx)
+* [osv-scanner](https://github.com/google/osv-scanner)
 
 Linux tools :
 

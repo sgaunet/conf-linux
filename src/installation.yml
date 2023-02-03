@@ -182,3 +182,5 @@
       tags: fx
     - role: gini
       tags: gini
+    - role: osv_scanner
+      tags: osv_scanner
