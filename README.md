@@ -152,3 +152,6 @@ Bash formatter:
 * [shellcheck](https://www.shellcheck.net/)
 * [shfmt](https://github.com/mvdan/sh)
 
+IAC:
+
+* [terraform](https://developer.hashicorp.com/terraform)

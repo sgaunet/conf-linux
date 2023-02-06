@@ -184,3 +184,5 @@
       tags: gini
     - role: osv_scanner
       tags: osv_scanner
+    - role: terraform
+      tags: terraform
