@@ -186,3 +186,5 @@
       tags: osv_scanner
     - role: terraform
       tags: terraform
+    - role: d2
+      tags: d2

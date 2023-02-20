@@ -146,6 +146,7 @@ Misceleaneous :
 * zsh
 * [startship](https://starship.rs/)
 * [pastel](https://github.com/sharkdp/pastel)
+* [d2](https://github.com/terrastruct/d2)
 
 Bash formatter:
 
