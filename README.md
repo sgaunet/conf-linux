@@ -47,7 +47,7 @@ For kubernetes:
 * [kubectl](https://kubernetes.io/releases/download/)
 * alias for kubectl (k=kubectl + bash completion/zsh completion)
 * [kubectx/kubens](https://github.com/ahmetb/kubectx/)
-* [stern](https://github.com/wercker/stern)
+* [stern](https://github.com/stern/stern)
 * [popeye](https://github.com/derailed/popeye)
 * [kfilt](https://github.com/ryane/kfilt)
 * [kube-capacity](https://github.com/robscott/kube-capacity)
