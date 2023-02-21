@@ -1,7 +1,7 @@
 ---
 
 # "gini" version to install
-gini_version: "0.2.0"
+gini_version: "0.3.0"
 gini_bin_path: "/usr/local/bin"
 gini_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 gini_os: "linux"
