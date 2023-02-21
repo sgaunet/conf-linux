@@ -2,7 +2,7 @@
 
 - name: Check kubescape version
   become: false
-  ansible.builtin.shell: 'set -o pipefail && kubescape version | sed "s#Your current version is: v##g"'
+  ansible.builtin.shell: 'set -o pipefail && kubescape version | sed "s#Your current version is: v##g" | sed "s# \[git enabled in build: true\]##g" '
   args:
     executable: /bin/bash
   register: kubescape_version_client_installed
