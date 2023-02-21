@@ -2,7 +2,7 @@
 
 - name: Check kubecapacity version
   become: false
-  ansible.builtin.shell: 'set -o pipefail && kube-capacity version | sed "s#kube-capacity version ##g"'
+  ansible.builtin.shell: 'set -o pipefail && kube-capacity version | sed "s#kube-capacity version v##g"'
   args:
     executable: /bin/bash
   register: kubecapacity_version_client_installed
@@ -29,8 +29,7 @@
 
 - name: Download and unarchive kubecapacity
   ansible.builtin.unarchive:
-    src: "https://github.com/robscott/kube-capacity/releases/download/v{{ kubecapacity_version }}/kube-capacity_{{ kubecapacity_version }}_{{ kubecapacity_os }}_{{ kubecapacity_arch }}.tar.gz"
-    # src: "https://github.com/robscott/kube-capacity/releases/download/v0.6.2/kube-capacity_0.6.2_Linux_x86_64.tar.gz"
+    src: "https://github.com/robscott/kube-capacity/releases/download/v{{ kubecapacity_version }}/kube-capacity_v{{ kubecapacity_version }}_{{ kubecapacity_os }}_{{ kubecapacity_arch }}.tar.gz"
     dest: "{{ kubecapacity_tmp_directory }}/{{ kubecapacity_os }}-{{ kubecapacity_arch }}/"
     remote_src: true
     mode: 0755
