@@ -14,31 +14,10 @@
   check_mode: false
 
 - name: Install gitlabstats
+  ansible.builtin.get_url:
+    url: "https://github.com/sgaunet/gitlab-stats/releases/download/v{{ gitlabstats_version }}/gitlab-stats_{{ gitlabstats_version }}_{{ gitlabstats_os }}_{{ gitlabstats_arch }}"
+    dest: "{{ gitlabstats_bin_path }}/gitlab-stats"
+    mode: 0755
   when:
     - not ansible_check_mode
     - gitlabstats_version != gitlabstats_version_client_installed.stdout
-  block:
-    - name: Create a directory if it does not exist
-      ansible.builtin.file:
-        path: "{{ gitlabstats_tmp_directory }}/{{ gitlabstats_os }}-{{ gitlabstats_arch }}/"
-        state: directory
-        mode: '0755'
-
-    - name: Download and unarchive gitlabstats
-      ansible.builtin.unarchive:
-        src: "https://github.com/sgaunet/gitlab-stats/releases/download/v{{ gitlabstats_version }}/gitlab-stats_{{ gitlabstats_version }}_{{ gitlabstats_os }}_{{ gitlabstats_arch }}.tar.gz"
-        dest: "{{ gitlabstats_tmp_directory }}/{{ gitlabstats_os }}-{{ gitlabstats_arch }}/"
-        remote_src: true
-        mode: 0755
-
-    - name: Copy file with owner and permissions
-      ansible.builtin.copy:
-        src: "{{ gitlabstats_tmp_directory }}/{{ gitlabstats_os }}-{{ gitlabstats_arch }}/gitlab-stats"
-        dest: "{{ gitlabstats_bin_path }}/gitlab-stats"
-        mode: '0755'
-        remote_src: true
-
-    - name: Clean temporary directory
-      ansible.builtin.file:
-        state: absent
-        path: "{{ gitlabstats_tmp_directory }}/{{ gitlabstats_os }}-{{ gitlabstats_arch }}"
