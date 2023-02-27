@@ -44,8 +44,6 @@
       tags: dockle
     - role: eksctl
       tags: eksctl
-    - role: gvm
-      tags: gvm
     - role: peek
       tags: peek
     - role: vegeta
