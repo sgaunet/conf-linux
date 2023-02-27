@@ -2,7 +2,9 @@
 
 - name: Check gitlabstats version
   become: false
-  ansible.builtin.command: 'gitlab-stats -v'
+  ansible.builtin.shell: 'gitlab-stats -v'
+  args:
+    executable: /bin/bash
   register: gitlabstats_version_client_installed
   changed_when: false
   failed_when: false

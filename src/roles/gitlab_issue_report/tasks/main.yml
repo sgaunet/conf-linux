@@ -2,7 +2,9 @@
 
 - name: Check gitlabissuereport version
   become: false
-  ansible.builtin.command: 'gitlab-issue-report -v'
+  ansible.builtin.shell: 'gitlab-issue-report -v'
+  args:
+    executable: /bin/bash
   register: gitlabissuereport_version_client_installed
   changed_when: false
   failed_when: false

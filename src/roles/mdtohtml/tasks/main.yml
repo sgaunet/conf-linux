@@ -2,7 +2,9 @@
 
 - name: Check mdtohtml version
   become: false
-  ansible.builtin.command: 'mdtohtml -v'
+  ansible.builtin.shell: 'mdtohtml -v'
+  args:
+    executable: /bin/bash
   register: mdtohtml_version_client_installed
   changed_when: false
   failed_when: false

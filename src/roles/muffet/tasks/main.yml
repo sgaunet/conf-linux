@@ -2,7 +2,9 @@
 
 - name: Check muffet version
   become: false
-  ansible.builtin.command: 'muffet --version '
+  ansible.builtin.shell: 'muffet --version '
+  args:
+    executable: /bin/bash
   register: muffet_version_client_installed
   changed_when: false
   failed_when: false
