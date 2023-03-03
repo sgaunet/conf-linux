@@ -9,7 +9,7 @@
   check_mode: false
 
 - name: Check helm version # noqa command-instead-of-shell
-  ansible.builtin.command: '/bin/true'
+  ansible.builtin.shell: '/bin/true'
   changed_when: helm_version_installed.stdout != helm_version
   check_mode: false
 
@@ -21,7 +21,7 @@
     mode: 0755
   when:
     - not ansible_check_mode
-    - helm_version_installed != helm_version
+    - helm_version_installed.stdout != helm_version
 
 - name: Copy file with owner and permissions
   ansible.builtin.copy:
@@ -31,4 +31,4 @@
     remote_src: true
   when:
     - not ansible_check_mode
-    - helm_version_installed != helm_version
+    - helm_version_installed.stdout != helm_version
