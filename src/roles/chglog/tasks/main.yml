@@ -28,7 +28,7 @@
 
     - name: Download and unarchive chglog
       ansible.builtin.unarchive:
-        src: "https://github.com/goreleaser/chglog/releases/download/v{{ chglog_version }}/chglog_{{ chglog_version }}_{{ chglog_os }}_{{ chglog_arch }}.tar.gz"
+        src: "https://github.com/goreleaser/chglog/releases/download/v{{ chglog_version }}/chglog_{{ chglog_os }}_{{ chglog_arch }}.tar.gz"
         dest: "{{ chglog_tmp_directory }}/{{ chglog_os }}-{{ chglog_arch }}/"
         remote_src: true
         mode: 0755

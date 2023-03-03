@@ -1,7 +1,7 @@
 ---
 
 # "chglog" version to install
-chglog_version: "0.2.2"
+chglog_version: "0.4.2"
 chglog_bin_path: "/usr/local/bin"
 chglog_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 chglog_os: "Linux"
