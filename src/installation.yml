@@ -186,3 +186,9 @@
       tags: terraform
     - role: d2
       tags: d2
+    - role: envtemplate
+      tags: envtemplate
+    # - role: grypev2
+    #   tags: grypev2
+    # - role: github_version
+    #   tags: github_version

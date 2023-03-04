@@ -1,0 +1,25 @@
+---
+
+- name: Check envtemplate version
+  become: false
+  ansible.builtin.shell: 'envtemplate -v'
+  args:
+    executable: /bin/bash
+  register: envtemplate_version_client_installed
+  changed_when: false
+  failed_when: false
+  check_mode: false
+
+- name: Check envtemplate version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
+  changed_when: envtemplate_version_client_installed.stdout != envtemplate_version
+  check_mode: false
+
+- name: Install envtemplate
+  ansible.builtin.get_url:
+    url: "https://github.com/sgaunet/envtemplate/releases/download/v{{ envtemplate_version }}/envtemplate_{{ envtemplate_version }}_{{ envtemplate_os }}_{{ envtemplate_arch }}"
+    dest: "{{ envtemplate_bin_path }}/envtemplate"
+    mode: 0755
+  when:
+    - not ansible_check_mode
+    - envtemplate_version != envtemplate_version_client_installed.stdout

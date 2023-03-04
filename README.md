@@ -134,6 +134,7 @@ Linux tools :
 * [vhs](https://github.com/charmbracelet/vhs)
 * [ttyd](https://github.com/tsl0922/ttyd) - dependency for vhs
 * [gini](https://github.com/sgaunet/gini)
+* [envtemplate](https://github.com/sgaunet/envtemplate)
 
 Tests:
 
