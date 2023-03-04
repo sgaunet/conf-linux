@@ -135,6 +135,7 @@ Linux tools :
 * [ttyd](https://github.com/tsl0922/ttyd) - dependency for vhs
 * [gini](https://github.com/sgaunet/gini)
 * [envtemplate](https://github.com/sgaunet/envtemplate)
+* [calcdate](https://github.com/sgaunet/calcdate)
 
 Tests:
 

@@ -188,6 +188,8 @@
       tags: d2
     - role: envtemplate
       tags: envtemplate
+    - role: calcdate
+      tags: calcdate
     # - role: grypev2
     #   tags: grypev2
     # - role: github_version

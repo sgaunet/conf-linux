@@ -1,0 +1,25 @@
+---
+
+- name: Check calcdate version
+  become: false
+  ansible.builtin.shell: 'calcdate -v'
+  args:
+    executable: /bin/bash
+  register: calcdate_version_client_installed
+  changed_when: false
+  failed_when: false
+  check_mode: false
+
+- name: Check calcdate version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
+  changed_when: calcdate_version_client_installed.stdout != calcdate_version
+  check_mode: false
+
+- name: Install calcdate
+  ansible.builtin.get_url:
+    url: "https://github.com/sgaunet/calcdate/releases/download/v{{ calcdate_version }}/calcdate_{{ calcdate_version }}_{{ calcdate_os }}_{{ calcdate_arch }}"
+    dest: "{{ calcdate_bin_path }}/calcdate"
+    mode: 0755
+  when:
+    - not ansible_check_mode
+    - calcdate_version != calcdate_version_client_installed.stdout
