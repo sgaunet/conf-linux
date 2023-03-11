@@ -31,14 +31,14 @@
 
     - name: Download and unarchive usql
       ansible.builtin.unarchive:
-        src: "https://github.com/xo/usql/releases/download/v{{ usql_version }}/usql-{{ usql_version }}-{{ usql_os }}-{{ usql_arch }}.tar.bz2"
+        src: "https://github.com/xo/usql/releases/download/v{{ usql_version }}/usql_static-{{ usql_version }}-{{ usql_os }}-{{ usql_arch }}.tar.bz2"
         dest: "{{ usql_tmp_directory }}/{{ usql_os }}-{{ usql_arch }}/"
         remote_src: true
         mode: 0755
 
     - name: Copy file with owner and permissions
       ansible.builtin.copy:
-        src: "{{ usql_tmp_directory }}/{{ usql_os }}-{{ usql_arch }}/usql"
+        src: "{{ usql_tmp_directory }}/{{ usql_os }}-{{ usql_arch }}/usql_static"
         dest: "{{ usql_bin_path }}/usql"
         mode: '0755'
         remote_src: true
