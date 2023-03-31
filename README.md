@@ -149,6 +149,7 @@ Misceleaneous :
 * [startship](https://starship.rs/)
 * [pastel](https://github.com/sharkdp/pastel)
 * [d2](https://github.com/terrastruct/d2)
+* [rclone](https://rclone.org/)
 
 Bash formatter:
 
