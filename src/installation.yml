@@ -196,3 +196,5 @@
     #   tags: github_version
     - role: rclone
       tags: rclone
+    - role: gitlab_vars
+      tags: gitlab_vars
