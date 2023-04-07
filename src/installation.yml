@@ -198,3 +198,5 @@
       tags: rclone
     - role: gitlab_vars
       tags: gitlab_vars
+    - role: k6
+      tags: k6

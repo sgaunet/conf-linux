@@ -1,0 +1,60 @@
+---
+
+- name: Check k6 version
+  become: false
+  ansible.builtin.shell: "set -o pipefail && k6 version | awk '{ print $2 }' | sed 's#v##g'"
+  args:
+    executable: /bin/bash
+  register: k6_version_client_installed
+  changed_when: false
+  failed_when: false
+  check_mode: false
+
+- name: Check k6 version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
+  changed_when: k6_version_client_installed.stdout != k6_version
+  check_mode: false
+
+
+- name: Create a directory if it does not exist
+  ansible.builtin.file:
+    path: "{{ k6_tmp_directory }}/{{ k6_os }}-{{ k6_arch }}/"
+    state: directory
+    mode: '0755'
+  when:
+    - not ansible_check_mode
+    - k6_version != k6_version_client_installed.stdout
+  # ignore_errors: "{{ ansible_check_mode }}"
+
+
+- name: Download and unarchive k6
+  ansible.builtin.unarchive:
+    src: "https://github.com/grafana/k6/releases/download/v{{ k6_version }}/k6-v{{ k6_version }}-{{ k6_os }}-{{ k6_arch }}.tar.gz"
+    dest: "{{ k6_tmp_directory }}/{{ k6_os }}-{{ k6_arch }}/"
+    remote_src: true
+    mode: 0755
+  when:
+    - not ansible_check_mode
+    - k6_version != k6_version_client_installed.stdout
+  # ignore_errors: "{{ ansible_check_mode }}"
+
+
+- name: Copy file with owner and permissions
+  ansible.builtin.copy:
+    src: "{{ k6_tmp_directory }}/{{ k6_os }}-{{ k6_arch }}/k6-v{{ k6_version }}-{{ k6_os }}-{{ k6_arch }}/k6"
+    dest: "{{ k6_bin_path }}/k6"
+    mode: '0755'
+    remote_src: true
+  when:
+    - not ansible_check_mode
+    - k6_version != k6_version_client_installed.stdout
+  # ignore_errors: "{{ ansible_check_mode }}"
+
+- name: Clean temporary directory
+  ansible.builtin.file:
+    state: absent
+    path: "{{ k6_tmp_directory }}/{{ k6_os }}-{{ k6_arch }}"
+  when:
+    - not ansible_check_mode
+    - k6_version != k6_version_client_installed.stdout
+  # ignore_errors: "{{ ansible_check_mode }}"

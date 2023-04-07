@@ -91,6 +91,7 @@ Load tests :
 
 * [plow](https://github.com/six-ddc/plow)
 * [vegeta](https://github.com/tsenart/vegeta)
+* [k6](https://k6.io/)
 
 Development:
 
