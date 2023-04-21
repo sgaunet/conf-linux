@@ -56,7 +56,7 @@
         src: "https://github.com/anchore/grype/releases/download/v{{ version }}/grype_{{ version }}_{{ grype_os }}_{{ grype_arch }}.tar.gz"
         dest: "{{ grype_tmp_directory }}/{{ grype_os }}-{{ grype_arch }}/"
         remote_src: true
-        mode: 0755
+        mode: "0755"
 
     - name: Copy file with owner and permissions
       ansible.builtin.copy:

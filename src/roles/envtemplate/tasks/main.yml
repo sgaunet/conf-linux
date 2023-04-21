@@ -19,7 +19,7 @@
   ansible.builtin.get_url:
     url: "https://github.com/sgaunet/envtemplate/releases/download/v{{ envtemplate_version }}/envtemplate_{{ envtemplate_version }}_{{ envtemplate_os }}_{{ envtemplate_arch }}"
     dest: "{{ envtemplate_bin_path }}/envtemplate"
-    mode: 0755
+    mode: "0755"
   when:
     - not ansible_check_mode
     - envtemplate_version != envtemplate_version_client_installed.stdout

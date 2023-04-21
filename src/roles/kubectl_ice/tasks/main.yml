@@ -31,7 +31,7 @@
         src: "https://github.com/NimbleArchitect/kubectl-ice/releases/download/v{{ kubectlice_version }}/kubectl-ice_{{ kubectlice_os }}_{{ kubectlice_arch }}.tar.gz"
         dest: "{{ kubectlice_tmp_directory }}/{{ kubectlice_os }}-{{ kubectlice_arch }}/"
         remote_src: true
-        mode: 0755
+        mode: "0755"
 
     - name: Copy file with owner and permissions
       ansible.builtin.copy:

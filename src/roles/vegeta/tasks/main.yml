@@ -31,7 +31,7 @@
         src: "https://github.com/tsenart/vegeta/releases/download/v{{ vegeta_version }}/vegeta-{{ vegeta_version }}-{{ vegeta_os }}-{{ vegeta_arch }}.tar.gz"
         dest: "{{ vegeta_tmp_directory }}/{{ vegeta_os }}-{{ vegeta_arch }}/"
         remote_src: true
-        mode: 0755
+        mode: "0755"
 
     - name: Copy file with owner and permissions
       ansible.builtin.copy:

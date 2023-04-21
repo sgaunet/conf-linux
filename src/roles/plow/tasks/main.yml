@@ -31,7 +31,7 @@
         src: "https://github.com/six-ddc/plow/releases/download/v{{ plow_version }}/plow_{{ plow_version }}_{{ plow_os }}_{{ plow_arch }}.tar.gz"
         dest: "{{ plow_tmp_directory }}/{{ plow_os }}-{{ plow_arch }}/"
         remote_src: true
-        mode: 0755
+        mode: "0755"
 
     - name: Copy file with owner and permissions
       ansible.builtin.copy:

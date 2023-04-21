@@ -20,7 +20,7 @@
   ansible.builtin.get_url:
     url: "https://dl.k8s.io/v{{ kubectl_version }}/bin/{{ kubectl_os }}/{{ kubectl_arch }}/kubectl"
     dest: "{{ kubectl_bin_path }}"
-    mode: 0755
+    mode: "0755"
   when:
     - not ansible_check_mode
     - kubectl_version != kubectl_version_client_installed.stdout

@@ -31,7 +31,7 @@
         src: "https://github.com/sgaunet/gitlab-issue-report/releases/download/v{{ gitlabissuereport_version }}/gitlab-issue-report_{{ gitlabissuereport_version }}_{{ gitlabissuereport_os }}_{{ gitlabissuereport_arch }}.tar.gz"
         dest: "{{ gitlabissuereport_tmp_directory }}/{{ gitlabissuereport_os }}-{{ gitlabissuereport_arch }}/"
         remote_src: true
-        mode: 0755
+        mode: "0755"
 
     - name: Copy file with owner and permissions
       ansible.builtin.copy:

@@ -36,5 +36,6 @@
     PATH: "{{ ansible_env.PATH }}:{{ lookup('env', 'HOME') + '/.krew/bin/' }}"
   ansible.builtin.shell: "kubectl krew install {{ item.item }}"
   when: item.rc == 1
+  changed_when: item.rc == 1
   with_items:
     - "{{ list_plugin_installed.results }}"

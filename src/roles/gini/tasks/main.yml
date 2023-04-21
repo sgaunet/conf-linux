@@ -19,7 +19,7 @@
   ansible.builtin.get_url:
     url: "https://github.com/sgaunet/gini/releases/download/v{{ gini_version }}/gini_{{ gini_version }}_{{ gini_os }}_{{ gini_arch }}"
     dest: "{{ gini_bin_path }}/gini"
-    mode: 0755
+    mode: "0755"
   when:
     - not ansible_check_mode
     - gini_version != gini_version_client_installed.stdout

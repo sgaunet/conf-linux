@@ -31,7 +31,7 @@
         src: "https://github.com/goreleaser/goreleaser/releases/download/v{{ goreleaser_version }}/goreleaser_{{ goreleaser_os }}_{{ goreleaser_arch }}.tar.gz"
         dest: "{{ goreleaser_tmp_directory }}/{{ goreleaser_os }}-{{ goreleaser_arch }}/"
         remote_src: true
-        mode: 0755
+        mode: "0755"
 
     - name: Copy file with owner and permissions
       ansible.builtin.copy:

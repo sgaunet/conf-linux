@@ -31,7 +31,7 @@
         src: "https://github.com/trufflesecurity/trufflehog/releases/download/v{{ trufflehog_version }}/trufflehog_{{ trufflehog_version }}_{{ trufflehog_os }}_{{ trufflehog_arch }}.tar.gz"
         dest: "{{ trufflehog_tmp_directory }}/{{ trufflehog_os }}-{{ trufflehog_arch }}/"
         remote_src: true
-        mode: 0755
+        mode: "0755"
 
     - name: Copy file with owner and permissions
       ansible.builtin.copy:

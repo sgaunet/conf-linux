@@ -32,7 +32,7 @@
     src: "https://github.com/robscott/kube-capacity/releases/download/v{{ kubecapacity_version }}/kube-capacity_v{{ kubecapacity_version }}_{{ kubecapacity_os }}_{{ kubecapacity_arch }}.tar.gz"
     dest: "{{ kubecapacity_tmp_directory }}/{{ kubecapacity_os }}-{{ kubecapacity_arch }}/"
     remote_src: true
-    mode: 0755
+    mode: "0755"
   when:
     - not ansible_check_mode
     - kubecapacity_version != kubecapacity_version_client_installed.stdout

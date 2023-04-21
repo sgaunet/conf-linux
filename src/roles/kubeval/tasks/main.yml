@@ -34,7 +34,7 @@
         src: "https://github.com/instrumenta/kubeval/releases/download/v{{ kubeval_version }}/kubeval-{{ kubeval_os }}-{{ kubeval_arch }}.tar.gz"
         dest: "{{ kubeval_tmp_directory }}/{{ kubeval_os }}-{{ kubeval_arch }}/"
         remote_src: true
-        mode: 0755
+        mode: "0755"
 
     - name: Copy file with owner and permissions
       ansible.builtin.copy:

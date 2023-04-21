@@ -36,7 +36,7 @@
         src: "https://github.com/wtetsu/gaze/releases/download/v{{ gaze_version }}/gaze_{{ gaze_os }}_v{{ gaze_version }}.zip"
         dest: "{{ gaze_tmp_directory }}/{{ gaze_os }}-{{ gaze_arch }}/"
         remote_src: true
-        mode: 0755
+        mode: "0755"
 
     - name: Copy file with owner and permissions
       ansible.builtin.copy:

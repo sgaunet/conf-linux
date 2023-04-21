@@ -31,7 +31,7 @@
         src: "https://github.com/sharkdp/hyperfine/releases/download/v{{ hyperfine_version }}/hyperfine-v{{ hyperfine_version }}-{{ hyperfine_arch }}-{{ hyperfine_os }}.tar.gz"
         dest: "{{ hyperfine_tmp_directory }}/{{ hyperfine_os }}-{{ hyperfine_arch }}/"
         remote_src: true
-        mode: 0755
+        mode: "0755"
 
     - name: Copy file with owner and permissions
       ansible.builtin.copy:

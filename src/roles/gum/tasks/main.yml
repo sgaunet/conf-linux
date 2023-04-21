@@ -34,7 +34,7 @@
         src: "https://github.com/charmbracelet/gum/releases/download/v{{ gum_version }}/gum_{{ gum_version }}_{{ gum_os }}_{{ gum_arch }}.tar.gz"
         dest: "{{ gum_tmp_directory }}/{{ gum_os }}-{{ gum_arch }}/"
         remote_src: true
-        mode: 0755
+        mode: "0755"
 
     - name: Copy file with owner and permissions
       ansible.builtin.copy:

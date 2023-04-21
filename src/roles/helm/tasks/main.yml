@@ -18,7 +18,7 @@
     src: https://get.helm.sh/helm-{{ helm_version }}-{{ helm_os }}-{{ helm_arch }}.tar.gz
     dest: "{{ helm_tmp_directory }}"
     remote_src: true
-    mode: 0755
+    mode: "0755"
   when:
     - not ansible_check_mode
     - helm_version_installed.stdout != helm_version

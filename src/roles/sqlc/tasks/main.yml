@@ -31,7 +31,7 @@
         src: "https://github.com/kyleconroy/sqlc/releases/download/v{{ sqlc_version }}/sqlc_{{ sqlc_version }}_{{ sqlc_os }}_{{ sqlc_arch }}.tar.gz"
         dest: "{{ sqlc_tmp_directory }}/{{ sqlc_os }}-{{ sqlc_arch }}/"
         remote_src: true
-        mode: 0755
+        mode: "0755"
 
     - name: Copy file with owner and permissions
       ansible.builtin.copy:

@@ -31,7 +31,7 @@
         src: "https://github.com/ClementTsang/bottom/releases/download/{{ bottom_version }}/bottom_{{ bottom_arch }}-{{ bottom_os }}.tar.gz"
         dest: "{{ bottom_tmp_directory }}/{{ bottom_os }}-{{ bottom_arch }}/"
         remote_src: true
-        mode: 0755
+        mode: "0755"
 
     - name: Copy file with owner and permissions
       ansible.builtin.copy:

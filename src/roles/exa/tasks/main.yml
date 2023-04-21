@@ -31,7 +31,7 @@
         src: "https://github.com/ogham/exa/releases/download/v{{ exa_version }}/exa-{{ exa_os }}-{{ exa_arch }}-v{{ exa_version }}.zip"
         dest: "{{ exa_tmp_directory }}/{{ exa_os }}-{{ exa_arch }}/"
         remote_src: true
-        mode: 0755
+        mode: "0755"
 
     - name: Copy file with owner and permissions
       ansible.builtin.copy:

@@ -39,7 +39,7 @@
         src: "https://github.com/knqyf263/pet/releases/download/v{{ pet_version }}/pet_{{ pet_version }}_{{ pet_os }}_{{ pet_arch }}.tar.gz"
         dest: "{{ pet_tmp_directory }}/{{ pet_os }}-{{ pet_arch }}/"
         remote_src: true
-        mode: 0755
+        mode: "0755"
 
     - name: Copy file with owner and permissions
       ansible.builtin.copy:

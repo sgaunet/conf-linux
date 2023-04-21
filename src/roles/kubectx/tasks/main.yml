@@ -6,7 +6,7 @@
     dest: "{{ kubectx_bin_path }}"
     remote_src: true
     creates: "{{ kubectx_bin_path }}/kubectx"
-    mode: 0755
+    mode: "0755"
 
 - name: Download and unarchive kubens
   ansible.builtin.unarchive:
@@ -14,4 +14,4 @@
     dest: "{{ kubens_bin_path }}"
     remote_src: true
     creates: "{{ kubens_bin_path }}/kubens"
-    mode: 0755
+    mode: "0755"

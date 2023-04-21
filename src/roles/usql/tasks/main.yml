@@ -34,7 +34,7 @@
         src: "https://github.com/xo/usql/releases/download/v{{ usql_version }}/usql_static-{{ usql_version }}-{{ usql_os }}-{{ usql_arch }}.tar.bz2"
         dest: "{{ usql_tmp_directory }}/{{ usql_os }}-{{ usql_arch }}/"
         remote_src: true
-        mode: 0755
+        mode: "0755"
 
     - name: Copy file with owner and permissions
       ansible.builtin.copy:

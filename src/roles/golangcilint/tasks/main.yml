@@ -34,7 +34,7 @@
         src: "https://github.com/golangci/golangci-lint/releases/download/v{{ golangcilint_version }}/golangci-lint-{{ golangcilint_version }}-{{ golangcilint_os }}-{{ golangcilint_arch }}.tar.gz"
         dest: "{{ golangcilint_tmp_directory }}/{{ golangcilint_os }}-{{ golangcilint_arch }}/"
         remote_src: true
-        mode: 0755
+        mode: "0755"
 
     - name: Copy file with owner and permissions
       ansible.builtin.copy:

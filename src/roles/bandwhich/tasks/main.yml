@@ -31,7 +31,7 @@
         src: "https://github.com/imsnif/bandwhich/releases/download/{{ bandwhich_version }}/bandwhich-v{{ bandwhich_version }}-{{ bandwhich_arch }}-{{ bandwhich_os }}.tar.gz"
         dest: "{{ bandwhich_tmp_directory }}/{{ bandwhich_os }}-{{ bandwhich_arch }}/"
         remote_src: true
-        mode: 0755
+        mode: "0755"
 
     - name: Copy file with owner and permissions
       ansible.builtin.copy:

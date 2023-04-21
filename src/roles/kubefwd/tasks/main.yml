@@ -31,7 +31,7 @@
         src: "https://github.com/txn2/kubefwd/releases/download/{{ kubefwd_version }}/kubefwd_{{ kubefwd_os }}_{{ kubefwd_arch }}.tar.gz"
         dest: "{{ kubefwd_tmp_directory }}/{{ kubefwd_os }}-{{ kubefwd_arch }}/"
         remote_src: true
-        mode: 0755
+        mode: "0755"
 
     - name: Copy file with owner and permissions
       ansible.builtin.copy:

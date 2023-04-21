@@ -32,7 +32,7 @@
         src: "https://github.com/kluctl/kluctl/releases/download/v{{ kluctl_version }}/kluctl_v{{ kluctl_version }}_{{ kluctl_os }}_{{ kluctl_arch }}.tar.gz"
         dest: "{{ kluctl_tmp_directory }}/{{ kluctl_os }}-{{ kluctl_arch }}/"
         remote_src: true
-        mode: 0755
+        mode: "0755"
 
     - name: Copy file with owner and permissions
       ansible.builtin.copy:

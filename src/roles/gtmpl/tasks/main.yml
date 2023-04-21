@@ -31,7 +31,7 @@
         src: "https://github.com/sgaunet/gtmpl/releases/download/v{{ gtmpl_version }}/gtmpl_{{ gtmpl_os }}_{{ gtmpl_arch }}.tar.gz"
         dest: "{{ gtmpl_tmp_directory }}/{{ gtmpl_os }}-{{ gtmpl_arch }}/"
         remote_src: true
-        mode: 0755
+        mode: "0755"
 
     - name: Copy file with owner and permissions
       ansible.builtin.copy:

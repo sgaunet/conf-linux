@@ -20,7 +20,7 @@
     src: https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_linux_{{ terraform_arch }}.zip
     dest: "{{ terraform_bin_path }}"
     remote_src: true
-    mode: 0755
+    mode: "0755"
   when:
     - not ansible_check_mode
     - terraform_version_installed.stdout != terraform_version

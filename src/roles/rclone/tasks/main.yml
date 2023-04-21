@@ -34,7 +34,7 @@
         src: "https://downloads.rclone.org/v{{ rclone_version }}/rclone-v{{ rclone_version }}-{{ rclone_os }}-{{ rclone_arch }}.zip"
         dest: "{{ rclone_tmp_directory }}/{{ rclone_os }}-{{ rclone_arch }}/"
         remote_src: true
-        mode: 0755
+        mode: "0755"
 
     - name: Copy file with owner and permissions
       ansible.builtin.copy:

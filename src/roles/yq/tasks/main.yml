@@ -32,7 +32,7 @@
   ansible.builtin.get_url:
     url: "https://github.com/mikefarah/yq/releases/download/v{{ yq_version }}/yq_{{ yq_os }}_{{ yq_arch }}"
     dest: "{{ yq_bin_path }}/yq"
-    mode: 0755
+    mode: "0755"
   when:
     - not ansible_check_mode
     - yq_version != yq_version_installed

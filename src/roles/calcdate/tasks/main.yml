@@ -19,7 +19,7 @@
   ansible.builtin.get_url:
     url: "https://github.com/sgaunet/calcdate/releases/download/v{{ calcdate_version }}/calcdate_{{ calcdate_version }}_{{ calcdate_os }}_{{ calcdate_arch }}"
     dest: "{{ calcdate_bin_path }}/calcdate"
-    mode: 0755
+    mode: "0755"
   when:
     - not ansible_check_mode
     - calcdate_version != calcdate_version_client_installed.stdout

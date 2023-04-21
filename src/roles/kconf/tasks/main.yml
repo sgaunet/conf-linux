@@ -31,7 +31,7 @@
         src: "https://github.com/particledecay/kconf/releases/download/v{{ kconf_version }}/kconf-{{ kconf_os }}-{{ kconf_arch }}-{{ kconf_version }}.tar.gz"
         dest: "{{ kconf_tmp_directory }}/{{ kconf_os }}-{{ kconf_arch }}/"
         remote_src: true
-        mode: 0755
+        mode: "0755"
 
     - name: Copy file with owner and permissions
       ansible.builtin.copy:

@@ -31,7 +31,7 @@
         src: "https://github.com/sachaos/viddy/releases/download/v{{ viddy_version }}/viddy_{{ viddy_version }}_{{ viddy_os }}_{{ viddy_arch }}.tar.gz"
         dest: "{{ viddy_tmp_directory }}/{{ viddy_os }}-{{ viddy_arch }}/"
         remote_src: true
-        mode: 0755
+        mode: "0755"
 
     - name: Copy file with owner and permissions
       ansible.builtin.copy:

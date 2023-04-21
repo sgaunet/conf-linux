@@ -32,7 +32,7 @@
     src: "https://github.com/grafana/k6/releases/download/v{{ k6_version }}/k6-v{{ k6_version }}-{{ k6_os }}-{{ k6_arch }}.tar.gz"
     dest: "{{ k6_tmp_directory }}/{{ k6_os }}-{{ k6_arch }}/"
     remote_src: true
-    mode: 0755
+    mode: "0755"
   when:
     - not ansible_check_mode
     - k6_version != k6_version_client_installed.stdout

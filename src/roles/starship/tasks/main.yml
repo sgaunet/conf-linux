@@ -60,7 +60,7 @@
         src: "https://github.com/starship/starship/releases/download/v{{ starship_version }}/starship-{{ starship_arch }}-{{ starship_os }}.tar.gz"
         dest: "{{ starship_tmp_directory }}/{{ starship_os }}-{{ starship_arch }}/"
         remote_src: true
-        mode: 0755
+        mode: "0755"
 
     - name: Copy file with owner and permissions
       ansible.builtin.copy:

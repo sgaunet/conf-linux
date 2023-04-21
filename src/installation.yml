@@ -24,12 +24,12 @@
       tags: helm
     - role: kube_ps1
       vars:
-        - bash_install: true
+        bash_install: true
       tags: prompt
     - role: krew
       tags: krew
       vars:
-        - bash_install: true
+        bash_install: true
     - role: k9s
       tags: k9s
     # - role: k3s

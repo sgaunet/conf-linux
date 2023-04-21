@@ -31,7 +31,7 @@
         src: "https://github.com/goreleaser/nfpm/releases/download/v{{ nfpm_version }}/nfpm_{{ nfpm_version }}_{{ nfpm_os }}_{{ nfpm_arch }}.tar.gz"
         dest: "{{ nfpm_tmp_directory }}/{{ nfpm_os }}-{{ nfpm_arch }}/"
         remote_src: true
-        mode: 0755
+        mode: "0755"
 
     - name: Copy file with owner and permissions
       ansible.builtin.copy:

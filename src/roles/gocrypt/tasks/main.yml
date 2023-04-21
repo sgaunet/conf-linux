@@ -29,7 +29,7 @@
         src: "https://github.com/sgaunet/gocrypt/releases/download/v{{ gocrypt_version }}/gocrypt_{{ gocrypt_version }}_{{ gocrypt_os }}_{{ gocrypt_arch }}.tar.gz"
         dest: "{{ gocrypt_tmp_directory }}/{{ gocrypt_os }}-{{ gocrypt_arch }}/"
         remote_src: true
-        mode: 0755
+        mode: "0755"
 
     - name: Copy file with owner and permissions
       ansible.builtin.copy:

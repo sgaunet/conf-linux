@@ -31,7 +31,7 @@
         src: "https://github.com/stern/stern/releases/download/v{{ stern_version }}/stern_{{ stern_version }}_{{ stern_os }}_{{ stern_arch }}.tar.gz"
         dest: "{{ stern_tmp_directory }}/{{ stern_os }}-{{ stern_arch }}/"
         remote_src: true
-        mode: 0755
+        mode: "0755"
 
     - name: Copy file with owner and permissions
       ansible.builtin.copy:

@@ -31,7 +31,7 @@
         src: "https://github.com/sharkdp/bat/releases/download/v{{ bat_version }}/bat-v{{ bat_version }}-{{ bat_arch }}-{{ bat_os }}.tar.gz"
         dest: "{{ bat_tmp_directory }}/{{ bat_os }}-{{ bat_arch }}/"
         remote_src: true
-        mode: 0755
+        mode: "0755"
 
     - name: Copy file with owner and permissions
       ansible.builtin.copy:

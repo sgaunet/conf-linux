@@ -31,7 +31,7 @@
         src: "https://github.com/raviqqe/muffet/releases/download/v{{ muffet_version }}/muffet_{{ muffet_version }}_{{ muffet_os }}_{{ muffet_arch }}.tar.gz"
         dest: "{{ muffet_tmp_directory }}/{{ muffet_os }}-{{ muffet_arch }}/"
         remote_src: true
-        mode: 0755
+        mode: "0755"
 
     - name: Copy file with owner and permissions
       ansible.builtin.copy:

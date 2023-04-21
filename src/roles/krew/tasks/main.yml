@@ -44,7 +44,7 @@
       ansible.builtin.file:
         path: /tmp/krew
         state: directory
-        mode: 0755
+        mode: "0755"
 
     - name: Extract to /tmp/krew
       ansible.builtin.unarchive:

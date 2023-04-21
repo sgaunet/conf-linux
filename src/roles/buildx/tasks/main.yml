@@ -35,4 +35,4 @@
       ansible.builtin.get_url:
         url: "https://github.com/docker/buildx/releases/download/v{{ buildx_version }}/buildx-v{{ buildx_version }}.{{ buildx_os }}-{{ buildx_arch }}"
         dest: "{{ lookup('env', 'HOME') }}/.docker/cli-plugins/docker-buildx"
-        mode: 0755
+        mode: "0755"

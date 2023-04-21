@@ -25,6 +25,7 @@
   args:
     executable: /bin/bash
   become: false
+  changed_when: true
   when:
     - not ansible_check_mode
     - tilt_version != tilt_version_installed

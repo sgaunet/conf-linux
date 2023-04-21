@@ -20,7 +20,7 @@
     src: "https://github.com/sgaunet/httping-go/releases/download/{{ httping_version }}/httping-go_{{ httping_version }}_{{ httping_os }}_{{ httping_arch }}.tar.gz"
     dest: "{{ httping_bin_path }}"
     remote_src: true
-    mode: 0755
+    mode: "0755"
   when:
     - not ansible_check_mode
     - httping_version_client_installed.stdout != httping_version

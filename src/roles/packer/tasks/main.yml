@@ -18,7 +18,7 @@
     src: https://releases.hashicorp.com/packer/{{ packer_version }}/packer_{{ packer_version }}_linux_{{ packer_arch }}.zip
     dest: "{{ packer_bin_path }}"
     remote_src: true
-    mode: 0755
+    mode: "0755"
   when:
     - not ansible_check_mode
     - packer_version_installed.stdout != packer_version

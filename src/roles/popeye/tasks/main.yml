@@ -25,7 +25,7 @@
     src: "https://github.com/derailed/popeye/releases/download/v{{ popeye_version }}/popeye_{{ popeye_os }}_{{ popeye_arch }}.tar.gz"
     dest: "{{ popeye_bin_path }}"
     remote_src: true
-    mode: 0755
+    mode: "0755"
   when:
     - not ansible_check_mode
     - popeye_version_client_installed.stdout != popeye_version

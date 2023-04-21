@@ -31,7 +31,7 @@
         src: "https://github.com/sharkdp/fd/releases/download/v{{ fd_version }}/fd-v{{ fd_version }}-{{ fd_arch }}-{{ fd_os }}.tar.gz"
         dest: "{{ fd_tmp_directory }}/{{ fd_os }}-{{ fd_arch }}/"
         remote_src: true
-        mode: 0755
+        mode: "0755"
 
     - name: Copy file with owner and permissions
       ansible.builtin.copy:

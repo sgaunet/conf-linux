@@ -19,7 +19,7 @@
   ansible.builtin.get_url:
     url: "https://github.com/antonmedv/fx/releases/download/{{ fx_version }}/fx_{{ fx_os }}_{{ fx_arch }}"
     dest: "{{ fx_bin_path }}/fx"
-    mode: 0755
+    mode: "0755"
   when:
     - not ansible_check_mode
     - fx_version != fx_version_client_installed.stdout

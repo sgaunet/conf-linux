@@ -1,6 +1,7 @@
 ---
 
 - name: Check awscli version
+  become: false
   ansible.builtin.shell: "set -o pipefail && aws --version | sed 's# Python.*##g' | sed 's#aws-cli/##g'"
   args:
     executable: /bin/bash
@@ -32,7 +33,7 @@
   ansible.builtin.file:
     path: /tmp/awscli
     state: directory
-    mode: 0755
+    mode: "0755"
   when:
     - not ansible_check_mode
     - awscli_version_client_installed.stdout != awscli_version
@@ -48,10 +49,12 @@
 
 - name: Install awscli
   ansible.builtin.command: /tmp/awscli/aws/install
+  changed_when: true
   when: not link_awscli.stat.exists
 
 - name: Update awscli
   ansible.builtin.command: /tmp/awscli/aws/install --update
+  changed_when: true
   when: awscli_version_client_installed.stdout != awscli_version
 
 - name: Remove temporary files/folders

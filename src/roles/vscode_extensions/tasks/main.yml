@@ -22,5 +22,6 @@
 - name: Install vscode extensions
   become: false
   ansible.builtin.command: "code --install-extension {{ item }}"
+  changed_when: true
   with_items: "{{ vscode_extensions }}"
   when: item  not in vscode_extensions_installed.stdout

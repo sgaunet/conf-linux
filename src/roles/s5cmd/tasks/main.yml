@@ -34,7 +34,7 @@
         src: "https://github.com/peak/s5cmd/releases/download/v{{ s5cmd_version }}/s5cmd_{{ s5cmd_version }}_{{ s5cmd_os }}-{{ s5cmd_arch }}.tar.gz"
         dest: "{{ s5cmd_tmp_directory }}/{{ s5cmd_os }}-{{ s5cmd_arch }}/"
         remote_src: true
-        mode: 0755
+        mode: "0755"
 
     - name: Copy file with owner and permissions
       ansible.builtin.copy:

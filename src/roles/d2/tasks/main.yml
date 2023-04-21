@@ -31,7 +31,7 @@
         src: "https://github.com/terrastruct/d2/releases/download/v{{ d2_version }}/d2-v{{ d2_version }}-{{ d2_os }}-{{ d2_arch }}.tar.gz"
         dest: "{{ d2_tmp_directory }}/{{ d2_os }}-{{ d2_arch }}/"
         remote_src: true
-        mode: 0755
+        mode: "0755"
 
     - name: Copy file with owner and permissions
       ansible.builtin.copy:

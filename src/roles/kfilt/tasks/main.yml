@@ -19,7 +19,7 @@
   ansible.builtin.get_url:
     url: "https://github.com/ryane/kfilt/releases/download/v{{ kfilt_version }}/kfilt_{{ kfilt_version }}_{{ kfilt_os }}_{{ kfilt_arch }}"
     dest: "{{ kfilt_bin_path }}/kfilt"
-    mode: 0755
+    mode: "0755"
   when:
     - not ansible_check_mode
     - kfilt_version_client_installed.stdout != kfilt_version

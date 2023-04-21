@@ -17,7 +17,7 @@
   ansible.builtin.get_url:
     url: https://github.com/sgaunet/ekspodlogs/releases/download/v{{ ekspodlogs_version }}/ekspodlogs_{{ ekspodlogs_version }}_{{ ekspodlogs_os }}_{{ ekspodlogs_arch }}
     dest: "{{ ekspodlogs_bin_path }}/ekspodlogs"
-    mode: 0755
+    mode: "0755"
   when:
     - not ansible_check_mode
     - ekspodlogs_version != ekspodlogs_version_client_installed.stdout

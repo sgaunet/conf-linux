@@ -20,7 +20,7 @@
     src: https://releases.hashicorp.com/vagrant/{{ vagrant_version }}/vagrant_{{ vagrant_version }}_linux_{{ vagrant_arch }}.zip
     dest: "{{ vagrant_bin_path }}"
     remote_src: true
-    mode: 0755
+    mode: "0755"
   when:
     - not ansible_check_mode
     - vagrant_version_installed.stdout != vagrant_version
