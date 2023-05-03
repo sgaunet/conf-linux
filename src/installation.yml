@@ -200,3 +200,5 @@
       tags: gitlab_vars
     - role: k6
       tags: k6
+    - role: glab
+      tags: glab

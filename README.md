@@ -99,7 +99,7 @@ Development:
 * vscode extensions
 * [gtmpl](https://github.com/sgaunet/gtmpl)
 * [gitleaks](https://github.com/zricethezav/gitleaks)
-* [glab](https://github.com/profclems/glab/)
+* [glab](https://gitlab.com/gitlab-org/cli)
 * [gitlab-issue-report](https://github.com/sgaunet/gitlab-issue-report)
 * [gitlab-stats](https://github.com/sgaunet/gitlab-stats)
 * [gitlab-vars](https://github.com/sgaunet/gitlab-vars) - **beta**
