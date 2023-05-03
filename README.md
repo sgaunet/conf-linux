@@ -7,7 +7,7 @@ That's a collection of ansible role to configure my Linux account for a new PC (
 ```
 git clone git@github.com:sgaunet/conf-linux.git
 
-python3 -m venv                                         # create python virutal environment. Do it once
+python3 -m venv   venv                                  # create python virutal environment. Do it once
 source venv/bin/activate                                # set your virtual environment  (set it always before launch commands on this project)
 pip install -r requirements.txt                         # install requirements in your virtual env
 ansible-galaxy collection install -r requirements.yml   # install galaxy collections
