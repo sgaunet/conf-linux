@@ -2,7 +2,9 @@
 
 - name: Check ekspodlogs version
   become: false
-  ansible.builtin.command: 'ekspodlogs -v'
+  ansible.builtin.shell: "set -o pipefail && ekspodlogs -v"
+  args:
+    executable: /bin/bash
   register: ekspodlogs_version_client_installed
   changed_when: false
   failed_when: false

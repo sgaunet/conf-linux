@@ -2,7 +2,9 @@
 
 - name: Check helm version
   become: false
-  ansible.builtin.command: "helm version --template '{{ '{{' }} .Version {{ '}}' }}'"
+  ansible.builtin.shell: "set -o pipefail && helm version --template '{{ '{{' }} .Version {{ '}}' }}'"
+  args:
+    executable: /bin/bash
   register: helm_version_installed
   changed_when: false
   failed_when: false

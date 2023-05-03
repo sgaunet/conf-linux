@@ -2,7 +2,9 @@
 
 - name: Get packer version
   become: false
-  ansible.builtin.command: "packer -v"
+  ansible.builtin.shell: "set -o pipefail && packer -v"
+  args:
+    executable: /bin/bash
   register: packer_version_installed
   changed_when: false
   failed_when: false
