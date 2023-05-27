@@ -1,6 +1,6 @@
 ---
 
-vhs_version: "0.3.0"
+vhs_version: "0.5.0"
 vhs_bin_path: "/usr/local/bin"
 vhs_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 vhs_os: "linux"

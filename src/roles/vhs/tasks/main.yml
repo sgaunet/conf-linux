@@ -31,7 +31,7 @@
 
     - name: Download and unarchive vhs
       ansible.builtin.unarchive:
-        src: "https://github.com/charmbracelet/vhs/releases/download/v{{ vhs_version }}/vhs_{{ vhs_version }}_{{ vhs_os }}_{{ vhs_arch }}.tar.gz"
+        src: "https://github.com/charmbracelet/vhs/releases/download/v{{ vhs_version }}/vhs_{{ vhs_os }}_{{ vhs_arch }}.tar.gz"
         dest: "{{ vhs_tmp_directory }}/{{ vhs_os }}-{{ vhs_arch }}/"
         remote_src: true
         mode: "0755"
