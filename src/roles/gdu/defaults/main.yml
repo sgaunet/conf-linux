@@ -1,7 +1,7 @@
 ---
 
 # "gdu" version to install
-gdu_version: "5.22.0"
+gdu_version: "5.24.0"
 gdu_bin_path: "/usr/local/bin"
 gdu_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 gdu_os: "linux"
