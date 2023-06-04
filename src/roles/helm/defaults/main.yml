@@ -1,7 +1,7 @@
 ---
 
 # "helm" version to install
-helm_version: "v3.11.1"
+helm_version: "v3.12.0"
 helm_bin_path: "/usr/local/bin"
 helm_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 helm_os: "linux"
