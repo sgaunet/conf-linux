@@ -1,7 +1,7 @@
 ---
 
 # "calcdate" version to install
-calcdate_version: "1.4.1"
+calcdate_version: "1.4.2"
 calcdate_bin_path: "/usr/local/bin"
 calcdate_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 calcdate_os: "Linux"
