@@ -1,7 +1,7 @@
 ---
 
 # "goreleaser" version to install
-goreleaser_version: "1.15.2"
+goreleaser_version: "1.18.2"
 goreleaser_bin_path: "/usr/local/bin"
 goreleaser_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 goreleaser_os: "Linux"
