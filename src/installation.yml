@@ -46,8 +46,6 @@
       tags: eksctl
     - role: peek
       tags: peek
-    - role: vegeta
-      tags: vegeta
     - role: kind
       tags: kind
     - role: stern
@@ -118,8 +116,6 @@
       tags: gitlab_stats
     - role: pet
       tags: pet
-    - role: plow
-      tags: plow
     - role: usql
       tags: usql
     - role: gum
