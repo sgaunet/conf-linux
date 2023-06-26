@@ -1,7 +1,0 @@
----
-
-kubeval_version: "0.16.1"
-kubeval_bin_path: "/usr/local/bin"
-kubeval_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
-kubeval_os: "linux"
-kubeval_arch: "amd64"

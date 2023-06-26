@@ -170,8 +170,6 @@
       tags: kluctl
     - role: kubescape
       tags: kubescape
-    - role: kubeval
-      tags: kubeval
     - role: fx
       tags: fx
     - role: gini
