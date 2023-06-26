@@ -1,0 +1,8 @@
+---
+
+# "dasel" version to install
+dasel_version: "2.3.4"
+dasel_bin_path: "/usr/local/bin"
+dasel_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
+dasel_os: "linux"
+dasel_arch: "amd64"

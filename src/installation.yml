@@ -204,3 +204,7 @@
       tags: xk6-dashboard  
     - role: glab
       tags: glab
+    - role: concourse
+      tags: concourse
+    - role: dasel
+      tags: dasel

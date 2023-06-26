@@ -111,6 +111,7 @@ Development:
 * [trufflehog](https://github.com/trufflesecurity/trufflehog)
 * [fx](https://github.com/antonmedv/fx)
 * [osv-scanner](https://github.com/google/osv-scanner)
+* [fly (concourse)](https://github.com/concourse/concourse)
 
 Linux tools :
 
@@ -152,6 +153,7 @@ Misceleaneous :
 * [pastel](https://github.com/sharkdp/pastel)
 * [d2](https://github.com/terrastruct/d2)
 * [rclone](https://rclone.org/)
+* [dasel](https://github.com/TomWright/dasel)
 
 Bash formatter:
 
