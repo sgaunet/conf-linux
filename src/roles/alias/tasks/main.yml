@@ -1,5 +1,11 @@
 ---
 
+- name: install coreutils
+  ansible.builtin.package:
+    name: coreutils
+    state: present
+  when: ansible_os_family == 'Debian'
+
 - name: Add aliases to $HOME/.zshrc
   become: false
   ansible.builtin.lineinfile:
@@ -8,6 +14,7 @@
   with_items:
     - 'alias k=kubectl'
     - 'alias "ll=ls -l"'
+    - 'alias "shred=shred -n 35 -z -u"'
   when: zsh_install
 
 - name: Add aliases to $HOME/.bashrc and completion for kubectl
@@ -19,4 +26,5 @@
     - 'alias k=kubectl'
     - 'alias "ll=ls -l"'
     - 'complete -F __start_kubectl k'
+    - 'alias "shred=shred -n 35 -z -u"'
   when: bash_install
