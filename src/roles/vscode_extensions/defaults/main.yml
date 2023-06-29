@@ -19,6 +19,7 @@ vscode_extensions:
   - usernamehw.errorlens
   - yzhang.markdown-all-in-one
   - kruemelkatze.vscode-dashboard
+  - task.vscode-task
 
 # alefragnani.project-manager
 # fr-str.vscode-postfix-go-fr
