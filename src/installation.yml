@@ -158,8 +158,8 @@
       tags: kubefwd
     - role: trufflehog
       tags: trufflehog
-    - role: silver_surfer
-      tags: silver_surfer
+    - role: kubent
+      tags: kubent
     - role: tmux
       tags: tmux
     - role: vhs

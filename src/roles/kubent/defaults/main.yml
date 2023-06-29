@@ -1,0 +1,8 @@
+---
+
+# "kubent" version to install
+kubent_version: "0.7.0"
+kubent_bin_path: "/usr/local/bin"
+kubent_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
+kubent_os: "linux"
+kubent_arch: "amd64"
