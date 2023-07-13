@@ -80,6 +80,7 @@ For GOLANG :
 * [sqlc](https://sqlc.dev/)
 * [golang-ci-lint](https://github.com/golangci/golangci-lint)
 * [pre-commit](https://github.com/pre-commit/pre-commit)
+* [moq](https://github.com/matryer/moq)
 
 
 VM :

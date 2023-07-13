@@ -202,3 +202,5 @@
       tags: concourse
     - role: dasel
       tags: dasel
+    - role: moq
+      tags: moq
