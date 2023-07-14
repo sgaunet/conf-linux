@@ -140,6 +140,7 @@ Linux tools :
 * [gini](https://github.com/sgaunet/gini)
 * [envtemplate](https://github.com/sgaunet/envtemplate)
 * [calcdate](https://github.com/sgaunet/calcdate)
+* [gocryptfs](https://github.com/rfjakob/gocryptfs)
 
 Tests:
 

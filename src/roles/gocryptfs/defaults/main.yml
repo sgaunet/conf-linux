@@ -1,0 +1,8 @@
+---
+
+# "gocryptfs" version to install
+gocryptfs_version: "2.4.0"
+gocryptfs_bin_path: "/usr/local/bin"
+gocryptfs_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
+gocryptfs_os: "linux"
+gocryptfs_arch: "amd64"

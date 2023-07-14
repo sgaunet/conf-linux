@@ -204,3 +204,5 @@
       tags: dasel
     - role: moq
       tags: moq
+    - role: gocryptfs
+      tags: gocryptfs
