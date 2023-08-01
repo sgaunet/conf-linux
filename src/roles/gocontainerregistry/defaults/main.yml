@@ -1,0 +1,7 @@
+---
+
+gocontainerregistry_version: "0.15.2"
+gocontainerregistry_bin_path: "/usr/local/bin"
+gocontainerregistry_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
+gocontainerregistry_os: "Linux"
+gocontainerregistry_arch: "x86_64"

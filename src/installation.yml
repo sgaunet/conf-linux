@@ -206,3 +206,5 @@
       tags: moq
     - role: gocryptfs
       tags: gocryptfs
+    - role: gocontainerregistry
+      tags: gocontainerregistry
