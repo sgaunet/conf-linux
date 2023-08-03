@@ -33,6 +33,13 @@
     dest: "{{ lookup('env', 'HOME') }}/.bin/"
     mode: '0755'
 
+- name: Copy gitreport.sh
+  become: false
+  ansible.builtin.copy:
+    src: "gitreport.sh"
+    dest: "{{ lookup('env', 'HOME') }}/.bin/"
+    mode: '0755'
+
 - name: Update PATH $HOME/.bashrc
   become: false
   ansible.builtin.lineinfile:
