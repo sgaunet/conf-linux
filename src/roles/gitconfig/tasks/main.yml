@@ -5,6 +5,9 @@
   ansible.builtin.blockinfile:
     path: "{{ lookup('env', 'HOME') }}/.gitconfig"
     block: |
+      [user]
+          email = 1552102+sgaunet@users.noreply.github.com
+          name = Sylvain Gaunet
       [core]
           editor = vim
           whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
