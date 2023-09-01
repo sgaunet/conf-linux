@@ -2,7 +2,7 @@
 
 - name: Check bat version
   become: false
-  ansible.builtin.shell: "set -o pipefail && bat --version | awk '{ print $2 }'"
+  ansible.builtin.shell: "set -o pipefail && bat --version | awk '{ print \"v\"$2 }'"
   args:
     executable: /bin/bash
   register: bat_version_client_installed
