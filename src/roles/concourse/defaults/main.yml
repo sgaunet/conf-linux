@@ -1,7 +1,7 @@
 ---
 
 # "concourse" version to install
-concourse_version: "7.9.1"
+concourse_version: "7.10.0"
 concourse_bin_path: "/usr/local/bin"
 concourse_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 concourse_os: "linux"
