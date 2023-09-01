@@ -28,7 +28,7 @@
 
     - name: Download and unarchive sqlc
       ansible.builtin.unarchive:
-        src: "https://github.com/kyleconroy/sqlc/releases/download/v{{ sqlc_version }}/sqlc_{{ sqlc_version }}_{{ sqlc_os }}_{{ sqlc_arch }}.tar.gz"
+        src: "https://github.com/sqlc-dev/sqlc/releases/download/v{{ sqlc_version }}/sqlc_{{ sqlc_version }}_{{ sqlc_os }}_{{ sqlc_arch }}.tar.gz"
         dest: "{{ sqlc_tmp_directory }}/{{ sqlc_os }}-{{ sqlc_arch }}/"
         remote_src: true
         mode: "0755"
