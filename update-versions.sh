@@ -57,7 +57,7 @@ updateVersionOfGithubProject doitintl/kube-no-trouble src/roles/kubent/defaults/
 updateVersionOfGithubProject terrastruct/d2 src/roles/d2/defaults/main.yml d2_version
 updateVersionOfGithubProject ogham/exa src/roles/exa/defaults/main.yml exa_version
 # updateVersionOfGithubProject szkiba/xk6-dashboard src/roles/xk6-dashboard/defaults/main.yml xk6-dashboard_version
-updateVersionOfGithubProject sgaunet/gitlab-issue-report src/roles/gitlab_issue_report/defaults/main.yml gitlab_issue_report_version
+updateVersionOfGithubProject sgaunet/gitlab-issue-report src/roles/gitlab_issue_report/defaults/main.yml gitlabissuereport_version
 updateVersionOfGithubProject sharkdp/pastel src/roles/pastel/defaults/main.yml pastel_version
 updateVersionOfGithubProject charmbracelet/vhs src/roles/vhs/defaults/main.yml vhs_version
 updateVersionOfGithubProject wtetsu/gaze src/roles/gaze/defaults/main.yml gaze_version
