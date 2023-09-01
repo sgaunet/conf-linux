@@ -1,10 +1,9 @@
 ---
 
 # "starship" version to install
-starship_version: "1.14.2"
+starship_version: "1.16.0"
 starship_bin_path: "/usr/local/bin"
 starship_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 starship_os: "unknown-linux-gnu"
 starship_arch: "x86_64"
-
 nerdfont: "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip"
