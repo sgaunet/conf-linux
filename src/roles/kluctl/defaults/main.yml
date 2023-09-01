@@ -1,6 +1,6 @@
 ---
 
-kluctl_version: "2.20.4"
+kluctl_version: "2.20.8"
 kluctl_bin_path: "/usr/local/bin"
 kluctl_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 kluctl_os: "linux"
