@@ -22,6 +22,8 @@
       tags: kubectx
     - role: helm
       tags: helm
+    - role: helmdocs
+      tags: helm
     - role: kube_ps1
       vars:
         bash_install: true
