@@ -1,0 +1,10 @@
+---
+- name: Ensuring Homebrew Is Installed
+  ansible.builtin.stat:
+    path: /usr/local/bin/brew
+  register: homebrew_check
+
+- name: Installing Homebrew
+  ansible.builtin.shell: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  when:
+    - not homebrew_check.stat.exists
