@@ -17,7 +17,7 @@
 
 - name: Download and unarchive httping
   ansible.builtin.unarchive:
-    src: "https://github.com/sgaunet/httping-go/releases/download/{{ httping_version }}/httping-go_{{ httping_version }}_{{ httping_os }}_{{ httping_arch }}.tar.gz"
+    src: "https://github.com/sgaunet/httping-go/releases/download/v{{ httping_version }}/httping-go_{{ httping_version }}_{{ httping_os }}_{{ httping_arch }}.tar.gz"
     dest: "{{ httping_bin_path }}"
     remote_src: true
     mode: "0755"
