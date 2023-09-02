@@ -46,7 +46,7 @@ updateVersionOfGithubProject zellij-org/zellij src/roles/zellij/defaults/main.ym
 updateVersionOfGithubProject sgaunet/gtmpl src/roles/gtmpl/defaults/main.yml gtmpl_version
 updateVersionOfGithubProject trufflesecurity/trufflehog src/roles/trufflehog/defaults/main.yml trufflehog_version
 updateVersionOfGithubProject dundee/gdu src/roles/gdu/defaults/main.yml gdu_version
-updateVersionOfGithubProject NimbleArchitect/kubectl-ice src/roles/kubectl_ice/defaults/main.yml kubectl_ice_version
+updateVersionOfGithubProject NimbleArchitect/kubectl-ice src/roles/kubectl_ice/defaults/main.yml kubectlice_version
 updateVersionOfGithubProject knqyf263/pet src/roles/pet/defaults/main.yml pet_version
 updateVersionOfGithubProject txn2/kubefwd src/roles/kubefwd/defaults/main.yml kubefwd_version
 updateVersionOfGithubProject sharkdp/bat src/roles/bat/defaults/main.yml bat_version
@@ -87,7 +87,7 @@ updateVersionOfGithubProject kluctl/kluctl src/roles/kluctl/defaults/main.yml kl
 updateVersionOfGithubProject rfjakob/gocryptfs src/roles/gocryptfs/defaults/main.yml gocryptfs_version
 updateVersionOfGithubProject sharkdp/fd src/roles/fd/defaults/main.yml fd_version
 updateVersionOfGithubProject goreleaser/chglog src/roles/chglog/defaults/main.yml chglog_version
-updateVersionOfGithubProject anchore/grype src/roles/grype/defaults/main.yml grype_version
+# updateVersionOfGithubProject anchore/grype src/roles/grype/defaults/main.yml grype_version   always latest
 # updateVersionOfGithubProject zricethezav/gitleaks src/roles/gitleaks/defaults/main.yml gitleaks_version
 updateVersionOfGithubProject xo/usql src/roles/usql/defaults/main.yml usql_version
 updateVersionOfGithubProject google/go-containerregistry src/roles/gocontainerregistry/defaults/main.yml gocontainerregistry_version
