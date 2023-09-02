@@ -2,7 +2,7 @@
 
 - name: Get task version
   become: false
-  ansible.builtin.shell: 'set -o pipefail && task --version | cut -f3 -d " "'
+  ansible.builtin.shell: 'set -o pipefail && task --version | cut -f3 -d " " | sed "s#^v##g"'
   args:
     executable: /bin/bash
   register: task_version_installed
@@ -28,7 +28,7 @@
 
     - name: Download and unarchive task
       ansible.builtin.unarchive:
-        src: "https://github.com/go-task/task/releases/download/{{ task_version }}/task_{{ task_os }}_{{ task_arch }}.tar.gz"
+        src: "https://github.com/go-task/task/releases/download/v{{ task_version }}/task_{{ task_os }}_{{ task_arch }}.tar.gz"
         dest: "{{ task_tmp_directory }}/{{ task_os }}-{{ task_arch }}/"
         remote_src: true
         mode: "0755"
