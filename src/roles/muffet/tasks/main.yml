@@ -28,7 +28,7 @@
 
     - name: Download and unarchive muffet
       ansible.builtin.unarchive:
-        src: "https://github.com/raviqqe/muffet/releases/download/v{{ muffet_version }}/muffet_{{ muffet_version }}_{{ muffet_os }}_{{ muffet_arch }}.tar.gz"
+        src: "https://github.com/raviqqe/muffet/releases/download/v{{ muffet_version }}/muffet_{{ muffet_os }}_{{ muffet_arch }}.tar.gz"
         dest: "{{ muffet_tmp_directory }}/{{ muffet_os }}-{{ muffet_arch }}/"
         remote_src: true
         mode: "0755"
