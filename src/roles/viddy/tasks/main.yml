@@ -28,7 +28,7 @@
 
     - name: Download and unarchive viddy
       ansible.builtin.unarchive:
-        src: "https://github.com/sachaos/viddy/releases/download/v{{ viddy_version }}/viddy_{{ viddy_version }}_{{ viddy_os }}_{{ viddy_arch }}.tar.gz"
+        src: "https://github.com/sachaos/viddy/releases/download/v{{ viddy_version }}/viddy_{{ viddy_os }}_{{ viddy_arch }}.tar.gz"
         dest: "{{ viddy_tmp_directory }}/{{ viddy_os }}-{{ viddy_arch }}/"
         remote_src: true
         mode: "0755"
