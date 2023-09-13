@@ -24,6 +24,8 @@
       tags: helm
     - role: helmdocs
       tags: helm
+    - role: helmfile
+      tags: helm
     - role: kube_ps1
       vars:
         bash_install: true

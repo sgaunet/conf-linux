@@ -43,6 +43,7 @@ For kubernetes:
 * [krew](https://krew.sigs.k8s.io/)
 * [helm v3](https://helm.sh/docs/intro/install/)
 * [helm-docs](https://github.com/norwoodj/helm-docs)
+* [helmfile](https://github.com/helmfile/helmfile)
 * [kubectl-dashboard](https://github.com/bouk/kubectl-dashboard)
 * [k9s](https://k9scli.io/)
 * [kubectl](https://kubernetes.io/releases/download/)

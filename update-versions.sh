@@ -93,3 +93,4 @@ updateVersionOfGithubProject xo/usql src/roles/usql/defaults/main.yml usql_versi
 updateVersionOfGithubProject google/go-containerregistry src/roles/gocontainerregistry/defaults/main.yml gocontainerregistry_version
 updateVersionOfGithubProject ahmetb/kubectx src/roles/kubectx/defaults/main.yml kubectx_version
 updateVersionOfGithubProject ahmetb/kubectx src/roles/kubectx/defaults/main.yml kubens_version
+updateVersionOfGithubProject helmfile/helmfile src/roles/helmfile/defaults/main.yml helmfile_version
