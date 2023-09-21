@@ -1,7 +1,7 @@
 ---
 
 # "helmdocs" version to install
-helmdocs_version: "1.11.0"
+helmdocs_version: "1.11.2"
 helmdocs_bin_path: "/usr/local/bin"
 helmdocs_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 helmdocs_os: "Linux"
