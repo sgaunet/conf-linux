@@ -1,7 +1,7 @@
 ---
 
 # "task" version to install
-task_version: "3.29.1"
+task_version: "3.30.1"
 task_bin_path: "/usr/local/bin"
 task_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 task_os: "linux"
