@@ -2,7 +2,7 @@
 
 - name: Check nfpm version
   become: false
-  ansible.builtin.shell: 'set -o pipefail && nfpm -v | grep "nfpm version" | sed "s#nfpm version ##g"'
+  ansible.builtin.shell: "set -o pipefail && nfpm -v | grep 'GitVersion' | awk '{ print $2 }'"
   args:
     executable: /bin/bash
   register: nfpm_version_client_installed
