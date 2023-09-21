@@ -1,7 +1,7 @@
 ---
 
 # "trufflehog" version to install
-trufflehog_version: "3.55.1"
+trufflehog_version: "3.56.1"
 trufflehog_bin_path: "/usr/local/bin"
 trufflehog_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 trufflehog_os: "linux"
