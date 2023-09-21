@@ -1,7 +1,7 @@
 ---
 
 # "bandwhich" version to install
-bandwhich_version: "0.20.0"
+bandwhich_version: "0.21.0"
 bandwhich_bin_path: "/usr/local/bin"
 bandwhich_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 bandwhich_os: "unknown-linux-musl"
