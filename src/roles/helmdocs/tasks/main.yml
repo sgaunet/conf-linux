@@ -17,7 +17,7 @@
 
 - name: Download and unarchive helmdocs
   ansible.builtin.unarchive:
-    src: https://github.com/norwoodj/helm-docs/releases/download/v{{ helmdocs_version }}/helm-docs_{{ helmdocs_os }}_{{ helmdocs_arch }}.tar.gz
+    src: https://github.com/norwoodj/helm-docs/releases/download/v{{ helmdocs_version }}/helm-docs_{{ helmdocs_version }}_{{ helmdocs_os }}_{{ helmdocs_arch }}.tar.gz
     dest: "{{ helmdocs_tmp_directory }}"
     remote_src: true
     mode: "0755"
