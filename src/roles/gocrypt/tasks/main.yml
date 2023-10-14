@@ -2,7 +2,7 @@
 
 - name: Check gocrypt version
   become: false
-  ansible.builtin.shell: 'set -o pipefail && gocrypt -v'
+  ansible.builtin.shell: 'set -o pipefail && gocrypt version'
   args:
     executable: /bin/bash
   register: gocrypt_version_client_installed
