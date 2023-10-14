@@ -68,8 +68,6 @@
       tags: goreleaser
     - role: task
       tags: task
-    - role: gtmpl
-      tags: gtmpl
     - role: kfilt
       tags: kfilt
     - role: zellij
@@ -210,3 +208,5 @@
       tags: gocryptfs
     - role: gocontainerregistry
       tags: gocontainerregistry
+    - role: kor
+      tags: kor

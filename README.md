@@ -60,6 +60,7 @@ For kubernetes:
 * [kluctl](https://github.com/kluctl/kluctl)
 * [kubescape](https://github.com/kubescape/kubescape)
 * [kubeval](https://github.com/instrumenta/kubeval)
+* [kor](https://github.com/yonahd/kor)
 
 For markdown :
 

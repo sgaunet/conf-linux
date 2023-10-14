@@ -1,0 +1,46 @@
+---
+
+- name: Check kor version
+  become: false
+  ansible.builtin.shell: "set -o pipefail && kor version --template '{{ '{{' }} .Version {{ '}}' }}'"
+  args:
+    executable: /bin/bash
+  register: kor_version_installed
+  changed_when: false
+  failed_when: false
+  check_mode: false
+
+- name: Check kor version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
+  changed_when: kor_version_installed.stdout != kor_version
+  check_mode: false
+
+- name: Install kor
+  block:
+    - name: Create temporary directory
+      ansible.builtin.file:
+        path: "{{ kor_tmp_directory }}/{{ kor_os }}-{{ kor_arch }}"
+        state: directory
+        mode: "0755"
+        
+    - name: Download and unarchive kor
+      ansible.builtin.unarchive:
+        src: https://github.com/yonahd/kor/releases/download/v{{ kor_version }}/kor_{{ kor_os }}_{{ kor_arch }}.tar.gz
+        dest: "{{ kor_tmp_directory }}/{{ kor_os }}-{{ kor_arch }}"
+        remote_src: true
+        mode: "0755"
+
+    - name: Copy file with owner and permissions
+      ansible.builtin.copy:
+        src: "{{ kor_tmp_directory }}/{{ kor_os }}-{{ kor_arch }}/kor"
+        dest: "{{ kor_bin_path }}/kor"
+        mode: '0755'
+        remote_src: true
+
+    - name: Remove temporary files/folders
+      ansible.builtin.file:
+        path: "{{ kor_tmp_directory }}/{{ kor_os }}-{{ kor_arch }}"
+        state: absent
+  when:
+    - not ansible_check_mode
+    - kor_version_installed.stdout != kor_version

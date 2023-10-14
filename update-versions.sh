@@ -43,7 +43,6 @@ updateVersionOfGithubProject particledecay/kconf src/roles/kconf/defaults/main.y
 updateVersionOfGithubProject peak/s5cmd src/roles/s5cmd/defaults/main.yml s5cmd_version
 updateVersionOfGithubProject derailed/k9s src/roles/k9s/defaults/main.yml k9s_version
 updateVersionOfGithubProject zellij-org/zellij src/roles/zellij/defaults/main.yml zellij_version
-updateVersionOfGithubProject sgaunet/gtmpl src/roles/gtmpl/defaults/main.yml gtmpl_version
 updateVersionOfGithubProject trufflesecurity/trufflehog src/roles/trufflehog/defaults/main.yml trufflehog_version
 updateVersionOfGithubProject dundee/gdu src/roles/gdu/defaults/main.yml gdu_version
 updateVersionOfGithubProject NimbleArchitect/kubectl-ice src/roles/kubectl_ice/defaults/main.yml kubectlice_version
@@ -94,3 +93,4 @@ updateVersionOfGithubProject google/go-containerregistry src/roles/gocontainerre
 updateVersionOfGithubProject ahmetb/kubectx src/roles/kubectx/defaults/main.yml kubectx_version
 updateVersionOfGithubProject ahmetb/kubectx src/roles/kubectx/defaults/main.yml kubens_version
 updateVersionOfGithubProject helmfile/helmfile src/roles/helmfile/defaults/main.yml helmfile_version
+updateVersionOfGithubProject yonahd/kor src/roles/kor/defaults/main.yml kor_version
