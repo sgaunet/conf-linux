@@ -101,7 +101,6 @@ Development:
 
 * [vscode](https://code.visualstudio.com/docs/setup/linux)
 * vscode extensions
-* [gtmpl](https://github.com/sgaunet/gtmpl)
 * [gitleaks](https://github.com/zricethezav/gitleaks)
 * [glab](https://gitlab.com/gitlab-org/cli)
 * [gitlab-issue-report](https://github.com/sgaunet/gitlab-issue-report)
