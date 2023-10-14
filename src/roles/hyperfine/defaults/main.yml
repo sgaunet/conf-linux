@@ -1,7 +1,7 @@
 ---
 
 # "hyperfine" version to install
-hyperfine_version: "1.17.0"
+hyperfine_version: "1.18.0"
 hyperfine_bin_path: "/usr/local/bin"
 hyperfine_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 hyperfine_os: "unknown-linux-gnu"
