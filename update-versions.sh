@@ -94,3 +94,5 @@ updateVersionOfGithubProject ahmetb/kubectx src/roles/kubectx/defaults/main.yml 
 updateVersionOfGithubProject ahmetb/kubectx src/roles/kubectx/defaults/main.yml kubens_version
 updateVersionOfGithubProject helmfile/helmfile src/roles/helmfile/defaults/main.yml helmfile_version
 updateVersionOfGithubProject yonahd/kor src/roles/kor/defaults/main.yml kor_version
+updateVersionOfGithubProject sosedoff/pgweb src/roles/pgweb/defaults/main.yml pgweb_version
+updateVersionOfGithubProject k1LoW/tbls src/roles/tbls/defaults/main.yml tbls_version

@@ -212,3 +212,5 @@
       tags: kor
     - role: pgweb
       tags: pgweb
+    - role: tbls
+      tags: tbls
