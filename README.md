@@ -61,6 +61,7 @@ For kubernetes:
 * [kubescape](https://github.com/kubescape/kubescape)
 * [kubeval](https://github.com/instrumenta/kubeval)
 * [kor](https://github.com/yonahd/kor)
+* [helmchart-helper](https://github.com/sgaunet/helmchart-helper)
 
 For markdown :
 

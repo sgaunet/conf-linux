@@ -1,0 +1,8 @@
+---
+
+# "helmchart_helper" version to install
+helmchart_helper_version: "0.1.0-beta2"
+helmchart_helper_bin_path: "/usr/local/bin"
+helmchart_helper_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
+helmchart_helper_os: "linux"
+helmchart_helper_arch: "amd64"
