@@ -1,0 +1,49 @@
+---
+
+- name: Check glow version
+  become: false
+  ansible.builtin.shell: "set -o pipefail && glow -v  | cut -d' ' -f3 | sed 's#v##g'"
+  args:
+    executable: /bin/bash
+  register: glow_version_client_installed
+  changed_when: false
+  failed_when: false
+  check_mode: false
+
+- name: Check glow version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
+  changed_when: glow_version_client_installed.stdout != glow_version
+  check_mode: false
+
+# - debug:
+#     var: glow_version_client_installed.stdout
+
+- name: Install glow
+  when:
+    - not ansible_check_mode
+    - glow_version != glow_version_client_installed.stdout
+  block:
+    - name: Create a directory if it does not exist
+      ansible.builtin.file:
+        path: "{{ glow_tmp_directory }}/{{ glow_os }}-{{ glow_arch }}/"
+        state: directory
+        mode: '0755'
+
+    - name: Download and unarchive glow
+      ansible.builtin.unarchive:
+        src: "https://github.com/charmbracelet/glow/releases/download/v{{ glow_version }}/glow_{{ glow_os }}_{{ glow_arch }}.tar.gz"
+        dest: "{{ glow_tmp_directory }}/{{ glow_os }}-{{ glow_arch }}/"
+        remote_src: true
+        mode: "0755"
+
+    - name: Copy file with owner and permissions
+      ansible.builtin.copy:
+        src: "{{ glow_tmp_directory }}/{{ glow_os }}-{{ glow_arch }}/glow"
+        dest: "{{ glow_bin_path }}/glow"
+        mode: '0755'
+        remote_src: true
+
+    - name: Clean temporary directory
+      ansible.builtin.file:
+        state: absent
+        path: "{{ glow_tmp_directory }}/{{ glow_os }}-{{ glow_arch }}"

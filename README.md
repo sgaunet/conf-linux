@@ -145,6 +145,7 @@ Linux tools :
 * [envtemplate](https://github.com/sgaunet/envtemplate)
 * [calcdate](https://github.com/sgaunet/calcdate)
 * [gocryptfs](https://github.com/rfjakob/gocryptfs)
+* [glow](https://github.com/charmbracelet/glow)
 
 Tests:
 

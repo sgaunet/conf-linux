@@ -1,0 +1,7 @@
+---
+
+glow_version: "1.5.1"
+glow_bin_path: "/usr/local/bin"
+glow_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
+glow_os: "Linux"
+glow_arch: "x86_64"

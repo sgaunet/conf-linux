@@ -214,3 +214,5 @@
       tags: pgweb
     - role: tbls
       tags: tbls
+    - role: glow
+      tags: glow
