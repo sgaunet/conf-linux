@@ -1,7 +1,7 @@
 ---
 
 # "viddy" version to install
-viddy_version: "0.3.7"
+viddy_version: "0.4.0"
 viddy_bin_path: "/usr/local/bin"
 viddy_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 viddy_os: "Linux"
