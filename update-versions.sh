@@ -98,3 +98,4 @@ updateVersionOfGithubProject sosedoff/pgweb src/roles/pgweb/defaults/main.yml pg
 updateVersionOfGithubProject k1LoW/tbls src/roles/tbls/defaults/main.yml tbls_version
 updateVersionOfGithubProject charmbracelet/glow src/roles/glow/defaults/main.yml glow_version
 updateVersionOfGithubProject sgaunet/helmchart-helper src/roles/helmchart_helper/defaults/main.yml helmchart_helper_version
+updateVersionOfGithubProject bvaisvil/zenith src/roles/zenith/defaults/main.yml zenith_version

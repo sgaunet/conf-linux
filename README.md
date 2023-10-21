@@ -147,6 +147,7 @@ Linux tools :
 * [calcdate](https://github.com/sgaunet/calcdate)
 * [gocryptfs](https://github.com/rfjakob/gocryptfs)
 * [glow](https://github.com/charmbracelet/glow)
+* [zenith](https://github.com/bvaisvil/zenith)
 
 Tests:
 

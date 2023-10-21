@@ -218,3 +218,5 @@
       tags: glow
     - role: helmchart_helper
       tags: helmchart_helper
+    - role: zenith
+      tags: zenith

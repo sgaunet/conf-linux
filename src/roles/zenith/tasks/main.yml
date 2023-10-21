@@ -1,0 +1,46 @@
+---
+
+- name: Check zenith version
+  become: false
+  ansible.builtin.shell: "set -o pipefail && zenith -V | awk '{ print $2 }'"
+  args:
+    executable: /bin/bash
+  register: zenith_version_installed
+  changed_when: false
+  failed_when: false
+  check_mode: false
+
+- name: Check zenith version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
+  changed_when: zenith_version_installed.stdout != zenith_version
+  check_mode: false
+
+- name: Install zenith
+  block:
+    - name: Create temporary directory
+      ansible.builtin.file:
+        path: "{{ zenith_tmp_directory }}/{{ zenith_os }}-{{ zenith_arch }}"
+        state: directory
+        mode: "0755"
+        
+    - name: Download and unarchive zenith
+      ansible.builtin.unarchive:
+        src: https://github.com/bvaisvil/zenith/releases/download/{{ zenith_version }}/zenith.{{ zenith_arch }}-{{ zenith_os }}.tgz
+        dest: "{{ zenith_tmp_directory }}/{{ zenith_os }}-{{ zenith_arch }}"
+        remote_src: true
+        mode: "0755"
+
+    - name: Copy file with owner and permissions
+      ansible.builtin.copy:
+        src: "{{ zenith_tmp_directory }}/{{ zenith_os }}-{{ zenith_arch }}/zenith"
+        dest: "{{ zenith_bin_path }}/zenith"
+        mode: '0755'
+        remote_src: true
+
+    - name: Remove temporary files/folders
+      ansible.builtin.file:
+        path: "{{ zenith_tmp_directory }}/{{ zenith_os }}-{{ zenith_arch }}"
+        state: absent
+  when:
+    - not ansible_check_mode
+    - zenith_version_installed.stdout != zenith_version
