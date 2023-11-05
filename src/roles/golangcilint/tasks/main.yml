@@ -2,7 +2,7 @@
 
 - name: Check golangcilint version
   become: false
-  ansible.builtin.shell: "set -o pipefail && golangci-lint version  | cut -d' ' -f4"
+  ansible.builtin.shell: "set -o pipefail && golangci-lint version  | cut -d' ' -f4 | sed 's/v//g'"
   args:
     executable: /bin/bash
   register: golangcilint_version_client_installed
