@@ -1,7 +1,7 @@
 ---
 
 # "ekspodlogs" version to install
-ekspodlogs_version: "0.6.0"
+ekspodlogs_version: "0.7.0"
 ekspodlogs_bin_path: "/usr/local/bin"
 ekspodlogs_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 ekspodlogs_os: "linux"
