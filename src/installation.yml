@@ -220,3 +220,5 @@
       tags: helmchart_helper
     - role: zenith
       tags: zenith
+    - role: delta
+      tags: delta
