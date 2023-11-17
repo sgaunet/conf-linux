@@ -2,7 +2,7 @@
 
 - name: Check helmchart_helper version
   become: false
-  ansible.builtin.shell: 'set -o pipefail && helmchart_helper version'
+  ansible.builtin.shell: 'set -o pipefail && helmchart-helper -version'
   args:
     executable: /bin/bash
   register: helmchart_helper_version_client_installed
