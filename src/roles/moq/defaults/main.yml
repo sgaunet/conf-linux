@@ -1,7 +1,7 @@
 ---
 
 # "moq" version to install
-moq_version: "0.3.2"
+moq_version: "0.3.3"
 moq_bin_path: "/usr/local/bin"
 moq_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 moq_os: "Linux"
