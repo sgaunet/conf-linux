@@ -1,7 +1,7 @@
 ---
 
 # "tbls" version to install
-tbls_version: "1.71.0"
+tbls_version: "1.71.1"
 tbls_bin_path: "/usr/local/bin"
 tbls_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 tbls_os: "linux"
