@@ -1,7 +1,7 @@
 ---
 
 # "buildx" version to install
-buildx_version: "0.11.2"
+buildx_version: "0.12.0"
 buildx_bin_path: "/usr/local/bin"
 buildx_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 buildx_os: "linux"
