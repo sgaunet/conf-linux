@@ -100,3 +100,4 @@ updateVersionOfGithubProject charmbracelet/glow src/roles/glow/defaults/main.yml
 updateVersionOfGithubProject sgaunet/helmchart-helper src/roles/helmchart_helper/defaults/main.yml helmchart_helper_version
 updateVersionOfGithubProject bvaisvil/zenith src/roles/zenith/defaults/main.yml zenith_version
 updateVersionOfGithubProject dandavison/delta src/roles/delta/defaults/main.yml delta_version
+updateVersionOfGithubProject ogham/dog src/roles/dog/defaults/main.yml dog_version

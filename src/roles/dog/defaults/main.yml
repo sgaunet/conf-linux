@@ -1,0 +1,8 @@
+---
+
+# "dog" version to install
+dog_version: "0.1.0"
+dog_bin_path: "/usr/local/bin"
+dog_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
+dog_os: "unknown-linux-gnu"
+dog_arch: "x86_64"
