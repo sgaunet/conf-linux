@@ -1,0 +1,25 @@
+---
+
+- name: Check retry version
+  become: false
+  ansible.builtin.shell: 'retry -version'
+  args:
+    executable: /bin/bash
+  register: retry_version_client_installed
+  changed_when: false
+  failed_when: false
+  check_mode: false
+
+- name: Check retry version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
+  changed_when: retry_version_client_installed.stdout != retry_version
+  check_mode: false
+
+- name: Install retry
+  ansible.builtin.get_url:
+    url: "https://github.com/sgaunet/retry/releases/download/v{{ retry_version }}/retry_{{ retry_version }}_{{ retry_os }}_{{ retry_arch }}"
+    dest: "{{ retry_bin_path }}/retry"
+    mode: "0755"
+  when:
+    - not ansible_check_mode
+    - retry_version != retry_version_client_installed.stdout

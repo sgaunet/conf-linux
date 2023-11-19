@@ -224,3 +224,5 @@
       tags: delta
     - role: dog
       tags: dog
+    - role: retry
+      tags: retry
