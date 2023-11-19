@@ -1,8 +1,8 @@
 ---
 
 # "gitlabissuereport" version to install
-gitlabissuereport_version: "0.1.0-beta1"
+gitlabissuereport_version: "0.1.0"
 gitlabissuereport_bin_path: "/usr/local/bin"
 gitlabissuereport_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
-gitlabissuereport_os: "Linux"
-gitlabissuereport_arch: "x86_64"
+gitlabissuereport_os: "linux"
+gitlabissuereport_arch: "amd64"
