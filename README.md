@@ -151,6 +151,7 @@ Linux tools :
 * [zenith](https://github.com/bvaisvil/zenith)
 * [dog](https://github.com/ogham/dog)
 * [retry](https://github.com/sgaunet/retry)
+* [tspin](https://github.com/bensadeh/tailspin)
 
 Tests:
 

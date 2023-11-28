@@ -226,3 +226,5 @@
       tags: dog
     - role: retry
       tags: retry
+    - role: tspin
+      tags: tspin
