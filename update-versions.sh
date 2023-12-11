@@ -101,3 +101,4 @@ updateVersionOfGithubProject sgaunet/helmchart-helper src/roles/helmchart_helper
 updateVersionOfGithubProject bvaisvil/zenith src/roles/zenith/defaults/main.yml zenith_version
 updateVersionOfGithubProject dandavison/delta src/roles/delta/defaults/main.yml delta_version
 updateVersionOfGithubProject ogham/dog src/roles/dog/defaults/main.yml dog_version
+updateVersionOfGithubProject sgaunet/retry src/roles/retry/defaults/main.yml retry_version
