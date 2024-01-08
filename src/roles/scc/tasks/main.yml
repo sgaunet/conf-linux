@@ -28,7 +28,7 @@
 
     - name: Download and unarchive scc
       ansible.builtin.unarchive:
-        src: "https://github.com/boyter/scc/releases/download/v{{ scc_version }}/scc_{{ scc_version }}_{{ scc_os }}_{{ scc_arch }}.tar.gz"
+        src: "https://github.com/boyter/scc/releases/download/v{{ scc_version }}/scc_{{ scc_os }}_{{ scc_arch }}.tar.gz"
         dest: "{{ scc_tmp_directory }}/{{ scc_os }}-{{ scc_arch }}/"
         remote_src: true
         mode: "0755"

@@ -1,7 +1,7 @@
 ---
 
 # "scc" version to install
-scc_version: "3.1.0"
+scc_version: "3.2.0"
 scc_bin_path: "/usr/local/bin"
 scc_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 scc_os: "Linux"
