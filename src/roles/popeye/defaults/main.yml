@@ -1,7 +1,7 @@
 ---
 
-popeye_version: "0.11.1"
+popeye_version: "0.11.2"
 popeye_bin_path: "/usr/local/bin"
 popeye_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 popeye_os: "Linux"
-popeye_arch: "x86_64"
+popeye_arch: "amd64"
