@@ -2,7 +2,7 @@
 
 - name: Check goreleaser version
   become: false
-  ansible.builtin.shell: 'set -o pipefail && goreleaser -v | grep "goreleaser version" | sed "s#goreleaser version ##g"'
+  ansible.builtin.shell: "set -o pipefail && goreleaser -v | grep GitVersion | awk '{ print $2 }'"
   args:
     executable: /bin/bash
   register: goreleaser_version_client_installed
