@@ -1,7 +1,7 @@
 ---
 
 # "helmfile" version to install
-helmfile_version: "0.159.0"
+helmfile_version: "0.160.0"
 helmfile_bin_path: "/usr/local/bin"
 helmfile_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 helmfile_os: "linux"
