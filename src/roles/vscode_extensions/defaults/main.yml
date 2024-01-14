@@ -4,7 +4,6 @@ vscode_extensions:
   - aaron-bond.better-comments
   - alefragnani.Bookmarks
   - alefragnani.project-manager
-  - eamodio.gitlens
   - exiasr.hadolint
   - Equinusocio.vsc-community-material-theme
   - Equinusocio.vsc-material-theme
@@ -20,6 +19,12 @@ vscode_extensions:
   - yzhang.markdown-all-in-one
   - kruemelkatze.vscode-dashboard
   - task.vscode-task
+  - donjayamanne.githistory
+  - terrastruct.d2
+  - github.copilot
+  - github.copilot-chat
+  - honnamkuan.golang-snippets
+  - griimick.vhs
 
 # alefragnani.project-manager
 # fr-str.vscode-postfix-go-fr
