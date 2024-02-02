@@ -1,5 +1,5 @@
 ---
 
-vagrant_version: "2.3.0"
+vagrant_version: "2.4.1"
 vagrant_arch: "amd64"
 vagrant_bin_path: /usr/local/bin
