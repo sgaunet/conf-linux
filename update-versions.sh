@@ -65,12 +65,12 @@ if [ -z "$GITHUB_TOKEN" ]; then
     exit 1
 fi
 
-seekUpdateAndUpdate imsnif/bandwhich  src/roles/bandwhich  bandwhich_version
-seekUpdateAndUpdate zellij-org/zellij src/roles/zellij     zellij_version
-seekUpdateAndUpdate go-task/task      src/roles/task       task_version
+seekUpdateAndUpdate imsnif/bandwhich     src/roles/bandwhich  bandwhich_version
+seekUpdateAndUpdate sharkdp/bat          src/roles/bat        bat_version
+seekUpdateAndUpdate ClementTsang/bottom  src/roles/bottom     bottom_version
+seekUpdateAndUpdate zellij-org/zellij    src/roles/zellij     zellij_version
+seekUpdateAndUpdate go-task/task         src/roles/task       task_version
 # updateVersionOfGithubProject norwoodj/helm-docs        src/roles/helmdocs/defaults/main.yml       helmdocs_version
-# updateVersionOfGithubProject sharkdp/bat      src/roles/bat/defaults/main.yml       bat_version
-# updateVersionOfGithubProject ClementTsang/bottom src/roles/bottom/defaults/main.yml bottom_version
 # updateVersionOfGithubProject docker/buildx src/roles/buildx/defaults/main.yml buildx_version
 # updateVersionOfGithubProject sgaunet/calcdate src/roles/calcdate/defaults/main.yml calcdate_version
 # updateVersionOfGithubProject goreleaser/chglog src/roles/chglog/defaults/main.yml chglog_version
