@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat bat
+      ansible.builtin.stat:
+        path: /usr/local/bin/bat
+      register: bat_present
+    - name: Check bat is present
+      ansible.builtin.assert:
+        that:
+          - bat_present.stat.exists
+        fail_msg: "bat not setup"
+        success_msg: "bat is setup"
