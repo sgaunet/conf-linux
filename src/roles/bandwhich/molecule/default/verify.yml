@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat bandwhich
+      ansible.builtin.stat:
+        path: /usr/local/bin/bandwhich
+      register: bandwhich_present
+    - name: Check bandwhich is present
+      ansible.builtin.assert:
+        that:
+          - bandwhich_present.stat.exists
+        fail_msg: "bandwhich not setup"
+        success_msg: "bandwhich is setup"

@@ -1,6 +1,9 @@
 ---
 
-- name: Ensure unzip is installed.
-  package:
-    name: unzip
-    state: present
+- name: Import task debian
+  ansible.builtin.import_tasks: debian.yml
+  when: ansible_os_family == 'Debian'
+
+- name: Import task redhat
+  ansible.builtin.import_tasks: redhat.yml
+  when: ansible_os_family == 'RedHat'

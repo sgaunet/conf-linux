@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat zellij
+      ansible.builtin.stat:
+        path: /usr/local/bin/zellij
+      register: zellij_present
+    - name: Check zellij is present
+      ansible.builtin.assert:
+        that:
+          - zellij_present.stat.exists
+        fail_msg: "zellij not setup"
+        success_msg: "zellij is setup"

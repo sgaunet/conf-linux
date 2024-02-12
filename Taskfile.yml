@@ -4,10 +4,17 @@ version: '3'
 #   key: value
 tasks:
   default:
+    desc: "List tasks"
     cmds:
       - task -a
 
   linter:
+    desc: "execute linter"
     cmds:
       # - ansible-lint *.yml --skip-list name[template],meta-no-info,yaml[line-length],package-latest,latest[git]
       - ansible-lint src/installation.yml --skip-list name[template],meta-no-info,yaml[line-length],package-latest,latest[git],experimental
+
+  auto-update:
+    desc: "auto update roles"
+    cmds:
+      - ./update-versions.sh
