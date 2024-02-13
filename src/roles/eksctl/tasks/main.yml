@@ -17,7 +17,7 @@
 
 - name: Download and unarchive eksctl
   ansible.builtin.unarchive:
-    src: "https://github.com/weaveworks/eksctl/releases/download/v{{ eksctl_version }}/eksctl_{{ eksctl_os }}_{{ eksctl_arch }}.tar.gz"
+    src: "https://github.com/eksctl-io/eksctl/releases/download/v{{ eksctl_version }}/eksctl_{{ eksctl_os }}_{{ eksctl_arch }}.tar.gz"
     dest: "{{ eksctl_bin_path }}"
     remote_src: true
     mode: "0755"
