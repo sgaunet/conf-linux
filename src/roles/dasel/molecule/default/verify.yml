@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat dasel
+      ansible.builtin.stat:
+        path: /usr/local/bin/dasel
+      register: dasel_present
+    - name: Check dasel is present
+      ansible.builtin.assert:
+        that:
+          - dasel_present.stat.exists
+        fail_msg: "dasel not setup"
+        success_msg: "dasel is setup"
