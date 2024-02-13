@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat chglog
+      ansible.builtin.stat:
+        path: /usr/local/bin/chglog
+      register: chglog_present
+    - name: Check chglog is present
+      ansible.builtin.assert:
+        that:
+          - chglog_present.stat.exists
+        fail_msg: "chglog not setup"
+        success_msg: "chglog is setup"
