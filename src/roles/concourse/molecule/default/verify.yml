@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat concourse
+      ansible.builtin.stat:
+        path: /usr/local/bin/concourse
+      register: concourse_present
+    - name: Check concourse is present
+      ansible.builtin.assert:
+        that:
+          - concourse_present.stat.exists
+        fail_msg: "concourse not setup"
+        success_msg: "concourse is setup"
