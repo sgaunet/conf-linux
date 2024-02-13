@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat dog
+      ansible.builtin.stat:
+        path: /usr/local/bin/dog
+      register: dog_present
+    - name: Check dog is present
+      ansible.builtin.assert:
+        that:
+          - dog_present.stat.exists
+        fail_msg: "dog not setup"
+        success_msg: "dog is setup"
