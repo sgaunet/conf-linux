@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat exa
+      ansible.builtin.stat:
+        path: /usr/local/bin/exa
+      register: exa_present
+    - name: Check exa is present
+      ansible.builtin.assert:
+        that:
+          - exa_present.stat.exists
+        fail_msg: "exa not setup"
+        success_msg: "exa is setup"

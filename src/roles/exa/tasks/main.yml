@@ -45,9 +45,9 @@
         state: absent
         path: "{{ exa_tmp_directory }}/{{ exa_os }}-{{ exa_arch }}"
 
-- name: Add alias l
-  become: false
-  ansible.builtin.lineinfile:
-    path: "{{ lookup('env', 'HOME') }}/.bashrc"
-    line: 'alias "l=exa --icons --color=always -l"'
-  # when: bash_install
+# - name: Add alias l
+#   become: false
+#   ansible.builtin.lineinfile:
+#     path: "{{ lookup('env', 'HOME') }}/.bashrc"
+#     line: 'alias "l=exa --icons --color=always -l"'
+#   # when: bash_install
