@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat calcdate
+      ansible.builtin.stat:
+        path: /usr/local/bin/calcdate
+      register: calcdate_present
+    - name: Check calcdate is present
+      ansible.builtin.assert:
+        that:
+          - calcdate_present.stat.exists
+        fail_msg: "calcdate not setup"
+        success_msg: "calcdate is setup"
