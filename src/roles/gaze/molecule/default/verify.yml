@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat gaze
+      ansible.builtin.stat:
+        path: /usr/local/bin/gaze
+      register: gaze_present
+    - name: Check gaze is present
+      ansible.builtin.assert:
+        that:
+          - gaze_present.stat.exists
+        fail_msg: "gaze not setup"
+        success_msg: "gaze is setup"
