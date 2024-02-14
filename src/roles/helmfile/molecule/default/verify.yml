@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat helmfile
+      ansible.builtin.stat:
+        path: /usr/local/bin/helmfile
+      register: helmfile_present
+    - name: Check helmfile is present
+      ansible.builtin.assert:
+        that:
+          - helmfile_present.stat.exists
+        fail_msg: "helmfile not setup"
+        success_msg: "helmfile is setup"
