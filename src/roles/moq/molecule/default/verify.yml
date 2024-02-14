@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat moq
+      ansible.builtin.stat:
+        path: /usr/local/bin/moq
+      register: moq_present
+    - name: Check moq is present
+      ansible.builtin.assert:
+        that:
+          - moq_present.stat.exists
+        fail_msg: "moq not setup"
+        success_msg: "moq is setup"
