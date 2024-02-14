@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat tspin
+      ansible.builtin.stat:
+        path: /usr/local/bin/tspin
+      register: tspin_present
+    - name: Check tspin is present
+      ansible.builtin.assert:
+        that:
+          - tspin_present.stat.exists
+        fail_msg: "tspin not setup"
+        success_msg: "tspin is setup"

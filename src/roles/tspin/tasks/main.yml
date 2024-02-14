@@ -28,7 +28,7 @@
 
     - name: Download and unarchive tspin
       ansible.builtin.unarchive:
-        src: "https://github.com/bensadeh/tailspin/releases/download/{{ tspin_version }}/tspin-{{ tspin_arch }}-{{ tspin_os }}.tar.gz"
+        src: "https://github.com/bensadeh/tailspin/releases/download/{{ tspin_version }}/tailspin-{{ tspin_arch }}-{{ tspin_os }}.tar.gz"
         dest: "{{ tspin_tmp_directory }}/{{ tspin_os }}-{{ tspin_arch }}/"
         remote_src: true
         mode: "0755"
