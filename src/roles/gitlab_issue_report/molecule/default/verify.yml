@@ -5,13 +5,13 @@
   hosts: all
   gather_facts: false
   tasks:
-    - name: Stat gitlab_issue_report
+    - name: Stat gitlab-issue-report
       ansible.builtin.stat:
-        path: /usr/local/bin/gitlab_issue_report
+        path: /usr/local/bin/gitlab-issue-report
       register: gitlab_issue_report_present
-    - name: Check gitlab_issue_report is present
+    - name: Check gitlab-issue-report is present
       ansible.builtin.assert:
         that:
           - gitlab_issue_report_present.stat.exists
-        fail_msg: "gitlab_issue_report not setup"
-        success_msg: "gitlab_issue_report is setup"
+        fail_msg: "gitlab-issue-report not setup"
+        success_msg: "gitlab-issue-report is setup"
