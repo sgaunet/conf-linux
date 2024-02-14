@@ -1,7 +1,7 @@
 ---
 
 # "gitleaks" version to install
-gitleaks_version: "8.16.3"
+gitleaks_version: "8.18.2"
 gitleaks_bin_path: "/usr/local/bin"
 gitleaks_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 gitleaks_os: "linux"

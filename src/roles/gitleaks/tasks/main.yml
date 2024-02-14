@@ -31,7 +31,7 @@
 
     - name: Download and unarchive gitleaks
       ansible.builtin.unarchive:
-        src: "https://github.com/zricethezav/gitleaks/releases/download/v{{ gitleaks_version }}/gitleaks_{{ gitleaks_version }}_{{ gitleaks_os }}_{{ gitleaks_arch }}.tar.gz"
+        src: "https://github.com/gitleaks/gitleaks/releases/download/v{{ gitleaks_version }}/gitleaks_{{ gitleaks_version }}_{{ gitleaks_os }}_{{ gitleaks_arch }}.tar.gz"
         dest: "{{ gitleaks_tmp_directory }}/{{ gitleaks_os }}-{{ gitleaks_arch }}/"
         remote_src: true
         mode: "0755"
