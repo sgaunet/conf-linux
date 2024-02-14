@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat venom
+      ansible.builtin.stat:
+        path: /usr/local/bin/venom
+      register: venom_present
+    - name: Check venom is present
+      ansible.builtin.assert:
+        that:
+          - venom_present.stat.exists
+        fail_msg: "venom not setup"
+        success_msg: "venom is setup"
