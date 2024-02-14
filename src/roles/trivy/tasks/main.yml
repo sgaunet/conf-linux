@@ -9,4 +9,5 @@
   ansible.builtin.dnf:
     name: https://github.com/aquasecurity/trivy/releases/download/v{{ trivy_version }}/trivy_{{ trivy_version }}_{{ trivy_os }}-{{ trivy_arch }}.rpm
     state: present
+    disable_gpg_check: true
   when: ansible_os_family == "RedHat"
