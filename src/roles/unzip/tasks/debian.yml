@@ -1,7 +1,12 @@
 ---
 
-- name: Update apt cache
+- name: Install unzip
   ansible.builtin.apt:
     update_cache: yes
     name: unzip
+    state: present
+
+- name: Install bzip2
+  ansible.builtin.apt:
+    name: bzip2
     state: present

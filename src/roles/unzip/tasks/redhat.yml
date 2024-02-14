@@ -4,3 +4,8 @@
   ansible.builtin.dnf:
     name: unzip
     state: present
+
+- name: Ensure bzip2 is installed.
+  ansible.builtin.dnf:
+    name: bzip2
+    state: present
