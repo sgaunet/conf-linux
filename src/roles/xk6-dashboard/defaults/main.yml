@@ -1,7 +1,7 @@
 ---
 
-xk6_version: "0.4.3"
-xk6_version_in_cli: "0.44.1"
+xk6_version: "0.7.2"
+xk6_version_in_cli: "0.48.0"
 xk6_bin_path: "/usr/local/bin"
 xk6_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 xk6_os: "linux"
