@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat ttyd
+      ansible.builtin.stat:
+        path: /usr/local/bin/ttyd
+      register: ttyd_present
+    - name: Check ttyd is present
+      ansible.builtin.assert:
+        that:
+          - ttyd_present.stat.exists
+        fail_msg: "ttyd not setup"
+        success_msg: "ttyd is setup"
