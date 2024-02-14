@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat kubent
+      ansible.builtin.stat:
+        path: /usr/local/bin/kubent
+      register: kubent_present
+    - name: Check kubent is present
+      ansible.builtin.assert:
+        that:
+          - kubent_present.stat.exists
+        fail_msg: "kubent not setup"
+        success_msg: "kubent is setup"
