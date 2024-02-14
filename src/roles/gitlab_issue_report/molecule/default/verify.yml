@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat gitlab_issue_report
+      ansible.builtin.stat:
+        path: /usr/local/bin/gitlab_issue_report
+      register: gitlab_issue_report_present
+    - name: Check gitlab_issue_report is present
+      ansible.builtin.assert:
+        that:
+          - gitlab_issue_report_present.stat.exists
+        fail_msg: "gitlab_issue_report not setup"
+        success_msg: "gitlab_issue_report is setup"
