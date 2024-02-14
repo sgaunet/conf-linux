@@ -38,8 +38,9 @@ function seekUpdateAndUpdate
     #     return $rc
     # fi
 
+    git add "$roleFolder"
     # check if there is a modification in folder $githubRepo with git
-    if git diff --quiet --exit-code "$roleFolder"; then
+    if git diff --cached --quiet --exit-code "$roleFolder"; then
         echo "No modifications in $roleFolder folder"
         return 1
     fi
@@ -65,80 +66,86 @@ if [ -z "$GITHUB_TOKEN" ]; then
     exit 1
 fi
 
-seekUpdateAndUpdate imsnif/bandwhich     src/roles/bandwhich  bandwhich_version
-seekUpdateAndUpdate sharkdp/bat          src/roles/bat        bat_version
-seekUpdateAndUpdate ClementTsang/bottom  src/roles/bottom     bottom_version
-seekUpdateAndUpdate zellij-org/zellij    src/roles/zellij     zellij_version
-seekUpdateAndUpdate go-task/task         src/roles/task       task_version
-# updateVersionOfGithubProject norwoodj/helm-docs        src/roles/helmdocs/defaults/main.yml       helmdocs_version
-# updateVersionOfGithubProject docker/buildx src/roles/buildx/defaults/main.yml buildx_version
-# updateVersionOfGithubProject sgaunet/calcdate src/roles/calcdate/defaults/main.yml calcdate_version
-# updateVersionOfGithubProject goreleaser/chglog src/roles/chglog/defaults/main.yml chglog_version
-# updateVersionOfGithubProject concourse/concourse src/roles/concourse/defaults/main.yml concourse_version
-# updateVersionOfGithubProject bcicen/ctop src/roles/ctop/defaults/main.yml ctop_version
-# updateVersionOfGithubProject terrastruct/d2 src/roles/d2/defaults/main.yml d2_version
-# updateVersionOfGithubProject particledecay/kconf src/roles/kconf/defaults/main.yml kconf_version
-# updateVersionOfGithubProject peak/s5cmd src/roles/s5cmd/defaults/main.yml s5cmd_version
+# seekUpdateAndUpdate imsnif/bandwhich     src/roles/bandwhich  bandwhich_version
+# seekUpdateAndUpdate sharkdp/bat          src/roles/bat        bat_version
+# seekUpdateAndUpdate ClementTsang/bottom  src/roles/bottom     bottom_version
+# # seekUpdateAndUpdate docker/buildx        src/roles/buildx     buildx_version  # No way
+# seekUpdateAndUpdate sgaunet/calcdate     src/roles/calcdate   calcdate_version
+# seekUpdateAndUpdate goreleaser/chglog    src/roles/chglog     chglog_version
+# seekUpdateAndUpdate concourse/concourse  src/roles/concourse  concourse_version
+# seekUpdateAndUpdate bcicen/ctop          src/roles/ctop       ctop_version
+# seekUpdateAndUpdate terrastruct/d2       src/roles/d2         d2_version
+# seekUpdateAndUpdate TomWright/dasel      src/roles/dasel      dasel_version
+# seekUpdateAndUpdate wagoodman/dive src/roles/dive dive_version
+# seekUpdateAndUpdate derailed/delta       src/roles/delta      delta_version
+# REMOVE dog
+# seekUpdateAndUpdate bootandy/dust src/roles/dust  dust_version
+# seekUpdateAndUpdate eksctl-io/eksctl src/roles/eksctl  eksctl_version
+# seekUpdateAndUpdate sgaunet/ekspodlogs src/roles/ekspodlogs  ekspodlogs_version
+# REMOVE envtemplate
+# seekUpdateAndUpdate ogham/exa src/roles/exa  exa_version
+# seekUpdateAndUpdate sharkdp/fd src/roles/fd  fd_version
+# seekUpdateAndUpdate antonmedv/fx src/roles/fx  fx_version
+# seekUpdateAndUpdate wtetsu/gaze src/roles/gaze  gaze_version
+# seekUpdateAndUpdate dundee/gdu src/roles/gdu gdu_version
+# seekUpdateAndUpdate sgaunet/gini src/roles/gini gini_version
+# seekUpdateAndUpdate sgaunet/gitlab-issue-report src/roles/gitlab_issue_report/ gitlabissuereport_version
+# seekUpdateAndUpdate sgaunet/gitlab-stats src/roles/gitlab_stats/ gitlabstats_version
+# seekUpdateAndUpdate gitleaks/gitleaks src/roles/gitleaks gitleaks_version
+# seekUpdateAndUpdate charmbracelet/glow src/roles/glow glow_version
+# seekUpdateAndUpdate sgaunet/gocrypt src/roles/gocrypt gocrypt_version
+# seekUpdateAndUpdate rfjakob/gocryptfs src/roles/gocryptfs gocryptfs_version
+# seekUpdateAndUpdate golangci/golangci-lint src/roles/golangcilint golangcilint_version
+# seekUpdateAndUpdate goreleaser/goreleaser src/roles/goreleaser goreleaser_version
+# seekUpdateAndUpdate charmbracelet/gum src/roles/gum gum_version
+# seekUpdateAndUpdate sgaunet/helmchart-helper src/roles/helmchart_helper helmchart_helper_version
 
-# delta
-# seekUpdateAndUpdate derailed/delta    src/roles/delta   delta_version
+# seekUpdateAndUpdate norwoodj/helm-docs        src/roles/helmdocs       helmdocs_version
+# seekUpdateAndUpdate helmfile/helmfile src/roles/helmfile helmfile_version
+# seekUpdateAndUpdate sgaunet/httping-go src/roles/httping httping_version
+# seekUpdateAndUpdate sharkdp/hyperfine src/roles/hyperfine hyperfine_version
+# # seekUpdateAndUpdate grafana/k6 src/roles/k6 k6_version
+# # seekUpdateAndUpdate szkiba/xk6-dashboard src/roles/xk6-dashboard xk6-dashboard_version
+# seekUpdateAndUpdate particledecay/kconf src/roles/kconf kconf_version
+# seekUpdateAndUpdate kluctl/kluctl src/roles/kluctl kluctl_version
+# seekUpdateAndUpdate yonahd/kor src/roles/kor kor_version
+# seekUpdateAndUpdate robscott/kube-capacity src/roles/kubecapacity kubecapacity_version
+# seekUpdateAndUpdate NimbleArchitect/kubectl-ice src/roles/kubectl_ice kubectlice_version
+# seekUpdateAndUpdate ahmetb/kubectx src/roles/kubectx kubectx_version
+# seekUpdateAndUpdate ahmetb/kubectx src/roles/kubectx kubens_version
+# seekUpdateAndUpdate txn2/kubefwd src/roles/kubefwd kubefwd_version
+# seekUpdateAndUpdate doitintl/kube-no-trouble src/roles/kubent kubent_version
+# seekUpdateAndUpdate sgaunet/mdtohtml src/roles/mdtohtml mdtohtml_version
+# seekUpdateAndUpdate matryer/moq src/roles/moq moq_version
+# seekUpdateAndUpdate raviqqe/muffet src/roles/muffet muffet_version
+# seekUpdateAndUpdate goreleaser/nfpm src/roles/nfpm nfpm_version
+# seekUpdateAndUpdate sharkdp/pastel src/roles/pastel pastel_version
+# seekUpdateAndUpdate knqyf263/pet src/roles/pet pet_version
+# seekUpdateAndUpdate sosedoff/pgweb src/roles/pgweb pgweb_version
+# seekUpdateAndUpdate derailed/popeye src/roles/popeye popeye_version
+# seekUpdateAndUpdate sgaunet/retry src/roles/retry retry_version
+# seekUpdateAndUpdate peak/s5cmd src/roles/s5cmd s5cmd_version
+# seekUpdateAndUpdate boyter/scc src/roles/scc scc_version
+# seekUpdateAndUpdate sqlc-dev/sqlc src/roles/sqlc sqlc_version
+# seekUpdateAndUpdate starship/starship src/roles/starship starship_version
+# seekUpdateAndUpdate stern/stern src/roles/stern stern_version
+# seekUpdateAndUpdate go-task/task         src/roles/task       task_version
+# seekUpdateAndUpdate k1LoW/tbls src/roles/tbls tbls_version
+seekUpdateAndUpdate aquasecurity/trivy src/roles/trivy trivy_version
+# seekUpdateAndUpdate trufflesecurity/trufflehog src/roles/trufflehog trufflehog_version
+seekUpdateAndUpdate bensadeh/tailspin src/roles/tspin tspin_version
+seekUpdateAndUpdate tsl0922/ttyd src/roles/ttyd ttyd_version
+# seekUpdateAndUpdate xo/usql src/roles/usql usql_version
+# seekUpdateAndUpdate charmbracelet/vhs src/roles/vhs vhs_version
+# seekUpdateAndUpdate ovh/venom src/roles/venom venom_version
+# seekUpdateAndUpdate sachaos/viddy src/roles/viddy viddy_version
+# seekUpdateAndUpdate grafana/xk6-dashboard src/roles/xk6-dashboard xk6_version
+# seekUpdateAndUpdate mikefarah/yq src/roles/yq yq_version
+# seekUpdateAndUpdate zellij-org/zellij    src/roles/zellij     zellij_version
+# seekUpdateAndUpdate bvaisvil/zenith src/roles/zenith zenith_version
 
-# updateVersionOfGithubProject trufflesecurity/trufflehog src/roles/trufflehog/defaults/main.yml trufflehog_version
-# updateVersionOfGithubProject dundee/gdu src/roles/gdu/defaults/main.yml gdu_version
-# updateVersionOfGithubProject NimbleArchitect/kubectl-ice src/roles/kubectl_ice/defaults/main.yml kubectlice_version
-# updateVersionOfGithubProject knqyf263/pet src/roles/pet/defaults/main.yml pet_version
-# updateVersionOfGithubProject txn2/kubefwd src/roles/kubefwd/defaults/main.yml kubefwd_version
-# updateVersionOfGithubProject sharkdp/bat src/roles/bat/defaults/main.yml bat_version
-# updateVersionOfGithubProject robscott/kube-capacity src/roles/kubecapacity/defaults/main.yml kubecapacity_version
-# updateVersionOfGithubProject wagoodman/dive src/roles/dive/defaults/main.yml dive_version
-# updateVersionOfGithubProject raviqqe/muffet src/roles/muffet/defaults/main.yml muffet_version
-# updateVersionOfGithubProject doitintl/kube-no-trouble src/roles/kubent/defaults/main.yml kubent_version
-# updateVersionOfGithubProject terrastruct/d2 src/roles/d2/defaults/main.yml d2_version
-# updateVersionOfGithubProject ogham/exa src/roles/exa/defaults/main.yml exa_version
-# # updateVersionOfGithubProject szkiba/xk6-dashboard src/roles/xk6-dashboard/defaults/main.yml xk6-dashboard_version
-# updateVersionOfGithubProject sgaunet/gitlab-issue-report src/roles/gitlab_issue_report/defaults/main.yml gitlabissuereport_version
-# updateVersionOfGithubProject sharkdp/pastel src/roles/pastel/defaults/main.yml pastel_version
-# updateVersionOfGithubProject charmbracelet/vhs src/roles/vhs/defaults/main.yml vhs_version
-# updateVersionOfGithubProject wtetsu/gaze src/roles/gaze/defaults/main.yml gaze_version
-# updateVersionOfGithubProject starship/starship src/roles/starship/defaults/main.yml starship_version
-# updateVersionOfGithubProject goreleaser/goreleaser src/roles/goreleaser/defaults/main.yml goreleaser_version
-# updateVersionOfGithubProject imsnif/bandwhich src/roles/bandwhich/defaults/main.yml bandwhich_version
-# updateVersionOfGithubProject sachaos/viddy src/roles/viddy/defaults/main.yml viddy_version
-# updateVersionOfGithubProject sgaunet/httping-go src/roles/httping/defaults/main.yml httping_version
-# updateVersionOfGithubProject derailed/popeye src/roles/popeye/defaults/main.yml popeye_version
-# updateVersionOfGithubProject golangci/golangci-lint src/roles/golangcilint/defaults/main.yml golangcilint_version
-# updateVersionOfGithubProject matryer/moq src/roles/moq/defaults/main.yml moq_version
-# updateVersionOfGithubProject concourse/concourse src/roles/concourse/defaults/main.yml concourse_version
-# updateVersionOfGithubProject bootandy/dust src/roles/dust/defaults/main.yml dust_version
-# # updateVersionOfGithubProject weaveworks/eksctl src/roles/eksctl/defaults/main.yml eksctl_version
-# updateVersionOfGithubProject goreleaser/nfpm src/roles/nfpm/defaults/main.yml nfpm_version
-# updateVersionOfGithubProject grafana/k6 src/roles/k6/defaults/main.yml k6_version
-# updateVersionOfGithubProject ClementTsang/bottom src/roles/bottom/defaults/main.yml bottom_version
-# updateVersionOfGithubProject sgaunet/mdtohtml src/roles/mdtohtml/defaults/main.yml mdtohtml_version
-# updateVersionOfGithubProject sgaunet/gocrypt src/roles/gocrypt/defaults/main.yml gocrypt_version
-# updateVersionOfGithubProject charmbracelet/gum src/roles/gum/defaults/main.yml gum_version
-# updateVersionOfGithubProject sqlc-dev/sqlc src/roles/sqlc/defaults/main.yml sqlc_version
-# updateVersionOfGithubProject boyter/scc src/roles/scc/defaults/main.yml scc_version
-# updateVersionOfGithubProject go-task/task src/roles/task/defaults/main.yml task_version
-# updateVersionOfGithubProject stern/stern src/roles/stern/defaults/main.yml stern_version
-# updateVersionOfGithubProject sharkdp/hyperfine src/roles/hyperfine/defaults/main.yml hyperfine_version
-# updateVersionOfGithubProject kluctl/kluctl src/roles/kluctl/defaults/main.yml kluctl_version
-# updateVersionOfGithubProject rfjakob/gocryptfs src/roles/gocryptfs/defaults/main.yml gocryptfs_version
-# updateVersionOfGithubProject sharkdp/fd src/roles/fd/defaults/main.yml fd_version
-# updateVersionOfGithubProject goreleaser/chglog src/roles/chglog/defaults/main.yml chglog_version
-# # updateVersionOfGithubProject anchore/grype src/roles/grype/defaults/main.yml grype_version   always latest
-# # updateVersionOfGithubProject zricethezav/gitleaks src/roles/gitleaks/defaults/main.yml gitleaks_version
-# updateVersionOfGithubProject xo/usql src/roles/usql/defaults/main.yml usql_version
-# updateVersionOfGithubProject google/go-containerregistry src/roles/gocontainerregistry/defaults/main.yml gocontainerregistry_version
-# updateVersionOfGithubProject ahmetb/kubectx src/roles/kubectx/defaults/main.yml kubectx_version
-# updateVersionOfGithubProject ahmetb/kubectx src/roles/kubectx/defaults/main.yml kubens_version
-# updateVersionOfGithubProject helmfile/helmfile src/roles/helmfile/defaults/main.yml helmfile_version
-# updateVersionOfGithubProject yonahd/kor src/roles/kor/defaults/main.yml kor_version
-# updateVersionOfGithubProject sosedoff/pgweb src/roles/pgweb/defaults/main.yml pgweb_version
-# updateVersionOfGithubProject k1LoW/tbls src/roles/tbls/defaults/main.yml tbls_version
-# updateVersionOfGithubProject charmbracelet/glow src/roles/glow/defaults/main.yml glow_version
-# updateVersionOfGithubProject sgaunet/helmchart-helper src/roles/helmchart_helper/defaults/main.yml helmchart_helper_version
-# updateVersionOfGithubProject bvaisvil/zenith src/roles/zenith/defaults/main.yml zenith_version
-# updateVersionOfGithubProject dandavison/delta src/roles/delta/defaults/main.yml delta_version
-# updateVersionOfGithubProject ogham/dog src/roles/dog/defaults/main.yml dog_version
-# updateVersionOfGithubProject sgaunet/retry src/roles/retry/defaults/main.yml retry_version
+
+
+# TODO
+# # seekUpdateAndUpdate anchore/grype src/roles/grype grype_version   always latest
+# seekUpdateAndUpdate google/go-containerregistry src/roles/gocontainerregistry gocontainerregistry_version
