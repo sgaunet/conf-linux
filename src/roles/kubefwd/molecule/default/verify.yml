@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat kubefwd
+      ansible.builtin.stat:
+        path: /usr/local/bin/kubefwd
+      register: kubefwd_present
+    - name: Check kubefwd is present
+      ansible.builtin.assert:
+        that:
+          - kubefwd_present.stat.exists
+        fail_msg: "kubefwd not setup"
+        success_msg: "kubefwd is setup"
