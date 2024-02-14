@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat usql
+      ansible.builtin.stat:
+        path: /usr/local/bin/usql
+      register: usql_present
+    - name: Check usql is present
+      ansible.builtin.assert:
+        that:
+          - usql_present.stat.exists
+        fail_msg: "usql not setup"
+        success_msg: "usql is setup"
