@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
 
 folder="$1"
-
+exprBeginDate="$2"
+exprEndDate="$3"
 
 if [ -z "$folder" ]
 then
-	echo "Usage: $0 <folder>"
+	echo "Usage: $0 <folder> [begin date] [end date]"
+	echo "  folder: the folder of a git repository"
+	echo "  begin date: the begin date of the range. Default: /-1 ::   meaning start of the last month. See calcdate for more information"
+	echo "  end date: the end date of the range. Default: /-1 ::   meaning end of the last month. See calcdate for more information"
 	exit 1
 fi
 
@@ -22,8 +26,17 @@ then
 	exit 1
 fi
 
+if [ -z "$exprBeginDate" ]
+then
+	exprBeginDate="/-1/ ::"
+fi
 
-rangedate=$(calcdate -b "/-1/ ::" -ofmt "%YYYY-%MM-%DD" -e "/-1/ ::")
+if [ -z "$exprEndDate" ]
+then
+	exprEndDate="/-1/ ::"
+fi
+
+rangedate=$(calcdate -b "$exprBeginDate" -ofmt "%YYYY-%MM-%DD" -e "$exprEndDate")
 begindate=$(echo "$rangedate" | awk '{ print $1 }')
 enddate=$(echo "$rangedate" | awk '{ print $2 }')
 
