@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat s5cmd
+      ansible.builtin.stat:
+        path: /usr/local/bin/s5cmd
+      register: s5cmd_present
+    - name: Check s5cmd is present
+      ansible.builtin.assert:
+        that:
+          - s5cmd_present.stat.exists
+        fail_msg: "s5cmd not setup"
+        success_msg: "s5cmd is setup"
