@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat glow
+      ansible.builtin.stat:
+        path: /usr/local/bin/glow
+      register: glow_present
+    - name: Check glow is present
+      ansible.builtin.assert:
+        that:
+          - glow_present.stat.exists
+        fail_msg: "glow not setup"
+        success_msg: "glow is setup"
