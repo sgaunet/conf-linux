@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat pastel
+      ansible.builtin.stat:
+        path: /usr/local/bin/pastel
+      register: pastel_present
+    - name: Check pastel is present
+      ansible.builtin.assert:
+        that:
+          - pastel_present.stat.exists
+        fail_msg: "pastel not setup"
+        success_msg: "pastel is setup"
