@@ -1,7 +1,7 @@
 ---
 
 # "kor" version to install
-kor_version: "0.3.2"
+kor_version: "0.3.4"
 kor_bin_path: "/usr/local/bin"
 kor_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 kor_os: "Linux"
