@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat gum
+      ansible.builtin.stat:
+        path: /usr/local/bin/gum
+      register: gum_present
+    - name: Check gum is present
+      ansible.builtin.assert:
+        that:
+          - gum_present.stat.exists
+        fail_msg: "gum not setup"
+        success_msg: "gum is setup"
