@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat sqlc
+      ansible.builtin.stat:
+        path: /usr/local/bin/sqlc
+      register: sqlc_present
+    - name: Check sqlc is present
+      ansible.builtin.assert:
+        that:
+          - sqlc_present.stat.exists
+        fail_msg: "sqlc not setup"
+        success_msg: "sqlc is setup"
