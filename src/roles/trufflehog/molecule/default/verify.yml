@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat trufflehog
+      ansible.builtin.stat:
+        path: /usr/local/bin/trufflehog
+      register: trufflehog_present
+    - name: Check trufflehog is present
+      ansible.builtin.assert:
+        that:
+          - trufflehog_present.stat.exists
+        fail_msg: "trufflehog not setup"
+        success_msg: "trufflehog is setup"
