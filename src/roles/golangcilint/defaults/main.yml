@@ -1,6 +1,6 @@
 ---
 
-golangcilint_version: "1.55.2"
+golangcilint_version: "1.56.1"
 golangcilint_bin_path: "/usr/local/bin"
 golangcilint_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 golangcilint_os: "linux"
