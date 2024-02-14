@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat helmchart_helper
+      ansible.builtin.stat:
+        path: /usr/local/bin/helmchart_helper
+      register: helmchart_helper_present
+    - name: Check helmchart_helper is present
+      ansible.builtin.assert:
+        that:
+          - helmchart_helper_present.stat.exists
+        fail_msg: "helmchart_helper not setup"
+        success_msg: "helmchart_helper is setup"

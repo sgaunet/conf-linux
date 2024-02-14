@@ -1,0 +1,8 @@
+---
+- name: Converge
+  hosts: all
+  become: true
+  tasks:
+    - name: "Include apps.helmchart_helper"
+      ansible.builtin.include_role:
+        name: "apps.helmchart_helper"
