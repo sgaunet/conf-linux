@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat stern
+      ansible.builtin.stat:
+        path: /usr/local/bin/stern
+      register: stern_present
+    - name: Check stern is present
+      ansible.builtin.assert:
+        that:
+          - stern_present.stat.exists
+        fail_msg: "stern not setup"
+        success_msg: "stern is setup"
