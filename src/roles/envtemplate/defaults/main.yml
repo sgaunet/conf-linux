@@ -1,7 +1,7 @@
 ---
 
 # "envtemplate" version to install
-envtemplate_version: "0.2.0"
+envtemplate_version: "0.2.1"
 envtemplate_bin_path: "/usr/local/bin"
 envtemplate_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 envtemplate_os: "linux"
