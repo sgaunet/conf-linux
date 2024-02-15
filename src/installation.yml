@@ -220,8 +220,6 @@
       tags: zenith
     - role: delta
       tags: delta
-    - role: dog
-      tags: dog
     - role: retry
       tags: retry
     - role: tspin
