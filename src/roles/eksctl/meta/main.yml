@@ -1,8 +1,8 @@
 ---
 galaxy_info:
-  author: delta
+  author: eksctl
   namespace: apps
-  description: Install delta
+  description: Install eksctl
   # company: 
 
   # If the issue tracker for your role is not on github, uncomment the
