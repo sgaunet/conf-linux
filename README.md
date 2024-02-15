@@ -78,7 +78,6 @@ For Docker :
 
 For GOLANG :
 
-* [gvm](https://github.com/moovweb/gvm)
 * [goreleaser](https://github.com/goreleaser/goreleaser/)
 * [task](https://taskfile.dev/)
 * [sqlc](https://sqlc.dev/)
@@ -94,8 +93,6 @@ VM :
 
 Load tests :
 
-* [plow](https://github.com/six-ddc/plow)
-* [vegeta](https://github.com/tsenart/vegeta)
 * [k6](https://k6.io/)
 
 Development:
