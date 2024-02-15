@@ -1,6 +1,6 @@
 ---
 
-dive_version: "0.11.0"
+dive_version: "0.12.0"
 dive_bin_path: "/usr/local/bin"
 dive_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 dive_os: "linux"
