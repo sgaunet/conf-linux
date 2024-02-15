@@ -28,7 +28,7 @@
 
     - name: Download and unarchive moq
       ansible.builtin.unarchive:
-        src: "https://github.com/matryer/moq/releases/download/v{{ moq_version }}/moq_{{ moq_version }}_{{ moq_os }}_{{ moq_arch }}.tar.gz"
+        src: "https://github.com/matryer/moq/releases/download/v{{ moq_version }}/moq_{{ moq_os }}_{{ moq_arch }}.tar.gz"
         dest: "{{ moq_tmp_directory }}/{{ moq_os }}-{{ moq_arch }}/"
         remote_src: true
         mode: "0755"
