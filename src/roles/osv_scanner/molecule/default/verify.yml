@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat osv_scanner
+      ansible.builtin.stat:
+        path: /usr/local/bin/osv-scanner
+      register: osv_scanner_present
+    - name: Check osv-scanner is present
+      ansible.builtin.assert:
+        that:
+          - osv_scanner_present.stat.exists
+        fail_msg: "osv-scanner not setup"
+        success_msg: "osv-scanner is setup"
