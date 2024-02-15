@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat kfilt
+      ansible.builtin.stat:
+        path: /usr/local/bin/kfilt
+      register: kfilt_present
+    - name: Check kfilt is present
+      ansible.builtin.assert:
+        that:
+          - kfilt_present.stat.exists
+        fail_msg: "kfilt not setup"
+        success_msg: "kfilt is setup"
