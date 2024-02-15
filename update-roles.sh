@@ -16,7 +16,7 @@ for role in $(ls "${REFDIRROLE}" | sed "s#common##g" ); do
         if [ "$rc" != "0" ]; then
             # Update
             echo "Update $dir/$r"
-            rm -rf "$dir/$r"
+            rm -rf "${dir:?}/${r:?}"
             cp -rfp "${REFDIRROLE}/$role" "$dir"
         fi
     fi
