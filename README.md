@@ -2,7 +2,7 @@
 
 That's a collection of ansible role to configure my Linux account for a new PC (debian based). That's far away from perfection but that's a start.
 
-# Execution
+## Execution
 
 ```
 git clone git@github.com:sgaunet/conf-linux.git
@@ -18,15 +18,15 @@ cd conf-linux/src
 ./go.sh
 ```
 
-# Roles
+## Roles
 
-## kube-ps1
+### kube-ps1
 
 To get a beautiful prompt (for bash or zsh)
 
 ![prompt](img/prompt.png)
 
-## And
+### And
 
 * common
     * Install common softwares cifs-utils tmux git git-crypt gpg docker jq unzip
@@ -172,3 +172,15 @@ Bash formatter:
 IAC:
 
 * [terraform](https://developer.hashicorp.com/terraform)
+
+## Auto update roles
+
+```bash
+./update-versions.sh
+```
+
+But not all roles can be updated with this script. List of roles to update manually:
+
+```bash
+./list-no-auto.sh
+```
