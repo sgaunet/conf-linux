@@ -48,7 +48,7 @@ function testWithMolecule
 }
 
 export ANSIBLE_CALLBACKS_ENABLED=json
-export ANSIBLE_STDOUT_CALLBACK=json 
+export ANSIBLE_STDOUT_CALLBACK=json
 
 # !TODO: check repository is up to date
 # !TODO: check that main branch is active

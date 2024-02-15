@@ -1,4 +1,3 @@
 
 [portable]
 ubuntu ansible_connection=local become_user=root
-

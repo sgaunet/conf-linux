@@ -23,4 +23,3 @@
   when:
     - not ansible_check_mode
     - gocrypt_version != gocrypt_version_client_installed.stdout
-

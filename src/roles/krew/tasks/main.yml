@@ -59,7 +59,7 @@
 
     - name: Install krew
       become: false
-      ansible.builtin.copy: 
+      ansible.builtin.copy:
         src: /tmp/krew/krew-{{ krew_os }}_{{ krew_arch }}
         dest: "/usr/local/bin/kubectl-krew"
         mode: "0755"

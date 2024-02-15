@@ -22,7 +22,7 @@
         path: "{{ kor_tmp_directory }}/{{ kor_os }}-{{ kor_arch }}"
         state: directory
         mode: "0755"
-        
+
     - name: Download and unarchive kor
       ansible.builtin.unarchive:
         src: https://github.com/yonahd/kor/releases/download/v{{ kor_version }}/kor_{{ kor_os }}_{{ kor_arch }}.tar.gz

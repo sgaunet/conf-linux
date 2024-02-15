@@ -23,4 +23,3 @@
   when:
     - not ansible_check_mode
     - helmchart_helper_version != helmchart_helper_version_client_installed.stdout
-

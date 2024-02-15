@@ -22,7 +22,7 @@
         path: "{{ tbls_tmp_directory }}/{{ tbls_os }}-{{ tbls_arch }}"
         state: directory
         mode: "0755"
-        
+
     - name: Download and unarchive tbls
       ansible.builtin.unarchive:
         src: "https://github.com/k1LoW/tbls/releases/download/v{{ tbls_version }}/tbls_v{{ tbls_version }}_{{ tbls_os }}_{{ tbls_arch }}.tar.gz"

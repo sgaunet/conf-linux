@@ -18,4 +18,3 @@
     dest: /usr/local/bin/ttyd
     mode: '0755'
   when: ttyd_version_client_installed.stdout != ttyd_version
-

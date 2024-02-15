@@ -22,7 +22,7 @@
         path: "{{ zenith_tmp_directory }}/{{ zenith_os }}-{{ zenith_arch }}"
         state: directory
         mode: "0755"
-        
+
     - name: Download and unarchive zenith
       ansible.builtin.unarchive:
         src: https://github.com/bvaisvil/zenith/releases/download/{{ zenith_version }}/zenith.{{ zenith_arch }}-{{ zenith_os }}.tgz

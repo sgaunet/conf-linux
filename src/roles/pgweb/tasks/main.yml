@@ -22,7 +22,7 @@
         path: "{{ pgweb_tmp_directory }}/{{ pgweb_os }}-{{ pgweb_arch }}"
         state: directory
         mode: "0755"
-        
+
     - name: Download and unarchive pgweb
       ansible.builtin.unarchive:
         src: "https://github.com/sosedoff/pgweb/releases/download/v{{ pgweb_version }}/pgweb_{{ pgweb_os }}_{{ pgweb_arch }}.zip"

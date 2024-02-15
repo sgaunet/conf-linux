@@ -108,14 +108,14 @@ def run_module():
             result['response_json'] = response.json()
     except Exception as e:
         module.fail_json(msg=str(e), **result)
-    
+
     # if module._diff:
     #     result['failed'] = True
     #     module.fail_json(msg='DIFF MODE', **result)
 
     # diff['before'] = actual_value
     # diff['after'] = params_value
-    
+
     # if actual_value == params_value:
     #     # value unchanged
     #     result['changed']= False
@@ -150,4 +150,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

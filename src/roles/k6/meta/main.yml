@@ -3,7 +3,7 @@ galaxy_info:
   author: k6
   namespace: apps
   description: Install k6
-  # company: 
+  # company:
 
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value
