@@ -38,9 +38,9 @@ function seekUpdateAndUpdate
     #     return $rc
     # fi
 
-    git add "$roleFolder"
+    diff=$(git status -s "$roleFolder" | wc -l)
     # check if there is a modification in folder $githubRepo with git
-    if git diff --cached --quiet --exit-code "$roleFolder"; then
+    if [ "$diff" == "0" ]; then
         echo "No modifications in $roleFolder folder"
         return 1
     fi
@@ -66,86 +66,93 @@ if [ -z "$GITHUB_TOKEN" ]; then
     exit 1
 fi
 
-# seekUpdateAndUpdate imsnif/bandwhich     src/roles/bandwhich  bandwhich_version
-# seekUpdateAndUpdate sharkdp/bat          src/roles/bat        bat_version
-# seekUpdateAndUpdate ClementTsang/bottom  src/roles/bottom     bottom_version
-# # seekUpdateAndUpdate docker/buildx        src/roles/buildx     buildx_version  # No way
-# seekUpdateAndUpdate sgaunet/calcdate     src/roles/calcdate   calcdate_version
-# seekUpdateAndUpdate goreleaser/chglog    src/roles/chglog     chglog_version
-# seekUpdateAndUpdate concourse/concourse  src/roles/concourse  concourse_version
-# seekUpdateAndUpdate bcicen/ctop          src/roles/ctop       ctop_version
-# seekUpdateAndUpdate terrastruct/d2       src/roles/d2         d2_version
-# seekUpdateAndUpdate TomWright/dasel      src/roles/dasel      dasel_version
-# seekUpdateAndUpdate wagoodman/dive src/roles/dive dive_version
-# seekUpdateAndUpdate derailed/delta       src/roles/delta      delta_version
+seekUpdateAndUpdate imsnif/bandwhich     src/roles/bandwhich  bandwhich_version
+seekUpdateAndUpdate sharkdp/bat          src/roles/bat        bat_version
+seekUpdateAndUpdate ClementTsang/bottom  src/roles/bottom     bottom_version
+seekUpdateAndUpdate docker/buildx        src/roles/buildx     buildx_version  # No way
+seekUpdateAndUpdate sgaunet/calcdate     src/roles/calcdate   calcdate_version
+seekUpdateAndUpdate goreleaser/chglog    src/roles/chglog     chglog_version
+seekUpdateAndUpdate concourse/concourse  src/roles/concourse  concourse_version
+seekUpdateAndUpdate bcicen/ctop          src/roles/ctop       ctop_version
+seekUpdateAndUpdate terrastruct/d2       src/roles/d2         d2_version
+seekUpdateAndUpdate TomWright/dasel      src/roles/dasel      dasel_version
+seekUpdateAndUpdate dandavison/delta       src/roles/delta      delta_version
+seekUpdateAndUpdate wagoodman/dive src/roles/dive dive_version
 # REMOVE dog
-# seekUpdateAndUpdate bootandy/dust src/roles/dust  dust_version
-# seekUpdateAndUpdate eksctl-io/eksctl src/roles/eksctl  eksctl_version
-# seekUpdateAndUpdate sgaunet/ekspodlogs src/roles/ekspodlogs  ekspodlogs_version
-# REMOVE envtemplate
-# seekUpdateAndUpdate ogham/exa src/roles/exa  exa_version
-# seekUpdateAndUpdate sharkdp/fd src/roles/fd  fd_version
-# seekUpdateAndUpdate antonmedv/fx src/roles/fx  fx_version
-# seekUpdateAndUpdate wtetsu/gaze src/roles/gaze  gaze_version
-# seekUpdateAndUpdate dundee/gdu src/roles/gdu gdu_version
-# seekUpdateAndUpdate sgaunet/gini src/roles/gini gini_version
-# seekUpdateAndUpdate sgaunet/gitlab-issue-report src/roles/gitlab_issue_report/ gitlabissuereport_version
-# seekUpdateAndUpdate sgaunet/gitlab-stats src/roles/gitlab_stats/ gitlabstats_version
-# seekUpdateAndUpdate gitleaks/gitleaks src/roles/gitleaks gitleaks_version
-# seekUpdateAndUpdate charmbracelet/glow src/roles/glow glow_version
-# seekUpdateAndUpdate sgaunet/gocrypt src/roles/gocrypt gocrypt_version
-# seekUpdateAndUpdate rfjakob/gocryptfs src/roles/gocryptfs gocryptfs_version
-# seekUpdateAndUpdate golangci/golangci-lint src/roles/golangcilint golangcilint_version
-# seekUpdateAndUpdate goreleaser/goreleaser src/roles/goreleaser goreleaser_version
-# seekUpdateAndUpdate charmbracelet/gum src/roles/gum gum_version
-# seekUpdateAndUpdate sgaunet/helmchart-helper src/roles/helmchart_helper helmchart_helper_version
-
-# seekUpdateAndUpdate norwoodj/helm-docs        src/roles/helmdocs       helmdocs_version
-# seekUpdateAndUpdate helmfile/helmfile src/roles/helmfile helmfile_version
-# seekUpdateAndUpdate sgaunet/httping-go src/roles/httping httping_version
-# seekUpdateAndUpdate sharkdp/hyperfine src/roles/hyperfine hyperfine_version
-# # seekUpdateAndUpdate grafana/k6 src/roles/k6 k6_version
+seekUpdateAndUpdate bootandy/dust src/roles/dust  dust_version
+seekUpdateAndUpdate eksctl-io/eksctl src/roles/eksctl  eksctl_version
+seekUpdateAndUpdate sgaunet/ekspodlogs src/roles/ekspodlogs  ekspodlogs_version
+seekUpdateAndUpdate sgaunet/envtemplate src/roles/envtemplate  envtemplate_version
+seekUpdateAndUpdate ogham/exa src/roles/exa  exa_version
+seekUpdateAndUpdate sharkdp/fd src/roles/fd  fd_version
+seekUpdateAndUpdate antonmedv/fx src/roles/fx  fx_version
+seekUpdateAndUpdate wtetsu/gaze src/roles/gaze  gaze_version
+seekUpdateAndUpdate dundee/gdu src/roles/gdu gdu_version
+seekUpdateAndUpdate sgaunet/gini src/roles/gini gini_version
+seekUpdateAndUpdate sgaunet/gitlab-issue-report src/roles/gitlab_issue_report/ gitlabissuereport_version
+seekUpdateAndUpdate sgaunet/gitlab-stats src/roles/gitlab_stats/ gitlabstats_version
+seekUpdateAndUpdate gitleaks/gitleaks src/roles/gitleaks gitleaks_version
+seekUpdateAndUpdate charmbracelet/glow src/roles/glow glow_version
+seekUpdateAndUpdate google/go-containerregistry src/roles/gocontainerregistry gocontainerregistry_version
+seekUpdateAndUpdate sgaunet/gocrypt src/roles/gocrypt gocrypt_version
+seekUpdateAndUpdate rfjakob/gocryptfs src/roles/gocryptfs gocryptfs_version
+seekUpdateAndUpdate golangci/golangci-lint src/roles/golangcilint golangcilint_version
+seekUpdateAndUpdate goreleaser/goreleaser src/roles/goreleaser goreleaser_version
+seekUpdateAndUpdate charmbracelet/gum src/roles/gum gum_version
+seekUpdateAndUpdate hadolint/hadolint        src/roles/hadolint       hadolint_version
+seekUpdateAndUpdate helm/helm        src/roles/helm       helm_version
+seekUpdateAndUpdate sgaunet/helmchart-helper src/roles/helmchart_helper helmchart_helper_version
+seekUpdateAndUpdate norwoodj/helm-docs        src/roles/helmdocs       helmdocs_version
+seekUpdateAndUpdate helmfile/helmfile src/roles/helmfile helmfile_version
+seekUpdateAndUpdate sgaunet/httping-go src/roles/httping httping_version
+seekUpdateAndUpdate sharkdp/hyperfine src/roles/hyperfine hyperfine_version
+seekUpdateAndUpdate grafana/k6 src/roles/k6 k6_version
+seekUpdateAndUpdate derailed/k9s src/roles/k9s k9s_version
 # # seekUpdateAndUpdate szkiba/xk6-dashboard src/roles/xk6-dashboard xk6-dashboard_version
-# seekUpdateAndUpdate particledecay/kconf src/roles/kconf kconf_version
-# seekUpdateAndUpdate kluctl/kluctl src/roles/kluctl kluctl_version
-# seekUpdateAndUpdate yonahd/kor src/roles/kor kor_version
-# seekUpdateAndUpdate robscott/kube-capacity src/roles/kubecapacity kubecapacity_version
-# seekUpdateAndUpdate NimbleArchitect/kubectl-ice src/roles/kubectl_ice kubectlice_version
-# seekUpdateAndUpdate ahmetb/kubectx src/roles/kubectx kubectx_version
-# seekUpdateAndUpdate ahmetb/kubectx src/roles/kubectx kubens_version
-# seekUpdateAndUpdate txn2/kubefwd src/roles/kubefwd kubefwd_version
-# seekUpdateAndUpdate doitintl/kube-no-trouble src/roles/kubent kubent_version
-# seekUpdateAndUpdate sgaunet/mdtohtml src/roles/mdtohtml mdtohtml_version
-# seekUpdateAndUpdate matryer/moq src/roles/moq moq_version
-# seekUpdateAndUpdate raviqqe/muffet src/roles/muffet muffet_version
-# seekUpdateAndUpdate goreleaser/nfpm src/roles/nfpm nfpm_version
-# seekUpdateAndUpdate sharkdp/pastel src/roles/pastel pastel_version
-# seekUpdateAndUpdate knqyf263/pet src/roles/pet pet_version
-# seekUpdateAndUpdate sosedoff/pgweb src/roles/pgweb pgweb_version
-# seekUpdateAndUpdate derailed/popeye src/roles/popeye popeye_version
-# seekUpdateAndUpdate sgaunet/retry src/roles/retry retry_version
-# seekUpdateAndUpdate peak/s5cmd src/roles/s5cmd s5cmd_version
-# seekUpdateAndUpdate boyter/scc src/roles/scc scc_version
-# seekUpdateAndUpdate sqlc-dev/sqlc src/roles/sqlc sqlc_version
-# seekUpdateAndUpdate starship/starship src/roles/starship starship_version
-# seekUpdateAndUpdate stern/stern src/roles/stern stern_version
-# seekUpdateAndUpdate go-task/task         src/roles/task       task_version
-# seekUpdateAndUpdate k1LoW/tbls src/roles/tbls tbls_version
+seekUpdateAndUpdate particledecay/kconf src/roles/kconf kconf_version
+seekUpdateAndUpdate ryane/kfilt src/roles/kfilt kfilt_version
+seekUpdateAndUpdate kubernetes-sigs/kind src/roles/kind kind_version
+seekUpdateAndUpdate kluctl/kluctl src/roles/kluctl kluctl_version
+seekUpdateAndUpdate yonahd/kor src/roles/kor kor_version
+seekUpdateAndUpdate kubernetes-sigs/krew src/roles/krew krew_version
+seekUpdateAndUpdate robscott/kube-capacity src/roles/kubecapacity kubecapacity_version
+seekUpdateAndUpdate NimbleArchitect/kubectl-ice src/roles/kubectl_ice kubectlice_version
+seekUpdateAndUpdate ahmetb/kubectx src/roles/kubectx kubectx_version
+seekUpdateAndUpdate ahmetb/kubectx src/roles/kubectx kubens_version
+seekUpdateAndUpdate kubescape/kubescape src/roles/kubescape kubescape_version
+seekUpdateAndUpdate txn2/kubefwd src/roles/kubefwd kubefwd_version
+seekUpdateAndUpdate doitintl/kube-no-trouble src/roles/kubent kubent_version
+seekUpdateAndUpdate sgaunet/mdtohtml src/roles/mdtohtml mdtohtml_version
+seekUpdateAndUpdate matryer/moq src/roles/moq moq_version
+seekUpdateAndUpdate raviqqe/muffet src/roles/muffet muffet_version
+seekUpdateAndUpdate goreleaser/nfpm src/roles/nfpm nfpm_version
+seekUpdateAndUpdate google/osv-scanner src/roles/osv_scanner osvscanner_version
+seekUpdateAndUpdate sharkdp/pastel src/roles/pastel pastel_version
+seekUpdateAndUpdate knqyf263/pet src/roles/pet pet_version
+seekUpdateAndUpdate sosedoff/pgweb src/roles/pgweb pgweb_version
+seekUpdateAndUpdate pre-commit/pre-commit src/roles/pre_commit precommit_version
+seekUpdateAndUpdate derailed/popeye src/roles/popeye popeye_version
+seekUpdateAndUpdate sgaunet/retry src/roles/retry retry_version
+seekUpdateAndUpdate peak/s5cmd src/roles/s5cmd s5cmd_version
+seekUpdateAndUpdate boyter/scc src/roles/scc scc_version
+seekUpdateAndUpdate sqlc-dev/sqlc src/roles/sqlc sqlc_version
+seekUpdateAndUpdate starship/starship src/roles/starship starship_version
+seekUpdateAndUpdate stern/stern src/roles/stern stern_version
+seekUpdateAndUpdate go-task/task         src/roles/task       task_version
+seekUpdateAndUpdate k1LoW/tbls src/roles/tbls tbls_version
+seekUpdateAndUpdate dbrgn/tealdeer src/roles/tealdeer tealdeer_version
 seekUpdateAndUpdate aquasecurity/trivy src/roles/trivy trivy_version
-# seekUpdateAndUpdate trufflesecurity/trufflehog src/roles/trufflehog trufflehog_version
+seekUpdateAndUpdate trufflesecurity/trufflehog src/roles/trufflehog trufflehog_version
 seekUpdateAndUpdate bensadeh/tailspin src/roles/tspin tspin_version
 seekUpdateAndUpdate tsl0922/ttyd src/roles/ttyd ttyd_version
-# seekUpdateAndUpdate xo/usql src/roles/usql usql_version
-# seekUpdateAndUpdate charmbracelet/vhs src/roles/vhs vhs_version
-# seekUpdateAndUpdate ovh/venom src/roles/venom venom_version
-# seekUpdateAndUpdate sachaos/viddy src/roles/viddy viddy_version
-# seekUpdateAndUpdate grafana/xk6-dashboard src/roles/xk6-dashboard xk6_version
-# seekUpdateAndUpdate mikefarah/yq src/roles/yq yq_version
-# seekUpdateAndUpdate zellij-org/zellij    src/roles/zellij     zellij_version
-# seekUpdateAndUpdate bvaisvil/zenith src/roles/zenith zenith_version
-
-
+seekUpdateAndUpdate xo/usql src/roles/usql usql_version
+seekUpdateAndUpdate charmbracelet/vhs src/roles/vhs vhs_version
+seekUpdateAndUpdate ovh/venom src/roles/venom venom_version
+seekUpdateAndUpdate sachaos/viddy src/roles/viddy viddy_version
+seekUpdateAndUpdate grafana/xk6-dashboard src/roles/xk6-dashboard xk6_version
+seekUpdateAndUpdate mikefarah/yq src/roles/yq yq_version
+seekUpdateAndUpdate zellij-org/zellij    src/roles/zellij     zellij_version
+seekUpdateAndUpdate bvaisvil/zenith src/roles/zenith zenith_version
 
 # TODO
 # # seekUpdateAndUpdate anchore/grype src/roles/grype grype_version   always latest
-# seekUpdateAndUpdate google/go-containerregistry src/roles/gocontainerregistry gocontainerregistry_version
