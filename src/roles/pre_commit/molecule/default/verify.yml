@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat pre-commit
+      ansible.builtin.stat:
+        path: /usr/local/bin/pre-commit
+      register: pre_commit_present
+    - name: Check pre_commit is present
+      ansible.builtin.assert:
+        that:
+          - pre_commit_present.stat.exists
+        fail_msg: "pre-commit not setup"
+        success_msg: "pre-commit is setup"

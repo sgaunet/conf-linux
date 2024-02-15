@@ -1,0 +1,20 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+platforms:
+  # - name: c7
+  #   image: centos:centos7.9.2009
+  #   # pre_build_image: true
+  - name: alma9.2
+    image: almalinux:9.2-20230512
+    # pre_build_image: true
+  - name: rocky9.2
+    image: rockylinux:9.2.20230513
+  - name: ubuntu2204
+    image: ubuntu:22.04
+provisioner:
+  name: ansible
+verifier:
+  name: ansible
