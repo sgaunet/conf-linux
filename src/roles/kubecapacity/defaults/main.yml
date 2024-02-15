@@ -1,7 +1,7 @@
 ---
 
-kubecapacity_version: "0.7.4"
+kubecapacity_version: "0.8.0-rc1"
 kubecapacity_bin_path: "/usr/local/bin"
 kubecapacity_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 kubecapacity_os: "linux"
-kubecapacity_arch: "x86_64"
+kubecapacity_arch: "amd64"

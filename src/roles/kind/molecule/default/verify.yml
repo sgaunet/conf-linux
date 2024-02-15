@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat kind
+      ansible.builtin.stat:
+        path: /usr/local/bin/kind
+      register: kind_present
+    - name: Check kind is present
+      ansible.builtin.assert:
+        that:
+          - kind_present.stat.exists
+        fail_msg: "kind not setup"
+        success_msg: "kind is setup"
