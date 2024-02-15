@@ -5,13 +5,13 @@
   hosts: all
   gather_facts: false
   tasks:
-    - name: Stat delta
+    - name: Stat gini
       ansible.builtin.stat:
-        path: /usr/local/bin/delta
-      register: delta_present
-    - name: Check delta is present
+        path: /usr/local/bin/gini
+      register: gini_present
+    - name: Check gini is present
       ansible.builtin.assert:
         that:
-          - delta_present.stat.exists
-        fail_msg: "delta not setup"
-        success_msg: "delta is setup"
+          - gini_present.stat.exists
+        fail_msg: "gini not setup"
+        success_msg: "gini is setup"
