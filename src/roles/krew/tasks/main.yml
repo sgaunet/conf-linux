@@ -52,10 +52,20 @@
         dest: /tmp/krew
         remote_src: true
 
+    # - name: Install krew
+    #   become: false
+    #   ansible.builtin.command: /tmp/krew/krew-{{ krew_os }}_{{ krew_arch }} install krew
+    #   changed_when: true
+
     - name: Install krew
       become: false
-      ansible.builtin.command: /tmp/krew/krew-{{ krew_os }}_{{ krew_arch }} install krew
-      changed_when: true
+      ansible.builtin.copy: 
+        src: /tmp/krew/krew-{{ krew_os }}_{{ krew_arch }}
+        dest: "/usr/local/bin/kubectl-krew"
+        mode: "0755"
+        owner: root
+        group: root
+        remote_src: true
 
     - name: Remove temporary files/folders
       ansible.builtin.file:
@@ -66,21 +76,3 @@
       ansible.builtin.file:
         path: /tmp/krew.tar.gz
         state: absent
-
-- name: Add to $HOME/.zshrc
-  become: false
-  ansible.builtin.lineinfile:
-    path: "{{ lookup('env', 'HOME') }}/.zshrc"
-    line: "{{ item }}"
-  with_items:
-    - 'export PATH="$HOME/.krew/bin:$PATH"'
-  when: zsh_install
-
-- name: Add to $HOME/.bashrc
-  become: false
-  ansible.builtin.lineinfile:
-    path: "{{ lookup('env', 'HOME') }}/.bashrc"
-    line: "{{ item }}"
-  with_items:
-    - 'export PATH="$HOME/.krew/bin:$PATH"'
-  when: bash_install
