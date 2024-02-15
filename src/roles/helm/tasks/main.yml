@@ -2,7 +2,7 @@
 
 - name: Check helm version
   become: false
-  ansible.builtin.shell: "set -o pipefail && helm version --template '{{ '{{' }} .Version {{ '}}' }}'"
+  ansible.builtin.shell: "set -o pipefail && helm version --template '{{ '{{' }} .Version {{ '}}' }}' | sed 's#v##g'"
   args:
     executable: /bin/bash
   register: helm_version_installed
@@ -19,7 +19,7 @@
   block:
     - name: Download and unarchive helm
       ansible.builtin.unarchive:
-        src: https://get.helm.sh/helm-{{ helm_version }}-{{ helm_os }}-{{ helm_arch }}.tar.gz
+        src: https://get.helm.sh/helm-v{{ helm_version }}-{{ helm_os }}-{{ helm_arch }}.tar.gz
         dest: "{{ helm_tmp_directory }}"
         remote_src: true
         mode: "0755"
