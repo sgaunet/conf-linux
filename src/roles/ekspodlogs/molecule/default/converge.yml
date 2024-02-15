@@ -3,6 +3,6 @@
   hosts: all
   become: true
   tasks:
-    - name: "Include apps.delta"
+    - name: "Include apps.ekspodlogs"
       ansible.builtin.include_role:
-        name: "apps.delta"
+        name: "apps.ekspodlogs"

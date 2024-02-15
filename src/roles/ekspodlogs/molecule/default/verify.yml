@@ -5,13 +5,13 @@
   hosts: all
   gather_facts: false
   tasks:
-    - name: Stat delta
+    - name: Stat ekspodlogs
       ansible.builtin.stat:
-        path: /usr/local/bin/delta
-      register: delta_present
-    - name: Check delta is present
+        path: /usr/local/bin/ekspodlogs
+      register: ekspodlogs_present
+    - name: Check ekspodlogs is present
       ansible.builtin.assert:
         that:
-          - delta_present.stat.exists
-        fail_msg: "delta not setup"
-        success_msg: "delta is setup"
+          - ekspodlogs_present.stat.exists
+        fail_msg: "ekspodlogs not setup"
+        success_msg: "ekspodlogs is setup"
