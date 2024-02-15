@@ -132,7 +132,6 @@ Linux tools :
 * [gocrypt](https://github.com/sgaunet/gocrypt)
 * [pet](https://github.com/knqyf263/pet)
 * [usql](https://github.com/xo/usql)
-* [sshs](https://github.com/quantumsheep/sshs)
 * [exa](https://github.com/ogham/exa)
 * [bat](https://github.com/sharkdp/bat)
 * [vivid](https://github.com/sharkdp/vivid)

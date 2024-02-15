@@ -1,8 +1,0 @@
----
-
-# "sshs" version to install
-sshs_version: "3.4.0"
-sshs_bin_path: "/usr/local/bin"
-sshs_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
-sshs_os: "linux"
-sshs_arch: "amd64"
