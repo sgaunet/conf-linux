@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat kubectl-ice
+      ansible.builtin.stat:
+        path: /usr/local/bin/kubectl-ice
+      register: kubectl_ice_present
+    - name: Check kubectl_ice is present
+      ansible.builtin.assert:
+        that:
+          - kubectl_ice_present.stat.exists
+        fail_msg: "kubectl-ice not setup"
+        success_msg: "kubectl-ice is setup"
