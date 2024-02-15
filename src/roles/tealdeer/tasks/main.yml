@@ -26,6 +26,20 @@
         dest: /usr/local/bin/tealdeer
         mode: '0755'
 
+    # install package bash-completion on debian
+    - name: Install bash-completion
+      ansible.builtin.package:
+        name: bash-completion
+        state: present
+      when: tealdeer_os == 'linux' and ansible_distribution == 'Debian'
+
+    # create directory /etc/bash_completion.d
+    - name: Create directory /etc/bash_completion.d
+      ansible.builtin.file:
+        path: /etc/bash_completion.d
+        state: directory
+        mode: '0755'
+
     - name: Install completion_bash
       ansible.builtin.get_url:
         url: https://github.com/dbrgn/tealdeer/releases/download/v{{ tealdeer_version }}/completions_bash
