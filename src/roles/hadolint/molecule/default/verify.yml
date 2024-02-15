@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat hadolint
+      ansible.builtin.stat:
+        path: /usr/local/bin/hadolint
+      register: hadolint_present
+    - name: Check hadolint is present
+      ansible.builtin.assert:
+        that:
+          - hadolint_present.stat.exists
+        fail_msg: "hadolint not setup"
+        success_msg: "hadolint is setup"
