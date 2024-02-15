@@ -145,7 +145,6 @@ Linux tools :
 * [gocryptfs](https://github.com/rfjakob/gocryptfs)
 * [glow](https://github.com/charmbracelet/glow)
 * [zenith](https://github.com/bvaisvil/zenith)
-* [dog](https://github.com/ogham/dog)
 * [retry](https://github.com/sgaunet/retry)
 * [tspin](https://github.com/bensadeh/tailspin)
 
