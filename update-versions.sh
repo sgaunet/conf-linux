@@ -105,6 +105,7 @@ seekUpdateAndUpdate norwoodj/helm-docs        src/roles/helmdocs       helmdocs_
 seekUpdateAndUpdate helmfile/helmfile src/roles/helmfile helmfile_version
 seekUpdateAndUpdate sgaunet/httping-go src/roles/httping httping_version
 seekUpdateAndUpdate sharkdp/hyperfine src/roles/hyperfine hyperfine_version
+seekUpdateAndUpdate ankitpokhrel/jira-cli src/roles/jiracli jiracli_version
 seekUpdateAndUpdate grafana/k6 src/roles/k6 k6_version
 seekUpdateAndUpdate derailed/k9s src/roles/k9s k9s_version
 # # seekUpdateAndUpdate szkiba/xk6-dashboard src/roles/xk6-dashboard xk6-dashboard_version

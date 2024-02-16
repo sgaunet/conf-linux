@@ -1,0 +1,47 @@
+---
+
+- name: Check jiracli version
+  become: false
+  ansible.builtin.shell: >
+    set -o pipefail && jira version | grep -Po '\(Version="\K.*?(?=")'
+  args:
+    executable: /bin/bash
+  register: jiracli_version_client_installed
+  changed_when: false
+  failed_when: false
+  check_mode: false
+
+- name: Check jiracli version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
+  changed_when: jiracli_version_client_installed.stdout != jiracli_version
+  check_mode: false
+
+- name: Install jiracli
+  when:
+    - not ansible_check_mode
+    - jiracli_version != jiracli_version_client_installed.stdout
+  block:
+    - name: Create a directory if it does not exist
+      ansible.builtin.file:
+        path: "{{ jiracli_tmp_directory }}/{{ jiracli_os }}-{{ jiracli_arch }}/"
+        state: directory
+        mode: '0755'
+
+    - name: Download and unarchive jiracli
+      ansible.builtin.unarchive:
+        src: "https://github.com/ankitpokhrel/jira-cli/releases/download/v{{ jiracli_version }}/jira_{{ jiracli_version }}_{{ jiracli_os }}_{{ jiracli_arch }}.tar.gz"
+        dest: "{{ jiracli_tmp_directory }}/{{ jiracli_os }}-{{ jiracli_arch }}/"
+        remote_src: true
+        mode: "0755"
+
+    - name: Copy file with owner and permissions
+      ansible.builtin.copy:
+        src: "{{ jiracli_tmp_directory }}/{{ jiracli_os }}-{{ jiracli_arch }}/jira_{{ jiracli_version }}_{{ jiracli_os }}_{{ jiracli_arch }}/bin/jira"
+        dest: "{{ jiracli_bin_path }}/jira"
+        mode: '0755'
+        remote_src: true
+
+    - name: Clean temporary directory
+      ansible.builtin.file:
+        state: absent
+        path: "{{ jiracli_tmp_directory }}/{{ jiracli_os }}-{{ jiracli_arch }}"

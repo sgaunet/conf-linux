@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat jira
+      ansible.builtin.stat:
+        path: /usr/local/bin/jira
+      register: jira_present
+    - name: Check jira is present
+      ansible.builtin.assert:
+        that:
+          - jira_present.stat.exists
+        fail_msg: "jira not setup"
+        success_msg: "jira is setup"

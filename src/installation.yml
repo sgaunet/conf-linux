@@ -224,3 +224,5 @@
       tags: retry
     - role: tspin
       tags: tspin
+    - role: jiracli
+      tags: jiracli

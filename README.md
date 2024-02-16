@@ -101,6 +101,7 @@ Development:
 * vscode extensions
 * [gitleaks](https://github.com/zricethezav/gitleaks)
 * [glab](https://gitlab.com/gitlab-org/cli)
+* [jira-cli](https://github.com/ankitpokhrel/jira-cli)
 * [gitlab-issue-report](https://github.com/sgaunet/gitlab-issue-report)
 * [gitlab-stats](https://github.com/sgaunet/gitlab-stats)
 * [gitlab-vars](https://github.com/sgaunet/gitlab-vars) - **beta**
