@@ -154,6 +154,7 @@ seekUpdateAndUpdate charmbracelet/vhs src/roles/vhs vhs_version
 seekUpdateAndUpdate ovh/venom src/roles/venom venom_version
 seekUpdateAndUpdate sachaos/viddy src/roles/viddy viddy_version
 seekUpdateAndUpdate grafana/xk6-dashboard src/roles/xk6-dashboard xk6_version
+seekUpdateAndUpdate helmfile/vals src/roles/vals vals_version
 seekUpdateAndUpdate mikefarah/yq src/roles/yq yq_version
 seekUpdateAndUpdate zellij-org/zellij    src/roles/zellij     zellij_version
 seekUpdateAndUpdate bvaisvil/zenith src/roles/zenith zenith_version

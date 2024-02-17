@@ -236,3 +236,5 @@
       tags: act
     - role: kubeshark
       tags: kubeshark
+    - role: vals
+      tags: vals

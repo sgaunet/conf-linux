@@ -65,6 +65,7 @@ For kubernetes:
 * [kubeval](https://github.com/instrumenta/kubeval)
 * [kor](https://github.com/yonahd/kor)
 * [helmchart-helper](https://github.com/sgaunet/helmchart-helper)
+* [vals](https://github.com/helmfile/vals)
 
 For markdown :
 
