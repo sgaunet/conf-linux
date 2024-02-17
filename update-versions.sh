@@ -122,6 +122,7 @@ seekUpdateAndUpdate stackrox/kube-linter src/roles/kube_linter kube_linter_versi
 seekUpdateAndUpdate ahmetb/kubectx src/roles/kubectx kubectx_version
 seekUpdateAndUpdate ahmetb/kubectx src/roles/kubectx kubens_version
 seekUpdateAndUpdate kubescape/kubescape src/roles/kubescape kubescape_version
+seekUpdateAndUpdate kubeshark/kubeshark src/roles/kubeshark kubeshark_version
 seekUpdateAndUpdate kubernetes-sigs/kustomize src/roles/kustomize kustomize_version
 seekUpdateAndUpdate txn2/kubefwd src/roles/kubefwd kubefwd_version
 seekUpdateAndUpdate doitintl/kube-no-trouble src/roles/kubent kubent_version

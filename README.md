@@ -61,6 +61,7 @@ For kubernetes:
 * [kubent (kube-no-trouble)](https://github.com/doitintl/kube-no-trouble)
 * [kluctl](https://github.com/kluctl/kluctl)
 * [kubescape](https://github.com/kubescape/kubescape)
+* [kubeshark](https://github.com/kubeshark/kubeshark)
 * [kubeval](https://github.com/instrumenta/kubeval)
 * [kor](https://github.com/yonahd/kor)
 * [helmchart-helper](https://github.com/sgaunet/helmchart-helper)

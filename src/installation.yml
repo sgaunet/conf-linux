@@ -234,3 +234,5 @@
       tags: kube_linter
     - role: act
       tags: act
+    - role: kubeshark
+      tags: kubeshark
