@@ -228,3 +228,5 @@
       tags: jiracli
     - role: kustomize
       tags: kustomize
+    - role: sshx
+      tags: sshx

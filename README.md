@@ -149,6 +149,7 @@ Linux tools :
 * [zenith](https://github.com/bvaisvil/zenith)
 * [retry](https://github.com/sgaunet/retry)
 * [tspin](https://github.com/bensadeh/tailspin)
+* [sshx](https://github.com/ekzhang/sshx)
 
 Tests:
 

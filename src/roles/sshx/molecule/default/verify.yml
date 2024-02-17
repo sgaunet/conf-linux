@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat sshx
+      ansible.builtin.stat:
+        path: /usr/local/bin/sshx
+      register: sshx_present
+    - name: Check sshx is present
+      ansible.builtin.assert:
+        that:
+          - sshx_present.stat.exists
+        fail_msg: "sshx not setup"
+        success_msg: "sshx is setup"

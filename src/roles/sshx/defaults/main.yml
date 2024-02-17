@@ -1,0 +1,18 @@
+---
+
+sshx_bin_path: "/usr/local/bin"
+sshx_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
+sshx_os: "unknown-linux-musl"
+sshx_arch: "x86_64"
+
+# case "$(uname -s)" in
+#   Linux*) suffix="-unknown-linux-musl";;
+#   Darwin*) suffix="-apple-darwin";;
+#   *) echo "Unsupported OS $(uname -s)"; exit 1;;
+# esac
+
+# case "$(uname -m)" in
+#   aarch64 | aarch64_be | arm64 | armv8b | armv8l) arch="aarch64";;
+#   x86_64 | x64 | amd64) arch="x86_64";;
+#   *) echo "Unsupported arch $(uname -m)"; exit 1;;
+# esac

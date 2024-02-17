@@ -1,0 +1,27 @@
+---
+
+# - name: Check sshx version
+#   become: false
+#   ansible.builtin.shell: "set -o pipefail && sshx version |sed 's#^v##g'"
+#   args:
+#     executable: /bin/bash
+#   register: sshx_version_client_installed
+#   changed_when: false
+#   failed_when: false
+#   check_mode: false
+
+# - name: Check sshx version # noqa command-instead-of-shell
+#   ansible.builtin.shell: '/bin/true'
+#   changed_when: sshx_version_client_installed.stdout != sshx_version
+#   check_mode: false
+
+
+- name: Download and unarchive sshx
+  ansible.builtin.unarchive:
+    src: "https://s3.amazonaws.com/sshx/sshx-{{sshx_arch}}-{{sshx_os}}.tar.gz"
+    dest: "{{ sshx_bin_path }}"
+    remote_src: true
+    mode: "0755"
+  # when:
+  #   - not ansible_check_mode
+  #   - sshx_version != sshx_version_client_installed.stdout
