@@ -54,6 +54,7 @@ For kubernetes:
 * [popeye](https://github.com/derailed/popeye)
 * [kfilt](https://github.com/ryane/kfilt)
 * [kube-capacity](https://github.com/robscott/kube-capacity)
+* [kube-linter](https://github.com/stackrox/kube-linter)
 * [kconf](https://github.com/particledecay/kconf)
 * [kubectl-ice](https://github.com/NimbleArchitect/kubectl-ice)
 * [kubefwd](https://github.com/txn2/kubefwd)

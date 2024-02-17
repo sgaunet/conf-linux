@@ -230,3 +230,5 @@
       tags: kustomize
     - role: sshx
       tags: sshx
+    - role: kube_linter
+      tags: kube_linter

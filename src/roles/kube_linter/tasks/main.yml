@@ -1,0 +1,26 @@
+---
+
+- name: Check kube_linter version
+  become: false
+  ansible.builtin.shell: 'set -o pipefail && kube-linter version | sed "s#v##g"'
+  args:
+    executable: /bin/bash
+  register: kube_linter_version_client_installed
+  changed_when: false
+  failed_when: false
+  check_mode: false
+
+- name: Check kube_linter version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
+  changed_when: kube_linter_version_client_installed.stdout != kube_linter_version
+  check_mode: false
+
+- name: Install kube_linter
+  ansible.builtin.unarchive:
+    src: "https://github.com/stackrox/kube-linter/releases/download/v{{ kube_linter_version }}/kube-linter-{{ kube_linter_os }}.tar.gz"
+    dest: "{{ kube_linter_bin_path }}"
+    remote_src: true
+    mode: "0755"
+  when:
+    - not ansible_check_mode
+    - kube_linter_version != kube_linter_version_client_installed.stdout

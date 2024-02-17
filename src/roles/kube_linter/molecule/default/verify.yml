@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat kube-linter
+      ansible.builtin.stat:
+        path: /usr/local/bin/kube-linter
+      register: kube_linter_present
+    - name: Check kube-linter is present
+      ansible.builtin.assert:
+        that:
+          - kube_linter_present.stat.exists
+        fail_msg: "kube-linter not setup"
+        success_msg: "kube-linter is setup"

@@ -117,6 +117,7 @@ seekUpdateAndUpdate yonahd/kor src/roles/kor kor_version
 seekUpdateAndUpdate kubernetes-sigs/krew src/roles/krew krew_version
 seekUpdateAndUpdate robscott/kube-capacity src/roles/kubecapacity kubecapacity_version
 seekUpdateAndUpdate NimbleArchitect/kubectl-ice src/roles/kubectl_ice kubectlice_version
+seekUpdateAndUpdate stackrox/kube-linter src/roles/kube_linter kube_linter_version
 seekUpdateAndUpdate ahmetb/kubectx src/roles/kubectx kubectx_version
 seekUpdateAndUpdate ahmetb/kubectx src/roles/kubectx kubens_version
 seekUpdateAndUpdate kubescape/kubescape src/roles/kubescape kubescape_version
