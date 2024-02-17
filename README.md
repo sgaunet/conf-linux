@@ -119,6 +119,7 @@ Development:
 * [pgweb](https://github.com/sosedoff/pgweb)
 * [tbls](https://github.com/k1LoW/tbls)
 * [delta](https://github.com/dandavison/delta)
+* [act](https://github.com/nektos/act)
 
 Linux tools :
 

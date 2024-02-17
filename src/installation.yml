@@ -232,3 +232,5 @@
       tags: sshx
     - role: kube_linter
       tags: kube_linter
+    - role: act
+      tags: act

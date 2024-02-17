@@ -66,6 +66,7 @@ if [ -z "$GITHUB_TOKEN" ]; then
     exit 1
 fi
 
+seekUpdateAndUpdate nektos/act     src/roles/act  act_version
 seekUpdateAndUpdate imsnif/bandwhich     src/roles/bandwhich  bandwhich_version
 seekUpdateAndUpdate sharkdp/bat          src/roles/bat        bat_version
 seekUpdateAndUpdate ClementTsang/bottom  src/roles/bottom     bottom_version
