@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat kustomize
+      ansible.builtin.stat:
+        path: /usr/local/bin/kustomize
+      register: kustomize_present
+    - name: Check kustomize is present
+      ansible.builtin.assert:
+        that:
+          - kustomize_present.stat.exists
+        fail_msg: "kustomize not setup"
+        success_msg: "kustomize is setup"

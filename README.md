@@ -41,6 +41,7 @@ For AWS :
 For kubernetes:
 
 * [krew](https://krew.sigs.k8s.io/)
+* [kustomize](https://github.com/kubernetes-sigs/kustomize)
 * [helm v3](https://helm.sh/docs/intro/install/)
 * [helm-docs](https://github.com/norwoodj/helm-docs)
 * [helmfile](https://github.com/helmfile/helmfile)

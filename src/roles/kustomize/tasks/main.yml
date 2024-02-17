@@ -1,0 +1,27 @@
+---
+
+- name: Check kustomize version
+  become: false
+  ansible.builtin.shell: "set -o pipefail && kustomize version |sed 's#^v##g'"
+  args:
+    executable: /bin/bash
+  register: kustomize_version_client_installed
+  changed_when: false
+  failed_when: false
+  check_mode: false
+
+- name: Check kustomize version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
+  changed_when: kustomize_version_client_installed.stdout != kustomize_version
+  check_mode: false
+
+
+- name: Download and unarchive kustomize
+  ansible.builtin.unarchive:
+    src: "https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv{{ kustomize_version }}/kustomize_v{{ kustomize_version }}_{{ kustomize_os }}_{{ kustomize_arch }}.tar.gz"
+    dest: "{{ kustomize_bin_path }}"
+    remote_src: true
+    mode: "0755"
+  when:
+    - not ansible_check_mode
+    - kustomize_version != kustomize_version_client_installed.stdout

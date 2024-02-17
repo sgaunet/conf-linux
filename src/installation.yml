@@ -226,3 +226,5 @@
       tags: tspin
     - role: jiracli
       tags: jiracli
+    - role: kustomize
+      tags: kustomize
