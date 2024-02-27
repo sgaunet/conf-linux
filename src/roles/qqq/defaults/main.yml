@@ -1,0 +1,7 @@
+---
+
+q_version: "0.19.2"
+q_bin_path: "/usr/local/bin"
+q_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
+q_os: "linux"
+q_arch: "amd64"

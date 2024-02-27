@@ -154,6 +154,7 @@ Linux tools :
 * [retry](https://github.com/sgaunet/retry)
 * [tspin](https://github.com/bensadeh/tailspin)
 * [sshx](https://github.com/ekzhang/sshx)
+* [q](https://github.com/natesales/q)
 
 Tests:
 

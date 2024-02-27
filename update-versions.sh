@@ -135,6 +135,7 @@ seekUpdateAndUpdate knqyf263/pet src/roles/pet pet_version
 seekUpdateAndUpdate sosedoff/pgweb src/roles/pgweb pgweb_version
 seekUpdateAndUpdate pre-commit/pre-commit src/roles/pre_commit precommit_version
 seekUpdateAndUpdate derailed/popeye src/roles/popeye popeye_version
+seekUpdateAndUpdate natesales/q src/roles/qqq q_version
 seekUpdateAndUpdate sgaunet/retry src/roles/retry retry_version
 seekUpdateAndUpdate peak/s5cmd src/roles/s5cmd s5cmd_version
 seekUpdateAndUpdate boyter/scc src/roles/scc scc_version

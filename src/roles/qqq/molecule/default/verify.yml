@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: q is present
+      ansible.builtin.stat:
+        path: /usr/local/bin/q
+      register: q_present
+    - name: check q is present
+      ansible.builtin.assert:
+        that:
+          - q_present.stat.exists
+        fail_msg: "q not setup"
+        success_msg: "q is setup"
