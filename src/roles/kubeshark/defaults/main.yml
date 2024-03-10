@@ -1,7 +1,7 @@
 ---
 
 # "kubeshark" version to install
-kubeshark_version: "52.1.63"
+kubeshark_version: "52.1.66"
 kubeshark_bin_path: "/usr/local/bin"
 kubeshark_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 kubeshark_os: "linux"
