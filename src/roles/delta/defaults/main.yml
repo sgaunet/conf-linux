@@ -1,7 +1,7 @@
 ---
 
 # "delta" version to install
-delta_version: "0.16.5"
+delta_version: "0.17.0"
 delta_bin_path: "/usr/local/bin"
 delta_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 delta_os: "unknown-linux-musl"
