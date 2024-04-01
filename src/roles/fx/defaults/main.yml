@@ -1,7 +1,7 @@
 ---
 
 # "fx" version to install
-fx_version: "33.0.0"
+fx_version: "34.0.0"
 fx_bin_path: "/usr/local/bin"
 fx_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 fx_os: "linux"
