@@ -1,7 +1,7 @@
 ---
 
 # "starship" version to install
-starship_version: "1.17.1"
+starship_version: "1.18.2"
 starship_bin_path: "/usr/local/bin"
 starship_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 starship_os: "unknown-linux-gnu"
