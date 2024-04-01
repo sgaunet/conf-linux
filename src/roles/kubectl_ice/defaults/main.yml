@@ -1,7 +1,7 @@
 ---
 
 # "kubectlice" version to install
-kubectlice_version: "0.2.11"
+kubectlice_version: "0.2.12"
 kubectlice_bin_path: "/usr/local/bin"
 kubectlice_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 kubectlice_os: "linux"
