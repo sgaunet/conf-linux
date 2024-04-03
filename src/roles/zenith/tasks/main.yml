@@ -16,6 +16,9 @@
   check_mode: false
 
 - name: Install zenith
+  when:
+    - not ansible_check_mode
+    - zenith_version_installed.stdout != zenith_version
   block:
     - name: Create temporary directory
       ansible.builtin.file:
@@ -41,6 +44,3 @@
       ansible.builtin.file:
         path: "{{ zenith_tmp_directory }}/{{ zenith_os }}-{{ zenith_arch }}"
         state: absent
-  when:
-    - not ansible_check_mode
-    - zenith_version_installed.stdout != zenith_version

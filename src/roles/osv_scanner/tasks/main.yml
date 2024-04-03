@@ -5,21 +5,21 @@
   ansible.builtin.shell: 'set -o pipefail && osv-scanner -v | grep version | sed "s#osv-scanner version: ##g"'
   args:
     executable: /bin/bash
-  register: osvscanner_version_client_installed
+  register: osv_scanner_version_client_installed
   changed_when: false
   failed_when: false
   check_mode: false
 
-- name: Check osvscanner version # noqa command-instead-of-shell
+- name: Check osv_scanner version # noqa command-instead-of-shell
   ansible.builtin.shell: '/bin/true'
-  changed_when: osvscanner_version_client_installed.stdout != osvscanner_version
+  changed_when: osv_scanner_version_client_installed.stdout != osv_scanner_version
   check_mode: false
 
-- name: Download osvscanner
+- name: Download osv_scanner
   ansible.builtin.get_url:
-    url: https://github.com/google/osv-scanner/releases/download/v{{ osvscanner_version }}/osv-scanner_{{ osvscanner_version }}_{{ osvscanner_os }}_{{ osvscanner_arch }}
-    dest: "{{ osvscanner_bin_path }}/osv-scanner"
+    url: https://github.com/google/osv-scanner/releases/download/v{{ osv_scanner_version }}/osv-scanner_{{ osv_scanner_version }}_{{ osv_scanner_os }}_{{ osv_scanner_arch }}
+    dest: "{{ osv_scanner_bin_path }}/osv-scanner"
     mode: "0755"
   when:
     - not ansible_check_mode
-    - osvscanner_version != osvscanner_version_client_installed.stdout
+    - osv_scanner_version != osv_scanner_version_client_installed.stdout

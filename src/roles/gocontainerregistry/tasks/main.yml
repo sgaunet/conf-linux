@@ -36,21 +36,21 @@
         remote_src: true
         mode: "0755"
 
-    - name: install crane
+    - name: Install crane
       ansible.builtin.copy:
         src: "{{ gocontainerregistry_tmp_directory }}/{{ gocontainerregistry_os }}-{{ gocontainerregistry_arch }}/crane"
         dest: "{{ gocontainerregistry_bin_path }}/crane"
         mode: '0755'
         remote_src: true
 
-    - name: install gcrane
+    - name: Install gcrane
       ansible.builtin.copy:
         src: "{{ gocontainerregistry_tmp_directory }}/{{ gocontainerregistry_os }}-{{ gocontainerregistry_arch }}/gcrane"
         dest: "{{ gocontainerregistry_bin_path }}/gcrane"
         mode: '0755'
         remote_src: true
 
-    - name: install krane
+    - name: Install krane
       ansible.builtin.copy:
         src: "{{ gocontainerregistry_tmp_directory }}/{{ gocontainerregistry_os }}-{{ gocontainerregistry_arch }}/krane"
         dest: "{{ gocontainerregistry_bin_path }}/krane"

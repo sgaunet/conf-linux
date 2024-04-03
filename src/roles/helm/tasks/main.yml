@@ -16,6 +16,9 @@
   check_mode: false
 
 - name: Install helm
+  when:
+    - not ansible_check_mode
+    - helm_version_installed.stdout != helm_version
   block:
     - name: Download and unarchive helm
       ansible.builtin.unarchive:
@@ -35,6 +38,3 @@
       ansible.builtin.file:
         path: "{{ helm_tmp_directory }}/{{ helm_os }}-{{ helm_arch }}"
         state: absent
-  when:
-    - not ansible_check_mode
-    - helm_version_installed.stdout != helm_version

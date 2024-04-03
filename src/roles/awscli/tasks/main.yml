@@ -20,7 +20,7 @@
   ansible.builtin.stat:
     path: "/usr/local/aws-cli/v2/current"
   delegate_to: localhost
-  register: link_awscli
+  register: awscli_link
 
 - name: Download awscliv2.zip
   ansible.builtin.get_url:
@@ -50,7 +50,7 @@
 - name: Install awscli
   ansible.builtin.command: /tmp/awscli/aws/install
   changed_when: true
-  when: not link_awscli.stat.exists
+  when: not awscli_link.stat.exists
 
 - name: Update awscli
   ansible.builtin.command: /tmp/awscli/aws/install --update

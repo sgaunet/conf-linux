@@ -13,22 +13,22 @@
   ansible.builtin.shell: "set -o pipefail && kubectl krew list | grep -o {{ item }}"
   args:
     executable: /bin/bash
-  register: list_plugin_installed
+  register: krew_plugins_list_plugin_installed
   changed_when: false
   failed_when: false
   with_items:
-    - "{{ list_plugins }}"
+    - "{{ krew_plugins_list }}"
   check_mode: false
 
 # - name: debug
 #   ansible.builtin.debug:
-#     msg: "{{ list_plugin_installed }}"
+#     msg: "{{ krew_plugins_list_plugin_installed }}"
 
 # - name: debug2
 #   ansible.builtin.debug:
 #     msg: "{{ item }}"
 #   with_items:
-#     - "{{ list_plugin_installed.results }}"
+#     - "{{ krew_plugins_list_plugin_installed.results }}"
 
 - name: Install plugin # noqa command-instead-of-shell
   become: false
@@ -38,4 +38,4 @@
   when: item.rc == 1
   changed_when: item.rc == 1
   with_items:
-    - "{{ list_plugin_installed.results }}"
+    - "{{ krew_plugins_list_plugin_installed.results }}"

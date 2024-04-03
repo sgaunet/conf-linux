@@ -16,11 +16,15 @@
   check_mode: false
 
 - name: Install helmfile
+  when:
+    - not ansible_check_mode
+    - helmfile_version_installed.stdout != helmfile_version
   block:
-    - name: create temporary files/folders
+    - name: Create temporary files/folders
       ansible.builtin.file:
         path: "{{ helmfile_tmp_directory }}/{{ helmfile_os }}-{{ helmfile_arch }}"
         state: directory
+        mode: '0755'
 
     - name: Download and unarchive helmfile
       ansible.builtin.unarchive:
@@ -40,6 +44,3 @@
       ansible.builtin.file:
         path: "{{ helmfile_tmp_directory }}/{{ helmfile_os }}-{{ helmfile_arch }}"
         state: absent
-  when:
-    - not ansible_check_mode
-    - helmfile_version_installed.stdout != helmfile_version

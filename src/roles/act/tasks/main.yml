@@ -20,27 +20,27 @@
     - not ansible_check_mode
     - act_version != act_version_client_installed.stdout
   block:
-  - name: Create a directory if it does not exist
-    ansible.builtin.file:
-      path: "{{ act_tmp_directory }}/{{ act_os }}-{{ act_arch }}/"
-      state: directory
-      mode: '0755'
+    - name: Create a directory if it does not exist
+      ansible.builtin.file:
+        path: "{{ act_tmp_directory }}/{{ act_os }}-{{ act_arch }}/"
+        state: directory
+        mode: '0755'
 
-  - name: Download and unarchive act
-    ansible.builtin.unarchive:
-      src: "https://github.com/nektos/act/releases/download/v{{ act_version }}/act_{{ act_os }}_{{ act_arch }}.tar.gz"
-      dest: "{{ act_tmp_directory }}/{{ act_os }}-{{ act_arch }}/"
-      remote_src: true
-      mode: "0755"
+    - name: Download and unarchive act
+      ansible.builtin.unarchive:
+        src: "https://github.com/nektos/act/releases/download/v{{ act_version }}/act_{{ act_os }}_{{ act_arch }}.tar.gz"
+        dest: "{{ act_tmp_directory }}/{{ act_os }}-{{ act_arch }}/"
+        remote_src: true
+        mode: "0755"
 
-  - name: Copy file with owner and permissions
-    ansible.builtin.copy:
-      src: "{{ act_tmp_directory }}/{{ act_os }}-{{ act_arch }}/act"
-      dest: "{{ act_bin_path }}/act"
-      mode: '0755'
-      remote_src: true
+    - name: Copy file with owner and permissions
+      ansible.builtin.copy:
+        src: "{{ act_tmp_directory }}/{{ act_os }}-{{ act_arch }}/act"
+        dest: "{{ act_bin_path }}/act"
+        mode: '0755'
+        remote_src: true
 
-  - name: Clean temporary directory
-    ansible.builtin.file:
-      state: absent
-      path: "{{ act_tmp_directory }}/{{ act_os }}-{{ act_arch }}"
+    - name: Clean temporary directory
+      ansible.builtin.file:
+        state: absent
+        path: "{{ act_tmp_directory }}/{{ act_os }}-{{ act_arch }}"

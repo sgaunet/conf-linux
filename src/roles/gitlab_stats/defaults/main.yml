@@ -1,8 +1,8 @@
 ---
 
-# "gitlabstats" version to install
-gitlabstats_version: "1.2.0"
-gitlabstats_bin_path: "/usr/local/bin"
-gitlabstats_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
-gitlabstats_os: "linux"
-gitlabstats_arch: "amd64"
+# "gitlab_stats" version to install
+gitlab_stats_version: "1.2.0"
+gitlab_stats_bin_path: "/usr/local/bin"
+gitlab_stats_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
+gitlab_stats_os: "linux"
+gitlab_stats_arch: "amd64"

@@ -1,25 +1,25 @@
 ---
 
-- name: Check gitlabstats version
+- name: Check gitlab_stats version
   become: false
   ansible.builtin.shell: 'gitlab-stats -v'
   args:
     executable: /bin/bash
-  register: gitlabstats_version_client_installed
+  register: gitlab_stats_version_client_installed
   changed_when: false
   failed_when: false
   check_mode: false
 
-- name: Check gitlabstats version # noqa command-instead-of-shell
+- name: Check gitlab_stats version # noqa command-instead-of-shell
   ansible.builtin.shell: '/bin/true'
-  changed_when: gitlabstats_version_client_installed.stdout != gitlabstats_version
+  changed_when: gitlab_stats_version_client_installed.stdout != gitlab_stats_version
   check_mode: false
 
-- name: Install gitlabstats
+- name: Install gitlab_stats
   ansible.builtin.get_url:
-    url: "https://github.com/sgaunet/gitlab-stats/releases/download/v{{ gitlabstats_version }}/gitlab-stats_{{ gitlabstats_version }}_{{ gitlabstats_os }}_{{ gitlabstats_arch }}"
-    dest: "{{ gitlabstats_bin_path }}/gitlab-stats"
+    url: "https://github.com/sgaunet/gitlab-stats/releases/download/v{{ gitlab_stats_version }}/gitlab-stats_{{ gitlab_stats_version }}_{{ gitlab_stats_os }}_{{ gitlab_stats_arch }}"
+    dest: "{{ gitlab_stats_bin_path }}/gitlab-stats"
     mode: "0755"
   when:
     - not ansible_check_mode
-    - gitlabstats_version != gitlabstats_version_client_installed.stdout
+    - gitlab_stats_version != gitlab_stats_version_client_installed.stdout

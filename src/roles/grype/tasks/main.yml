@@ -10,10 +10,10 @@
   failed_when: false
   check_mode: false
 
-- name: Get latest tag of github repo {{ github_repo }} # noqa command-instead-of-module
+- name: Get latest tag of github repo {{ grype_github_repo }} # noqa command-instead-of-module
   become: false
-  ansible.builtin.command: "curl --silent https://api.github.com/{{ github_repo }}/grype/releases/latest"
-  register: vers
+  ansible.builtin.command: "curl --silent https://api.github.com/{{ grype_github_repo }}/grype/releases/latest"
+  register: grype_vers
   changed_when: false
   failed_when: false
   check_mode: false
@@ -23,18 +23,18 @@
 
 - name: Get tag_name
   ansible.builtin.set_fact:
-    v: "{{ vers.stdout | from_json }}"
+    grype_v: "{{ grype_vers.stdout | from_json }}"
 
 - name: Get version
   ansible.builtin.set_fact:
-    version: "{{ v.tag_name | regex_replace('^v', '') }}"
+    grype_version: "{{ grype_v.tag_name | regex_replace('^v', '') }}"
 
 # - debug:
 #     var: version
 
 - name: Check grype version # noqa command-instead-of-shell
   ansible.builtin.shell: '/bin/true'
-  changed_when: grype_version_client_installed.stdout != version
+  changed_when: grype_version_client_installed.stdout != grype_version
   check_mode: false
 
 # - debug:
@@ -43,7 +43,7 @@
 - name: Install grype
   when:
     - not ansible_check_mode
-    - version != grype_version_client_installed.stdout
+    - grype_version != grype_version_client_installed.stdout
   block:
     - name: Create a directory if it does not exist
       ansible.builtin.file:
@@ -53,7 +53,7 @@
 
     - name: Download and unarchive grype
       ansible.builtin.unarchive:
-        src: "https://github.com/anchore/grype/releases/download/v{{ version }}/grype_{{ version }}_{{ grype_os }}_{{ grype_arch }}.tar.gz"
+        src: "https://github.com/anchore/grype/releases/download/v{{ grype_version }}/grype_{{ grype_version }}_{{ grype_os }}_{{ grype_arch }}.tar.gz"
         dest: "{{ grype_tmp_directory }}/{{ grype_os }}-{{ grype_arch }}/"
         remote_src: true
         mode: "0755"

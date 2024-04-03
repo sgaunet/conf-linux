@@ -1,30 +1,30 @@
 ---
 
-- name: Check gitlabissuereport version
+- name: Check gitlab_issue_report version
   become: false
   ansible.builtin.shell: 'gitlab-issue-report -v'
   args:
     executable: /bin/bash
-  register: gitlabissuereport_version_client_installed
+  register: gitlab_issue_report_version_client_installed
   changed_when: false
   failed_when: false
   check_mode: false
 
-- name: Check gitlabissuereport version # noqa command-instead-of-shell
+- name: Check gitlab_issue_report version # noqa command-instead-of-shell
   ansible.builtin.shell: '/bin/true'
-  changed_when: gitlabissuereport_version_client_installed.stdout != gitlabissuereport_version
+  changed_when: gitlab_issue_report_version_client_installed.stdout != gitlab_issue_report_version
   check_mode: false
 
-- name: Install gitlabissuereport
+- name: Install gitlab_issue_report
   when:
     - not ansible_check_mode
-    - gitlabissuereport_version != gitlabissuereport_version_client_installed.stdout
+    - gitlab_issue_report_version != gitlab_issue_report_version_client_installed.stdout
   block:
-    - name: Install gitlabissuereport
+    - name: Install gitlab_issue_report
       ansible.builtin.get_url:
-        url: "https://github.com/sgaunet/gitlab-issue-report/releases/download/v{{ gitlabissuereport_version }}/gitlab-issue-report_{{ gitlabissuereport_version }}_{{ gitlabissuereport_os }}_{{ gitlabissuereport_arch }}"
-        dest: "{{ gitlabissuereport_bin_path }}/gitlab-issue-report"
+        url: "https://github.com/sgaunet/gitlab-issue-report/releases/download/v{{ gitlab_issue_report_version }}/gitlab-issue-report_{{ gitlab_issue_report_version }}_{{ gitlab_issue_report_os }}_{{ gitlab_issue_report_arch }}"
+        dest: "{{ gitlab_issue_report_bin_path }}/gitlab-issue-report"
         mode: "0755"
       when:
         - not ansible_check_mode
-        - gitlabissuereport_version != gitlabissuereport_version_client_installed.stdout
+        - gitlab_issue_report_version != gitlab_issue_report_version_client_installed.stdout

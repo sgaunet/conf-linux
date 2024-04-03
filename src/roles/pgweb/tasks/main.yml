@@ -16,6 +16,9 @@
   check_mode: false
 
 - name: Install pgweb
+  when:
+    - not ansible_check_mode
+    - pgweb_version_installed.stdout != pgweb_version
   block:
     - name: Create temporary directory
       ansible.builtin.file:
@@ -41,6 +44,3 @@
       ansible.builtin.file:
         path: "{{ pgweb_tmp_directory }}/{{ pgweb_os }}-{{ pgweb_arch }}"
         state: absent
-  when:
-    - not ansible_check_mode
-    - pgweb_version_installed.stdout != pgweb_version

@@ -16,6 +16,9 @@
   check_mode: false
 
 - name: Install tbls
+  when:
+    - not ansible_check_mode
+    - tbls_version_installed.stdout != tbls_version
   block:
     - name: Create temporary directory
       ansible.builtin.file:
@@ -41,6 +44,3 @@
       ansible.builtin.file:
         path: "{{ tbls_tmp_directory }}/{{ tbls_os }}-{{ tbls_arch }}"
         state: absent
-  when:
-    - not ansible_check_mode
-    - tbls_version_installed.stdout != tbls_version

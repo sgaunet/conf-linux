@@ -36,7 +36,7 @@
     - name: Download and unarchive nerdfont
       become: false
       ansible.builtin.unarchive:
-        src: "{{ nerdfont }}"
+        src: "{{ starship_nerdfont }}"
         dest: "{{ lookup('env', 'HOME') }}/.local/share/fonts"
         remote_src: true
     - name: Exec fc-cache -fv

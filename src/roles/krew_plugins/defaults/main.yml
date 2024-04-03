@@ -1,6 +1,6 @@
 ---
 
-list_plugins:
+krew_plugins_list:
   - access-matrix
   - get-all
   - tail

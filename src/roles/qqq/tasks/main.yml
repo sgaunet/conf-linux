@@ -5,42 +5,42 @@
   ansible.builtin.shell: "set -o pipefail && q -V | awk '{ print $3 }'"
   args:
     executable: /bin/bash
-  register: q_version_client_installed
+  register: qqq_version_client_installed
   changed_when: false
   failed_when: false
   check_mode: false
 
 - name: Check q version # noqa command-instead-of-shell
   ansible.builtin.shell: '/bin/true'
-  changed_when: q_version_client_installed.stdout != q_version
+  changed_when: qqq_version_client_installed.stdout != qqq_version
   check_mode: false
 
 - name: Install q
   when:
     - not ansible_check_mode
-    - q_version != q_version_client_installed.stdout
+    - qqq_version != qqq_version_client_installed.stdout
   block:
     - name: Create a directory if it does not exist
       ansible.builtin.file:
-        path: "{{ q_tmp_directory }}/{{ q_os }}-{{ q_arch }}/"
+        path: "{{ qqq_tmp_directory }}/{{ qqq_os }}-{{ qqq_arch }}/"
         state: directory
         mode: '0755'
 
     - name: Download and unarchive q
       ansible.builtin.unarchive:
-        src: "https://github.com/natesales/q/releases/download/v{{ q_version }}/q_{{ q_version }}_{{ q_os }}_{{ q_arch }}.tar.gz"
-        dest: "{{ q_tmp_directory }}/{{ q_os }}-{{ q_arch }}/"
+        src: "https://github.com/natesales/q/releases/download/v{{ qqq_version }}/qqq_{{ qqq_version }}_{{ qqq_os }}_{{ qqq_arch }}.tar.gz"
+        dest: "{{ qqq_tmp_directory }}/{{ qqq_os }}-{{ qqq_arch }}/"
         remote_src: true
         mode: "0755"
 
     - name: Copy file with owner and permissions
       ansible.builtin.copy:
-        src: "{{ q_tmp_directory }}/{{ q_os }}-{{ q_arch }}/q"
-        dest: "{{ q_bin_path }}/q"
+        src: "{{ qqq_tmp_directory }}/{{ qqq_os }}-{{ qqq_arch }}/q"
+        dest: "{{ qqq_bin_path }}/q"
         mode: '0755'
         remote_src: true
 
     - name: Clean temporary directory
       ansible.builtin.file:
         state: absent
-        path: "{{ q_tmp_directory }}/{{ q_os }}-{{ q_arch }}"
+        path: "{{ qqq_tmp_directory }}/{{ qqq_os }}-{{ qqq_arch }}"

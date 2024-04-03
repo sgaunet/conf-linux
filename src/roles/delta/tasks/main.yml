@@ -43,7 +43,7 @@
 
     - name: Copy file with owner and permissions
       ansible.builtin.copy:
-        src: "{{ delta_tmp_directory }}/{{ delta_os }}-{{ delta_arch }}/delta-{{ delta_version}}-{{ delta_arch }}-{{ delta_os }}/delta"
+        src: "{{ delta_tmp_directory }}/{{ delta_os }}-{{ delta_arch }}/delta-{{ delta_version }}-{{ delta_arch }}-{{ delta_os }}/delta"
         dest: "{{ delta_bin_path }}/delta"
         mode: '0755'
         remote_src: true
