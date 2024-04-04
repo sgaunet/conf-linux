@@ -192,8 +192,6 @@
       tags: gitlab_vars
     - role: k6
       tags: k6
-    - role: xk6-dashboard
-      tags: xk6-dashboard
     - role: glab
       tags: glab
     - role: concourse
