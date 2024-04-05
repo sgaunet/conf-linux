@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Stat eph-beta
+      ansible.builtin.stat:
+        path: /usr/local/bin/eph-beta
+      register: ephbeta_present
+    - name: Check eph-beta is present
+      ansible.builtin.assert:
+        that:
+          - ephbeta_present.stat.exists
+        fail_msg: "eph-beta not setup"
+        success_msg: "eph-beta is setup"

@@ -238,5 +238,5 @@
       tags: vals
     - role: qqq
       tags: q
-    # - role: ephbeta
-    #   tags: ephbeta
+    - role: ephbeta
+      tags: ephbeta

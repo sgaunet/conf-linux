@@ -1,0 +1,25 @@
+---
+
+- name: Check ephbeta version
+  become: false
+  ansible.builtin.shell: 'set -o pipefail && eph-beta version'
+  args:
+    executable: /bin/bash
+  register: ephbeta_version_client_installed
+  changed_when: false
+  failed_when: false
+  check_mode: false
+
+- name: Check ephbeta version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
+  changed_when: ephbeta_version_client_installed.stdout != ephbeta_version
+  check_mode: false
+
+- name: Install ephbeta
+  ansible.builtin.get_url:
+    url: "https://github.com/ephemeralfiles/eph-beta/releases/download/v{{ ephbeta_version }}/eph_{{ ephbeta_version }}_{{ ephbeta_os }}_{{ ephbeta_arch }}"
+    dest: "{{ ephbeta_bin_path }}/eph-beta"
+    mode: "0755"
+  when:
+    - not ansible_check_mode
+    - ephbeta_version != ephbeta_version_client_installed.stdout

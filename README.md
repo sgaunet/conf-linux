@@ -155,6 +155,7 @@ Linux tools :
 * [tspin](https://github.com/bensadeh/tailspin)
 * [sshx](https://github.com/ekzhang/sshx)
 * [q](https://github.com/natesales/q)
+* [eph-beta](https://github.com/ephemeralfiles/eph-beta)
 
 Tests:
 
