@@ -2,7 +2,7 @@
 
 - name: Check kor version
   become: false
-  ansible.builtin.shell: "set -o pipefail && kor version --template '{{ '{{' }} .Version {{ '}}' }}'"
+  ansible.builtin.shell: "set -o pipefail && kor version | awk -F':' '{print $2 }' | sed 's#^ v##g'"
   args:
     executable: /bin/bash
   register: kor_version_installed
@@ -16,6 +16,9 @@
   check_mode: false
 
 - name: Install kor
+  when:
+    - not ansible_check_mode
+    - kor_version_installed.stdout != kor_version
   block:
     - name: Create temporary directory
       ansible.builtin.file:
@@ -41,6 +44,3 @@
       ansible.builtin.file:
         path: "{{ kor_tmp_directory }}/{{ kor_os }}-{{ kor_arch }}"
         state: absent
-  when:
-    - not ansible_check_mode
-    - kor_version_installed.stdout != kor_version
