@@ -1,7 +1,7 @@
 ---
 
 # "pet" version to install
-pet_version: "0.6.1"
+pet_version: "0.7.0"
 pet_bin_path: "/usr/local/bin"
 pet_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 pet_os: "linux"
