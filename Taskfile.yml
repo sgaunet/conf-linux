@@ -8,6 +8,12 @@ tasks:
     cmds:
       - task -a
 
+  prereq:
+    desc: "install prerequisites"
+    cmds:
+      - ansible-galaxy install -r requirements-collections.yml
+      - ansible-galaxy install -r requirements-roles.yml
+
   linter:
     desc: "execute linter"
     cmds:
