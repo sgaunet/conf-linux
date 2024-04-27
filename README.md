@@ -122,6 +122,7 @@ Development:
 * [tbls](https://github.com/k1LoW/tbls)
 * [delta](https://github.com/dandavison/delta)
 * [act](https://github.com/nektos/act)
+* [jwt-cli](https://github.com/sgaunet/jwt-cli)
 
 Linux tools :
 

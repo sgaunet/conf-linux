@@ -240,3 +240,7 @@
       tags: q
     - role: ephbeta
       tags: ephbeta
+    # - role: freeze
+    #   tags: freeze
+    - role: sgaunet.jwt_cli
+      tags: jwt_cli
