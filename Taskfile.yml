@@ -14,6 +14,12 @@ tasks:
       - ansible-galaxy install -r requirements-collections.yml
       - ansible-galaxy install -r requirements-roles.yml
 
+  upgrade-prereq:
+    desc: "upgrade prerequisites"
+    cmds:
+      - ansible-galaxy install --force -r requirements-collections.yml
+      - ansible-galaxy install --force -r requirements-roles.yml
+
   linter:
     desc: "execute linter"
     cmds:
