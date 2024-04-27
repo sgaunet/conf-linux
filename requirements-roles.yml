@@ -2,3 +2,6 @@
 # ansible-galaxy role install -r requirements-roles.yml
 # Install a role from the Ansible Galaxy
 - src: sgaunet.jwt_cli
+- src: sgaunet.task
+- src: sgaunet.zellij
+- src: sgaunet.gum

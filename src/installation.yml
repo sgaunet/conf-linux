@@ -116,7 +116,7 @@
       tags: pet
     - role: usql
       tags: usql
-    - role: gum
+    - role: sgaunet.gum
       tags: gum
     - role: golangcilint
       tags: golangcilint
