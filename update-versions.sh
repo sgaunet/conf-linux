@@ -89,8 +89,8 @@ seekUpdateAndUpdate antonmedv/fx src/roles/fx  fx_version
 seekUpdateAndUpdate wtetsu/gaze src/roles/gaze  gaze_version
 seekUpdateAndUpdate dundee/gdu src/roles/gdu gdu_version
 seekUpdateAndUpdate sgaunet/gini src/roles/gini gini_version
-seekUpdateAndUpdate sgaunet/gitlab-issue-report src/roles/gitlab_issue_report/ gitlabissuereport_version
-seekUpdateAndUpdate sgaunet/gitlab-stats src/roles/gitlab_stats/ gitlabstats_version
+seekUpdateAndUpdate sgaunet/gitlab-issue-report src/roles/gitlab_issue_report/ gitlab_issue_report_version
+seekUpdateAndUpdate sgaunet/gitlab-stats src/roles/gitlab_stats/ gitlab_stats_version
 seekUpdateAndUpdate gitleaks/gitleaks src/roles/gitleaks gitleaks_version
 seekUpdateAndUpdate charmbracelet/glow src/roles/glow glow_version
 seekUpdateAndUpdate google/go-containerregistry src/roles/gocontainerregistry gocontainerregistry_version
@@ -117,7 +117,7 @@ seekUpdateAndUpdate kluctl/kluctl src/roles/kluctl kluctl_version
 seekUpdateAndUpdate yonahd/kor src/roles/kor kor_version
 seekUpdateAndUpdate kubernetes-sigs/krew src/roles/krew krew_version
 seekUpdateAndUpdate robscott/kube-capacity src/roles/kubecapacity kubecapacity_version
-seekUpdateAndUpdate NimbleArchitect/kubectl-ice src/roles/kubectl_ice kubectlice_version
+seekUpdateAndUpdate NimbleArchitect/kubectl-ice src/roles/kubectl_ice kubectl_ice_version
 seekUpdateAndUpdate stackrox/kube-linter src/roles/kube_linter kube_linter_version
 seekUpdateAndUpdate ahmetb/kubectx src/roles/kubectx kubectx_version
 seekUpdateAndUpdate ahmetb/kubectx src/roles/kubectx kubens_version
@@ -129,13 +129,13 @@ seekUpdateAndUpdate sgaunet/mdtohtml src/roles/mdtohtml mdtohtml_version
 seekUpdateAndUpdate matryer/moq src/roles/moq moq_version
 seekUpdateAndUpdate raviqqe/muffet src/roles/muffet muffet_version
 seekUpdateAndUpdate goreleaser/nfpm src/roles/nfpm nfpm_version
-seekUpdateAndUpdate google/osv-scanner src/roles/osv_scanner osvscanner_version
+seekUpdateAndUpdate google/osv-scanner src/roles/osv_scanner osv_scanner_version
 seekUpdateAndUpdate sharkdp/pastel src/roles/pastel pastel_version
 seekUpdateAndUpdate knqyf263/pet src/roles/pet pet_version
 seekUpdateAndUpdate sosedoff/pgweb src/roles/pgweb pgweb_version
-seekUpdateAndUpdate pre-commit/pre-commit src/roles/pre_commit precommit_version
+seekUpdateAndUpdate pre-commit/pre-commit src/roles/pre_commit pre_commit_version
 seekUpdateAndUpdate derailed/popeye src/roles/popeye popeye_version
-seekUpdateAndUpdate natesales/q src/roles/qqq q_version
+seekUpdateAndUpdate natesales/q src/roles/qqq qqq_version
 seekUpdateAndUpdate sgaunet/retry src/roles/retry retry_version
 seekUpdateAndUpdate peak/s5cmd src/roles/s5cmd s5cmd_version
 seekUpdateAndUpdate boyter/scc src/roles/scc scc_version
@@ -153,7 +153,6 @@ seekUpdateAndUpdate xo/usql src/roles/usql usql_version
 seekUpdateAndUpdate charmbracelet/vhs src/roles/vhs vhs_version
 seekUpdateAndUpdate ovh/venom src/roles/venom venom_version
 seekUpdateAndUpdate sachaos/viddy src/roles/viddy viddy_version
-seekUpdateAndUpdate grafana/xk6-dashboard src/roles/xk6-dashboard xk6_version
 seekUpdateAndUpdate helmfile/vals src/roles/vals vals_version
 seekUpdateAndUpdate mikefarah/yq src/roles/yq yq_version
 seekUpdateAndUpdate zellij-org/zellij    src/roles/zellij     zellij_version
