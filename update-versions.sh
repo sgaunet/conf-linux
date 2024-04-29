@@ -98,7 +98,6 @@ seekUpdateAndUpdate sgaunet/gocrypt src/roles/gocrypt gocrypt_version
 seekUpdateAndUpdate rfjakob/gocryptfs src/roles/gocryptfs gocryptfs_version
 seekUpdateAndUpdate golangci/golangci-lint src/roles/golangcilint golangcilint_version
 seekUpdateAndUpdate goreleaser/goreleaser src/roles/goreleaser goreleaser_version
-seekUpdateAndUpdate charmbracelet/gum src/roles/gum gum_version
 seekUpdateAndUpdate hadolint/hadolint        src/roles/hadolint       hadolint_version
 seekUpdateAndUpdate helm/helm        src/roles/helm       helm_version
 seekUpdateAndUpdate sgaunet/helmchart-helper src/roles/helmchart_helper helmchart_helper_version
@@ -142,7 +141,6 @@ seekUpdateAndUpdate boyter/scc src/roles/scc scc_version
 seekUpdateAndUpdate sqlc-dev/sqlc src/roles/sqlc sqlc_version
 seekUpdateAndUpdate starship/starship src/roles/starship starship_version
 seekUpdateAndUpdate stern/stern src/roles/stern stern_version
-seekUpdateAndUpdate go-task/task         src/roles/task       task_version
 seekUpdateAndUpdate k1LoW/tbls src/roles/tbls tbls_version
 seekUpdateAndUpdate dbrgn/tealdeer src/roles/tealdeer tealdeer_version
 seekUpdateAndUpdate aquasecurity/trivy src/roles/trivy trivy_version
@@ -155,7 +153,6 @@ seekUpdateAndUpdate ovh/venom src/roles/venom venom_version
 seekUpdateAndUpdate sachaos/viddy src/roles/viddy viddy_version
 seekUpdateAndUpdate helmfile/vals src/roles/vals vals_version
 seekUpdateAndUpdate mikefarah/yq src/roles/yq yq_version
-seekUpdateAndUpdate zellij-org/zellij    src/roles/zellij     zellij_version
 seekUpdateAndUpdate bvaisvil/zenith src/roles/zenith zenith_version
 
 # TODO
