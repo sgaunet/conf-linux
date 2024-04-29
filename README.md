@@ -157,6 +157,7 @@ Linux tools :
 * [sshx](https://github.com/ekzhang/sshx)
 * [q](https://github.com/natesales/q)
 * [eph-beta](https://github.com/ephemeralfiles/eph-beta)
+* [freeze](https://github.com/charmbracelet/freeze)
 
 Tests:
 

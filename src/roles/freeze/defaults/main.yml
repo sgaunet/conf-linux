@@ -1,0 +1,7 @@
+---
+
+freeze_version: "0.1.6"
+freeze_bin_path: "/usr/local/bin"
+freeze_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
+freeze_os: "Linux"
+freeze_arch: "x86_64"

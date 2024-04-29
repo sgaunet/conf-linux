@@ -1,0 +1,49 @@
+---
+
+- name: Check freeze version
+  become: false
+  ansible.builtin.shell: "set -o pipefail && freeze -v  | cut -d' ' -f3 | sed 's#v##g'"
+  args:
+    executable: /bin/bash
+  register: freeze_version_client_installed
+  changed_when: false
+  failed_when: false
+  check_mode: false
+
+- name: Check freeze version # noqa command-instead-of-shell
+  ansible.builtin.shell: '/bin/true'
+  changed_when: freeze_version_client_installed.stdout != freeze_version
+  check_mode: false
+
+# - debug:
+#     var: freeze_version_client_installed.stdout
+
+- name: Install freeze
+  when:
+    - not ansible_check_mode
+    - freeze_version != freeze_version_client_installed.stdout
+  block:
+    - name: Create a directory if it does not exist
+      ansible.builtin.file:
+        path: "{{ freeze_tmp_directory }}/{{ freeze_os }}-{{ freeze_arch }}/"
+        state: directory
+        mode: '0755'
+
+    - name: Download and unarchive freeze
+      ansible.builtin.unarchive:
+        src: "https://github.com/charmbracelet/freeze/releases/download/v{{ freeze_version }}/freeze_{{ freeze_version }}_{{ freeze_os }}_{{ freeze_arch }}.tar.gz"
+        dest: "{{ freeze_tmp_directory }}/{{ freeze_os }}-{{ freeze_arch }}/"
+        remote_src: true
+        mode: "0755"
+
+    - name: Copy file with owner and permissions
+      ansible.builtin.copy:
+        src: "{{ freeze_tmp_directory }}/{{ freeze_os }}-{{ freeze_arch }}/freeze_{{ freeze_version }}_{{ freeze_os }}_{{ freeze_arch }}/freeze"
+        dest: "{{ freeze_bin_path }}/freeze"
+        mode: '0755'
+        remote_src: true
+
+    - name: Clean temporary directory
+      ansible.builtin.file:
+        state: absent
+        path: "{{ freeze_tmp_directory }}/{{ freeze_os }}-{{ freeze_arch }}"
