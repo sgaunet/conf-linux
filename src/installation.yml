@@ -70,7 +70,7 @@
       tags: task
     - role: kfilt
       tags: kfilt
-    - role: zellij
+    - role: sgaunet.zellij
       tags: zellij
     - role: yq
       tags: yq
