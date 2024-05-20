@@ -83,7 +83,6 @@ seekUpdateAndUpdate bootandy/dust src/roles/dust  dust_version
 seekUpdateAndUpdate eksctl-io/eksctl src/roles/eksctl  eksctl_version
 seekUpdateAndUpdate sgaunet/ekspodlogs src/roles/ekspodlogs  ekspodlogs_version
 seekUpdateAndUpdate sgaunet/envtemplate src/roles/envtemplate  envtemplate_version
-seekUpdateAndUpdate ogham/exa src/roles/exa  exa_version
 seekUpdateAndUpdate sharkdp/fd src/roles/fd  fd_version
 seekUpdateAndUpdate antonmedv/fx src/roles/fx  fx_version
 seekUpdateAndUpdate wtetsu/gaze src/roles/gaze  gaze_version

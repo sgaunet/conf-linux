@@ -122,8 +122,6 @@
       tags: golangcilint
     - role: muffet
       tags: muffet
-    - role: exa
-      tags: exa
     - role: bat
       tags: bat
     - role: bash_formatter
@@ -244,3 +242,9 @@
       tags: freeze
     - role: sgaunet.jwt_cli
       tags: jwt_cli
+  tasks:
+    - name: "Install lsd"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "lsd.yml"
+      tags: lsd

@@ -136,7 +136,6 @@ Linux tools :
 * [gocrypt](https://github.com/sgaunet/gocrypt)
 * [pet](https://github.com/knqyf263/pet)
 * [usql](https://github.com/xo/usql)
-* [exa](https://github.com/ogham/exa)
 * [bat](https://github.com/sharkdp/bat)
 * [vivid](https://github.com/sharkdp/vivid)
 * [viddy](https://github.com/sachaos/viddy)
@@ -158,6 +157,7 @@ Linux tools :
 * [q](https://github.com/natesales/q)
 * [eph-beta](https://github.com/ephemeralfiles/eph-beta)
 * [freeze](https://github.com/charmbracelet/freeze)
+* [lsd]https://github.com/lsd-rs/lsd)
 
 Tests:
 

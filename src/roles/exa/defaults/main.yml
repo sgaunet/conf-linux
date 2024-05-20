@@ -1,8 +1,0 @@
----
-
-# "exa" version to install
-exa_version: "0.10.1"
-exa_bin_path: "/usr/local/bin"
-exa_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
-exa_os: "linux"
-exa_arch: "x86_64"
