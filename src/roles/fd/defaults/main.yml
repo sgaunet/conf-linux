@@ -1,7 +1,7 @@
 ---
 
 # "fd" version to install
-fd_version: "9.0.0"
+fd_version: "10.1.0"
 fd_bin_path: "/usr/local/bin"
 fd_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 fd_os: "unknown-linux-gnu"
