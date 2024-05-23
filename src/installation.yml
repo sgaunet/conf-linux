@@ -70,8 +70,6 @@
       tags: task
     - role: kfilt
       tags: kfilt
-    - role: sgaunet.zellij
-      tags: zellij
     - role: yq
       tags: yq
     - role: gdu
@@ -248,3 +246,8 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "lsd.yml"
       tags: lsd
+    - name: "Install zellij"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "zellij.yml"
+      tags: zellij
