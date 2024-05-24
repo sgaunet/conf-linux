@@ -1,7 +1,7 @@
 ---
 
 # "kind" version to install
-kind_version: "0.22.0"
+kind_version: "0.23.0"
 kind_bin_path: "/usr/local/bin/kind"
 kind_os: "linux"
 kind_arch: "amd64"
