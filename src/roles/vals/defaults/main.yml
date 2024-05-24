@@ -1,6 +1,6 @@
 ---
 
-vals_version: "0.37.0"
+vals_version: "0.37.1"
 vals_bin_path: "/usr/local/bin"
 vals_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 vals_os: "linux"
