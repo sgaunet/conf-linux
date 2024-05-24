@@ -79,7 +79,6 @@ seekUpdateAndUpdate terrastruct/d2       src/roles/d2         d2_version
 seekUpdateAndUpdate TomWright/dasel      src/roles/dasel      dasel_version
 seekUpdateAndUpdate dandavison/delta       src/roles/delta      delta_version
 seekUpdateAndUpdate wagoodman/dive src/roles/dive dive_version
-seekUpdateAndUpdate bootandy/dust src/roles/dust  dust_version
 seekUpdateAndUpdate eksctl-io/eksctl src/roles/eksctl  eksctl_version
 seekUpdateAndUpdate sgaunet/ekspodlogs src/roles/ekspodlogs  ekspodlogs_version
 seekUpdateAndUpdate sgaunet/envtemplate src/roles/envtemplate  envtemplate_version

@@ -126,7 +126,6 @@ Development:
 
 Linux tools :
 
-* [dust](https://github.com/bootandy/dust)
 * [bottom](https://github.com/ClementTsang/bottom/)
 * [zellij](https://github.com/zellij-org/zellij)
 * [gdu](https://github.com/dundee/gdu)
