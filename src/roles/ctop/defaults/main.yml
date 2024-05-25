@@ -1,8 +1,0 @@
----
-
-# "ctop" version to install
-ctop_version: "0.7.7"
-ctop_bin_path: "/usr/local/bin"
-ctop_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
-ctop_os: "linux"
-ctop_arch: "amd64"

@@ -140,7 +140,6 @@ Linux tools :
 * [fd](https://github.com/sharkdp/fd)
 * [tealdeer](https://github.com/dbrgn/tealdeer)
 * [s5cmd](https://github.com/peak/s5cmd)
-* [ctop](https://github.com/bcicen/ctop)
 * [vhs](https://github.com/charmbracelet/vhs)
 * [ttyd](https://github.com/tsl0922/ttyd) - dependency for vhs
 * [gini](https://github.com/sgaunet/gini)

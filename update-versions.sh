@@ -73,7 +73,6 @@ seekUpdateAndUpdate docker/buildx        src/roles/buildx     buildx_version  # 
 seekUpdateAndUpdate sgaunet/calcdate     src/roles/calcdate   calcdate_version
 seekUpdateAndUpdate goreleaser/chglog    src/roles/chglog     chglog_version
 seekUpdateAndUpdate concourse/concourse  src/roles/concourse  concourse_version
-seekUpdateAndUpdate bcicen/ctop          src/roles/ctop       ctop_version
 seekUpdateAndUpdate terrastruct/d2       src/roles/d2         d2_version
 seekUpdateAndUpdate TomWright/dasel      src/roles/dasel      dasel_version
 seekUpdateAndUpdate dandavison/delta       src/roles/delta      delta_version
