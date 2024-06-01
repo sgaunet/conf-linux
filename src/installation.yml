@@ -44,8 +44,6 @@
       tags: krew_plugins
     - role: hadolint
       tags: hadolint
-    - role: dockle
-      tags: dockle
     - role: eksctl
       tags: eksctl
     - role: peek
