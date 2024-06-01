@@ -58,8 +58,6 @@
       tags: httping
     - role: mdtohtml
       tags: mdtohtml
-    - role: goreleaser
-      tags: goreleaser
     - role: sgaunet.task
       tags: task
     - role: kfilt
@@ -240,3 +238,8 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "gum.yml"
       tags: gum
+    - name: "Install goreleaser"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "goreleaser.yml"
+      tags: goreleaser

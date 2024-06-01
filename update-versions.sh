@@ -90,7 +90,6 @@ seekUpdateAndUpdate google/go-containerregistry src/roles/gocontainerregistry go
 seekUpdateAndUpdate sgaunet/gocrypt src/roles/gocrypt gocrypt_version
 seekUpdateAndUpdate rfjakob/gocryptfs src/roles/gocryptfs gocryptfs_version
 seekUpdateAndUpdate golangci/golangci-lint src/roles/golangcilint golangcilint_version
-seekUpdateAndUpdate goreleaser/goreleaser src/roles/goreleaser goreleaser_version
 seekUpdateAndUpdate hadolint/hadolint        src/roles/hadolint       hadolint_version
 seekUpdateAndUpdate helm/helm        src/roles/helm       helm_version
 seekUpdateAndUpdate sgaunet/helmchart-helper src/roles/helmchart_helper helmchart_helper_version
