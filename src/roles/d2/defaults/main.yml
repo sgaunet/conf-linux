@@ -1,8 +1,0 @@
----
-
-# "d2" version to install
-d2_version: "0.6.5"
-d2_bin_path: "/usr/local/bin"
-d2_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
-d2_os: "linux"
-d2_arch: "amd64"

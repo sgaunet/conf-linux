@@ -148,8 +148,6 @@
       tags: gini
     - role: terraform
       tags: terraform
-    - role: d2
-      tags: d2
     - role: envtemplate
       tags: envtemplate
     # - role: grypev2
@@ -258,3 +256,8 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "chglog.yml"
       tags: chglog
+    - name: "Install d2"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "d2.yml"
+      tags: d2
