@@ -80,7 +80,6 @@ seekUpdateAndUpdate wagoodman/dive src/roles/dive dive_version
 seekUpdateAndUpdate eksctl-io/eksctl src/roles/eksctl  eksctl_version
 seekUpdateAndUpdate sgaunet/ekspodlogs src/roles/ekspodlogs  ekspodlogs_version
 seekUpdateAndUpdate sgaunet/envtemplate src/roles/envtemplate  envtemplate_version
-seekUpdateAndUpdate sharkdp/fd src/roles/fd  fd_version
 seekUpdateAndUpdate antonmedv/fx src/roles/fx  fx_version
 seekUpdateAndUpdate dundee/gdu src/roles/gdu gdu_version
 seekUpdateAndUpdate sgaunet/gini src/roles/gini gini_version

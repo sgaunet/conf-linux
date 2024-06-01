@@ -135,7 +135,6 @@ Linux tools :
 * [bat](https://github.com/sharkdp/bat)
 * [vivid](https://github.com/sharkdp/vivid)
 * [viddy](https://github.com/sachaos/viddy)
-* [fd](https://github.com/sharkdp/fd)
 * [tealdeer](https://github.com/dbrgn/tealdeer)
 * [s5cmd](https://github.com/peak/s5cmd)
 * [vhs](https://github.com/charmbracelet/vhs)
