@@ -206,8 +206,6 @@
       tags: ephbeta
     - role: freeze
       tags: freeze
-    - role: sgaunet.jwt_cli
-      tags: jwt_cli
   tasks:
     - name: "Install lsd"
       ansible.builtin.import_role:
@@ -264,3 +262,8 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "eksctl.yml"
       tags: eksctl
+    - name: "Install jwt-cli"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "jwt-cli.yml"
+      tags: jwt-cli
