@@ -1,8 +1,0 @@
----
-
-# "osvscanner" version to install
-osv_scanner_version: "1.7.0"
-osv_scanner_bin_path: "/usr/local/bin"
-osv_scanner_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
-osv_scanner_os: "linux"
-osv_scanner_arch: "amd64"

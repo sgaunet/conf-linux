@@ -1,8 +1,0 @@
----
-- name: Converge
-  hosts: all
-  become: true
-  tasks:
-    - name: "Include apps.osv_scanner"
-      ansible.builtin.include_role:
-        name: "apps.osv_scanner"

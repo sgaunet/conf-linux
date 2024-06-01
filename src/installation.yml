@@ -152,8 +152,6 @@
       tags: fx
     - role: gini
       tags: gini
-    - role: osv_scanner
-      tags: osv_scanner
     - role: terraform
       tags: terraform
     - role: d2
@@ -243,3 +241,8 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "goreleaser.yml"
       tags: goreleaser
+    - name: "Install osv-scanner"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "osv-scanner.yml"
+      tags: osv-scanner
