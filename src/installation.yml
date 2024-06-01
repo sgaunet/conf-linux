@@ -56,8 +56,6 @@
       tags: httping
     - role: mdtohtml
       tags: mdtohtml
-    - role: sgaunet.task
-      tags: task
     - role: kfilt
       tags: kfilt
     - role: yq
@@ -267,3 +265,8 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "jwt-cli.yml"
       tags: jwt-cli
+    - name: "Install task"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "task.yml"
+      tags: task
