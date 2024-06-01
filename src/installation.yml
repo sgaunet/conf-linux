@@ -44,8 +44,6 @@
       tags: krew_plugins
     - role: hadolint
       tags: hadolint
-    - role: eksctl
-      tags: eksctl
     - role: peek
       tags: peek
     - role: kind
@@ -261,3 +259,8 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "d2.yml"
       tags: d2
+    - name: "Install eksctl"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "eksctl.yml"
+      tags: eksctl

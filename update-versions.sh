@@ -69,11 +69,9 @@ fi
 seekUpdateAndUpdate nektos/act     src/roles/act  act_version
 seekUpdateAndUpdate docker/buildx        src/roles/buildx     buildx_version  # No way
 seekUpdateAndUpdate concourse/concourse  src/roles/concourse  concourse_version
-seekUpdateAndUpdate terrastruct/d2       src/roles/d2         d2_version
 seekUpdateAndUpdate TomWright/dasel      src/roles/dasel      dasel_version
 seekUpdateAndUpdate dandavison/delta       src/roles/delta      delta_version
 seekUpdateAndUpdate wagoodman/dive src/roles/dive dive_version
-seekUpdateAndUpdate eksctl-io/eksctl src/roles/eksctl  eksctl_version
 seekUpdateAndUpdate sgaunet/ekspodlogs src/roles/ekspodlogs  ekspodlogs_version
 seekUpdateAndUpdate sgaunet/envtemplate src/roles/envtemplate  envtemplate_version
 seekUpdateAndUpdate antonmedv/fx src/roles/fx  fx_version

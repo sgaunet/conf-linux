@@ -1,7 +1,0 @@
----
-
-eksctl_version: "0.178.0"
-eksctl_bin_path: "/usr/local/bin"
-eksctl_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
-eksctl_os: "Linux"
-eksctl_arch: "amd64"
