@@ -196,8 +196,6 @@
       tags: pgweb
     - role: tbls
       tags: tbls
-    - role: glow
-      tags: glow
     - role: helmchart_helper
       tags: helmchart_helper
     - role: zenith

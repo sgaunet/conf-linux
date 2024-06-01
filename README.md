@@ -73,7 +73,6 @@ For markdown :
 
 For Docker :
 
-* [dockle](https://github.com/goodwithtech/dockle)
 * [hadolint](https://github.com/hadolint/hadolint)
 * [docker buildx](https://github.com/docker/buildx)
 * [grype](https://github.com/anchore/grype)
@@ -146,7 +145,6 @@ Linux tools :
 * [envtemplate](https://github.com/sgaunet/envtemplate)
 * [calcdate](https://github.com/sgaunet/calcdate)
 * [gocryptfs](https://github.com/rfjakob/gocryptfs)
-* [glow](https://github.com/charmbracelet/glow)
 * [zenith](https://github.com/bvaisvil/zenith)
 * [retry](https://github.com/sgaunet/retry)
 * [tspin](https://github.com/bensadeh/tailspin)

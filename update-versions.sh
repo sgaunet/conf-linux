@@ -88,7 +88,6 @@ seekUpdateAndUpdate sgaunet/gini src/roles/gini gini_version
 seekUpdateAndUpdate sgaunet/gitlab-issue-report src/roles/gitlab_issue_report/ gitlab_issue_report_version
 seekUpdateAndUpdate sgaunet/gitlab-stats src/roles/gitlab_stats/ gitlab_stats_version
 seekUpdateAndUpdate gitleaks/gitleaks src/roles/gitleaks gitleaks_version
-seekUpdateAndUpdate charmbracelet/glow src/roles/glow glow_version
 seekUpdateAndUpdate google/go-containerregistry src/roles/gocontainerregistry gocontainerregistry_version
 seekUpdateAndUpdate sgaunet/gocrypt src/roles/gocrypt gocrypt_version
 seekUpdateAndUpdate rfjakob/gocryptfs src/roles/gocryptfs gocryptfs_version
