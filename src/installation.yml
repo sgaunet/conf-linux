@@ -154,8 +154,6 @@
       tags: d2
     - role: envtemplate
       tags: envtemplate
-    - role: calcdate
-      tags: calcdate
     # - role: grypev2
     #   tags: grypev2
     # - role: github_version
@@ -252,3 +250,8 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "bandwhich.yml"
       tags: bandwhich
+    - name: "Install calcdate"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "calcdate.yml"
+      tags: calcdate

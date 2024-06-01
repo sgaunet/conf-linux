@@ -68,7 +68,6 @@ fi
 
 seekUpdateAndUpdate nektos/act     src/roles/act  act_version
 seekUpdateAndUpdate docker/buildx        src/roles/buildx     buildx_version  # No way
-seekUpdateAndUpdate sgaunet/calcdate     src/roles/calcdate   calcdate_version
 seekUpdateAndUpdate goreleaser/chglog    src/roles/chglog     chglog_version
 seekUpdateAndUpdate concourse/concourse  src/roles/concourse  concourse_version
 seekUpdateAndUpdate terrastruct/d2       src/roles/d2         d2_version
