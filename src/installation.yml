@@ -136,8 +136,6 @@
       tags: scc
     - role: kubectl_ice
       tags: kubectl_ice
-    - role: gaze
-      tags: gaze
     - role: kubefwd
       tags: kubefwd
     - role: trufflehog

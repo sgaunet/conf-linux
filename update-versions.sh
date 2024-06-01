@@ -82,7 +82,6 @@ seekUpdateAndUpdate sgaunet/ekspodlogs src/roles/ekspodlogs  ekspodlogs_version
 seekUpdateAndUpdate sgaunet/envtemplate src/roles/envtemplate  envtemplate_version
 seekUpdateAndUpdate sharkdp/fd src/roles/fd  fd_version
 seekUpdateAndUpdate antonmedv/fx src/roles/fx  fx_version
-seekUpdateAndUpdate wtetsu/gaze src/roles/gaze  gaze_version
 seekUpdateAndUpdate dundee/gdu src/roles/gdu gdu_version
 seekUpdateAndUpdate sgaunet/gini src/roles/gini gini_version
 seekUpdateAndUpdate sgaunet/gitlab-issue-report src/roles/gitlab_issue_report/ gitlab_issue_report_version

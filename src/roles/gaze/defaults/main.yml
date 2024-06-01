@@ -1,8 +1,0 @@
----
-
-# "gaze" version to install
-gaze_version: "1.1.6"
-gaze_bin_path: "/usr/local/bin"
-gaze_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
-gaze_os: "linux"
-gaze_arch: "x86_64"
