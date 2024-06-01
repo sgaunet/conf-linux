@@ -1,8 +1,0 @@
----
-
-# "bat" version to install
-bat_version: "0.24.0"
-bat_bin_path: "/usr/local/bin"
-bat_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
-bat_os: "unknown-linux-musl"
-bat_arch: "x86_64"

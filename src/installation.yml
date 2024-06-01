@@ -108,8 +108,6 @@
       tags: golangcilint
     - role: muffet
       tags: muffet
-    - role: bat
-      tags: bat
     - role: bash_formatter
       tags: bash_formatter
     - role: vscode_extensions
@@ -246,3 +244,8 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "osv-scanner.yml"
       tags: osv-scanner
+    - name: "Install bat"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "bat.yml"
+      tags: bat
