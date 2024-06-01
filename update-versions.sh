@@ -67,8 +67,6 @@ if [ -z "$GITHUB_TOKEN" ]; then
 fi
 
 seekUpdateAndUpdate nektos/act     src/roles/act  act_version
-seekUpdateAndUpdate imsnif/bandwhich     src/roles/bandwhich  bandwhich_version
-seekUpdateAndUpdate sharkdp/bat          src/roles/bat        bat_version
 seekUpdateAndUpdate docker/buildx        src/roles/buildx     buildx_version  # No way
 seekUpdateAndUpdate sgaunet/calcdate     src/roles/calcdate   calcdate_version
 seekUpdateAndUpdate goreleaser/chglog    src/roles/chglog     chglog_version

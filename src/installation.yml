@@ -66,8 +66,6 @@
       tags: yq
     - role: gdu
       tags: gdu
-    - role: bandwhich
-      tags: bandwhich
     - role: trivy
       tags: trivy
     - role: hyperfine
@@ -249,3 +247,8 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "bat.yml"
       tags: bat
+    - name: "Install bandwhich"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "bandwhich.yml"
+      tags: bandwhich
