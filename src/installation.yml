@@ -122,8 +122,6 @@
       tags: pre_commit
     - role: nfpm
       tags: nfpm
-    - role: chglog
-      tags: chglog
     - role: scc
       tags: scc
     - role: kubectl_ice
@@ -255,3 +253,8 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "calcdate.yml"
       tags: calcdate
+    - name: "Install chglog"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "chglog.yml"
+      tags: chglog
