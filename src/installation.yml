@@ -58,8 +58,6 @@
       tags: popeye
     - role: httping
       tags: httping
-    - role: bottom
-      tags: bottom
     - role: mdtohtml
       tags: mdtohtml
     - role: goreleaser
@@ -82,8 +80,6 @@
       tags: buildx
     - role: venom
       tags: venom
-    - role: ctop
-      tags: ctop
     - role: ekspodlogs
       tags: ekspodlogs
     - role: gocrypt
@@ -112,8 +108,6 @@
       tags: pet
     - role: usql
       tags: usql
-    - role: sgaunet.gum
-      tags: gum
     - role: golangcilint
       tags: golangcilint
     - role: muffet
@@ -249,3 +243,8 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "zellij.yml"
       tags: zellij
+    - name: "Install gum"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "gum.yml"
+      tags: gum
