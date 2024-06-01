@@ -118,8 +118,6 @@
       tags: vscode_extensions
     - role: vivid
       tags: vivid
-    - role: fd
-      tags: fd
     - role: tealdeer
       tags: tealdeer
     - role: kconf
