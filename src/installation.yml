@@ -54,8 +54,6 @@
       tags: httping
     - role: mdtohtml
       tags: mdtohtml
-    - role: kfilt
-      tags: kfilt
     - role: yq
       tags: yq
     - role: gdu
@@ -273,3 +271,8 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "kind.yml"
       tags: kind
+    - name: "Install kfilt"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "kfilt.yml"
+      tags: kfilt
