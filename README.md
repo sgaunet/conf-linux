@@ -111,7 +111,6 @@ Development:
 * [gum](https://github.com/charmbracelet/gum)
 * [nfpm](https://nfpm.goreleaser.com/)
 * [chglog](https://github.com/goreleaser/chglog)
-* [scc](https://github.com/boyter/scc)
 * [trufflehog](https://github.com/trufflesecurity/trufflehog)
 * [fx](https://github.com/antonmedv/fx)
 * [osv-scanner](https://github.com/google/osv-scanner)
