@@ -1,8 +1,0 @@
----
-- name: Converge
-  hosts: all
-  become: true
-  tasks:
-    - name: "Include apps.vhs"
-      ansible.builtin.include_role:
-        name: "apps.vhs"

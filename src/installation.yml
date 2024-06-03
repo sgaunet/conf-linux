@@ -126,8 +126,6 @@
       tags: kubent
     - role: tmux
       tags: tmux
-    - role: vhs
-      tags: vhs
     - role: pastel
       tags: pastel
     - role: kluctl
@@ -276,3 +274,8 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "kfilt.yml"
       tags: kfilt
+    - name: "Install vhs"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "vhs.yml"
+      tags: vhs
