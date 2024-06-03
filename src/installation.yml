@@ -132,8 +132,6 @@
       tags: kubescape
     - role: fx
       tags: fx
-    - role: gini
-      tags: gini
     - role: terraform
       tags: terraform
     - role: envtemplate
@@ -280,3 +278,8 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "moq.yml"
       tags: moq
+    - name: "Install gini"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "gini.yml"
+      tags: gini
