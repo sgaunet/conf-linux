@@ -46,8 +46,6 @@
       tags: hadolint
     - role: peek
       tags: peek
-    - role: kind
-      tags: kind
     - role: stern
       tags: stern
     - role: popeye
@@ -270,3 +268,8 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "task.yml"
       tags: task
+    - name: "Install kind"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "kind.yml"
+      tags: kind
