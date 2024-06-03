@@ -154,8 +154,6 @@
       tags: concourse
     - role: dasel
       tags: dasel
-    - role: moq
-      tags: moq
     - role: gocryptfs
       tags: gocryptfs
     - role: gocontainerregistry
@@ -277,3 +275,8 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "vhs.yml"
       tags: vhs
+    - name: "Install moq"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "moq.yml"
+      tags: moq"
