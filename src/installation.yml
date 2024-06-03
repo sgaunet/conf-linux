@@ -279,4 +279,4 @@
       ansible.builtin.import_role:
         name: "sgaunet.gh_role_installer"
         defaults_from: "moq.yml"
-      tags: moq"
+      tags: moq
