@@ -114,8 +114,6 @@
       tags: pre_commit
     - role: nfpm
       tags: nfpm
-    - role: scc
-      tags: scc
     - role: kubectl_ice
       tags: kubectl_ice
     - role: kubefwd
