@@ -64,8 +64,6 @@
       tags: hyperfine
     - role: buildx
       tags: buildx
-    - role: venom
-      tags: venom
     - role: ekspodlogs
       tags: ekspodlogs
     - role: gocrypt
@@ -289,3 +287,8 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "usql.yml"
       tags: usql
+    - name: "Install venom"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "venom.yml"
+      tags: venom
