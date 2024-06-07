@@ -92,8 +92,6 @@
       tags: gitlab_stats
     - role: pet
       tags: pet
-    - role: usql
-      tags: usql
     - role: golangcilint
       tags: golangcilint
     - role: muffet
@@ -286,3 +284,8 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "helmchart-helper.yml"
       tags: helmchart-helper
+    - name: "Install usql"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "usql.yml"
+      tags: usql
