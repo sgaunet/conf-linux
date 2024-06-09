@@ -78,8 +78,6 @@
       tags: gitconfig
     - role: dive
       tags: dive
-    - role: sqlc
-      tags: sqlc
     - role: glab
       tags: glab
     - role: viddy
@@ -298,3 +296,8 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "vals.yml"
       tags: vals
+    - name: "Install sqlc"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "sqlc.yml"
+      tags: sqlc
