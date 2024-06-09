@@ -1,8 +1,0 @@
----
-- name: Converge
-  hosts: all
-  become: true
-  tasks:
-    - name: "Include apps.pre_commit"
-      ansible.builtin.include_role:
-        name: "apps.pre_commit"

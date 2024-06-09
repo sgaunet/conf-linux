@@ -106,8 +106,6 @@
       tags: kconf
     - role: starship
       tags: starship
-    - role: pre_commit
-      tags: pre_commit
     - role: nfpm
       tags: nfpm
     - role: kubectl_ice
@@ -292,3 +290,8 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "venom.yml"
       tags: venom
+    - name: "Install pre-commit"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "pre-commit.yml"
+      tags: pre-commit
