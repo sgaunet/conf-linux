@@ -176,8 +176,6 @@
       tags: act
     - role: kubeshark
       tags: kubeshark
-    - role: vals
-      tags: vals
     - role: qqq
       tags: q
     - role: ephbeta
@@ -295,3 +293,8 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "pre-commit.yml"
       tags: pre-commit
+    - name: "Install vals"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "vals.yml"
+      tags: vals
