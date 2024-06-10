@@ -152,8 +152,6 @@
       tags: tbls
     - role: zenith
       tags: zenith
-    - role: delta
-      tags: delta
     - role: retry
       tags: retry
     - role: tspin
@@ -307,3 +305,8 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "dasel.yml"
       tags: dasel
+    - name: "Install delta"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "delta.yml"
+      tags: delta
