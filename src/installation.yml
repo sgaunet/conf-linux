@@ -52,8 +52,6 @@
       tags: httping
     - role: mdtohtml
       tags: mdtohtml
-    - role: yq
-      tags: yq
     - role: gdu
       tags: gdu
     - role: trivy
@@ -313,3 +311,8 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "k6.yml"
       tags: k6
+    - name: "Install yq"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "yq.yml"
+      tags: yq
