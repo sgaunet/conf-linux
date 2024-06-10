@@ -1,7 +1,0 @@
----
-
-k6_version: "0.51.0"
-k6_bin_path: "/usr/local/bin"
-k6_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
-k6_os: "linux"
-k6_arch: "amd64"

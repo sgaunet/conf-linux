@@ -134,8 +134,6 @@
       tags: rclone
     - role: gitlab_vars
       tags: gitlab_vars
-    - role: k6
-      tags: k6
     - role: glab
       tags: glab
     - role: concourse
@@ -310,3 +308,8 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "delta.yml"
       tags: delta
+    - name: "Install k6"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "k6.yml"
+      tags: k6
