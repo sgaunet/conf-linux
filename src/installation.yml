@@ -18,12 +18,6 @@
       tags: kube
     - role: kubectx
       tags: kubectx
-    - role: helm
-      tags: helm
-    - role: helmdocs
-      tags: helm
-    - role: helmfile
-      tags: helm
     - role: kube_ps1
       vars:
         kube_ps1_bash_install: true
@@ -320,3 +314,18 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "k9s.yml"
       tags: k9s
+    - name: "Install helm"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "helm.yml"
+      tags: helm
+    - name: "Install helmfile"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "helmfile.yml"
+      tags: helmfile
+    - name: "Install helmdocs"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "helmdocs.yml"
+      tags: helmdocs
