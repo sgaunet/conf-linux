@@ -46,8 +46,6 @@
       tags: peek
     - role: stern
       tags: stern
-    - role: popeye
-      tags: popeye
     - role: httping
       tags: httping
     - role: mdtohtml
@@ -316,3 +314,8 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "yq.yml"
       tags: yq
+    - name: "Install popeye"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "popeye.yml"
+      tags: popeye
