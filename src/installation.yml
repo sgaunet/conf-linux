@@ -16,8 +16,6 @@
       tags: vscode
     - role: kubectl
       tags: kube
-    - role: kubecapacity
-      tags: kubecapacity
     - role: kubectx
       tags: kubectx
     - role: helm
@@ -301,3 +299,8 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "sqlc.yml"
       tags: sqlc
+    - name: "Install kube-capacity"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "kube-capacity.yml"
+      tags: kube-capacity
