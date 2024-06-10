@@ -140,8 +140,6 @@
       tags: glab
     - role: concourse
       tags: concourse
-    - role: dasel
-      tags: dasel
     - role: gocryptfs
       tags: gocryptfs
     - role: gocontainerregistry
@@ -304,3 +302,8 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "kube-capacity.yml"
       tags: kube-capacity
+    - name: "Install dasel"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "dasel.yml"
+      tags: dasel
