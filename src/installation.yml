@@ -32,10 +32,6 @@
       tags: krew
       vars:
         krew_bash_install: true
-    - role: k9s
-      tags: k9s
-    # - role: k3s
-    #   tags: k3s
     - role: alias
       tags: alias
     - role: krew_plugins
@@ -319,3 +315,8 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "popeye.yml"
       tags: popeye
+    - name: "Install k9s"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "k9s.yml"
+      tags: k9s
