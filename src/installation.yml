@@ -68,8 +68,6 @@
       tags: gitlab_issue_report
     - role: gitlab_stats
       tags: gitlab_stats
-    - role: pet
-      tags: pet
     - role: golangcilint
       tags: golangcilint
     - role: muffet
@@ -332,3 +330,8 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "gocrypt.yml"
       tags: gocrypt
+    - name: "Install pet"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "pet.yml"
+      tags: pet
