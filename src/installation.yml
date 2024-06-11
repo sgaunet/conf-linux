@@ -124,8 +124,6 @@
       tags: gocryptfs
     - role: gocontainerregistry
       tags: gocontainerregistry
-    - role: pgweb
-      tags: pgweb
     - role: tbls
       tags: tbls
     - role: zenith
@@ -341,3 +339,8 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "kor.yml"
       tags: kor
+    - name: "Install pgweb"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "pgweb.yml"
+      tags: pgweb

@@ -1,8 +1,0 @@
----
-
-# "pgweb" version to install
-pgweb_version: "0.15.0"
-pgweb_bin_path: "/usr/local/bin"
-pgweb_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
-pgweb_os: "linux"
-pgweb_arch: "amd64"
