@@ -50,8 +50,6 @@
       tags: buildx
     - role: ekspodlogs
       tags: ekspodlogs
-    - role: gocrypt
-      tags: gocrypt
     - role: grype
       tags: grype
     - role: gitleaks
@@ -329,3 +327,8 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "helmdocs.yml"
       tags: helmdocs
+    - name: "Install gocrypt"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "gocrypt.yml"
+      tags: gocrypt

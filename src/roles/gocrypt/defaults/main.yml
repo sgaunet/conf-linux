@@ -1,8 +1,0 @@
----
-
-# "gocrypt" version to install
-gocrypt_version: "1.5.0"
-gocrypt_bin_path: "/usr/local/bin"
-gocrypt_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
-gocrypt_os: "linux"
-gocrypt_arch: "amd64"
