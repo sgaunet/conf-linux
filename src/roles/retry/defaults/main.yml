@@ -1,8 +1,0 @@
----
-
-# "retry" version to install
-retry_version: "0.1.0"
-retry_bin_path: "/usr/local/bin"
-retry_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
-retry_os: "linux"
-retry_arch: "amd64"

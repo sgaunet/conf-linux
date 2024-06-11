@@ -132,8 +132,6 @@
       tags: tbls
     - role: zenith
       tags: zenith
-    - role: retry
-      tags: retry
     - role: tspin
       tags: tspin
     - role: jiracli
@@ -335,3 +333,8 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "pet.yml"
       tags: pet
+    - name: "Install retry"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "retry.yml"
+      tags: retry
