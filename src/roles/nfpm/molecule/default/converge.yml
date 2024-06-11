@@ -1,8 +1,0 @@
----
-- name: Converge
-  hosts: all
-  become: true
-  tasks:
-    - name: "Include apps.nfpm"
-      ansible.builtin.include_role:
-        name: "apps.nfpm"

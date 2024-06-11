@@ -84,8 +84,6 @@
       tags: kconf
     - role: starship
       tags: starship
-    - role: nfpm
-      tags: nfpm
     - role: kubectl_ice
       tags: kubectl_ice
     - role: kubefwd
@@ -344,3 +342,8 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "pgweb.yml"
       tags: pgweb
+    - name: "Install nfpm"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "nfpm.yml"
+      tags: nfpm

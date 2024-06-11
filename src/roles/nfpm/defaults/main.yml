@@ -1,8 +1,0 @@
----
-
-# "nfpm" version to install
-nfpm_version: "2.37.1"
-nfpm_bin_path: "/usr/local/bin"
-nfpm_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
-nfpm_os: "Linux"
-nfpm_arch: "x86_64"
