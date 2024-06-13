@@ -1,7 +1,0 @@
----
-
-tealdeer_version: "1.6.1"
-tealdeer_bin_path: "/usr/local/bin"
-tealdeer_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
-tealdeer_os: "linux"
-tealdeer_arch: "x86_64-musl"
