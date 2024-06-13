@@ -1,7 +1,0 @@
----
-
-muffet_version: "2.10.1"
-muffet_bin_path: "/usr/local/bin"
-muffet_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
-muffet_os: "linux"
-muffet_arch: "amd64"

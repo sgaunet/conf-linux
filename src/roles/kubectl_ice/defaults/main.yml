@@ -1,8 +1,0 @@
----
-
-# "kubectlice" version to install
-kubectl_ice_version: "0.2.12"
-kubectl_ice_bin_path: "/usr/local/bin"
-kubectl_ice_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
-kubectl_ice_os: "linux"
-kubectl_ice_arch: "amd64"

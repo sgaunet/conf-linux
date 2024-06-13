@@ -58,8 +58,6 @@
       tags: gitlab_stats
     - role: golangcilint
       tags: golangcilint
-    - role: muffet
-      tags: muffet
     - role: bash_formatter
       tags: bash_formatter
     - role: vscode_extensions
@@ -70,8 +68,6 @@
       tags: kconf
     - role: starship
       tags: starship
-    - role: kubectl_ice
-      tags: kubectl_ice
     - role: kubefwd
       tags: kubefwd
     - role: trufflehog
@@ -386,3 +382,13 @@
         name: sgaunet.gh_role_installer
         defaults_from: tealdeer.yml
       tags: tealdeer
+    - name: "Install muffet"
+      ansible.builtin.include_role:
+        name: sgaunet.gh_role_installer
+        defaults_from: muffet.yml
+      tags: muffet
+    - name: "Install kubectl-ice"
+      ansible.builtin.include_role:
+        name: sgaunet.gh_role_installer
+        defaults_from: kubectl-ice.yml
+      tags: kubectl-ice
