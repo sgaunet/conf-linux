@@ -1,7 +1,0 @@
----
-
-# "hadolint" version to install
-hadolint_version: "2.12.0"
-hadolint_bin_path: "/usr/local/bin"
-hadolint_os: "linux"
-hadolint_arch: "x86_64"

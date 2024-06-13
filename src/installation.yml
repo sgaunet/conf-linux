@@ -30,28 +30,16 @@
       tags: alias
     - role: krew_plugins
       tags: krew_plugins
-    - role: hadolint
-      tags: hadolint
     - role: peek
       tags: peek
-    - role: stern
-      tags: stern
     - role: httping
       tags: httping
-    - role: mdtohtml
-      tags: mdtohtml
-    - role: gdu
-      tags: gdu
     - role: trivy
       tags: trivy
     - role: hyperfine
       tags: hyperfine
     - role: buildx
       tags: buildx
-    - role: ekspodlogs
-      tags: ekspodlogs
-    - role: grype
-      tags: grype
     - role: gitleaks
       tags: gitleaks
     - role: s5cmd
@@ -347,3 +335,33 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "nfpm.yml"
       tags: nfpm
+    - name: "Install hadolint"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "hadolint.yml"
+      tags: hadolint
+    - name: "Install stern"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "stern.yml"
+      tags: stern
+    - name: "Install mdtohtml"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "mdtohtml.yml"
+      tags: mdtohtml
+    - name: "Install gdu"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "gdu.yml"
+      tags: gdu
+    - name: "Install ekspodlogs"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "ekspodlogs.yml"
+      tags: ekspodlogs
+    - name: "Install grype"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "grype.yml"
+      tags: grype
