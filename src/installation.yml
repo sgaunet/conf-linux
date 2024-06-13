@@ -66,8 +66,6 @@
       tags: vscode_extensions
     - role: vivid
       tags: vivid
-    - role: tealdeer
-      tags: tealdeer
     - role: kconf
       tags: kconf
     - role: starship
@@ -108,8 +106,6 @@
       tags: concourse
     - role: gocryptfs
       tags: gocryptfs
-    - role: tbls
-      tags: tbls
     - role: zenith
       tags: zenith
     - role: tspin
@@ -380,3 +376,13 @@
         name: sgaunet.gh_role_installer
         defaults_from: q.yml
       tags: q
+    - name: "Install tbls"
+      ansible.builtin.include_role:
+        name: sgaunet.gh_role_installer
+        defaults_from: tbls.yml
+      tags: tbls
+    - name: "Install tealdeer"
+      ansible.builtin.include_role:
+        name: sgaunet.gh_role_installer
+        defaults_from: tealdeer.yml
+      tags: tealdeer
