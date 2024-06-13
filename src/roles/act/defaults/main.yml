@@ -1,7 +1,0 @@
----
-
-act_version: "0.2.62"
-act_bin_path: "/usr/local/bin"
-act_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
-act_os: "Linux"
-act_arch: "x86_64"

@@ -124,10 +124,6 @@
       tags: sshx
     - role: kube_linter
       tags: kube_linter
-    - role: act
-      tags: act
-    - role: kubeshark
-      tags: kubeshark
     - role: qqq
       tags: q
     - role: ephbeta
@@ -365,3 +361,13 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "grype.yml"
       tags: grype
+    - name: "Install act"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "act.yml"
+      tags: act
+    - name: "Install kubeshark"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "kubeshark.yml"
+      tags: kubeshark
