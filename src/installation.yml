@@ -88,10 +88,6 @@
       tags: terraform
     - role: envtemplate
       tags: envtemplate
-    # - role: grypev2
-    #   tags: grypev2
-    # - role: github_version
-    #   tags: github_version
     - role: rclone
       tags: rclone
     - role: gitlab_vars
