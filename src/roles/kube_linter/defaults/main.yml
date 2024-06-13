@@ -1,7 +1,0 @@
----
-
-# "kube_linter" version to install
-kube_linter_version: "0.6.8"
-kube_linter_bin_path: "/usr/local/bin"
-kube_linter_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
-kube_linter_os: "linux"

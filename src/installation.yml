@@ -108,8 +108,6 @@
       tags: concourse
     - role: gocryptfs
       tags: gocryptfs
-    - role: gocontainerregistry
-      tags: gocontainerregistry
     - role: tbls
       tags: tbls
     - role: zenith
@@ -122,10 +120,6 @@
       tags: kustomize
     - role: sshx
       tags: sshx
-    - role: kube_linter
-      tags: kube_linter
-    - role: qqq
-      tags: q
     - role: ephbeta
       tags: ephbeta
     - role: freeze
@@ -371,3 +365,18 @@
         name: "sgaunet.gh_role_installer"
         defaults_from: "kubeshark.yml"
       tags: kubeshark
+    - name: "Install kube-linter"
+      ansible.builtin.import_role:
+        name: "sgaunet.gh_role_installer"
+        defaults_from: "kube-linter.yml"
+      tags: kube-linter
+    - name: "Install crane"
+      ansible.builtin.include_role:
+        name: sgaunet.gh_role_installer
+        defaults_from: crane.yml
+      tags: crane
+    - name: "Install q"
+      ansible.builtin.include_role:
+        name: sgaunet.gh_role_installer
+        defaults_from: q.yml
+      tags: q
