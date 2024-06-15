@@ -40,10 +40,6 @@
       tags: gitconfig
     - role: glab
       tags: glab
-    - role: gitlab_issue_report
-      tags: gitlab_issue_report
-    - role: gitlab_stats
-      tags: gitlab_stats
     - role: bash_formatter
       tags: bash_formatter
     - role: vscode_extensions
