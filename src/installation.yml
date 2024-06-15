@@ -32,62 +32,30 @@
       tags: krew_plugins
     - role: peek
       tags: peek
-    - role: httping
-      tags: httping
-    - role: trivy
-      tags: trivy
-    - role: hyperfine
-      tags: hyperfine
     - role: buildx
       tags: buildx
-    - role: gitleaks
-      tags: gitleaks
     - role: s5cmd
       tags: s5cmd
     - role: gitconfig
       tags: gitconfig
-    - role: dive
-      tags: dive
     - role: glab
       tags: glab
-    - role: viddy
-      tags: viddy
     - role: gitlab_issue_report
       tags: gitlab_issue_report
     - role: gitlab_stats
       tags: gitlab_stats
-    - role: golangcilint
-      tags: golangcilint
     - role: bash_formatter
       tags: bash_formatter
     - role: vscode_extensions
       tags: vscode_extensions
-    - role: vivid
-      tags: vivid
-    - role: kconf
-      tags: kconf
     - role: starship
       tags: starship
-    - role: kubefwd
-      tags: kubefwd
-    - role: trufflehog
-      tags: trufflehog
-    - role: kubent
-      tags: kubent
     - role: tmux
       tags: tmux
-    - role: pastel
-      tags: pastel
     - role: kluctl
       tags: kluctl
-    - role: kubescape
-      tags: kubescape
-    - role: fx
-      tags: fx
     - role: terraform
       tags: terraform
-    - role: envtemplate
-      tags: envtemplate
     - role: rclone
       tags: rclone
     - role: gitlab_vars
@@ -96,16 +64,8 @@
       tags: glab
     - role: concourse
       tags: concourse
-    - role: gocryptfs
-      tags: gocryptfs
-    - role: zenith
-      tags: zenith
-    - role: tspin
-      tags: tspin
     - role: jiracli
       tags: jiracli
-    - role: kustomize
-      tags: kustomize
     - role: sshx
       tags: sshx
     - role: ephbeta
@@ -388,3 +348,113 @@
         name: sgaunet.gh_role_installer
         defaults_from: kubectl-ice.yml
       tags: kubectl-ice
+    - name: "Install dive"
+      ansible.builtin.include_role:
+        name: sgaunet.gh_role_installer
+        defaults_from: dive.yml
+      tags: dive
+    - name: "Install envtemplate"
+      ansible.builtin.include_role:
+        name: sgaunet.gh_role_installer
+        defaults_from: envtemplate.yml
+      tags: envtemplate
+    - name: "Install tspin"
+      ansible.builtin.include_role:
+        name: sgaunet.gh_role_installer
+        defaults_from: tspin.yml
+      tags: tspin
+    - name: "Install gocryptfs"
+      ansible.builtin.include_role:
+        name: sgaunet.gh_role_installer
+        defaults_from: gocryptfs.yml
+      tags: gocryptfs
+    - name: "Install kubescape"
+      ansible.builtin.include_role:
+        name: sgaunet.gh_role_installer
+        defaults_from: kubescape.yml
+      tags: kubescape
+    - name: "Install kubent"
+      ansible.builtin.include_role:
+        name: sgaunet.gh_role_installer
+        defaults_from: kubent.yml
+      tags: kubent
+    - name: "Install tspin"
+      ansible.builtin.include_role:
+        name: sgaunet.gh_role_installer
+        defaults_from: tspin.yml
+      tags: tspin
+    - name: "Install fx"
+      ansible.builtin.include_role:
+        name: sgaunet.gh_role_installer
+        defaults_from: fx.yml
+      tags: fx
+    - name: "Install httping-go"
+      ansible.builtin.include_role:
+        name: sgaunet.gh_role_installer
+        defaults_from: httping-go.yml
+      tags: httping-go
+    - name: "Install gitleaks"
+      ansible.builtin.include_role:
+        name: sgaunet.gh_role_installer
+        defaults_from: gitleaks.yml
+      tags: gitleaks
+    - name: "Install golangci-lint"
+      ansible.builtin.include_role:
+        name: sgaunet.gh_role_installer
+        defaults_from: golangci-lint.yml
+      tags: golangci-lint
+    - name: "Install vivid"
+      ansible.builtin.include_role:
+        name: sgaunet.gh_role_installer
+        defaults_from: vivid.yml
+      tags: vivid
+    - name: "Install zenith"
+      ansible.builtin.include_role:
+        name: sgaunet.gh_role_installer
+        defaults_from: zenith.yml
+      tags: zenith
+    - name: "Install kubefwd"
+      ansible.builtin.include_role:
+        name: sgaunet.gh_role_installer
+        defaults_from: kubefwd.yml
+      tags: kubefwd
+    - name: "Install kconf"
+      ansible.builtin.include_role:
+        name: sgaunet.gh_role_installer
+        defaults_from: kconf.yml
+      tags: kconf
+    - name: "Install pastel"
+      ansible.builtin.include_role:
+        name: sgaunet.gh_role_installer
+        defaults_from: pastel.yml
+      tags: pastel
+    - name: "Install hyperfine"
+      ansible.builtin.include_role:
+        name: sgaunet.gh_role_installer
+        defaults_from: hyperfine.yml
+      tags: hyperfine
+    - name: "Install viddy"
+      ansible.builtin.include_role:
+        name: sgaunet.gh_role_installer
+        defaults_from: viddy.yml
+      tags: viddy
+    - name: "Install trivy"
+      ansible.builtin.include_role:
+        name: sgaunet.gh_role_installer
+        defaults_from: trivy.yml
+      tags: trivy
+    - name: "Install trufflehog"
+      ansible.builtin.include_role:
+        name: sgaunet.gh_role_installer
+        defaults_from: trufflehog.yml
+      tags: trufflehog
+    - name: "Install gitlab-stats"
+      ansible.builtin.include_role:
+        name: sgaunet.gh_role_installer
+        defaults_from: gitlab-stats.yml
+      tags: gitlab-stats
+    - name: "Install gitlab-issue-report"
+      ansible.builtin.include_role:
+        name: sgaunet.gh_role_installer
+        defaults_from: gitlab-issue-report.yml
+      tags: gitlab-issue-report
