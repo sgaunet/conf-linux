@@ -1,8 +1,0 @@
----
-
-# "zenith" version to install
-zenith_version: "0.14.1"
-zenith_bin_path: "/usr/local/bin"
-zenith_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
-zenith_os: "unknown-linux-musl"
-zenith_arch: "x86_64"

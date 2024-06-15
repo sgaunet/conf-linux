@@ -1,7 +1,0 @@
----
-
-httping_version: "0.4.2"
-httping_bin_path: "/usr/local/bin"
-httping_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
-httping_os: "Linux"
-httping_arch: "x86_64"

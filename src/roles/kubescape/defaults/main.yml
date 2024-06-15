@@ -1,7 +1,0 @@
----
-
-# "kubescape" version to install
-kubescape_version: "3.0.10"
-kubescape_bin_path: "/usr/local/bin"
-kubescape_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
-kubescape_os: "ubuntu"

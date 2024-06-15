@@ -1,8 +1,0 @@
----
-- name: Converge
-  hosts: all
-  become: true
-  tasks:
-    - name: "Include apps.gitlab_stats"
-      ansible.builtin.include_role:
-        name: "apps.gitlab_stats"

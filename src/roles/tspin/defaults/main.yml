@@ -1,8 +1,0 @@
----
-
-# "tspin" version to install
-tspin_version: "3.0.1"
-tspin_bin_path: "/usr/local/bin"
-tspin_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
-tspin_os: "unknown-linux-musl"
-tspin_arch: "x86_64"

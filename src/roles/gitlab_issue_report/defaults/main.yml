@@ -1,8 +1,0 @@
----
-
-# "gitlab_issue_report" version to install
-gitlab_issue_report_version: "0.1.0"
-gitlab_issue_report_bin_path: "/usr/local/bin"
-gitlab_issue_report_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
-gitlab_issue_report_os: "linux"
-gitlab_issue_report_arch: "amd64"

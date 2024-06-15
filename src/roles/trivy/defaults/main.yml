@@ -1,5 +1,0 @@
----
-
-trivy_version: "0.51.2"
-trivy_os: "Linux"
-trivy_arch: "64bit"
