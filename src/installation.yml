@@ -20,10 +20,6 @@
       vars:
         kube_ps1_bash_install: true
       tags: prompt
-    - role: krew
-      tags: krew
-      vars:
-        krew_bash_install: true
     - role: alias
       tags: alias
     - role: krew_plugins
