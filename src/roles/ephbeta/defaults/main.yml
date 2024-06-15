@@ -1,8 +1,0 @@
----
-
-# "ephbeta" version to install
-ephbeta_version: "0.1.0-beta1"
-ephbeta_bin_path: "/usr/local/bin"
-ephbeta_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
-ephbeta_os: "linux"
-ephbeta_arch: "amd64"

@@ -16,8 +16,6 @@
       tags: vscode
     - role: kubectl
       tags: kube
-    - role: kubectx
-      tags: kubectx
     - role: kube_ps1
       vars:
         kube_ps1_bash_install: true
@@ -34,8 +32,6 @@
       tags: peek
     - role: buildx
       tags: buildx
-    - role: s5cmd
-      tags: s5cmd
     - role: gitconfig
       tags: gitconfig
     - role: glab
@@ -48,26 +44,14 @@
       tags: starship
     - role: tmux
       tags: tmux
-    - role: kluctl
-      tags: kluctl
     - role: terraform
       tags: terraform
     - role: rclone
       tags: rclone
-    - role: gitlab_vars
-      tags: gitlab_vars
     - role: glab
       tags: glab
-    - role: concourse
-      tags: concourse
-    - role: jiracli
-      tags: jiracli
     - role: sshx
       tags: sshx
-    - role: ephbeta
-      tags: ephbeta
-    - role: freeze
-      tags: freeze
   tasks:
     - name: "Install lsd"
       ansible.builtin.import_role:
@@ -454,3 +438,38 @@
         name: sgaunet.gh_role_installer
         defaults_from: gitlab-issue-report.yml
       tags: gitlab-issue-report
+    - name: "Install s5cmd"
+      ansible.builtin.include_role:
+        name: sgaunet.gh_role_installer
+        defaults_from: s5cmd.yml
+      tags: s5cmd
+    - name: "Install jiracli"
+      ansible.builtin.include_role:
+        name: sgaunet.gh_role_installer
+        defaults_from: jiracli.yml
+      tags: jiracli
+    - name: "Install concourse"
+      ansible.builtin.include_role:
+        name: sgaunet.gh_role_installer
+        defaults_from: concourse.yml
+      tags: concourse
+    - name: "Install ttyd"
+      ansible.builtin.include_role:
+        name: sgaunet.gh_role_installer
+        defaults_from: ttyd.yml
+      tags: ttyd
+    - name: "Install kubectx"
+      ansible.builtin.include_role:
+        name: sgaunet.gh_role_installer
+        defaults_from: kubectx.yml
+      tags: kubectx
+    - name: "Install krew"
+      ansible.builtin.include_role:
+        name: sgaunet.gh_role_installer
+        defaults_from: krew.yml
+      tags: krew
+    - name: "Install gitlab-vars"
+      ansible.builtin.include_role:
+        name: sgaunet.gh_role_installer
+        defaults_from: gitlab-vars.yml
+      tags: gitlab-vars

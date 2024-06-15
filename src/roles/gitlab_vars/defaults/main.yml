@@ -1,8 +1,0 @@
----
-
-# "gitlab_vars" version to install
-gitlab_vars_version: "0.1.0"
-gitlab_vars_bin_path: "/usr/local/bin"
-gitlab_vars_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
-gitlab_vars_os: "linux"
-gitlab_vars_arch: "amd64"

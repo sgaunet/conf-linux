@@ -1,8 +1,0 @@
----
-
-# "jiracli" version to install
-jiracli_version: "1.5.1"
-jiracli_bin_path: "/usr/local/bin"
-jiracli_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
-jiracli_os: "linux"
-jiracli_arch: "x86_64"

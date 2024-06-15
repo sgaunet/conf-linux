@@ -1,9 +1,0 @@
----
-
-kubectx_kubens_version: "0.9.5"
-kubectx_kubens_arch: "linux_x86_64"
-kubectx_kubens_bin_path: /usr/local/bin
-kubectx_version: "0.9.5"
-kubectx_arch: "linux_x86_64"
-kubectx_bin_path: /usr/local/bin
-kubens_version: 0.9.5
