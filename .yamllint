@@ -1,5 +1,0 @@
----
-extends: default
-
-skip_list:
-    yaml[line-length]

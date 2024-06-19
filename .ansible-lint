@@ -1,0 +1,10 @@
+---
+skip_list:
+  - yaml[line-length]
+  - yaml[comments]
+  - name[template]
+  - meta-no-info
+  - yaml[line-length]
+  - package-latest
+  - latest[git]
+  - experimental
