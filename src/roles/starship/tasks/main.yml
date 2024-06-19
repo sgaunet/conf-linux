@@ -79,4 +79,3 @@
       ansible.builtin.lineinfile:
         path: "{{ lookup('env', 'HOME') }}/.bashrc"
         line: 'eval "$(starship init bash)"'
-      # when: bash_install

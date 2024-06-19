@@ -22,6 +22,3 @@
     dest: "{{ sshx_bin_path }}"
     remote_src: true
     mode: "0755"
-  # when:
-  #   - not ansible_check_mode
-  #   - sshx_version != sshx_version_client_installed.stdout
