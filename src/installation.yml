@@ -469,3 +469,8 @@
         name: sgaunet.gh_role_installer
         defaults_from: gitlab-vars.yml
       tags: gitlab-vars
+    - name: "Install devpod"
+      ansible.builtin.include_role:
+        name: sgaunet.gh_role_installer
+        defaults_from: devpod.yml
+      tags: devpod
