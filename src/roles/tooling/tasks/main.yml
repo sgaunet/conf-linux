@@ -1,0 +1,211 @@
+---
+
+- name: "Install lsd"
+  ansible.builtin.import_role:
+    name: "sgaunet.gh_role_installer"
+    defaults_from: "lsd.yml"
+  tags: lsd
+
+- name: "Install zellij"
+  ansible.builtin.import_role:
+    name: "sgaunet.gh_role_installer"
+    defaults_from: "zellij.yml"
+  tags: zellij
+
+- name: "Install gum"
+  ansible.builtin.import_role:
+    name: "sgaunet.gh_role_installer"
+    defaults_from: "gum.yml"
+  tags: gum
+
+- name: "Install bat"
+  ansible.builtin.import_role:
+    name: "sgaunet.gh_role_installer"
+    defaults_from: "bat.yml"
+  tags: bat
+
+- name: "Install bandwhich"
+  ansible.builtin.import_role:
+    name: "sgaunet.gh_role_installer"
+    defaults_from: "bandwhich.yml"
+  tags: bandwhich
+
+- name: "Install calcdate"
+  ansible.builtin.import_role:
+    name: "sgaunet.gh_role_installer"
+    defaults_from: "calcdate.yml"
+  tags: calcdate
+
+- name: "Install ttyd"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    defaults_from: ttyd.yml
+  tags: ttyd
+
+- name: "Install vhs"
+  ansible.builtin.import_role:
+    name: "sgaunet.gh_role_installer"
+    defaults_from: "vhs.yml"
+  tags: vhs
+
+- name: "Install gini"
+  ansible.builtin.import_role:
+    name: "sgaunet.gh_role_installer"
+    defaults_from: "gini.yml"
+  tags: gini
+
+- name: "Install dasel"
+  ansible.builtin.import_role:
+    name: "sgaunet.gh_role_installer"
+    defaults_from: "dasel.yml"
+  tags: dasel
+
+- name: "Install delta"
+  ansible.builtin.import_role:
+    name: "sgaunet.gh_role_installer"
+    defaults_from: "delta.yml"
+  tags: delta
+
+- name: "Install yq"
+  ansible.builtin.import_role:
+    name: "sgaunet.gh_role_installer"
+    defaults_from: "yq.yml"
+  tags: yq
+
+- name: "Install gocrypt"
+  ansible.builtin.import_role:
+    name: "sgaunet.gh_role_installer"
+    defaults_from: "gocrypt.yml"
+  tags: gocrypt
+
+- name: "Install retry"
+  ansible.builtin.import_role:
+    name: "sgaunet.gh_role_installer"
+    defaults_from: "retry.yml"
+  tags: retry
+
+- name: "Install mdtohtml"
+  ansible.builtin.import_role:
+    name: "sgaunet.gh_role_installer"
+    defaults_from: "mdtohtml.yml"
+  tags: mdtohtml
+
+- name: "Install gdu"
+  ansible.builtin.import_role:
+    name: "sgaunet.gh_role_installer"
+    defaults_from: "gdu.yml"
+  tags: gdu
+
+- name: "Install crane"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    defaults_from: crane.yml
+  tags: crane
+
+- name: "Install q"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    defaults_from: q.yml
+  tags: q
+
+- name: "Install tealdeer"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    defaults_from: tealdeer.yml
+  tags: tealdeer
+
+- name: "Install muffet"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    defaults_from: muffet.yml
+  tags: muffet
+
+- name: "Install envtemplate"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    defaults_from: envtemplate.yml
+  tags: envtemplate
+
+- name: "Install tspin"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    defaults_from: tspin.yml
+  tags: tspin
+
+- name: "Install gocryptfs"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    defaults_from: gocryptfs.yml
+  tags: gocryptfs
+
+- name: "Install tspin"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    defaults_from: tspin.yml
+  tags: tspin
+
+- name: "Install fx"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    defaults_from: fx.yml
+  tags: fx
+
+- name: "Install httping-go"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    defaults_from: httping-go.yml
+  tags: httping-go
+
+- name: "Install vivid"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    defaults_from: vivid.yml
+  tags: vivid
+
+- name: "Install zenith"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    defaults_from: zenith.yml
+  tags: zenith
+
+- name: "Install hyperfine"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    defaults_from: hyperfine.yml
+  tags: hyperfine
+
+- name: "Install viddy"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    defaults_from: viddy.yml
+  tags: viddy
+
+- name: "Install gitlab-stats"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    defaults_from: gitlab-stats.yml
+  tags: gitlab-stats
+
+- name: "Install gitlab-issue-report"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    defaults_from: gitlab-issue-report.yml
+  tags: gitlab-issue-report
+
+- name: "Install gitlab-vars"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    defaults_from: gitlab-vars.yml
+  tags: gitlab-vars
+
+- name: "Install pastel"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    defaults_from: pastel.yml
+  tags: pastel
+
+- name: "Install s5cmd"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    defaults_from: s5cmd.yml
+  tags: s5cmd
