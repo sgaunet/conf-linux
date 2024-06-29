@@ -120,6 +120,7 @@ Development:
 * [delta](https://github.com/dandavison/delta)
 * [act](https://github.com/nektos/act)
 * [jwt-cli](https://github.com/sgaunet/jwt-cli)
+* [devbox](https://github.com/jetify-com/devbox)
 
 Linux tools :
 
