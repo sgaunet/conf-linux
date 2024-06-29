@@ -131,3 +131,9 @@
     name: sgaunet.gh_role_installer
     defaults_from: golangci-lint.yml
   tags: golangci-lint
+
+- name: "Install devbox"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    defaults_from: devbox.yml
+  tags: devbox
