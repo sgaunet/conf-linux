@@ -221,3 +221,9 @@
     name: sgaunet.gh_role_installer
     defaults_from: yazi.yml
   tags: yazi
+
+- name: "Install lazygit"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    defaults_from: lazygit.yml
+  tags: lazygit
