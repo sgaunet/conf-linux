@@ -209,3 +209,9 @@
     name: sgaunet.gh_role_installer
     defaults_from: s5cmd.yml
   tags: s5cmd
+
+- name: "Install freeze"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    defaults_from: freeze.yml
+  tags: freeze
