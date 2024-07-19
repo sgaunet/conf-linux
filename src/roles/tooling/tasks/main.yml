@@ -215,3 +215,9 @@
     name: sgaunet.gh_role_installer
     defaults_from: freeze.yml
   tags: freeze
+
+- name: "Install yazi"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    defaults_from: yazi.yml
+  tags: yazi
