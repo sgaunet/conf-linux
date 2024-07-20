@@ -54,3 +54,5 @@
       tags: tooling
     - role: devops
       tags: devops
+    - role: direnv
+      tags: direnv

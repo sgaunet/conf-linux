@@ -1,0 +1,11 @@
+---
+
+- name: "Install direnv"
+  ansible.builtin.import_role:
+    name: "sgaunet.gh_role_installer"
+    defaults_from: "direnv.yml"
+
+- name: Add ligne 'eval "$(direnv hook bash)"' to ~/.bashrc
+  ansible.builtin.lineinfile:
+    path: "{{ lookup('env', 'HOME') }}/.bashrc"
+    line: 'eval "$(direnv hook bash)"'
