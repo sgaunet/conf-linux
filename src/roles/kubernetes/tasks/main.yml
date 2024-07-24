@@ -3,137 +3,137 @@
 - name: "Install eksctl"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
-    defaults_from: "eksctl.yml"
+    vars_from: "eksctl.yml"
   tags: eksctl
 
 - name: "Install kind"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
-    defaults_from: "kind.yml"
+    vars_from: "kind.yml"
   tags: kind
 
 - name: "Install kfilt"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
-    defaults_from: "kfilt.yml"
+    vars_from: "kfilt.yml"
   tags: kfilt
 
 - name: "Install vals"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
-    defaults_from: "vals.yml"
+    vars_from: "vals.yml"
   tags: vals
 
 - name: "Install helmchart-helper"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
-    defaults_from: "helmchart-helper.yml"
+    vars_from: "helmchart-helper.yml"
   tags: helmchart-helper
 
 - name: "Install kube-capacity"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
-    defaults_from: "kube-capacity.yml"
+    vars_from: "kube-capacity.yml"
   tags: kube-capacity
 
 - name: "Install popeye"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
-    defaults_from: "popeye.yml"
+    vars_from: "popeye.yml"
   tags: popeye
 
 - name: "Install k9s"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
-    defaults_from: "k9s.yml"
+    vars_from: "k9s.yml"
   tags: k9s
 
 - name: "Install helm"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
-    defaults_from: "helm.yml"
+    vars_from: "helm.yml"
   tags: helm
 
 - name: "Install helmfile"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
-    defaults_from: "helmfile.yml"
+    vars_from: "helmfile.yml"
   tags: helmfile
 
 - name: "Install helmdocs"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
-    defaults_from: "helmdocs.yml"
+    vars_from: "helmdocs.yml"
   tags: helmdocs
 
 - name: "Install kor"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
-    defaults_from: "kor.yml"
+    vars_from: "kor.yml"
   tags: kor
 
 - name: "Install kubeshark"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
-    defaults_from: "kubeshark.yml"
+    vars_from: "kubeshark.yml"
   tags: kubeshark
 
 - name: "Install kube-linter"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
-    defaults_from: "kube-linter.yml"
+    vars_from: "kube-linter.yml"
   tags: kube-linter
 
 - name: "Install stern"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
-    defaults_from: "stern.yml"
+    vars_from: "stern.yml"
   tags: stern
 
 - name: "Install ekspodlogs"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
-    defaults_from: "ekspodlogs.yml"
+    vars_from: "ekspodlogs.yml"
   tags: ekspodlogs
 
 - name: "Install kubectl-ice"
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
-    defaults_from: kubectl-ice.yml
+    vars_from: kubectl-ice.yml
   tags: kubectl-ice
 
 - name: "Install kubescape"
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
-    defaults_from: kubescape.yml
+    vars_from: kubescape.yml
   tags: kubescape
 
 - name: "Install kubent"
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
-    defaults_from: kubent.yml
+    vars_from: kubent.yml
   tags: kubent
 
 - name: "Install kubefwd"
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
-    defaults_from: kubefwd.yml
+    vars_from: kubefwd.yml
   tags: kubefwd
 
 - name: "Install kconf"
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
-    defaults_from: kconf.yml
+    vars_from: kconf.yml
   tags: kconf
 
 - name: "Install kubectx"
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
-    defaults_from: kubectx.yml
+    vars_from: kubectx.yml
   tags: kubectx
 
 - name: "Install krew"
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
-    defaults_from: krew.yml
+    vars_from: krew.yml
   tags: krew

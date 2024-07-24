@@ -3,137 +3,137 @@
 - name: "Install goreleaser"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
-    defaults_from: "goreleaser.yml"
+    vars_from: "goreleaser.yml"
   tags: goreleaser
 
 - name: "Install chglog"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
-    defaults_from: "chglog.yml"
+    vars_from: "chglog.yml"
   tags: chglog
 
 - name: "Install d2"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
-    defaults_from: "d2.yml"
+    vars_from: "d2.yml"
   tags: d2
 
 - name: "Install jwt-cli"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
-    defaults_from: "jwt-cli.yml"
+    vars_from: "jwt-cli.yml"
   tags: jwt-cli
 
 - name: "Install task"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
-    defaults_from: "task.yml"
+    vars_from: "task.yml"
   tags: task
 
 - name: "Install moq"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
-    defaults_from: "moq.yml"
+    vars_from: "moq.yml"
   tags: moq
 
 - name: "Install usql"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
-    defaults_from: "usql.yml"
+    vars_from: "usql.yml"
   tags: usql
 
 - name: "Install venom"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
-    defaults_from: "venom.yml"
+    vars_from: "venom.yml"
   tags: venom
 
 - name: "Install pre-commit"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
-    defaults_from: "pre-commit.yml"
+    vars_from: "pre-commit.yml"
   tags: pre-commit
 
 - name: "Install sqlc"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
-    defaults_from: "sqlc.yml"
+    vars_from: "sqlc.yml"
   tags: sqlc
 
 - name: "Install k6"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
-    defaults_from: "k6.yml"
+    vars_from: "k6.yml"
   tags: k6
 
 - name: "Install pet"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
-    defaults_from: "pet.yml"
+    vars_from: "pet.yml"
   tags: pet
 
 - name: "Install nfpm"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
-    defaults_from: "nfpm.yml"
+    vars_from: "nfpm.yml"
   tags: nfpm
 
 - name: "Install hadolint"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
-    defaults_from: "hadolint.yml"
+    vars_from: "hadolint.yml"
   tags: hadolint
 
 - name: "Install act"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
-    defaults_from: "act.yml"
+    vars_from: "act.yml"
   tags: act
 
 - name: "Install pgweb"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
-    defaults_from: "pgweb.yml"
+    vars_from: "pgweb.yml"
   tags: pgweb
 ############################################
 - name: "Install tbls"
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
-    defaults_from: tbls.yml
+    vars_from: tbls.yml
   tags: tbls
 
 - name: "Install dive"
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
-    defaults_from: dive.yml
+    vars_from: dive.yml
   tags: dive
 
 - name: "Install jiracli"
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
-    defaults_from: jiracli.yml
+    vars_from: jiracli.yml
   tags: jiracli
 
 - name: "Install concourse"
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
-    defaults_from: concourse.yml
+    vars_from: concourse.yml
   tags: concourse
 
 - name: "Install devpod"
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
-    defaults_from: devpod.yml
+    vars_from: devpod.yml
   tags: devpod
 
 - name: "Install golangci-lint"
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
-    defaults_from: golangci-lint.yml
+    vars_from: golangci-lint.yml
   tags: golangci-lint
 
 - name: "Install devbox"
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
-    defaults_from: devbox.yml
+    vars_from: devbox.yml
   tags: devbox

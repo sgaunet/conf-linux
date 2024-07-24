@@ -3,29 +3,29 @@
 - name: "Install trivy"
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
-    defaults_from: trivy.yml
+    vars_from: trivy.yml
   tags: trivy
 
 - name: "Install osv-scanner"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
-    defaults_from: "osv-scanner.yml"
+    vars_from: "osv-scanner.yml"
   tags: osv-scanner
 
 - name: "Install grype"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
-    defaults_from: "grype.yml"
+    vars_from: "grype.yml"
   tags: grype
 
 - name: "Install gitleaks"
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
-    defaults_from: gitleaks.yml
+    vars_from: gitleaks.yml
   tags: gitleaks
 
 - name: "Install trufflehog"
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
-    defaults_from: trufflehog.yml
+    vars_from: trufflehog.yml
   tags: trufflehog
