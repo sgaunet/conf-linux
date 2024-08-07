@@ -137,3 +137,8 @@
     name: sgaunet.gh_role_installer
     vars_from: krew.yml
   tags: krew
+
+- name: "Install kubecm"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    vars_from: kubecm.yml
