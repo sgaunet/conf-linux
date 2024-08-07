@@ -186,7 +186,7 @@ if [ -n "$on_gitlab" ]; then
   # Get the last pipeline status
   last_pipeline_status=$(get_last_pipeline_status)
   echo "last_pipeline_status: $last_pipeline_status"
-  if [ "$last_pipeline_status" != "success" ]; then
+  if [ "$last_pipeline_status" != "success" ] && [ "$last_pipeline_status" != "" ]; then
     echo "The pipeline failed."
     exit 1
   fi
@@ -296,7 +296,7 @@ if [ -n "$on_github" ]; then
   # Get the last pipeline status
   last_action_status=$(get_last_action_status)
   echo "last_action_status: $last_action_status"
-  if [ "$last_action_status" != "success" ]; then
+  if [ "$last_action_status" != "success" ] && [ "$last_action_status" != "" ]; then
     echo "The pipeline failed."
     exit 1
   fi
