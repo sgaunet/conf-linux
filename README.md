@@ -151,6 +151,7 @@ Linux tools :
 * [eph-beta](https://github.com/ephemeralfiles/eph-beta)
 * [freeze](https://github.com/charmbracelet/freeze)
 * [lsd]https://github.com/lsd-rs/lsd)
+* [eza](https://github.com/eza-community/eza)
 
 Tests:
 

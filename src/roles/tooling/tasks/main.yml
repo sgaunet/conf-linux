@@ -227,3 +227,9 @@
     name: sgaunet.gh_role_installer
     vars_from: lazygit.yml
   tags: lazygit
+
+- name: "Install eza"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    vars_from: eza.yml
+  tags: eza
