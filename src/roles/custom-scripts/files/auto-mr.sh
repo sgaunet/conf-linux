@@ -162,16 +162,16 @@ if [ "$rc" -ne 0 ]; then
 fi
 
 # Choose labels for the MR
-labels=$(gum choose --header "Choose labels:" --limit=3 "BUG" "DOC" "FEAT" "INFRA" "MONITORING" "Migration" "SUPPORT" "TEST")
+# labels=$(gum choose --header "Choose labels:" --limit=3 "BUG" "DOC" "FEAT" "INFRA" "MONITORING" "Migration" "SUPPORT" "TEST")
 
 
 if [ -n "$on_gitlab" ]; then
   # convert labels to a string with comma separated values
-  lst_labels=$(echo "$labels" | tr '\n' ',' | sed 's/,$//')
-  echo "lst_labels: $lst_labels"
+  # lst_labels=$(echo "$labels" | tr '\n' ',' | sed 's/,$//')
+  # echo "lst_labels: $lst_labels"
 
   # Create a merge request on gitlab (Link mr with an issue: --related-issue)
-  glab mr create --fill --fill-commit-body --yes -l "${lst_labels}" --squash-before-merge --remove-source-branch --assignee "${assignee_gitlab}" --reviewer "${reviewer_gitlab}"
+  glab mr create --fill --fill-commit-body --yes --squash-before-merge --remove-source-branch --assignee "${assignee_gitlab}" --reviewer "${reviewer_gitlab}" #-l "${lst_labels}"
   rc="$?"
   if [ "$rc" -ne 0 ]; then
     echo "Failed to create a merge request on gitlab."
@@ -270,10 +270,10 @@ fi
 
 if [ -n "$on_github" ]; then
   # convert labels to options for gh pr create command
-  for label in $labels; do
-    lst_labels="${lst_labels} --label ${label}"
-  done
-  echo "lst_labels: $lst_labels"
+  # for label in $labels; do
+  #   lst_labels="${lst_labels} --label ${label}"
+  # done
+  # echo "lst_labels: $lst_labels"
 
   # Create a merge request on github
   gh pr create  --assignee "${assignee_github}" --fill-verbose --reviewer "${reviewer_github}" $lst_labels
