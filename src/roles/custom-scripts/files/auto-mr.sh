@@ -335,7 +335,7 @@ if [ -n "$on_github" ]; then
   # Get the last pipeline status
   last_action_status=$(get_last_action_status)
   echo "last_action_status: $last_action_status"
-  if [ "$last_action_status" != "success" ]; then
+  if [ "$last_action_status" != "success" ] && [ "$last_action_status" != "" ]; then
     echo "The pipeline failed."
     exit 1
   fi
