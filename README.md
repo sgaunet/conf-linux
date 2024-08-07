@@ -152,6 +152,7 @@ Linux tools :
 * [freeze](https://github.com/charmbracelet/freeze)
 * [lsd]https://github.com/lsd-rs/lsd)
 * [eza](https://github.com/eza-community/eza)
+* [zoxide](https://github.com/ajeetdsouza/zoxide)
 
 Tests:
 
