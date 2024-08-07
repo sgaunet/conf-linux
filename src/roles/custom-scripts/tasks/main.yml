@@ -1,0 +1,45 @@
+---
+
+- name: Create directory $HOME/.bin
+  become: false
+  file:
+    path: "{{ lookup('env','HOME') }}/.bin"
+    state: directory
+    mode: '0750'
+
+- name: Copy file with owner and permissions
+  become: false
+  copy:
+    src: "{{ item }}"
+    dest: "{{ lookup('env','HOME') }}/.bin/{{item}}"
+    mode: '0755'
+  with_items:
+    - auto-mr.sh
+
+- name: Check if $HOME/.bashrc
+  become: false
+  stat: 
+    path: "{{ lookup('env','HOME') }}/.bashrc"
+  delegate_to: localhost
+  register: bashrc
+
+- name: Check if $HOME/.zshrc
+  become: false
+  stat: 
+    path: "{{ lookup('env','HOME') }}/.zshrc"
+  delegate_to: localhost
+  register: zshrc
+
+- name: Add to $HOME/.bashrc
+  become: false
+  lineinfile:
+    path: "{{ lookup('env','HOME') }}/.bashrc"
+    line: "export PATH=$HOME/.bin:$PATH"
+  when: bashrc.stat.exists == true
+
+- name: Add to $HOME/.zshrc
+  become: false
+  lineinfile:
+    path: "{{ lookup('env','HOME') }}/.zshrc"
+    line: "export PATH=$HOME/.bin:$PATH"
+  when: zshrc.stat.exists == true
