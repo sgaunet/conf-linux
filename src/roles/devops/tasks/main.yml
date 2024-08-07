@@ -137,3 +137,8 @@
     name: sgaunet.gh_role_installer
     vars_from: devbox.yml
   tags: devbox
+
+- name: "Install gh"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    vars_from: gh.yml
