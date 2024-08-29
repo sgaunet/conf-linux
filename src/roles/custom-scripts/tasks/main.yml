@@ -11,7 +11,21 @@
   become: false
   ansible.builtin.get_url:
     url: "https://raw.githubusercontent.com/sgaunet/misc-scripts/main/src/auto-mr.sh"
-    dest: "{{ lookup('env','HOME') }}/.bin/{{item}}"
+    dest: "{{ lookup('env','HOME') }}/.bin/auto-mr.sh"
+    mode: '0755'
+
+- name: Install script gitreport.sh
+  become: false
+  ansible.builtin.get_url:
+    url: "https://raw.githubusercontent.com/sgaunet/misc-scripts/main/src/gitreport.sh"
+    dest: "{{ lookup('env','HOME') }}/.bin/gitreport.sh"
+    mode: '0755'
+
+- name: Install script gitst.sh
+  become: false
+  ansible.builtin.get_url:
+    url: "https://raw.githubusercontent.com/sgaunet/misc-scripts/main/src/gitst.sh"
+    dest: "{{ lookup('env','HOME') }}/.bin/gitst.sh"
     mode: '0755'
 
 - name: Check if $HOME/.bashrc
