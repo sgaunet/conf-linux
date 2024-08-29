@@ -7,14 +7,12 @@
     state: directory
     mode: '0750'
 
-- name: Copy file with owner and permissions
+- name: Install script auto-mr.sh
   become: false
-  copy:
-    src: "{{ item }}"
+  ansible.builtin.get_url:
+    url: "https://raw.githubusercontent.com/sgaunet/misc-scripts/main/src/auto-mr.sh"
     dest: "{{ lookup('env','HOME') }}/.bin/{{item}}"
     mode: '0755'
-  with_items:
-    - auto-mr.sh
 
 - name: Check if $HOME/.bashrc
   become: false
