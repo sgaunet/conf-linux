@@ -154,6 +154,7 @@ Linux tools :
 * [lsd]https://github.com/lsd-rs/lsd)
 * [eza](https://github.com/eza-community/eza)
 * [zoxide](https://github.com/ajeetdsouza/zoxide)
+* [termshot](https://github.com/homeport/termshot)
 
 Tests:
 
