@@ -238,3 +238,8 @@
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
     vars_from: zoxide.yml
+
+- name: "Install termshot"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    vars_from: termshot.yml
