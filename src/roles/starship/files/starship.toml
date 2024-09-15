@@ -9,6 +9,8 @@ $git_status\
 [](fg:#FCA17D bg:#86BBD8)\
 $golang\
 [](fg:#06969A bg:#33658A)\
+$cmd_duration\
+[](bg:#DA627D fg:#9A348E)\
 $time\
 [ ](fg:#33658A)\
 """
@@ -61,3 +63,25 @@ disabled = false
 time_format = "%R" # Hour:Minute Format
 style = "bg:#33658A"
 format = '[ ♥ $time ]($style)'
+
+[memory_usage]
+format = "$symbol[${ram} - ${ram_pct}( | ${swap} - ${swap_pct})]($style) "
+threshold = 0
+symbol = "󰍛 "
+style = "bold dimmed white"
+disabled = false
+
+#[time]
+#time_format = "%T"
+#format = "[](bold yellow) [$time](yellow) "
+#disabled = false
+
+[cmd_duration]
+min_time = 2_000
+format = "[$duration]($style) "
+disabled = false
+
+#[directory]
+#truncation_length = 10
+#truncate_to_repo = true
+#format = "[$path]($style)[$lock_symbol]($lock_style) "
