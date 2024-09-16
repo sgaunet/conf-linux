@@ -15,6 +15,17 @@
     - 'alias k=kubectl'
     - 'alias "ll=ls -l"'
     - 'alias "shred=shred -n 35 -z -u"'
+    - 'alias gst="git status"'
+    - 'alias gb="git branch"'
+    - 'alias gc="git checkout"'
+    - 'alias gl="git log --oneline --decorate --color"'
+    - 'alias amend="git add . && git commit --amend --no-edit"'
+    - 'alias nuke="git clean -df && git reset --hard"'
+    - 'alias prune="git fetch --prune"'
+    - 'alias pull="git pull"'
+    - 'alias push="git push"'
+    - 'alias stash="git stash -u"'
+    - 'alias unstage="git restore --staged ."'
   when: alias_zsh_install
 
 - name: Add aliases to $HOME/.bashrc and completion for kubectl
@@ -27,4 +38,15 @@
     - 'alias "ll=ls -l"'
     - 'complete -F __start_kubectl k'
     - 'alias "shred=shred -n 35 -z -u"'
+    - 'alias gst="git status"'
+    - 'alias gb="git branch"'
+    - 'alias gc="git checkout"'
+    - 'alias gl="git log --oneline --decorate --color"'
+    - 'alias amend="git add . && git commit --amend --no-edit"'
+    - 'alias nuke="git clean -df && git reset --hard"'
+    - 'alias prune="git fetch --prune"'
+    - 'alias pull="git pull"'
+    - 'alias push="git push"'
+    - 'alias stash="git stash -u"'
+    - 'alias unstage="git restore --staged ."'
   when: alias_bash_install

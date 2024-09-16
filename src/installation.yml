@@ -28,8 +28,6 @@
       tags: peek
     - role: buildx
       tags: buildx
-    - role: gitconfig
-      tags: gitconfig
     - role: glab
       tags: glab
     - role: bash_formatter
