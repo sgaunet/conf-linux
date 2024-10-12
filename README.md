@@ -4,9 +4,15 @@ That's a collection of ansible role to configure my Linux account for a new PC (
 
 ## Execution
 
-```
+```bash
+# clone the project
 git clone git@github.com:sgaunet/conf-linux.git
-
+# Install dependencies
+sudo apt install libffi-dev
+sudo apt-get install python-dev-is-python3
+sudo apt install build-essential
+sudo apt install python3-jmespath
+# create a python virtual envs
 python3 -m venv   venv                                  # create python virutal environment. Do it once
 source venv/bin/activate                                # set your virtual environment  (set it always before launch commands on this project)
 pip install -r requirements.txt                         # install requirements in your virtual env
