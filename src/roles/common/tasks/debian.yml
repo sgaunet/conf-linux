@@ -1,8 +1,8 @@
 ---
 
-- name: Install common softwares cifs-utils tmux git git-crypt gpg docker jq unzip
+- name: Install common softwares cifs-utils tmux git git-crypt gpg jq unzip
   ansible.builtin.apt:
-    name: ['cifs-utils', 'git', 'git-crypt', 'gpg', 'docker', 'jq', 'unzip']
+    name: ['cifs-utils', 'git', 'git-crypt', 'gpg', 'jq', 'unzip']
     state: present
     update_cache: true
 
