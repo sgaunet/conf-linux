@@ -1,5 +1,12 @@
 ---
 
+- name: Create directory $HOME/.bin
+  become: false
+  ansible.builtin.file:
+    state: directory
+    path: "{{ lookup ('env', 'HOME') + '/.bin' }}"
+    mode: '0755'
+
 - name: Download kube-ps1.sh
   become: false
   ansible.builtin.get_url:
