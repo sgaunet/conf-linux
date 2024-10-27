@@ -13,6 +13,9 @@
     line: "{{ item }}"
   with_items:
     - 'alias k=kubectl'
+    - 'alias t=task'
+    - 'alias d=devbox'
+    - 'alias dr=devbox run'
     - 'alias "ll=ls -l"'
     - 'alias "shred=shred -n 35 -z -u"'
     - 'alias gst="git status"'
