@@ -18,6 +18,12 @@
     vars_from: "gum.yml"
   tags: gum
 
+- name: "Install glow"
+  ansible.builtin.import_role:
+    name: "sgaunet.gh_role_installer"
+    vars_from: "glow.yml"
+  tags: glow
+
 - name: "Install bat"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
