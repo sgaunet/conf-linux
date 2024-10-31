@@ -19,6 +19,7 @@
     l=git log --oneline --decorate --color
     amend=git add . && git commit --amend --no-edit
     commit=git add . && git commit -m
+    uncommit = reset --soft "HEAD~1"
     force=git push --force
     nuke=git clean -df && git reset --hard
     pop=git stash pop
