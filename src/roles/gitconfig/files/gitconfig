@@ -1,0 +1,22 @@
+[user]
+  email = 1552102+sgaunet@users.noreply.github.com
+  name = Sylvain
+[core]
+  editor = vim
+  whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+[alias]
+    st=status
+    co=checkout
+    ci=commit
+    # Alias for prune all branches and tags
+    p-all=!git p-branch && git p-tags
+    # Remove local sh*t
+    p-fuck="!git clean -f -x -d"
+    # A shortcut for the the command 'p-all'
+    pow=!git p-all
+
+#[url "ssh://git@gitlab.com"]
+#  insteadOf = https://gitlab.com
+
+[push]
+  autoSetupRemote = true

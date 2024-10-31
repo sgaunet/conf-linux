@@ -1,0 +1,6 @@
+---
+
+- name: Configure $HOME/.gitconfig
+  ansible.builtin.copy:
+    src: "gitconfig"
+    dest: "{{ lookup('env', 'HOME') }}/.gitconfig"
