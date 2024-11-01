@@ -26,8 +26,6 @@
       tags: krew_plugins
     - role: buildx
       tags: buildx
-    - role: glab
-      tags: glab
     - role: bash_formatter
       tags: bash_formatter
     - role: vscode_extensions
@@ -40,8 +38,6 @@
       tags: terraform
     - role: rclone
       tags: rclone
-    - role: glab
-      tags: glab
     - role: sshx
       tags: sshx
     - role: kubernetes

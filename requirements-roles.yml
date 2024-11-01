@@ -2,3 +2,4 @@
 # ansible-galaxy role install -r requirements-roles.yml
 # Install a role from the Ansible Galaxy
 - src: sgaunet.gh_role_installer
+- src: sgaunet.glab
