@@ -249,3 +249,8 @@
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
     vars_from: termshot.yml
+
+- name: "Install gomplate"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    vars_from: gomplate.yml
