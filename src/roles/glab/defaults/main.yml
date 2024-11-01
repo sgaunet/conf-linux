@@ -1,8 +1,0 @@
----
-
-# "glab" version to install
-glab_version: "1.30.0"
-glab_bin_path: "/usr/local/bin"
-glab_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
-glab_os: "Linux"
-glab_arch: "x86_64"
