@@ -14,18 +14,16 @@
     p-fuck="!git clean -f -x -d"
     # A shortcut for the the command 'p-all'
     pow=!git p-all
-    b=git branch
-    c=git checkout
-    l=git log --oneline --decorate --color
-    amend=git add . && git commit --amend --no-edit
-    commit=git add . && git commit -m
+    b=!git branch
+    c=!git checkout
+    l=!git log --oneline --decorate --color
     uncommit = reset --soft "HEAD~1"
-    force=git push --force
-    nuke=git clean -df && git reset --hard
-    pop=git stash pop
-    prune=git fetch --prune
-    stash=git stash -u
-    unstage=git restore --staged .
+    force = push --force
+    nuke = clean -df && git reset --hard
+    pop = stash pop
+    prune = fetch --prune
+    stash = stash -u
+    unstage = restore --staged .
 
 #[url "ssh://git@gitlab.com"]
 #  insteadOf = https://gitlab.com
