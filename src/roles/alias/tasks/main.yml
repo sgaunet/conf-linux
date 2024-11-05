@@ -1,55 +1,14 @@
 ---
 
-- name: Install coreutils
-  ansible.builtin.package:
-    name: coreutils
-    state: present
-  when: ansible_os_family == 'Debian'
-
-- name: Add aliases to $HOME/.zshrc
+- name: Create .bashrc-complement
   become: false
-  ansible.builtin.lineinfile:
-    path: "{{ lookup('env', 'HOME') }}/.zshrc"
-    line: "{{ item }}"
-  with_items:
-    - 'alias k=kubectl'
-    - 'alias t=task'
-    - 'alias d=devbox'
-    - 'alias "dr=devbox run"'
-    - 'alias "ll=eza -l"'
-    - 'alias "shred=shred -n 35 -z -u"'
-    - 'alias gst="git status"'
-    - 'alias gb="git branch"'
-    - 'alias gc="git checkout"'
-    - 'alias gl="git log --oneline --decorate --color"'
-    - 'alias nuke="git clean -df && git reset --hard"'
-    - 'alias prune="git fetch --prune"'
-    - 'alias pull="git pull"'
-    - 'alias push="git push"'
-    - 'alias stash="git stash -u"'
-    - 'alias unstage="git restore --staged ."'
-  when: alias_zsh_install
+  ansible.builtin.copy:
+    src: ".bashrc-complement"
+    dest: "{{ lookup('env', 'HOME') }}/.bashrc-complement"
+    mode: '0644'
 
-- name: Add aliases to $HOME/.bashrc and completion for kubectl
+- name: Update .bashrc
   become: false
   ansible.builtin.lineinfile:
     path: "{{ lookup('env', 'HOME') }}/.bashrc"
-    line: "{{ item }}"
-  with_items:
-    - 'alias k=kubectl'
-    - 'alias t=task'
-    - 'alias d=devbox'
-    - 'alias "dr=devbox run"'
-    - 'complete -F __start_kubectl k'
-    - 'alias "shred=shred -n 35 -z -u"'
-    - 'alias gst="git status"'
-    - 'alias gb="git branch"'
-    - 'alias gc="git checkout"'
-    - 'alias gl="git log --oneline --decorate --color"'
-    - 'alias nuke="git clean -df && git reset --hard"'
-    - 'alias prune="git fetch --prune"'
-    - 'alias pull="git pull"'
-    - 'alias push="git push"'
-    - 'alias stash="git stash -u"'
-    - 'alias unstage="git restore --staged ."'
-  when: alias_bash_install
+    line: "source {{ lookup('env', 'HOME') }}/.bashrc-complement"

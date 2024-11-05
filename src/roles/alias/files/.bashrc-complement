@@ -1,0 +1,19 @@
+alias k=kubectl
+alias t=task
+alias d=devbox
+alias "dr=devbox run"
+alias "shred=shred -n 35 -z -u"
+alias gst="git status"
+alias gb="git branch"
+alias gc="git checkout"
+alias gl="git log --oneline --decorate --color"
+alias nuke="git clean -df && git reset --hard"
+alias prune="git fetch --prune"
+alias pull="git pull"
+alias push="git push"
+alias stash="git stash -u"
+alias unstage="git restore --staged ."
+
+complete -F __start_kubectl k
+
+alias "cdgp=cd ~/GITHUB/PUBLIC"
