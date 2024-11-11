@@ -175,6 +175,7 @@ Misceleaneous :
 * [d2](https://github.com/terrastruct/d2)
 * [rclone](https://rclone.org/)
 * [dasel](https://github.com/TomWright/dasel)
+* [zabbix-cli](https://github.com/sgaunet/zabbix-cli)
 
 Bash formatter:
 

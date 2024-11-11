@@ -143,6 +143,11 @@
     name: sgaunet.gh_role_installer
     vars_from: gh.yml
 
+- name: "Install zabbix-cli"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    vars_from: zabbix-cli.yml
+
 - name: "Install glab"
   ansible.builtin.include_role:
     name: sgaunet.glab
