@@ -2,7 +2,7 @@
 
 - name: Install unzip
   ansible.builtin.apt:
-    update_cache: yes
+    update_cache: true
     name: unzip
     state: present
 
