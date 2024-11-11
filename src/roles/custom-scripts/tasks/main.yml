@@ -2,8 +2,8 @@
 
 - name: Create directory $HOME/.bin
   become: false
-  file:
-    path: "{{ lookup('env','HOME') }}/.bin"
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.bin"
     state: directory
     mode: '0750'
 
@@ -11,47 +11,47 @@
   become: false
   ansible.builtin.get_url:
     url: "https://raw.githubusercontent.com/sgaunet/misc-scripts/main/src/auto-mr.sh"
-    dest: "{{ lookup('env','HOME') }}/.bin/auto-mr.sh"
+    dest: "{{ lookup('env', 'HOME') }}/.bin/auto-mr.sh"
     mode: '0755'
 
 - name: Install script gitreport.sh
   become: false
   ansible.builtin.get_url:
     url: "https://raw.githubusercontent.com/sgaunet/misc-scripts/main/src/gitreport.sh"
-    dest: "{{ lookup('env','HOME') }}/.bin/gitreport.sh"
+    dest: "{{ lookup('env', 'HOME') }}/.bin/gitreport.sh"
     mode: '0755'
 
 - name: Install script gitst.sh
   become: false
   ansible.builtin.get_url:
     url: "https://raw.githubusercontent.com/sgaunet/misc-scripts/main/src/gitst.sh"
-    dest: "{{ lookup('env','HOME') }}/.bin/gitst.sh"
+    dest: "{{ lookup('env', 'HOME') }}/.bin/gitst.sh"
     mode: '0755'
 
 - name: Check if $HOME/.bashrc
   become: false
-  stat: 
-    path: "{{ lookup('env','HOME') }}/.bashrc"
+  ansible.builtin.stat:
+    path: "{{ lookup('env', 'HOME') }}/.bashrc"
   delegate_to: localhost
   register: bashrc
 
 - name: Check if $HOME/.zshrc
   become: false
-  stat: 
-    path: "{{ lookup('env','HOME') }}/.zshrc"
+  ansible.builtin.stat:
+    path: "{{ lookup('env', 'HOME') }}/.zshrc"
   delegate_to: localhost
   register: zshrc
 
 - name: Add to $HOME/.bashrc
   become: false
-  lineinfile:
-    path: "{{ lookup('env','HOME') }}/.bashrc"
+  ansible.builtin.lineinfile:
+    path: "{{ lookup('env', 'HOME') }}/.bashrc"
     line: "export PATH=$HOME/.bin:$PATH"
-  when: bashrc.stat.exists == true
+  when: bashrc.stat.exists
 
 - name: Add to $HOME/.zshrc
   become: false
-  lineinfile:
-    path: "{{ lookup('env','HOME') }}/.zshrc"
+  ansible.builtin.lineinfile:
+    path: "{{ lookup('env', 'HOME') }}/.zshrc"
     line: "export PATH=$HOME/.bin:$PATH"
-  when: zshrc.stat.exists == true
+  when: zshrc.stat.exists
