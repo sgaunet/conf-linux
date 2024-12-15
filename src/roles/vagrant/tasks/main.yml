@@ -1,26 +1,7 @@
----
+- name: Import debian
+  ansible.builtin.import_tasks: debian.yml
+  when: ansible_os_family == 'Debian'
 
-- name: Get vagrant version
-  become: false
-  ansible.builtin.shell: "set -o pipefail && vagrant -v | sed 's/Vagrant //g'"
-  args:
-    executable: /bin/bash
-  register: vagrant_version_installed
-  changed_when: false
-  failed_when: false
-  check_mode: false
-
-- name: Check vagrant version # noqa command-instead-of-shell
-  ansible.builtin.shell: '/bin/true'
-  changed_when: vagrant_version_installed.stdout != vagrant_version
-  check_mode: false
-
-- name: Download and unarchive vagrant.
-  ansible.builtin.unarchive:
-    src: https://releases.hashicorp.com/vagrant/{{ vagrant_version }}/vagrant_{{ vagrant_version }}_linux_{{ vagrant_arch }}.zip
-    dest: "{{ vagrant_bin_path }}"
-    remote_src: true
-    mode: "0755"
-  when:
-    - not ansible_check_mode
-    - vagrant_version_installed.stdout != vagrant_version
+- name: Import redhat
+  ansible.builtin.import_tasks: redhat.yml
+  when: ansible_os_family == 'RedHat'
