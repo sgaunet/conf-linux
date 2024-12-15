@@ -2,7 +2,9 @@
 
 That's a collection of ansible role to configure my Linux account for a new PC (debian based). That's far away from perfection but that's a start.
 
-## Execution
+## Requirements
+
+### Ubuntu
 
 ```bash
 # clone the project
@@ -17,8 +19,24 @@ python3 -m venv   venv                                  # create python virutal 
 source venv/bin/activate                                # set your virtual environment  (set it always before launch commands on this project)
 pip install -r requirements.txt                         # install requirements in your virtual env
 ansible-galaxy collection install -r requirements.yml   # install galaxy collections
+```
 
+### Red Hat
 
+```bash
+# clone the project
+git clone git@github.com:sgaunet/conf-linux.git
+sudo dnf install python3-jmespath python3-libdnf5 gcc
+# create a python virtual envs
+python3 -m venv   venv                                  # create python virutal environment. Do it once
+source venv/bin/activate                                # set your virtual environment  (set it always before launch commands on this project)
+pip install -r requirements.txt                         # install requirements in your virtual env
+ansible-galaxy collection install -r requirements.yml   # install galaxy collections
+```
+
+## Execution
+
+```bash
 cd conf-linux/src
 <edit> installation.yml
 ./go.sh
