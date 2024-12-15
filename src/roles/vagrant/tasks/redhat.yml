@@ -1,0 +1,7 @@
+---
+
+- name: Install vagrant and vagrant-libvirt
+  ansible.builtin.dnf:
+    name: ['vagrant', 'vagrant-libvirt']
+    state: present
+    update_cache: true
