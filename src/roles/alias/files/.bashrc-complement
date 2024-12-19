@@ -14,6 +14,7 @@ alias push="git push"
 alias stash="git stash -u"
 alias unstage="git restore --staged ."
 alias git-whoami="git config user.name && git config user.email"
+alias "l=eza -l"
 
 complete -F __start_kubectl k
 
