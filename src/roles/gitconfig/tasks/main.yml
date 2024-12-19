@@ -1,7 +1,13 @@
 ---
 
+- name: Check if .gitconfig exists
+  ansible.builtin.stat:
+    path: "{{ lookup('env', 'HOME') }}/.gitconfig"
+  register: gitconfig_stat
+
 - name: Configure $HOME/.gitconfig
   ansible.builtin.copy:
     src: "gitconfig"
     dest: "{{ lookup('env', 'HOME') }}/.gitconfig"
     mode: '0644'
+  when: not gitconfig_stat.stat.exists
