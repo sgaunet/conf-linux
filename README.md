@@ -99,7 +99,6 @@ For markdown :
 For Docker :
 
 * [hadolint](https://github.com/hadolint/hadolint)
-* [docker buildx](https://github.com/docker/buildx)
 * [grype](https://github.com/anchore/grype)
 * [dive](https://github.com/wagoodman/dive)
 * [CLIs of go-containerregistry](https://github.com/google/go-containerregistry)
