@@ -22,10 +22,6 @@
       tags: prompt
     - role: alias
       tags: alias
-    - role: krew_plugins
-      tags: krew_plugins
-    - role: buildx
-      tags: buildx
     - role: bash_formatter
       tags: bash_formatter
     - role: vscode_extensions
