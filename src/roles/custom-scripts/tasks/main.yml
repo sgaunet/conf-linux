@@ -28,6 +28,13 @@
     dest: "{{ lookup('env', 'HOME') }}/.bin/gitst.sh"
     mode: '0755'
 
+- name: Install script bkp-cfg.sh
+  become: false
+  ansible.builtin.get_url:
+    url: "https://raw.githubusercontent.com/sgaunet/misc-scripts/main/src/bkp-cfg.sh"
+    dest: "{{ lookup('env', 'HOME') }}/.bin/bkp-cfg.sh"
+    mode: '0755'
+
 - name: Check if $HOME/.bashrc
   become: false
   ansible.builtin.stat:
