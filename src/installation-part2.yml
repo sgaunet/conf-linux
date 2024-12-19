@@ -1,0 +1,8 @@
+---
+
+- name: Configure laptop part2
+  hosts: all
+  become: true
+  roles:
+    - role: krew_plugins
+      tags: krew_plugins
