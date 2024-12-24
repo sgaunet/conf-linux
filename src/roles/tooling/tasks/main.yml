@@ -254,3 +254,8 @@
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
     vars_from: gomplate.yml
+
+- name: "Install age"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    vars_from: age.yml
