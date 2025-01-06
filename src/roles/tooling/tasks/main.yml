@@ -259,3 +259,8 @@
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
     vars_from: age.yml
+
+- name: "Install rsql"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    vars_from: rsql.yml
