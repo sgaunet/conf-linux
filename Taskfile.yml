@@ -10,6 +10,8 @@ tasks:
 
   prereq:
     desc: "install prerequisites"
+    env:
+      LC_ALL: "C.UTF-8"
     cmds:
       - ansible-galaxy install -r requirements-collections.yml
       - ansible-galaxy install -r requirements-roles.yml
@@ -24,7 +26,7 @@ tasks:
     desc: "execute linter"
     cmds:
       # - ansible-lint *.yml --skip-list name[template],meta-no-info,yaml[line-length],package-latest,latest[git]
-      - source venv/bin/activate && ansible-lint src/installation.yml
+      - ansible-lint src
 
   auto-update:
     desc: "auto update roles"
