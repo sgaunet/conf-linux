@@ -91,6 +91,7 @@ For kubernetes:
 * [helmchart-helper](https://github.com/sgaunet/helmchart-helper)
 * [vals](https://github.com/helmfile/vals)
 * [kubecm](https://github.com/sunny0826/kubecm)
+* [kubevpn](https://www.kubevpn.cn/)
 
 For markdown :
 
@@ -178,6 +179,9 @@ Linux tools :
 * [eza](https://github.com/eza-community/eza)
 * [zoxide](https://github.com/ajeetdsouza/zoxide)
 * [termshot](https://github.com/homeport/termshot)
+* [rsql](https://github.com/theseus-rs/rsql)
+* [age](https://github.com/FiloSottile/age)
+* [glow](https://github.com/charmbracelet/glow)
 
 Tests:
 
