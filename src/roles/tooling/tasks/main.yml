@@ -264,3 +264,8 @@
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
     vars_from: rsql.yml
+
+- name: "Install pplx"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    vars_from: pplx.yml
