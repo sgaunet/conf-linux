@@ -183,6 +183,7 @@ Linux tools :
 * [age](https://github.com/FiloSottile/age)
 * [glow](https://github.com/charmbracelet/glow)
 * [superfile](https://github.com/yorukot/superfile)
+* [bore](https://github.com/ekzhang/bore)
 
 Tests:
 
