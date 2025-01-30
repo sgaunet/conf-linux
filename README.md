@@ -186,6 +186,7 @@ Linux tools :
 * [bore](https://github.com/ekzhang/bore)
 * [miller](https://github.com/johnkerl/miller)
 * [lnav](https://github.com/tstack/lnav)
+* [procs](https://github.com/dalance/procs)
 
 Tests:
 

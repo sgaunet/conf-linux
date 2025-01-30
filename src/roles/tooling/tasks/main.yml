@@ -289,3 +289,8 @@
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
     vars_from: lnav.yml
+
+- name: "Install procs"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    vars_from: procs.yml
