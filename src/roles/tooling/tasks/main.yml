@@ -281,6 +281,11 @@
     vars_from: bore.yml
 
 - name: "Install miller"
-  ansible.builtin.dnf:
+  ansible.builtin.package:
     name: "miller"
     state: "present"
+
+- name: "Install lnav"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    vars_from: lnav.yml
