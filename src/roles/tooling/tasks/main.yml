@@ -269,3 +269,8 @@
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
     vars_from: pplx.yml
+
+- name: "Install superfile"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    vars_from: superfile.yml

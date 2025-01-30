@@ -182,6 +182,7 @@ Linux tools :
 * [rsql](https://github.com/theseus-rs/rsql)
 * [age](https://github.com/FiloSottile/age)
 * [glow](https://github.com/charmbracelet/glow)
+* [superfile](https://github.com/yorukot/superfile)
 
 Tests:
 
