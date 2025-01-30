@@ -208,6 +208,7 @@ Bash formatter:
 IAC:
 
 * [terraform](https://developer.hashicorp.com/terraform)
+* [ansible-summary](https://github.com/sgaunet/ansible-summary)
 
 ## Auto update roles
 
