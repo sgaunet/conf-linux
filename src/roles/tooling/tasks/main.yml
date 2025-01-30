@@ -279,3 +279,8 @@
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
     vars_from: bore.yml
+
+- name: "Install miller"
+  ansible.builtin.dnf:
+    name: "miller"
+    state: "present"
