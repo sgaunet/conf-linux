@@ -185,6 +185,7 @@ Linux tools :
 * [superfile](https://github.com/yorukot/superfile)
 * [bore](https://github.com/ekzhang/bore)
 * [miller](https://github.com/johnkerl/miller)
+* [lnav](https://github.com/tstack/lnav)
 
 Tests:
 
