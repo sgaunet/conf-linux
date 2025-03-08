@@ -156,3 +156,8 @@
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
     vars_from: ansible-summary.yml
+
+- name: "Install gitlab-token-expiration"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    vars_from: gitlab-token-expiration.yml
