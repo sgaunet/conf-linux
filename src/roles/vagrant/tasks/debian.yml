@@ -1,6 +1,7 @@
 ---
 
 - name: "Install vagrant"
-  ansible.builtin.import_role:
-    name: "sgaunet.gh_role_installer"
-    vars_from: "vagrant.yml"
+  ansible.builtin.apt:
+    name: "vagrant"
+    state: "present"
+    update_cache: "yes"
