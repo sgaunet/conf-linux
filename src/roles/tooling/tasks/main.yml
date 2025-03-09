@@ -294,3 +294,8 @@
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
     vars_from: procs.yml
+
+- name: "Install zns"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    vars_from: zns.yml
