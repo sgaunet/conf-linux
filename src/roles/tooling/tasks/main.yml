@@ -144,12 +144,6 @@
     vars_from: gocryptfs.yml
   tags: gocryptfs
 
-- name: "Install tspin"
-  ansible.builtin.include_role:
-    name: sgaunet.gh_role_installer
-    vars_from: tspin.yml
-  tags: tspin
-
 - name: "Install fx"
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
