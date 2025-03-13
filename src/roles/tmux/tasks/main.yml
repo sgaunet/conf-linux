@@ -1,8 +1,8 @@
 ---
 
-- name: Install tmux tmuxinator
-  ansible.builtin.apt:
-    name: ['tmux', 'tmuxinator']
+- name: Install tmux
+  ansible.builtin.package:
+    name: ['tmux']
     state: present
     update_cache: true
 
