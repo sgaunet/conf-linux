@@ -103,16 +103,8 @@ For Docker :
 * [grype](https://github.com/anchore/grype)
 * [dive](https://github.com/wagoodman/dive)
 * [CLIs of go-containerregistry](https://github.com/google/go-containerregistry)
-
-For GOLANG :
-
-* [goreleaser](https://github.com/goreleaser/goreleaser/)
-* [task](https://taskfile.dev/)
-* [sqlc](https://sqlc.dev/)
-* [golang-ci-lint](https://github.com/golangci/golangci-lint)
-* [pre-commit](https://github.com/pre-commit/pre-commit)
-* [moq](https://github.com/matryer/moq)
-
+* [crane](https://github.com/google/go-containerregistry/blob/main/cmd/crane/doc/crane.md)
+* [trivy](https://github.com/aquasecurity/trivy)
 
 VM :
 
@@ -125,6 +117,12 @@ Load tests :
 
 Development:
 
+* [goreleaser](https://github.com/goreleaser/goreleaser/)
+* [task](https://taskfile.dev/)
+* [sqlc](https://sqlc.dev/)
+* [golang-ci-lint](https://github.com/golangci/golangci-lint)
+* [pre-commit](https://github.com/pre-commit/pre-commit)
+* [moq](https://github.com/matryer/moq)
 * [vscode](https://code.visualstudio.com/docs/setup/linux)
 * vscode extensions
 * [gitleaks](https://github.com/zricethezav/gitleaks)
@@ -146,6 +144,7 @@ Development:
 * [act](https://github.com/nektos/act)
 * [jwt-cli](https://github.com/sgaunet/jwt-cli)
 * [devbox](https://github.com/jetify-com/devbox)
+* [lazygit](https://github.com/jesseduffield/lazygit)
 
 Linux tools :
 
@@ -182,6 +181,14 @@ Linux tools :
 * [rsql](https://github.com/theseus-rs/rsql)
 * [age](https://github.com/FiloSottile/age)
 * [glow](https://github.com/charmbracelet/glow)
+* [pplx](https://github.com/sgaunet/pplx)
+* [gomplate](https://github.com/hairyhenderson/gomplate)
+* [yazi](https://github.com/sxyazi/yazi)
+* [httping-go](https://github.com/sgaunet/httping-go)
+* [devpod](https://devpod.sh/)
+* [gh](https://cli.github.com/)
+* [gitlab-token-expiration](https://github.com/sgaunet/gitlab-token-expiration)
+* [direnv](https://direnv.net/)
 * [superfile](https://github.com/yorukot/superfile)
 * [bore](https://github.com/ekzhang/bore)
 * [miller](https://github.com/johnkerl/miller)
@@ -196,7 +203,6 @@ Tests:
 
 Misceleaneous :
 
-* zsh
 * [startship](https://starship.rs/)
 * [pastel](https://github.com/sharkdp/pastel)
 * [d2](https://github.com/terrastruct/d2)
@@ -213,15 +219,3 @@ IAC:
 
 * [terraform](https://developer.hashicorp.com/terraform)
 * [ansible-summary](https://github.com/sgaunet/ansible-summary)
-
-## Auto update roles
-
-```bash
-./update-versions.sh
-```
-
-But not all roles can be updated with this script. List of roles to update manually:
-
-```bash
-./list-no-auto.sh
-```
