@@ -1,7 +1,7 @@
 ---
 
 # "kubectl" version to install
-kubectl_version: "1.27.7"
+kubectl_version: "1.32.1"
 kubectl_bin_path: "/usr/local/bin"
 kubectl_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
 kubectl_os: "linux"
