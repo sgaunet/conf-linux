@@ -293,3 +293,8 @@
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
     vars_from: zns.yml
+
+- name: "Install rclone"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    vars_from: rclone.yml
