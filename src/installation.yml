@@ -32,8 +32,6 @@
       tags: tmux
     - role: terraform
       tags: terraform
-    - role: rclone
-      tags: rclone
     - role: sshx
       tags: sshx
     - role: kubernetes
