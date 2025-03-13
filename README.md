@@ -137,7 +137,6 @@ Development:
 * [trufflehog](https://github.com/trufflesecurity/trufflehog)
 * [fx](https://github.com/antonmedv/fx)
 * [osv-scanner](https://github.com/google/osv-scanner)
-* [fly (concourse)](https://github.com/concourse/concourse)
 * [pgweb](https://github.com/sosedoff/pgweb)
 * [tbls](https://github.com/k1LoW/tbls)
 * [delta](https://github.com/dandavison/delta)
