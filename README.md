@@ -194,6 +194,7 @@ Linux tools :
 * [lnav](https://github.com/tstack/lnav)
 * [procs](https://github.com/dalance/procs)
 * [zns](https://github.com/znscli/zns)
+* [pop](https://github.com/charmbracelet/pop)
 
 Tests:
 
