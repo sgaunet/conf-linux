@@ -298,3 +298,8 @@
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
     vars_from: rclone.yml
+
+- name: "Install pop"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    vars_from: pop.yml
