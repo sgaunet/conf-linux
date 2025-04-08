@@ -1,0 +1,43 @@
+---
+
+- name: Check if Beekeeper Studio GPG key exists
+  ansible.builtin.stat:
+    path: /usr/share/keyrings/beekeeper.gpg
+  register: beekeeper_gpg_key
+
+- name: Add Beekeeper Studio GPG key
+  ansible.builtin.command:
+    cmd: curl -fsSL https://deb.beekeeperstudio.io/beekeeper.key | gpg --dearmor -o /usr/share/keyrings/beekeeper.gpg
+  become: true
+  when: not beekeeper_gpg_key.stat.exists
+
+- name: Set permissions for the GPG key
+  ansible.builtin.file:
+    path: /usr/share/keyrings/beekeeper.gpg
+    mode: '0644'
+  become: true
+  when: not beekeeper_gpg_key.stat.exists or beekeeper_gpg_key.stat.mode != "0644"
+
+- name: Check if Beekeeper Studio repository exists
+  ansible.builtin.stat:
+    path: /etc/apt/sources.list.d/beekeeper-studio-app.list
+  register: beekeeper_repo
+
+- name: Add Beekeeper Studio repository
+  ansible.builtin.copy:
+    dest: /etc/apt/sources.list.d/beekeeper-studio-app.list
+    content: |
+      deb [signed-by=/usr/share/keyrings/beekeeper.gpg] https://deb.beekeeperstudio.io stable main
+  become: true
+  when: not beekeeper_repo.stat.exists
+
+- name: Update apt cache
+  ansible.builtin.apt:
+    update_cache: true
+  become: true
+
+- name: Install Beekeeper Studio
+  ansible.builtin.apt:
+    name: beekeeper-studio
+    state: present
+  become: true

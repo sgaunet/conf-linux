@@ -48,3 +48,5 @@
       tags: gitconfig
     - role: wezterm
       tags: wezterm
+    - role: beekeeperstudio
+      tags: beekeeperstudio
