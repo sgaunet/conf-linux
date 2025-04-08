@@ -1,0 +1,26 @@
+---
+
+- name: stat on /etc/yum.repos.d/beekeeper-studio.repo
+  ansible.builtin.stat:
+    path: /etc/yum.repos.d/beekeeper-studio.repo
+  register: beekeeper_repo
+
+- name: Ensure Beekeeper Studio .repo file exists
+  ansible.builtin.get_url:
+    url: https://rpm.beekeeperstudio.io/beekeeper-studio.repo
+    dest: /etc/yum.repos.d/beekeeper-studio.repo
+    mode: '0644'
+  become: true
+  when: not beekeeper_repo.stat.exists
+
+- name: Ensure Beekeeper Studio GPG key is imported
+  ansible.builtin.rpm_key:
+    state: present
+    key: https://rpm.beekeeperstudio.io/beekeeper.key
+  become: true
+
+- name: Ensure Beekeeper Studio is installed
+  ansible.builtin.dnf:
+    name: beekeeper-studio
+    state: present
+  become: true
