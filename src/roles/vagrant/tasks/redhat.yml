@@ -1,5 +1,16 @@
 ---
 
+- name: Install dnf-plugins-core
+  ansible.builtin.dnf:
+    name: dnf-plugins-core
+    state: present
+    update_cache: true
+
+- name: Add HashiCorp repository for Fedora
+  ansible.builtin.command:
+    cmd: dnf config-manager addrepo --from-repofile=https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
+    creates: /etc/yum.repos.d/hashicorp.repo
+
 - name: Install vagrant and vagrant-libvirt
   ansible.builtin.dnf:
     name: ['vagrant', 'vagrant-libvirt']
