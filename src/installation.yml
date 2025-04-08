@@ -46,3 +46,5 @@
       tags: custom-scripts
     - role: gitconfig
       tags: gitconfig
+    - role: wezterm
+      tags: wezterm

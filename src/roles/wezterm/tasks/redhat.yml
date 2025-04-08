@@ -1,0 +1,12 @@
+---
+
+- name: Enable WezTerm COPR repository
+  ansible.builtin.command:
+    cmd: dnf copr enable wezfurlong/wezterm-nightly -y
+    creates: /etc/yum.repos.d/_copr_wezfurlong-wezterm-nightly.repo
+
+- name: Install WezTerm
+  ansible.builtin.dnf:
+    name: wezterm
+    state: present
+    update_cache: true
