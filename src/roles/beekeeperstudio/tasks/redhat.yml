@@ -1,6 +1,6 @@
 ---
 
-- name: stat on /etc/yum.repos.d/beekeeper-studio.repo
+- name: Stat on /etc/yum.repos.d/beekeeper-studio.repo
   ansible.builtin.stat:
     path: /etc/yum.repos.d/beekeeper-studio.repo
   register: beekeeper_repo
