@@ -130,7 +130,6 @@ Development:
 * [jira-cli](https://github.com/ankitpokhrel/jira-cli)
 * [gitlab-issue-report](https://github.com/sgaunet/gitlab-issue-report)
 * [gitlab-stats](https://github.com/sgaunet/gitlab-stats)
-* [gitlab-vars](https://github.com/sgaunet/gitlab-vars) - **beta**
 * [gum](https://github.com/charmbracelet/gum)
 * [nfpm](https://nfpm.goreleaser.com/)
 * [chglog](https://github.com/goreleaser/chglog)
