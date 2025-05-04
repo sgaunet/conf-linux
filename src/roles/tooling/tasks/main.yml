@@ -192,12 +192,6 @@
     vars_from: gitlab-issue-report.yml
   tags: gitlab-issue-report
 
-- name: "Install gitlab-vars"
-  ansible.builtin.include_role:
-    name: sgaunet.gh_role_installer
-    vars_from: gitlab-vars.yml
-  tags: gitlab-vars
-
 - name: "Install pastel"
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
