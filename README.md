@@ -122,7 +122,6 @@ Development:
 * [sqlc](https://sqlc.dev/)
 * [golang-ci-lint](https://github.com/golangci/golangci-lint)
 * [pre-commit](https://github.com/pre-commit/pre-commit)
-* [moq](https://github.com/matryer/moq)
 * [vscode](https://code.visualstudio.com/docs/setup/linux)
 * vscode extensions
 * [gitleaks](https://github.com/zricethezav/gitleaks)

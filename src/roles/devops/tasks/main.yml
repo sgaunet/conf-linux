@@ -30,12 +30,6 @@
     vars_from: "task.yml"
   tags: task
 
-- name: "Install moq"
-  ansible.builtin.import_role:
-    name: "sgaunet.gh_role_installer"
-    vars_from: "moq.yml"
-  tags: moq
-
 - name: "Install usql"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
