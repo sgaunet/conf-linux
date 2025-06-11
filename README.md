@@ -92,6 +92,7 @@ For kubernetes:
 * [vals](https://github.com/helmfile/vals)
 * [kubecm](https://github.com/sunny0826/kubecm)
 * [kubevpn](https://www.kubevpn.cn/)
+* [kubie](https://github.com/sbstp/kubie)
 
 For markdown :
 

@@ -147,3 +147,8 @@
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
     vars_from: kubevpn.yml
+
+- name: "Install kubie"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    vars_from: kubie.yml
