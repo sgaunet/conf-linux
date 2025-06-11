@@ -126,12 +126,6 @@
     vars_from: muffet.yml
   tags: muffet
 
-- name: "Install envtemplate"
-  ansible.builtin.include_role:
-    name: sgaunet.gh_role_installer
-    vars_from: envtemplate.yml
-  tags: envtemplate
-
 - name: "Install tspin"
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
