@@ -1,5 +1,0 @@
----
-
-- name: TODO
-  ansible.builtin.debug:
-    msg: "TODO !"
