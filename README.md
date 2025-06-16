@@ -123,8 +123,6 @@ Development:
 * [sqlc](https://sqlc.dev/)
 * [golang-ci-lint](https://github.com/golangci/golangci-lint)
 * [pre-commit](https://github.com/pre-commit/pre-commit)
-* [vscode](https://code.visualstudio.com/docs/setup/linux)
-* vscode extensions
 * [gitleaks](https://github.com/zricethezav/gitleaks)
 * [glab](https://gitlab.com/gitlab-org/cli)
 * [jira-cli](https://github.com/ankitpokhrel/jira-cli)

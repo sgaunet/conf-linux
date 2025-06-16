@@ -12,8 +12,6 @@
       tags: packer
     - role: vagrant
       tags: vagrant
-    - role: vscode
-      tags: vscode
     - role: kubectl
       tags: kube
     - role: kube_ps1
@@ -24,8 +22,6 @@
       tags: alias
     - role: bash_formatter
       tags: bash_formatter
-    - role: vscode_extensions
-      tags: vscode_extensions
     - role: starship
       tags: starship
     - role: tmux
