@@ -32,3 +32,9 @@ tasks:
     desc: "auto update roles"
     cmds:
       - ./update-versions.sh
+
+  install-alias:
+    desc: "install alias"
+    cmds:
+      - cp src/roles/alias/files/.bashrc-complement ~/.bashrc-complement
+      - cp src/roles/alias/files/.bashrc-complement ~/.zshrc            # for zsh users
