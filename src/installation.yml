@@ -40,8 +40,6 @@
       tags: direnv
     - role: custom-scripts
       tags: custom-scripts
-    - role: gitconfig
-      tags: gitconfig
     - role: wezterm
       tags: wezterm
     - role: beekeeperstudio
