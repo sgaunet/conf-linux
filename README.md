@@ -141,6 +141,7 @@ Development:
 * [jwt-cli](https://github.com/sgaunet/jwt-cli)
 * [devbox](https://github.com/jetify-com/devbox)
 * [lazygit](https://github.com/jesseduffield/lazygit)
+* [gitlab-mcp](https://github.com/sgaunet/gitlab-mcp)
 
 Linux tools :
 
