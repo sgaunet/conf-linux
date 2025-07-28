@@ -154,3 +154,8 @@
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
     vars_from: wait4x.yml
+
+- name: "Install gitlab-mcp"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    vars_from: gitlab-mcp.yml
