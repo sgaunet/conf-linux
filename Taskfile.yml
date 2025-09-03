@@ -28,11 +28,6 @@ tasks:
       # - ansible-lint *.yml --skip-list name[template],meta-no-info,yaml[line-length],package-latest,latest[git]
       - ansible-lint src
 
-  auto-update:
-    desc: "auto update roles"
-    cmds:
-      - ./update-versions.sh
-
   install-alias:
     desc: "install alias"
     cmds:
