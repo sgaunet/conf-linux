@@ -291,3 +291,8 @@
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
     vars_from: pop.yml
+
+- name: "Install asdf"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    vars_from: asdf.yml
