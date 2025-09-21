@@ -159,3 +159,8 @@
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
     vars_from: gitlab-mcp.yml
+
+- name: "Install postgresql-mcp"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    vars_from: postgresql-mcp.yml
