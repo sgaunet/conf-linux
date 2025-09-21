@@ -142,6 +142,7 @@ Development:
 * [devbox](https://github.com/jetify-com/devbox)
 * [lazygit](https://github.com/jesseduffield/lazygit)
 * [gitlab-mcp](https://github.com/sgaunet/gitlab-mcp)
+* [postgresql-mcp](https://github.com/sgaunet/postgresql-mcp)
 
 Linux tools :
 
