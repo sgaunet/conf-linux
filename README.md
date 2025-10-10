@@ -143,6 +143,7 @@ Development:
 * [lazygit](https://github.com/jesseduffield/lazygit)
 * [gitlab-mcp](https://github.com/sgaunet/gitlab-mcp)
 * [postgresql-mcp](https://github.com/sgaunet/postgresql-mcp)
+* [auto-mr](https://github.com/sgaunet/auto-mr)
 
 Linux tools :
 
@@ -193,6 +194,7 @@ Linux tools :
 * [procs](https://github.com/dalance/procs)
 * [zns](https://github.com/znscli/zns)
 * [pop](https://github.com/charmbracelet/pop)
+* [logwrap](https://github.com/sgaunet/logwrap)
 
 Tests:
 
