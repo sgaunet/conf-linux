@@ -57,3 +57,16 @@
           gh_role_installer_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
           gh_role_installer_binary_path: "/usr/local/bin/{{ gh_role_installer_binary_name }}"
       tags: auto-mr
+    - role: sgaunet.gh_role_installer
+      vars:
+          gh_role_installer_version: "latest"
+          gh_role_installer_os: "linux"
+          gh_role_installer_arch: "amd64"
+          gh_role_installer_repository: "sgaunet/logwrap"
+          gh_role_installer_release: "https://github.com/{{ gh_role_installer_repository }}/releases/download/v{{ version_to_install }}/logwrap_{{ version_to_install }}_{{ gh_role_installer_os }}_{{ gh_role_installer_arch }}"
+          gh_role_installer_release_is_archive: false
+          gh_role_installer_binary_name: "logwrap"
+          gh_role_installer_cmd_to_get_version: "logwrap -v"
+          gh_role_installer_tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp', true) }}"
+          gh_role_installer_binary_path: "/usr/local/bin/{{ gh_role_installer_binary_name }}"
+      tags: logwrap
