@@ -7,11 +7,11 @@
     state: directory
     mode: '0750'
 
-- name: Install script auto-mr.sh
+- name: Install script init-cc-permissions.sh
   become: false
   ansible.builtin.get_url:
-    url: "https://raw.githubusercontent.com/sgaunet/misc-scripts/main/src/auto-mr.sh"
-    dest: "{{ lookup('env', 'HOME') }}/.bin/auto-mr.sh"
+    url: "https://raw.githubusercontent.com/sgaunet/misc-scripts/main/src/init-cc-permissions.sh"
+    dest: "{{ lookup('env', 'HOME') }}/.bin/init-cc-permissions.sh"
     mode: '0755'
 
 - name: Install script gitreport.sh
