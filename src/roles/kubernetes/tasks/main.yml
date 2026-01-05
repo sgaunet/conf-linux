@@ -66,18 +66,6 @@
     vars_from: "helmdocs.yml"
   tags: helmdocs
 
-- name: "Install kor"
-  ansible.builtin.import_role:
-    name: "sgaunet.gh_role_installer"
-    vars_from: "kor.yml"
-  tags: kor
-
-- name: "Install kubeshark"
-  ansible.builtin.import_role:
-    name: "sgaunet.gh_role_installer"
-    vars_from: "kubeshark.yml"
-  tags: kubeshark
-
 - name: "Install kube-linter"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
