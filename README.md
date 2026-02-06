@@ -60,7 +60,6 @@ For AWS :
 
 * [eksctl](https://eksctl.io/)
 * [awscli v2](https://github.com/aws/aws-cli/)
-* [ekspodlogs](https://github.com/sgaunet/ekspodlogs)
 
 For kubernetes:
 
@@ -82,7 +81,6 @@ For kubernetes:
 * [kconf](https://github.com/particledecay/kconf)
 * [kubectl-ice](https://github.com/NimbleArchitect/kubectl-ice)
 * [kubefwd](https://github.com/txn2/kubefwd)
-* [kubent (kube-no-trouble)](https://github.com/doitintl/kube-no-trouble)
 * [kluctl](https://github.com/kluctl/kluctl)
 * [kubescape](https://github.com/kubescape/kubescape)
 * [kubeval](https://github.com/instrumenta/kubeval)

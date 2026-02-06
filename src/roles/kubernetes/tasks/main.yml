@@ -78,12 +78,6 @@
     vars_from: "stern.yml"
   tags: stern
 
-- name: "Install ekspodlogs"
-  ansible.builtin.import_role:
-    name: "sgaunet.gh_role_installer"
-    vars_from: "ekspodlogs.yml"
-  tags: ekspodlogs
-
 - name: "Install kubectl-ice"
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
@@ -95,12 +89,6 @@
     name: sgaunet.gh_role_installer
     vars_from: kubescape.yml
   tags: kubescape
-
-- name: "Install kubent"
-  ansible.builtin.include_role:
-    name: sgaunet.gh_role_installer
-    vars_from: kubent.yml
-  tags: kubent
 
 - name: "Install kubefwd"
   ansible.builtin.include_role:
