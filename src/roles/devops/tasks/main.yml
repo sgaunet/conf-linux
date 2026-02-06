@@ -102,12 +102,6 @@
     vars_from: dive.yml
   tags: dive
 
-- name: "Install jiracli"
-  ansible.builtin.include_role:
-    name: sgaunet.gh_role_installer
-    vars_from: jiracli.yml
-  tags: jiracli
-
 - name: "Install devpod"
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
