@@ -164,3 +164,8 @@
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
     vars_from: gitcommit.yml
+
+- name: "Install tailwindcss"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    vars_from: tailwindcss.yml
