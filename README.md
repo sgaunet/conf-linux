@@ -121,7 +121,6 @@ Development:
 * [pre-commit](https://github.com/pre-commit/pre-commit)
 * [gitleaks](https://github.com/zricethezav/gitleaks)
 * [glab](https://gitlab.com/gitlab-org/cli)
-* [jira-cli](https://github.com/ankitpokhrel/jira-cli)
 * [gitlab-issue-report](https://github.com/sgaunet/gitlab-issue-report)
 * [gitlab-stats](https://github.com/sgaunet/gitlab-stats)
 * [gum](https://github.com/charmbracelet/gum)
@@ -140,6 +139,7 @@ Development:
 * [gitlab-mcp](https://github.com/sgaunet/gitlab-mcp)
 * [postgresql-mcp](https://github.com/sgaunet/postgresql-mcp)
 * [auto-mr](https://github.com/sgaunet/auto-mr)
+* [tailwindcss](https://github.com/tailwindlabs/tailwindcss)
 
 Linux tools :
 
