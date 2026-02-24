@@ -14,6 +14,13 @@
     dest: "{{ lookup('env', 'HOME') }}/.bin/init-cc-permissions.sh"
     mode: '0755'
 
+- name: Install script gitlab-clone-group.sh
+  become: false
+  ansible.builtin.get_url:
+    url: "https://raw.githubusercontent.com/sgaunet/misc-scripts/main/src/gitlab-clone-group.sh"
+    dest: "{{ lookup('env', 'HOME') }}/.bin/gitlab-clone-group.sh"
+    mode: '0755'
+
 - name: Install script gitreport.sh
   become: false
   ansible.builtin.get_url:
