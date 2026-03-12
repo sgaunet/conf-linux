@@ -141,6 +141,7 @@ Development:
 * [auto-mr](https://github.com/sgaunet/auto-mr)
 * [tailwindcss](https://github.com/tailwindlabs/tailwindcss)
 * [chezmoi](https://github.com/twpayne/chezmoi)
+* [sops](https://github.com/getsops/sops)
 
 Linux tools :
 
