@@ -164,3 +164,8 @@
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
     vars_from: witr.yml
+
+- name: "Install chezmoi"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    vars_from: chezmoi.yml

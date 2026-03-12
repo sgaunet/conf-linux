@@ -140,6 +140,7 @@ Development:
 * [postgresql-mcp](https://github.com/sgaunet/postgresql-mcp)
 * [auto-mr](https://github.com/sgaunet/auto-mr)
 * [tailwindcss](https://github.com/tailwindlabs/tailwindcss)
+* [chezmoi](https://github.com/twpayne/chezmoi)
 
 Linux tools :
 
