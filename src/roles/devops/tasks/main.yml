@@ -169,3 +169,8 @@
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
     vars_from: chezmoi.yml
+
+- name: "Install sops"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    vars_from: sops.yml
