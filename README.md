@@ -102,6 +102,7 @@ For Docker :
 * [CLIs of go-containerregistry](https://github.com/google/go-containerregistry)
 * [crane](https://github.com/google/go-containerregistry/blob/main/cmd/crane/doc/crane.md)
 * [trivy](https://github.com/aquasecurity/trivy)
+* [docker-agent](https://github.com/docker/docker-agent)
 
 VM :
 
