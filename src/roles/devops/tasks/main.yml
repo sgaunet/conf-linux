@@ -174,3 +174,8 @@
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
     vars_from: sops.yml
+
+- name: "Install docker-agent"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    vars_from: docker-agent.yml
