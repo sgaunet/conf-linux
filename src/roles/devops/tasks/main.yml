@@ -179,3 +179,8 @@
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
     vars_from: docker-agent.yml
+
+- name: "Install mise"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    vars_from: mise.yml
