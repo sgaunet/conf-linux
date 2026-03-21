@@ -143,6 +143,7 @@ Development:
 * [tailwindcss](https://github.com/tailwindlabs/tailwindcss)
 * [chezmoi](https://github.com/twpayne/chezmoi)
 * [sops](https://github.com/getsops/sops)
+* [mise](https://github.com/jdx/mise)
 
 Linux tools :
 
