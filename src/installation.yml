@@ -18,8 +18,6 @@
       vars:
         kube_ps1_bash_install: true
       tags: prompt
-    - role: alias
-      tags: alias
     - role: bash_formatter
       tags: bash_formatter
     - role: starship
