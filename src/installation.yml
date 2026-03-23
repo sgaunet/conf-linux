@@ -36,8 +36,6 @@
       tags: devops
     - role: direnv
       tags: direnv
-    - role: custom-scripts
-      tags: custom-scripts
     - role: wezterm
       tags: wezterm
     - role: beekeeperstudio
