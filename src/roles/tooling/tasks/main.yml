@@ -296,3 +296,8 @@
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
     vars_from: asdf.yml
+
+- name: "Install restic-age-key"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    vars_from: restic-age-key.yml
