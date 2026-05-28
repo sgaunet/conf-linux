@@ -301,3 +301,8 @@
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
     vars_from: restic-age-key.yml
+
+- name: "Install runq"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    vars_from: runq.yml
