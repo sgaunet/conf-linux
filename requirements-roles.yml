@@ -3,3 +3,4 @@
 # Install a role from the Ansible Galaxy
 - src: sgaunet.gh_role_installer
 - src: sgaunet.glab
+- src: sgaunet.forgejo_role_installer
