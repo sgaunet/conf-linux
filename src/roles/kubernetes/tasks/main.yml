@@ -128,3 +128,8 @@
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
     vars_from: kubie.yml
+
+- name: "Install ku"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    vars_from: ku.yml

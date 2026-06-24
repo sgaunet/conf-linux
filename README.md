@@ -89,6 +89,7 @@ For kubernetes:
 * [kubecm](https://github.com/sunny0826/kubecm)
 * [kubevpn](https://www.kubevpn.cn/)
 * [kubie](https://github.com/sbstp/kubie)
+* [ku](https://github.com/bjarneo/ku)
 
 For markdown :
 
@@ -144,6 +145,8 @@ Development:
 * [chezmoi](https://github.com/twpayne/chezmoi)
 * [sops](https://github.com/getsops/sops)
 * [mise](https://github.com/jdx/mise)
+* [semver](https://github.com/sgaunet/semver)
+* [scaffold](https://github.com/sgaunet/scaffold)
 
 Linux tools :
 
