@@ -194,3 +194,13 @@
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
     vars_from: mise.yml
+
+- name: "Install semver"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    vars_from: semver.yml
+
+- name: "Install scaffold"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    vars_from: scaffold.yml
