@@ -179,6 +179,7 @@ Linux tools :
 * [eza](https://github.com/eza-community/eza)
 * [zoxide](https://github.com/ajeetdsouza/zoxide)
 * [termshot](https://github.com/homeport/termshot)
+* [goshot](https://github.com/watzon/goshot)
 * [rsql](https://github.com/theseus-rs/rsql)
 * [age](https://github.com/FiloSottile/age)
 * [glow](https://github.com/charmbracelet/glow)

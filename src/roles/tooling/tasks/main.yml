@@ -306,3 +306,9 @@
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
     vars_from: runq.yml
+
+- name: "Install goshot"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    vars_from: goshot.yml
+  tags: goshot
