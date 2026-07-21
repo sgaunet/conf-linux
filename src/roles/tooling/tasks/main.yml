@@ -174,12 +174,6 @@
     vars_from: viddy.yml
   tags: viddy
 
-- name: "Install gitlab-stats"
-  ansible.builtin.include_role:
-    name: sgaunet.gh_role_installer
-    vars_from: gitlab-stats.yml
-  tags: gitlab-stats
-
 - name: "Install pastel"
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
