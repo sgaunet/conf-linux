@@ -139,7 +139,6 @@ Development:
 * [gitlab-mcp](https://github.com/sgaunet/gitlab-mcp)
 * [postgresql-mcp](https://github.com/sgaunet/postgresql-mcp)
 * [auto-mr](https://github.com/sgaunet/auto-mr)
-* [tailwindcss](https://github.com/tailwindlabs/tailwindcss)
 * [chezmoi](https://github.com/twpayne/chezmoi)
 * [sops](https://github.com/getsops/sops)
 * [mise](https://github.com/jdx/mise)
