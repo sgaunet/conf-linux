@@ -123,7 +123,6 @@ Development:
 * [pre-commit](https://github.com/pre-commit/pre-commit)
 * [gitleaks](https://github.com/zricethezav/gitleaks)
 * [glab](https://gitlab.com/gitlab-org/cli)
-* [gitlab-issue-report](https://github.com/sgaunet/gitlab-issue-report)
 * [gitlab-stats](https://github.com/sgaunet/gitlab-stats)
 * [gum](https://github.com/charmbracelet/gum)
 * [nfpm](https://nfpm.goreleaser.com/)
