@@ -18,7 +18,8 @@ sudo apt install python3-jmespath
 python3 -m venv   venv                                  # create python virutal environment. Do it once
 source venv/bin/activate                                # set your virtual environment  (set it always before launch commands on this project)
 pip install -r requirements.txt                         # install requirements in your virtual env
-ansible-galaxy collection install -r requirements.yml   # install galaxy collections
+ansible-galaxy collection install -r requirements-collections.yml   # install galaxy collections
+ansible-galaxy install -r requirements-roles.yml                    # install galaxy roles
 ```
 
 ### Red Hat
@@ -31,7 +32,8 @@ sudo dnf install python3-jmespath python3-libdnf5 gcc
 python3 -m venv   venv                                  # create python virutal environment. Do it once
 source venv/bin/activate                                # set your virtual environment  (set it always before launch commands on this project)
 pip install -r requirements.txt                         # install requirements in your virtual env
-ansible-galaxy collection install -r requirements.yml   # install galaxy collections
+ansible-galaxy collection install -r requirements-collections.yml   # install galaxy collections
+ansible-galaxy install -r requirements-roles.yml                    # install galaxy roles
 ```
 
 ## Execution
@@ -55,11 +57,6 @@ To get a beautiful prompt (for bash or zsh)
 * common
     * Install common softwares cifs-utils tmux git git-crypt gpg docker jq unzip
     * Install software-properties-common apt-transport-https wget
-
-For AWS :
-
-* [eksctl](https://eksctl.io/)
-* [awscli v2](https://github.com/aws/aws-cli/)
 
 For kubernetes:
 
@@ -87,7 +84,6 @@ For kubernetes:
 * [helmchart-helper](https://github.com/sgaunet/helmchart-helper)
 * [vals](https://github.com/helmfile/vals)
 * [kubecm](https://github.com/sunny0826/kubecm)
-* [kubevpn](https://www.kubevpn.cn/)
 * [kubie](https://github.com/sbstp/kubie)
 * [ku](https://github.com/bjarneo/ku)
 
@@ -103,11 +99,9 @@ For Docker :
 * [CLIs of go-containerregistry](https://github.com/google/go-containerregistry)
 * [crane](https://github.com/google/go-containerregistry/blob/main/cmd/crane/doc/crane.md)
 * [trivy](https://github.com/aquasecurity/trivy)
-* [docker-agent](https://github.com/docker/docker-agent)
 
 VM :
 
-* [packer](https://www.packer.io/)
 * [vagrant](https://www.vagrantup.com/downloads)
 
 Load tests :
@@ -116,10 +110,6 @@ Load tests :
 
 Development:
 
-* [goreleaser](https://github.com/goreleaser/goreleaser/)
-* [task](https://taskfile.dev/)
-* [sqlc](https://sqlc.dev/)
-* [golang-ci-lint](https://github.com/golangci/golangci-lint)
 * [pre-commit](https://github.com/pre-commit/pre-commit)
 * [gitleaks](https://github.com/zricethezav/gitleaks)
 * [glab](https://gitlab.com/gitlab-org/cli)
@@ -134,7 +124,6 @@ Development:
 * [delta](https://github.com/dandavison/delta)
 * [act](https://github.com/nektos/act)
 * [jwt-cli](https://github.com/sgaunet/jwt-cli)
-* [devbox](https://github.com/jetify-com/devbox)
 * [lazygit](https://github.com/jesseduffield/lazygit)
 * [gitlab-mcp](https://github.com/sgaunet/gitlab-mcp)
 * [postgresql-mcp](https://github.com/sgaunet/postgresql-mcp)
@@ -168,7 +157,6 @@ Linux tools :
 * [zenith](https://github.com/bvaisvil/zenith)
 * [retry](https://github.com/sgaunet/retry)
 * [tspin](https://github.com/bensadeh/tailspin)
-* [sshx](https://github.com/ekzhang/sshx)
 * [q](https://github.com/natesales/q)
 * [eph-beta](https://github.com/ephemeralfiles/eph-beta)
 * [freeze](https://github.com/charmbracelet/freeze)
@@ -189,7 +177,6 @@ Linux tools :
 * [gitlab-token-expiration](https://github.com/sgaunet/gitlab-token-expiration)
 * [direnv](https://direnv.net/)
 * [superfile](https://github.com/yorukot/superfile)
-* [bore](https://github.com/ekzhang/bore)
 * [miller](https://github.com/johnkerl/miller)
 * [lnav](https://github.com/tstack/lnav)
 * [procs](https://github.com/dalance/procs)
@@ -199,14 +186,12 @@ Linux tools :
 
 Tests:
 
-* [venom](https://github.com/ovh/venom)
 * [muffet](https://github.com/raviqqe/muffet/)
 
 Misceleaneous :
 
 * [startship](https://starship.rs/)
 * [pastel](https://github.com/sharkdp/pastel)
-* [d2](https://github.com/terrastruct/d2)
 * [rclone](https://rclone.org/)
 * [dasel](https://github.com/TomWright/dasel)
 
@@ -214,7 +199,3 @@ Bash formatter:
 
 * [shellcheck](https://www.shellcheck.net/)
 * [shfmt](https://github.com/mvdan/sh)
-
-IAC:
-
-* [terraform](https://developer.hashicorp.com/terraform)

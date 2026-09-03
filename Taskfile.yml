@@ -27,9 +27,3 @@ tasks:
     cmds:
       # - ansible-lint *.yml --skip-list name[template],meta-no-info,yaml[line-length],package-latest,latest[git]
       - ansible-lint src
-
-  install-alias:
-    desc: "install alias"
-    cmds:
-      - cp src/roles/alias/files/.bashrc-complement ~/.bashrc-complement
-      - cp src/roles/alias/files/.bashrc-complement ~/.zshrc            # for zsh users
