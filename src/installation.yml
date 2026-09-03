@@ -6,10 +6,6 @@
   roles:
     - role: common
       tags: common
-    - role: awscli
-      tags: awscli
-    - role: packer
-      tags: packer
     - role: vagrant
       tags: vagrant
     - role: kubectl
@@ -24,10 +20,6 @@
       tags: starship
     - role: tmux
       tags: tmux
-    - role: terraform
-      tags: terraform
-    - role: sshx
-      tags: sshx
     - role: kubernetes
       tags: kubernetes
     - role: tooling

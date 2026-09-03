@@ -1,22 +1,10 @@
 ---
 
-- name: "Install goreleaser"
-  ansible.builtin.import_role:
-    name: "sgaunet.gh_role_installer"
-    vars_from: "goreleaser.yml"
-  tags: goreleaser
-
 - name: "Install chglog"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
     vars_from: "chglog.yml"
   tags: chglog
-
-- name: "Install d2"
-  ansible.builtin.import_role:
-    name: "sgaunet.gh_role_installer"
-    vars_from: "d2.yml"
-  tags: d2
 
 - name: "Install jwt-cli"
   ansible.builtin.import_role:
@@ -24,35 +12,17 @@
     vars_from: "jwt-cli.yml"
   tags: jwt-cli
 
-- name: "Install task"
-  ansible.builtin.import_role:
-    name: "sgaunet.gh_role_installer"
-    vars_from: "task.yml"
-  tags: task
-
 - name: "Install usql"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
     vars_from: "usql.yml"
   tags: usql
 
-- name: "Install venom"
-  ansible.builtin.import_role:
-    name: "sgaunet.gh_role_installer"
-    vars_from: "venom.yml"
-  tags: venom
-
 - name: "Install pre-commit"
   ansible.builtin.import_role:
     name: "sgaunet.gh_role_installer"
     vars_from: "pre-commit.yml"
   tags: pre-commit
-
-- name: "Install sqlc"
-  ansible.builtin.import_role:
-    name: "sgaunet.gh_role_installer"
-    vars_from: "sqlc.yml"
-  tags: sqlc
 
 - name: "Install k6"
   ansible.builtin.import_role:
@@ -108,18 +78,6 @@
     vars_from: devpod.yml
   tags: devpod
 
-- name: "Install golangci-lint"
-  ansible.builtin.include_role:
-    name: sgaunet.gh_role_installer
-    vars_from: golangci-lint.yml
-  tags: golangci-lint
-
-- name: "Install devbox"
-  ansible.builtin.include_role:
-    name: sgaunet.gh_role_installer
-    vars_from: devbox.yml
-  tags: devbox
-
 - name: "Install gh"
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
@@ -159,7 +117,6 @@
     name: sgaunet.gh_role_installer
     vars_from: postgresql-mcp.yml
 
-
 - name: "Install gitcommit"
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
@@ -179,11 +136,6 @@
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
     vars_from: sops.yml
-
-- name: "Install docker-agent"
-  ansible.builtin.include_role:
-    name: sgaunet.gh_role_installer
-    vars_from: docker-agent.yml
 
 - name: "Install mise"
   ansible.builtin.include_role:
