@@ -151,3 +151,8 @@
   ansible.builtin.include_role:
     name: sgaunet.gh_role_installer
     vars_from: scaffold.yml
+
+- name: "Install vigie"
+  ansible.builtin.include_role:
+    name: sgaunet.gh_role_installer
+    vars_from: vigie.yml

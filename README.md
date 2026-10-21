@@ -133,6 +133,7 @@ Development:
 * [mise](https://github.com/jdx/mise)
 * [semver](https://github.com/sgaunet/semver)
 * [scaffold](https://github.com/sgaunet/scaffold)
+* [vigie](https://github.com/sgaunet/vigie)
 
 Linux tools :
 
